@@ -1,0 +1,12 @@
+5 fadeSound 0;
+enableRadio false;
+phase_3_player enableSimulation true;
+phase_3_player hideObject false;
+phase_3_apc enableSimulation true;
+phase_3_apc hideObject false;
+cutText ["", "BLACK OUT", 5];
+sleep 5;
+cutText ["", "BLACK IN", 7];
+5 fadeSound 1;
+enableRadio true;
+sleep 3;
