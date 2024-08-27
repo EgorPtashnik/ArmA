@@ -1,6 +1,6 @@
 /*
+	ORIGINAL SCRIPT IS COMMENTED OUT
 	creates agent in place of driver and disable sentences
-	original script is commented out
 	this one if from init.sqf file
 */
 
