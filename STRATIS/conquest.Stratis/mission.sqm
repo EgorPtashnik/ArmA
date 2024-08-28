@@ -1,0 +1,466 @@
+version=54;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	mods[]=
+	{
+		"3denEnhanced"
+	};
+	class ItemIDProvider
+	{
+		nextID=281;
+	};
+	class MarkerIDProvider
+	{
+		nextID=7;
+	};
+	class Camera
+	{
+		pos[]={1073.7202,222.02084,5068.814};
+		dir[]={0.84356445,-0.44796312,0.29623136};
+		up[]={0.42266816,0.89404762,0.14842735};
+		aside[]={0.33133635,1.1123484e-007,-0.94352746};
+	};
+};
+binarizationWanted=0;
+sourceName="conquest";
+addons[]=
+{
+	"rhsusf_c_troops",
+	"rhsusf_c_melb",
+	"CUP_Weapons_AWM",
+	"rhsusf_c_weapons",
+	"CUP_Weapons_Ammunition",
+	"rhsusf_sounds",
+	"A3_Weapons_F",
+	"A3_Characters_F",
+	"A3_Characters_F_Mark",
+	"A3_Weapons_F_Items",
+	"A3_Modules_F_Hc"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=10;
+		class Item0
+		{
+			className="rhsusf_c_troops";
+			name="RHSUSF Infantry & Equipment";
+			author="Red Hammer Studios";
+			url="http://www.rhsmods.org/";
+		};
+		class Item1
+		{
+			className="rhsusf_c_melb";
+			name="MELB";
+			author="Red Hammer Studios";
+			url="http://www.rhsmods.org/";
+		};
+		class Item2
+		{
+			className="CUP_Weapons_AWM";
+			name="CUP_Weapons_AWM";
+		};
+		class Item3
+		{
+			className="rhsusf_c_weapons";
+			name="RHSUSF Weapons & Accessories";
+			author="Red Hammer Studios";
+			url="http://www.rhsmods.org/";
+		};
+		class Item4
+		{
+			className="CUP_Weapons_Ammunition";
+			name="CUP_Weapons_Ammunition";
+		};
+		class Item5
+		{
+			className="rhsusf_sounds";
+			name="USF Sounds";
+			author="Red Hammer Studios";
+			url="http://www.rhsmods.org/";
+		};
+		class Item6
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item7
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item8
+		{
+			className="A3_Characters_F_Mark";
+			name="Arma 3 Marksmen - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item9
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+	};
+};
+dlcs[]=
+{
+	"RHS_USAF",
+	"CUP_Weapons",
+	"Mark"
+};
+randomSeed=11685864;
+class ScenarioData
+{
+	author="черкашик";
+	overviewText="Conquere several enemy avanposts  using paratroopers as High Commanding Sniper.";
+	overviewTextLocked="Conquere several enemy avanposts  using paratroopers as High Commanding Sniper.";
+	onLoadMission="Conquere several enemy avanposts  using paratroopers as High Commanding Sniper.";
+	wreckRemovalMaxTime=3600;
+};
+class Mission
+{
+	class Intel
+	{
+		briefingName="Conquest";
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=7;
+		day=6;
+		hour=12;
+		minute=0;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=5;
+		class Item0
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={957.03003,0.0014312267,5215.2856};
+						angles[]={0,1.2546823,0};
+					};
+					side="West";
+					flags=2;
+					class Attributes
+					{
+						name="heliD";
+					};
+					id=253;
+					type="rhsusf_army_ucp_helipilot";
+					atlOffset=60.498337;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={956.84253,1.9247482,5215.1123};
+						angles[]={0,1.2546823,0};
+					};
+					side="West";
+					class Attributes
+					{
+						name="heliG";
+					};
+					id=254;
+					type="rhsusf_army_ucp_helipilot";
+					atlOffset=62.454113;
+				};
+			};
+			class Attributes
+			{
+				name="heli_group";
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=2;
+				};
+				class Links
+				{
+					items=2;
+					class Item0
+					{
+						linkID=0;
+						item0=253;
+						item1=252;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=254;
+						item1=252;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=251;
+			atlOffset=92.702003;
+		};
+		class Item1
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={959.16394,34.145481,5212.7583};
+				angles[]={0,1.2546823,0};
+			};
+			side="West";
+			flags=2;
+			class Attributes
+			{
+				name="heli";
+				reportRemoteTargets=1;
+				receiveRemoteTargets=1;
+				reportOwnPosition=1;
+			};
+			id=252;
+			type="RHS_MELB_MH6M";
+			atlOffset=92.702003;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="rhs_MELB_TailNumber";
+					expression="if(_value != 'NoChange')then{ [_this,'d_SN',_value] call RHS_MELB_fnc_tailNumber}";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="NoChange";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item2
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={965.34302,0.52044749,5189.5615};
+						angles[]={0,1.4960338,-0};
+					};
+					side="West";
+					flags=3;
+					class Attributes
+					{
+						isPlayer=1;
+						class Inventory
+						{
+							class primaryWeapon
+							{
+								name="CUP_srifle_G22_des";
+								optics="rhsusf_acc_LEUPOLDMK4_2_d";
+								muzzle="CUP_muzzle_snds_AWM";
+								class primaryMuzzleMag
+								{
+									name="CUP_5Rnd_762x67_G22";
+									ammoLeft=5;
+								};
+							};
+							class handgun
+							{
+								name="rhsusf_weap_m1911a1";
+								class primaryMuzzleMag
+								{
+									name="rhsusf_mag_7x45acp_MHP";
+									ammoLeft=7;
+								};
+							};
+							class binocular
+							{
+								name="rhsusf_bino_lerca_1200_black";
+							};
+							class uniform
+							{
+								typeName="U_B_FullGhillie_ard";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=2;
+									class Item0
+									{
+										name="Chemlight_green";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item1
+									{
+										name="CUP_5Rnd_762x67_G22";
+										count=3;
+										ammoLeft=5;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="rhs_googles_clear";
+							headgear="rhsusf_mich_bare_norotos_arc_tan";
+						};
+					};
+					id=256;
+					type="rhsusf_usmc_recon_marpat_wd_sniper_M107";
+					atlOffset=61.894279;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male12ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=255;
+			atlOffset=61.894279;
+		};
+		class Item3
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={940.6123,0,5173.9038};
+			};
+			id=259;
+			type="HighCommand";
+			atlOffset=63.531681;
+		};
+		class Item4
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={939.48407,0,5185.9619};
+			};
+			id=280;
+			type="HighCommandSubordinate";
+			atlOffset=62.97197;
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=3;
+		};
+		class Links
+		{
+			items=3;
+			class Item0
+			{
+				linkID=0;
+				item0=259;
+				item1=256;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=252;
+				item1=280;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=280;
+				item1=259;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+		};
+	};
+};
