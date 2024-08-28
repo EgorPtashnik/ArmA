@@ -1,0 +1,59 @@
+class CfgSounds {
+    sounds[] = {beep, in1, in2, in3, in4, noise1, noise2, noise3};
+    
+    class beep
+	{
+	name = "beep";
+	sound[] = {"sound\beep.ogg", db+10, 1.0};
+	titles[] = {0,""};
+	};
+
+	class in1
+	{
+		name = "in1";
+		sound[] = {"sound\in1.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in2
+	{
+		name = "in2";
+		sound[] = {"sound\in2.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in3
+	{
+		name = "in3";
+		sound[] = {"sound\in3.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in4
+	{
+		name = "in4";
+		sound[] = {"sound\in4.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class noise1
+	{
+		name = "noise1";
+		sound[] = {"sound\noise1.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class noise2
+	{
+		name = "noise2";
+		sound[] = {"sound\noise2.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class noise3
+	{
+		name = "noise3";
+		sound[] = {"sound\noise3.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+};
