@@ -2,9 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "STRATIS/conquest.Stratis"
 		}
 	],
 	"settings": {}
