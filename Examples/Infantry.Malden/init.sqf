@@ -1,1 +1,1 @@
-execVM "setup.sqf";
+remoteExecCall "setup.sqf";
