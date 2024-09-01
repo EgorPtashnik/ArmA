@@ -1,1 +1,1 @@
-execVM "createDiary.sqf";
+remoteExecCall "createDiary.sqf";
