@@ -1,14 +1,20 @@
-private _fadeHandle = execVM "flow_intro\fadeIn.sqf";
+private _fadeHandle = [] execVM "flow_intro\fadeIn.sqf";
+execVM "flow_intro\baseAmbience.sqf";
+
+[
+    base_commander,
+    "Начать брифинг",
+    "a3\ui_f_oldman\data\igui\cfg\holdactions\map_ca.paa",
+    "a3\ui_f_oldman\data\igui\cfg\holdactions\map_ca.paa", 
+    "_this distance _target < 3", "true", {}, {}, { execVM "flow_intro\map.sqf"}, {}, [], 1, 1, true] call BIS_fnc_holdActionAdd;
+
 start_car setVehicleLock "LOCKED";
-start_car move /* POSITION */;
+start_car move [10293.6,4092.1,0];
 player setVariable ["taskDone", false];
 
-waitUntil {
-    sleep 1;
-    scriptDone _fadeHandle;
-};
+sleep 10;
 
-["Водитель", "Подъезжаем, товарищ Капитан.", 1, false, "beep"] call fnc_showSubtitles;
+["Водитель", "Подъезжаем, товарищ Капитан.", 1, "beep"] call fnc_showSubtitles;
 
 waitUntil {
     sleep 1;
@@ -16,7 +22,9 @@ waitUntil {
 };
 
 doStop start_car;
+sleep 2;
 player moveOut start_car;
+player action ["WeaponOnBack", player];
 start_car engineOn false;
 
 private _task = [
