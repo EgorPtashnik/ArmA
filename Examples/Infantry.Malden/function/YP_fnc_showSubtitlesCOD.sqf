@@ -41,11 +41,11 @@ _message = formatText [_message, _color, _title, _subtitles];
 
 cutText [str _message, "PLAIN DOWN", 0.5, true, true];
 playSound _sound;
-if (_soundOut == "REPEAT") then {
-	_soundOut = _sound;
-};
 
 if (_withNoise) then {
+	if (_soundOut == "REPEAT") then {
+		_soundOut = _sound;
+	};
 	sleep 1;
 	playSound selectRandom ["noise1", "noise2", "noise3"];
 	sleep 5;
