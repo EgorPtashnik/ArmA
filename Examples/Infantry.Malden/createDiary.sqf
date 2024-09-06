@@ -1,6 +1,3 @@
-/**
-    Create player init diary records.
-    SUBJECT - diary subject. "Diary" = Briefing. Can be custom 
-    player createDiaryRecord [SUBJECT, [TITLE, DESCRIPTION, ICON]]
- */
-player createDiaryRecord ["Diary", ["Введение", "Авангардная позиция сил ВС РФ. Малден. 2027 год."]];
+player createDiaryRecord ["Diary", ["Выполнение", "Соблюдайте приказы командования. Позывной - 'ЗАЩИТНИК'."]];
+player createDiaryRecord ["Diary", ["Ситуация", "Войска СССР заняли Ла Ривьеру. Силы Малдена проводят бои за город."]];
+player createDiaryRecord ["Diary", ["Миссия", "В составе освободительных сил выбейте противника из города."]];

@@ -1,5 +1,6 @@
 enableRadio false;
 0 fadeSound 0;
+
 cutText ["", "BLACK FADED", 999];
 0.1 fadeSound 0;
 sleep 3;
@@ -10,5 +11,5 @@ sleep 3;
 "dynamicBlur" ppEffectCommit 3;
 cutText ["", "BLACK IN", 7];
 10 fadeSound 1;
-["о. Малден", "Подъезд к посту ВС РФ"] spawn BIS_fnc_infoText;
+["о. Малден", "Ла Ривьера", "Освободительные силы острова"] spawn BIS_fnc_infoText;
 enableRadio true;

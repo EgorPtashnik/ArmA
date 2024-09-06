@@ -57,3 +57,16 @@ class CfgSounds {
 		titles[] = {0,""};
 	};
 };
+
+class CfgDebriefing
+{
+	class End1
+	{
+		title = "Миссия выполнена";
+		subtitle = "Город освобожден от сил противника";
+		description = "Город освобожден от сил противника";
+		pictureBackground = "";
+		picture = "b_inf";
+		pictureColor[] = { 0, 0.5, 0, 1 };
+	};
+};

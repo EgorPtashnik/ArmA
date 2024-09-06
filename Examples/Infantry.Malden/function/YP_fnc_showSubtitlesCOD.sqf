@@ -5,8 +5,8 @@
 	_subtitles 	=== STRING, subtitles / speach
     _chatType   === NUMBER [DEFAULT 0], chat type map value: 0 = sideChat, 1 = groupChat, 2 = globalChat
                 === OR you can put #00bfff string for color to use custom color
+	_sound		=== STRING [DEFAULT "in1"], sound for radio entering: "beep", "in1", "in2", "in3", "in4", "noise1", "noise2", "noise3"	
     _toUpper    === BOOLEAN [DEFAULT false], name of speaker is shown in upper case
-	_sound		=== STRING [DEFAULT "in1"], sound for radio entering: "beep", "in1", "in2", "in3", "in4", "noise1", "noise2", "noise3"
 	_withNoise	=== BOOLEAN [DEFAULT false], play noise sounds after radio entering sound
 	_soundOut	=== STRING [DEFAULT _sound] - sound to play after noise 
 	
