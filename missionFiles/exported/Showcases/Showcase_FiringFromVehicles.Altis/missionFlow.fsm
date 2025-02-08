@@ -1,0 +1,1214 @@
+/*%FSM<COMPILE "scriptedFSM.cfg, Mission Flow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Mission_Flow",0,250,-75.000000,-400.000000,25.000000,-350.000000,0.000000,"Mission Flow"};
+item1[] = {"Spotted",4,218,-75.000000,-150.000000,25.000000,-100.000000,0.000000,"Spotted"};
+item2[] = {"Vehicles_leaving",2,250,-75.000000,-75.000000,25.000000,-25.000000,0.000000,"Vehicles leaving"};
+item3[] = {"See_spotters",4,218,-75.000000,0.000000,25.000000,50.000000,0.000000,"See spotters"};
+item4[] = {"Remember_ROE",2,250,-75.000000,75.000000,25.000000,125.000000,0.000000,"Remember ROE"};
+item5[] = {"At_crash_site",4,218,-75.000000,150.000000,25.000000,200.000000,0.000000,"At crash site"};
+item6[] = {"Observe",2,250,-75.000000,225.000000,25.000000,275.000000,0.000000,"Observe"};
+item7[] = {"HQ_confirmed",4,218,-75.000000,450.000000,25.000000,500.000000,0.000000,"HQ confirmed"};
+item8[] = {"Pull_out",2,250,-75.000000,525.000000,25.000000,575.000000,0.000000,"Pull out"};
+item9[] = {"Wreck_destroyed",4,218,-75.000000,1000.000000,25.000000,1050.000000,0.000000,"Wreck destroyed"};
+item10[] = {"Insert_at_town",2,250,-75.000000,1075.000000,25.000000,1125.000000,0.000000,"Insert at town"};
+item11[] = {"",7,210,-28.999985,1145.999878,-21.000015,1154.000122,0.000000,""};
+item12[] = {"",7,210,-28.999985,1170.999878,-21.000015,1179.000122,0.000000,""};
+item13[] = {"Found_crew",4,218,-75.000000,1200.000000,25.000000,1250.000000,0.000000,"Found crew"};
+item14[] = {"",7,210,-154.000000,1170.999878,-146.000000,1179.000122,0.000000,""};
+item15[] = {"Searched_gas_sta",4,218,-200.000000,1200.000000,-100.000000,1250.000000,0.000000,"Searched" \n "gas station"};
+item16[] = {"",7,210,-278.999969,1170.999878,-271.000031,1179.000122,0.000000,""};
+item17[] = {"Searched_outpost",4,218,-325.000000,1200.000000,-225.000000,1250.000000,0.000000,"Searched" \n "outpost"};
+item18[] = {"Outpost_searched",2,250,-325.000000,1275.000000,-225.000000,1325.000000,0.000000,"Outpost" \n "searched"};
+item19[] = {"Gas_station_sear",2,250,-200.000000,1275.000000,-100.000000,1325.000000,0.000000,"Gas station" \n "searched"};
+item20[] = {"",7,210,-278.999969,1345.999878,-271.000031,1354.000122,0.000000,""};
+item21[] = {"",7,210,-154.000000,1345.999878,-146.000000,1354.000122,0.000000,""};
+item22[] = {"",7,210,-353.999969,1345.999878,-346.000031,1354.000122,0.000000,""};
+item23[] = {"_",8,218,-200.000000,1075.000000,-100.000000,1125.000000,0.000000,""};
+item24[] = {"Move_to_extract",2,250,-75.000000,1275.000000,25.000000,1325.000000,0.000000,"Move to extract"};
+item25[] = {"Client",4,218,50.000000,-400.000000,150.000000,-350.000000,1.000000,"Client"};
+item26[] = {"Terminate",1,250,50.000000,-325.000000,150.000000,-275.000000,0.000000,"Terminate"};
+item27[] = {"Boarding",2,250,-75.000000,1425.000000,25.000000,1475.000000,0.000000,"Boarding"};
+item28[] = {"Player_in",4,218,-75.000000,1500.000000,25.000000,1550.000000,0.000000,"Player in"};
+item29[] = {"All_in",4,218,-75.000000,1650.000000,25.000000,1700.000000,0.000000,"All in"};
+item30[] = {"Take_off",2,250,-75.000000,1725.000000,25.000000,1775.000000,0.000000,"Take off"};
+item31[] = {"Mission_over",4,218,-75.000000,2250.000000,25.000000,2300.000000,0.000000,"Mission over"};
+item32[] = {"Extracted",1,250,-75.000000,2325.000000,25.000000,2375.000000,0.000000,"Extracted"};
+item33[] = {"Control_mission",2,250,-75.000000,-250.000000,25.000000,-200.000000,0.000000,"Control mission"};
+item34[] = {"",7,210,-353.999969,1145.999878,-346.000031,1154.000122,0.000000,""};
+item35[] = {"Server",8,218,-75.000000,-325.000000,25.000000,-275.000000,0.000000,"Server"};
+item36[] = {"In_the_air",4,218,-75.000000,1800.000000,25.000000,1850.000000,0.000000,"In the air"};
+item37[] = {"Extracted_1",2,250,-75.000000,1875.000000,25.000000,1925.000000,0.000000,"Extracted"};
+item38[] = {"Left_city",4,218,-75.000000,1950.000000,25.000000,2000.000000,0.000000,"Left city"};
+item39[] = {"Artillery_strike",2,250,-75.000000,2025.000000,25.000000,2075.000000,0.000000,"Artillery strike"};
+item40[] = {"Engaged",4,218,-75.000000,300.000000,25.000000,350.000000,0.000000,"Engaged"};
+item41[] = {"Return_fire",2,250,-75.000000,375.000000,25.000000,425.000000,0.000000,"Return fire"};
+item42[] = {"",7,210,-28.999992,-179.000000,-21.000010,-171.000000,0.000000,""};
+item43[] = {"",7,210,-229.000015,-179.000000,-221.000000,-171.000000,0.000000,""};
+item44[] = {"cheat1",4,218,-275.000000,-150.000000,-175.000000,-100.000000,0.000000,"cheat1"};
+item45[] = {"Skip_to_town",2,250,-275.000000,-75.000000,-175.000000,-25.000000,0.000000,"Skip to town"};
+item46[] = {"",7,210,-29.000000,821.000000,-21.000000,829.000000,0.000000,""};
+item47[] = {"",7,210,-354.000000,-179.000000,-346.000000,-171.000000,0.000000,""};
+item48[] = {"cheat2",4,218,-400.000000,-150.000000,-300.000000,-100.000000,0.000000,"cheat2"};
+item49[] = {"Skip_to_extract",2,250,-400.000000,-75.000000,-300.000000,-25.000000,0.000000,"Skip to extract"};
+item50[] = {"UAV_online",4,218,-75.000000,600.000000,25.000000,650.000000,0.000000,"UAV online"};
+item51[] = {"Destroying_wreck",2,250,-75.000000,675.000000,25.000000,725.000000,0.000000,"Destroying wreck"};
+item52[] = {"Warning",4,218,-200.000000,725.000000,-100.000000,775.000000,0.000000,"Warning"};
+item53[] = {"Warn",2,250,-200.000000,800.000000,-100.000000,850.000000,0.000000,"Warn"};
+item54[] = {"Out_of_time",4,218,-200.000000,875.000000,-100.000000,925.000000,0.000000,"Out of time"};
+item55[] = {"Punish",2,250,-200.000000,950.000000,-100.000000,1000.000000,0.000000,"Punish"};
+item56[] = {"",7,210,120.999977,696.000000,129.000015,704.000000,0.000000,""};
+item57[] = {"Out_of_ammo",4,218,75.000000,725.000000,175.000000,775.000000,0.000000,"Out of ammo"};
+item58[] = {"",7,210,-154.000000,696.000000,-146.000000,704.000000,0.000000,""};
+item59[] = {"Punish_1",2,250,75.000000,800.000000,175.000000,850.000000,0.000000,"Punish"};
+item60[] = {"",7,210,46.000000,821.000000,54.000000,829.000000,0.000000,""};
+item61[] = {"",7,210,46.000000,696.000000,54.000000,704.000000,0.000000,""};
+item62[] = {"_",8,218,75.000000,1075.000000,175.000000,1125.000000,0.000000,""};
+item63[] = {"",7,210,-229.000000,1021.000000,-221.000000,1029.000000,0.000000,""};
+item64[] = {"SP",8,218,-75.000000,1350.000000,25.000000,1400.000000,0.000000,"SP"};
+item65[] = {"MP",4,218,50.000000,1275.000000,150.000000,1325.000000,1.000000,"MP"};
+item66[] = {"Wait_for_all_AI",2,250,50.000000,1500.000000,150.000000,1550.000000,0.000000,"Wait for all AI" \n "to board"};
+item67[] = {"All_AI_boarded",4,218,50.000000,1575.000000,150.000000,1625.000000,0.000000,"All AI boarded"};
+item68[] = {"Unlock_helicopte",2,250,50.000000,1650.000000,150.000000,1700.000000,0.000000,"Unlock" \n "helicopter"};
+item69[] = {"Lock_helicopter",2,250,-75.000000,1575.000000,25.000000,1625.000000,0.000000,"Lock helicopter"};
+item70[] = {"Splashed",4,218,-75.000000,2100.000000,25.000000,2150.000000,0.000000,"Splashed"};
+item71[] = {"Inform_HQ",2,250,-75.000000,2175.000000,25.000000,2225.000000,0.000000,"Inform HQ"};
+link0[] = {0,25};
+link1[] = {0,35};
+link2[] = {1,2};
+link3[] = {2,3};
+link4[] = {3,4};
+link5[] = {4,5};
+link6[] = {5,6};
+link7[] = {6,40};
+link8[] = {7,8};
+link9[] = {8,50};
+link10[] = {9,10};
+link11[] = {10,11};
+link12[] = {11,12};
+link13[] = {12,13};
+link14[] = {12,14};
+link15[] = {13,24};
+link16[] = {14,15};
+link17[] = {14,16};
+link18[] = {15,19};
+link19[] = {16,17};
+link20[] = {17,18};
+link21[] = {18,20};
+link22[] = {19,21};
+link23[] = {20,22};
+link24[] = {21,20};
+link25[] = {22,34};
+link26[] = {23,10};
+link27[] = {24,64};
+link28[] = {24,65};
+link29[] = {25,26};
+link30[] = {27,28};
+link31[] = {28,69};
+link32[] = {29,30};
+link33[] = {30,36};
+link34[] = {31,32};
+link35[] = {33,42};
+link36[] = {34,11};
+link37[] = {35,33};
+link38[] = {36,37};
+link39[] = {37,38};
+link40[] = {38,39};
+link41[] = {39,70};
+link42[] = {40,41};
+link43[] = {41,7};
+link44[] = {42,1};
+link45[] = {42,43};
+link46[] = {43,44};
+link47[] = {43,47};
+link48[] = {44,45};
+link49[] = {45,63};
+link50[] = {46,9};
+link51[] = {46,60};
+link52[] = {47,48};
+link53[] = {48,49};
+link54[] = {49,34};
+link55[] = {50,51};
+link56[] = {51,46};
+link57[] = {51,58};
+link58[] = {51,61};
+link59[] = {52,53};
+link60[] = {53,46};
+link61[] = {53,54};
+link62[] = {54,55};
+link63[] = {55,23};
+link64[] = {56,57};
+link65[] = {57,59};
+link66[] = {58,52};
+link67[] = {59,62};
+link68[] = {60,61};
+link69[] = {61,56};
+link70[] = {62,10};
+link71[] = {63,9};
+link72[] = {64,27};
+link73[] = {65,66};
+link74[] = {66,67};
+link75[] = {67,68};
+link76[] = {68,29};
+link77[] = {69,29};
+link78[] = {70,71};
+link79[] = {71,31};
+globals[] = {0.000000,0,0,0,0,640,480,1,125,6316128,1,-533.067322,412.992737,2191.167480,1264.490112,1025,1004,1};
+window[] = {2,-1,-1,-1,-1,958,78,1472,78,3,1043};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Mission Flow";
+        class States
+        {
+                /*%FSM<STATE "Mission_Flow">*/
+                class Mission_Flow
+                {
+                        name = "Mission_Flow";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Client">*/
+                                class Client
+                                {
+                                        itemno = 25;
+                                        priority = 1.000000;
+                                        to="Terminate";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(isServer)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Server">*/
+                                class Server
+                                {
+                                        itemno = 35;
+                                        priority = 0.000000;
+                                        to="Control_mission";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Vehicles_leaving">*/
+                class Vehicles_leaving
+                {
+                        name = "Vehicles_leaving";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"""01_Spotted"" spawn BIS_fnc_missionConversations;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "See_spotters">*/
+                                class See_spotters
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Remember_ROE";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"//{_x distance _dest < 1550} count _helis > 0" \n
+                                         "{_x distance _dest < 1600} count _helis > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Remember_ROE">*/
+                class Remember_ROE
+                {
+                        name = "Remember_ROE";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"// Make crash site units flee" \n
+                         "BIS_flee = true;" \n
+                         "publicVariable ""BIS_flee"";" \n
+                         "" \n
+                         """05_Sentries"" spawn BIS_fnc_missionConversations;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "At_crash_site">*/
+                                class At_crash_site
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Observe";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"//{_x distance _dest < 500} count _helis > 0" \n
+                                         "{_x distance _dest < 300} count _helis > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Observe">*/
+                class Observe
+                {
+                        name = "Observe";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"""10_Located"" spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "// Succeed task" \n
+                         "[""BIS_locate"", ""SUCCEEDED""] call BIS_fnc_missionTasks;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Engaged">*/
+                                class Engaged
+                                {
+                                        itemno = 40;
+                                        priority = 0.000000;
+                                        to="Return_fire";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_engaged"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Pull_out">*/
+                class Pull_out
+                {
+                        name = "Pull_out";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"enableSentences false;" \n
+                         "" \n
+                         """15_Technical"" spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "// Have helicopters take cover" \n
+                         "{" \n
+                         "	private [""_heli"", ""_group""];" \n
+                         "	_heli = _x;" \n
+                         "	_group = group driver _heli;" \n
+                         "	" \n
+                         "	// Decrease altitude" \n
+                         "	_heli flyInHeight 25;" \n
+                         "	" \n
+                         "	// Delete existing waypoints" \n
+                         "	while {count waypoints _group > 0} do {deleteWaypoint (waypoints _group select 0)};" \n
+                         "	" \n
+                         "	// Determine cover position" \n
+                         "	private [""_cover""];" \n
+                         "	_cover = format [""BIS_cover%1"", _forEachIndex + 1];" \n
+                         "	" \n
+                         "	// Add waypoints" \n
+                         "	private [""_wp1"", ""_wp2""];" \n
+                         "	_wp1 = _group addWaypoint [markerPos _cover, 0];" \n
+                         "	_wp2 = _group addWaypoint [markerPos _cover, 0];" \n
+                         "	" \n
+                         "	_wp1 setWaypointSpeed ""NORMAL"";" \n
+                         "	_wp2 setWaypointSpeed ""LIMITED"";" \n
+                         "	" \n
+                         "	// Make helicopters loiter" \n
+                         "	_wp1 setWaypointType ""MOVE"";" \n
+                         "	_wp2 setWaypointType ""LOITER"";" \n
+                         "	_wp2 setWaypointLoiterRadius 50;" \n
+                         "	" \n
+                         "	_group setCurrentWaypoint _wp1;" \n
+                         "} forEach [BIS_heli1, BIS_heli2];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "UAV_online">*/
+                                class UAV_online
+                                {
+                                        itemno = 50;
+                                        priority = 0.000000;
+                                        to="Destroying_wreck";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_UAVAllowed"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Insert_at_town">*/
+                class Insert_at_town
+                {
+                        name = "Insert_at_town";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"execVM ""insertion.sqf"";" \n
+                         "" \n
+                         "private [""_gasSearched"", ""_outpostSearched""];" \n
+                         "_gasSearched = false;" \n
+                         "_outpostSearched = false;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Searched_gas_sta">*/
+                                class Searched_gas_sta
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="Gas_station_sear";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_crewLocation != 1" \n
+                                         "&&" \n
+                                         "BIS_gasSearched" \n
+                                         "&&" \n
+                                         "!(_gasSearched)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Searched_outpost">*/
+                                class Searched_outpost
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Outpost_searched";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_crewLocation != 2" \n
+                                         "&&" \n
+                                         "BIS_outpostSearched" \n
+                                         "&&" \n
+                                         "!(_outpostSearched)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Found_crew">*/
+                                class Found_crew
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Move_to_extract";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{_unit = _x; {_unit distance _x < 2} count [BIS_crew1, BIS_crew2] > 0} count (units BIS_playerGroup) > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Outpost_searched">*/
+                class Outpost_searched
+                {
+                        name = "Outpost_searched";
+                        itemno = 18;
+                        init = /*%FSM<STATEINIT""">*/"// Register search" \n
+                         "_outpostSearched = true;" \n
+                         "[""BIS_loc2"", ""SUCCEEDED""] call BIS_fnc_missionTasks;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Searched_gas_sta">*/
+                                class Searched_gas_sta
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="Gas_station_sear";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_crewLocation != 1" \n
+                                         "&&" \n
+                                         "BIS_gasSearched" \n
+                                         "&&" \n
+                                         "!(_gasSearched)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Searched_outpost">*/
+                                class Searched_outpost
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Outpost_searched";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_crewLocation != 2" \n
+                                         "&&" \n
+                                         "BIS_outpostSearched" \n
+                                         "&&" \n
+                                         "!(_outpostSearched)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Found_crew">*/
+                                class Found_crew
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Move_to_extract";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{_unit = _x; {_unit distance _x < 2} count [BIS_crew1, BIS_crew2] > 0} count (units BIS_playerGroup) > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Gas_station_sear">*/
+                class Gas_station_sear
+                {
+                        name = "Gas_station_sear";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"// Register search" \n
+                         "_gasSearched = true;" \n
+                         "" \n
+                         "[""BIS_loc1"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "if (!(""BIS_loc2"" call BIS_fnc_taskCompleted)) then {" \n
+                         "	// Assign outpost if it hasn't been searched" \n
+                         "	[""BIS_loc2"", ""CURRENT""] call BIS_fnc_missionTasks;" \n
+                         "	" \n
+                         "	// Proceed to outpost" \n
+                         "	BIS_toOutpost = true;" \n
+                         "	publicVariable ""BIS_toOutpost"";" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Searched_gas_sta">*/
+                                class Searched_gas_sta
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="Gas_station_sear";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_crewLocation != 1" \n
+                                         "&&" \n
+                                         "BIS_gasSearched" \n
+                                         "&&" \n
+                                         "!(_gasSearched)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Searched_outpost">*/
+                                class Searched_outpost
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Outpost_searched";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_crewLocation != 2" \n
+                                         "&&" \n
+                                         "BIS_outpostSearched" \n
+                                         "&&" \n
+                                         "!(_outpostSearched)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Found_crew">*/
+                                class Found_crew
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Move_to_extract";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{_unit = _x; {_unit distance _x < 2} count [BIS_crew1, BIS_crew2] > 0} count (units BIS_playerGroup) > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Move_to_extract">*/
+                class Move_to_extract
+                {
+                        name = "Move_to_extract";
+                        itemno = 24;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	scriptName ""move to extract"";" \n
+                         "	" \n
+                         "	if (!(isMultiplayer)) then {" \n
+                         "		saveGame;" \n
+                         "		sleep 1;" \n
+                         "	};" \n
+                         "	" \n
+                         "	// Update crew status" \n
+                         "	BIS_crewFound = true;" \n
+                         "	BIS_crewStatus = 1;" \n
+                         "	{publicVariable _x} forEach [""BIS_crewFound"", ""BIS_crewStatus""];" \n
+                         "	" \n
+                         "	// Update tasks" \n
+                         "	{" \n
+                         "		if (BIS_crewLocation == _forEachIndex + 1) then {" \n
+                         "			// Succeed the search task for where the crew are" \n
+                         "			[_x, ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "		} else {" \n
+                         "			// Cancel the others" \n
+                         "			[_x, ""CANCELED""] call BIS_fnc_missionTasks;" \n
+                         "		};" \n
+                         "	} forEach [""BIS_loc1"", ""BIS_loc2""];" \n
+                         "	" \n
+                         "	// Add extract task" \n
+                         "	""BIS_extract"" call BIS_fnc_missionTasks;" \n
+                         "	" \n
+                         "	""35_Crew_Found"" spawn BIS_fnc_missionConversations;" \n
+                         "	" \n
+                         "	// Handle extraction" \n
+                         "	execVM ""extraction.sqf"";" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "MP">*/
+                                class MP
+                                {
+                                        itemno = 65;
+                                        priority = 1.000000;
+                                        to="Wait_for_all_AI";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isMultiplayer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "SP">*/
+                                class SP
+                                {
+                                        itemno = 64;
+                                        priority = 0.000000;
+                                        to="Boarding";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Terminate">*/
+                class Terminate
+                {
+                        name = "Terminate";
+                        itemno = 26;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Boarding">*/
+                class Boarding
+                {
+                        name = "Boarding";
+                        itemno = 27;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Player_in">*/
+                                class Player_in
+                                {
+                                        itemno = 28;
+                                        priority = 0.000000;
+                                        to="Lock_helicopter";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_player in BIS_extract"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Take_off">*/
+                class Take_off
+                {
+                        name = "Take_off";
+                        itemno = 30;
+                        init = /*%FSM<STATEINIT""">*/"// Update task" \n
+                         "[""BIS_extract"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "// Add waypoints for helicopter" \n
+                         "private [""_group""];" \n
+                         "_group = group BIS_extractD;" \n
+                         "" \n
+                         "{" \n
+                         "	private [""_wp""];" \n
+                         "	_wp = _group addWaypoint [_x, 0];" \n
+                         "	_wp setWaypointSpeed ""NORMAL"";" \n
+                         "	_wp setWaypointType ""MOVE"";" \n
+                         "	if (_forEachIndex == 0) then {_group setCurrentWaypoint _wp};" \n
+                         "} forEach [markerPos ""BIS_earlyDest"", markerPos ""BIS_heliDest""];" \n
+                         "" \n
+                         "// Let helicopter take off" \n
+                         "BIS_extract flyInHeight 50;" \n
+                         "BIS_extract lock true;" \n
+                         "{" \n
+                         "	if (!(isPlayer _x)) then {" \n
+                         "		// Make units invulnerable" \n
+                         "		_x allowDamage false;" \n
+                         "		" \n
+                         "		// Ensure raised weapons of ramp gunners" \n
+                         "		_x setBehaviour ""COMBAT"";" \n
+                         "	};" \n
+                         "} forEach ([BIS_crew1, BIS_crew2] + units BIS_playerGroup + units BIS_group2);" \n
+                         "" \n
+                         "// Fade volume" \n
+                         "BIS_inHeli = true;" \n
+                         "publicVariable ""BIS_inHeli"";" \n
+                         "[[15, 0.4], ""fadeSound""] call BIS_fnc_MP;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	scriptName ""missionFlow.fsm: take off"";" \n
+                         "	sleep 0.5;" \n
+                         "	""40_All_In"" spawn BIS_fnc_missionConversations;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "In_the_air">*/
+                                class In_the_air
+                                {
+                                        itemno = 36;
+                                        priority = 0.000000;
+                                        to="Extracted_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"getPosATL BIS_extract select 2 > 20"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Extracted">*/
+                class Extracted
+                {
+                        name = "Extracted";
+                        itemno = 32;
+                        init = /*%FSM<STATEINIT""">*/"if (BIS_wreckDestroyed) then {" \n
+                         "	// Players took out the wreck" \n
+                         "	[[""Win01"", true, true, false], ""BIS_fnc_endMission"", true, true] call BIS_fnc_MP;" \n
+                         "} else {" \n
+                         "	if (!(BIS_outOfTime)) then {" \n
+                         "		// The UAV ran out of ammo" \n
+                         "		[[""Win02"", true, true, false], ""BIS_fnc_endMission"", true, true] call BIS_fnc_MP;" \n
+                         "	} else {" \n
+                         "		// The players took too long to destroy the UAV" \n
+                         "		[[""Win03"", true, true, false], ""BIS_fnc_endMission"", true, true] call BIS_fnc_MP;" \n
+                         "	};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Control_mission">*/
+                class Control_mission
+                {
+                        name = "Control_mission";
+                        itemno = 33;
+                        init = /*%FSM<STATEINIT""">*/"private [""_dest"", ""_helis""];" \n
+                         "_dest = markerPos ""BIS_crashSite"";" \n
+                         "_helis = [BIS_heli1, BIS_heli2];" \n
+                         "" \n
+                         "if (!(isMultiplayer)) then {execVM ""cheats.sqf""};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "cheat1">*/
+                                class cheat1
+                                {
+                                        itemno = 44;
+                                        priority = 0.000000;
+                                        to="Skip_to_town";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(isMultiplayer)" \n
+                                         "&&" \n
+                                         "{cheat1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "cheat2">*/
+                                class cheat2
+                                {
+                                        itemno = 48;
+                                        priority = 0.000000;
+                                        to="Skip_to_extract";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(isMultiplayer)" \n
+                                         "&&" \n
+                                         "{cheat2}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Spotted">*/
+                                class Spotted
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Vehicles_leaving";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"//{_x distance _dest < 2500} count _helis > 0" \n
+                                         "{_x distance _dest < 3900} count _helis > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Extracted_1">*/
+                class Extracted_1
+                {
+                        name = "Extracted_1";
+                        itemno = 37;
+                        init = /*%FSM<STATEINIT""">*/"private [""_conv""];" \n
+                         "_conv = ""45_Extracted"" spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	scriptName ""missionFlow.fsm: extracted"";" \n
+                         "	" \n
+                         "	sleep 2;" \n
+                         "	" \n
+                         "	// Artillery strike" \n
+                         "	[] spawn {" \n
+                         "		scriptName ""missionFlow.fsm: artillery strike"";" \n
+                         "		" \n
+                         "		private [""_center"", ""_firstRound""];" \n
+                         "		_center = markerPos ""BIS_town"";" \n
+                         "		_firstRound = true;" \n
+                         "		" \n
+                         "		while {true} do {" \n
+                         "			// Find a random position" \n
+                         "			private [""_pos""];" \n
+                         "			_pos = [_center, random 150, random 360] call BIS_fnc_relPos;" \n
+                         "			_pos set [2, 500];" \n
+                         "			" \n
+                         "			// Spawn rocket" \n
+                         "			private [""_rocket""];" \n
+                         "			_rocket = createVehicle [""R_230mm_HE"", _pos, [], 0, ""NONE""];" \n
+                         "			_rocket setPos _pos;" \n
+                         "			[_rocket, 180, 0] call BIS_fnc_setPitchBank;" \n
+                         "			_rocket setVelocity [0,0,-1];" \n
+                         "			" \n
+                         "			sleep 2;" \n
+                         "		};" \n
+                         "	};" \n
+                         "	" \n
+                         "	sleep 2;" \n
+                         "	" \n
+                         "	// Play music" \n
+                         "	[[[], {0 fadeMusic 1; playMusic ""EventTrack04_F_EPB""}], ""BIS_fnc_spawn""] call BIS_fnc_MP;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Left_city">*/
+                                class Left_city
+                                {
+                                        itemno = 38;
+                                        priority = 0.000000;
+                                        to="Artillery_strike";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _conv"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Artillery_strike">*/
+                class Artillery_strike
+                {
+                        name = "Artillery_strike";
+                        itemno = 39;
+                        init = /*%FSM<STATEINIT""">*/"private [""_time""];" \n
+                         "_time = time + 3;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Splashed">*/
+                                class Splashed
+                                {
+                                        itemno = 70;
+                                        priority = 0.000000;
+                                        to="Inform_HQ";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _time"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Return_fire">*/
+                class Return_fire
+                {
+                        name = "Return_fire";
+                        itemno = 41;
+                        init = /*%FSM<STATEINIT""">*/"// Remove event handlers" \n
+                         "{" \n
+                         "	private [""_unit""];" \n
+                         "	_unit = missionNamespace getVariable [_x, objNull];" \n
+                         "	" \n
+                         "	if (!(isNull _unit)) then {" \n
+                         "		_unit removeEventHandler [""Fired"", _unit getVariable ""BIS_firedEH""];" \n
+                         "	};" \n
+                         "} forEach BIS_crashUnits;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	scriptName ""missionFlow.fsm: return fire"";" \n
+                         "	" \n
+                         "	sleep 0.5;" \n
+                         "	" \n
+                         "	// Helicopters were engaged" \n
+                         "	BIS_ROEPassed = true;" \n
+                         "	publicVariable ""BIS_ROEPassed"";" \n
+                         "	" \n
+                         "	// Succeed ROE task" \n
+                         "	[""BIS_ROE"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "	" \n
+                         "	// Let units engage" \n
+                         "	if (!(isMultiplayer)) then {" \n
+                         "		{_x setCombatMode ""YELLOW""} forEach units BIS_playerGroup;" \n
+                         "	};" \n
+                         "	" \n
+                         "	{_x setCombatMode ""YELLOW""} forEach units BIS_group2;" \n
+                         "};" \n
+                         "" \n
+                         "private [""_time""];" \n
+                         "_time = time + 35;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "HQ_confirmed">*/
+                                class HQ_confirmed
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Pull_out";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _time"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Skip_to_town">*/
+                class Skip_to_town
+                {
+                        name = "Skip_to_town";
+                        itemno = 45;
+                        init = /*%FSM<STATEINIT""">*/"BIS_cheat1Used = true;" \n
+                         "[] call BIS_cheat1;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wreck_destroyed">*/
+                                class Wreck_destroyed
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Insert_at_town";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(alive BIS_wreck)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Skip_to_extract">*/
+                class Skip_to_extract
+                {
+                        name = "Skip_to_extract";
+                        itemno = 49;
+                        init = /*%FSM<STATEINIT""">*/"BIS_cheat2Used = true;" \n
+                         "[] call BIS_cheat2;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Searched_gas_sta">*/
+                                class Searched_gas_sta
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="Gas_station_sear";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_crewLocation != 1" \n
+                                         "&&" \n
+                                         "BIS_gasSearched" \n
+                                         "&&" \n
+                                         "!(_gasSearched)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Searched_outpost">*/
+                                class Searched_outpost
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Outpost_searched";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_crewLocation != 2" \n
+                                         "&&" \n
+                                         "BIS_outpostSearched" \n
+                                         "&&" \n
+                                         "!(_outpostSearched)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Found_crew">*/
+                                class Found_crew
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Move_to_extract";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{_unit = _x; {_unit distance _x < 2} count [BIS_crew1, BIS_crew2] > 0} count (units BIS_playerGroup) > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Destroying_wreck">*/
+                class Destroying_wreck
+                {
+                        name = "Destroying_wreck";
+                        itemno = 51;
+                        init = /*%FSM<STATEINIT""">*/"private [""_time""];" \n
+                         "_time = time + 30;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Warning">*/
+                                class Warning
+                                {
+                                        itemno = 52;
+                                        priority = 0.000000;
+                                        to="Warn";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _time"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Out_of_ammo">*/
+                                class Out_of_ammo
+                                {
+                                        itemno = 57;
+                                        priority = 0.000000;
+                                        to="Punish_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_finalRound"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wreck_destroyed">*/
+                                class Wreck_destroyed
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Insert_at_town";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(alive BIS_wreck)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Warn">*/
+                class Warn
+                {
+                        name = "Warn";
+                        itemno = 53;
+                        init = /*%FSM<STATEINIT""">*/"""x10_UAV_Warning"" spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "private [""_time""];" \n
+                         "_time = time + 30;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wreck_destroyed">*/
+                                class Wreck_destroyed
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Insert_at_town";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(alive BIS_wreck)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Out_of_ammo">*/
+                                class Out_of_ammo
+                                {
+                                        itemno = 57;
+                                        priority = 0.000000;
+                                        to="Punish_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_finalRound"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Out_of_time">*/
+                                class Out_of_time
+                                {
+                                        itemno = 54;
+                                        priority = 0.000000;
+                                        to="Punish";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _time"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Punish">*/
+                class Punish
+                {
+                        name = "Punish";
+                        itemno = 55;
+                        init = /*%FSM<STATEINIT""">*/"// Register that they ran out of time" \n
+                         "BIS_outOfTime = true;" \n
+                         "publicVariable ""BIS_outOfTime"";" \n
+                         "" \n
+                         "// Fail task" \n
+                         "[""BIS_destroy"", ""FAILED""] call BIS_fnc_missionTasks;" \n
+                         """x15_UAV_Punish"" spawn BIS_fnc_missionConversations;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 23;
+                                        priority = 0.000000;
+                                        to="Insert_at_town";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Punish_1">*/
+                class Punish_1
+                {
+                        name = "Punish_1";
+                        itemno = 59;
+                        init = /*%FSM<STATEINIT""">*/"// Fail task" \n
+                         "[""BIS_destroy"", ""FAILED""] call BIS_fnc_missionTasks;" \n
+                         """x05_UAV_No_Ammo"" spawn BIS_fnc_missionConversations;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 62;
+                                        priority = 0.000000;
+                                        to="Insert_at_town";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Wait_for_all_AI">*/
+                class Wait_for_all_AI
+                {
+                        name = "Wait_for_all_AI";
+                        itemno = 66;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "All_AI_boarded">*/
+                                class All_AI_boarded
+                                {
+                                        itemno = 67;
+                                        priority = 0.000000;
+                                        to="Unlock_helicopte";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{!(isPlayer _x) && alive _x && !(_x in BIS_extract)} count ([BIS_crew1, BIS_crew2] + units BIS_playerGroup + units BIS_group2) == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Unlock_helicopte">*/
+                class Unlock_helicopte
+                {
+                        name = "Unlock_helicopte";
+                        itemno = 68;
+                        init = /*%FSM<STATEINIT""">*/"// Unlock the helicopter" \n
+                         "BIS_extractLock = 1;" \n
+                         "publicVariable ""BIS_extractLock"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "All_in">*/
+                                class All_in
+                                {
+                                        itemno = 29;
+                                        priority = 0.000000;
+                                        to="Take_off";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{alive _x && !(_x in BIS_extract)} count ([BIS_crew1, BIS_crew2] + units BIS_playerGroup + units BIS_group2) == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Lock_helicopter">*/
+                class Lock_helicopter
+                {
+                        name = "Lock_helicopter";
+                        itemno = 69;
+                        init = /*%FSM<STATEINIT""">*/"// Lock the helicopter" \n
+                         "BIS_extractLock = 2;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "All_in">*/
+                                class All_in
+                                {
+                                        itemno = 29;
+                                        priority = 0.000000;
+                                        to="Take_off";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{alive _x && !(_x in BIS_extract)} count ([BIS_crew1, BIS_crew2] + units BIS_playerGroup + units BIS_group2) == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Inform_HQ">*/
+                class Inform_HQ
+                {
+                        name = "Inform_HQ";
+                        itemno = 71;
+                        init = /*%FSM<STATEINIT""">*/"""50_Artillery"" spawn BIS_fnc_missionConversations;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Mission_over">*/
+                                class Mission_over
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Extracted";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_endMission"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Mission_Flow";
+        finalStates[] =
+        {
+                "Terminate",
+                "Extracted",
+        };
+};
+/*%FSM</COMPILE>*/

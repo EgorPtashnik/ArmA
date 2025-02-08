@@ -1,0 +1,81 @@
+﻿respawn = 3;
+respawnDelay = 15;
+respawnOnStart = -1;
+respawnTemplates[] = {"MenuPosition"};
+
+disabledAI = 1;
+
+dev = "Zipper";
+author = $STR_A3_Bohemia_Interactive;
+onLoadName = $STR_A3_Showcase_FiringFromVehicles_Mission_Name1;
+overviewText = $STR_A3_Showcase_FiringFromVehicles_Overview;
+overviewPicture = "\a3\missions_f_mark\data\img\showcase_firingfromvehicles_overview_ca.paa";
+doneKeys[] = {"BIS_Showcase_FiringFromVehicles.Altis_done"};
+
+class Header
+{
+	gameType = COOP;
+	minPlayers = 1;
+	maxPlayers = 4;
+};
+
+class CfgDebriefing
+{
+	class Win01
+	{
+		description = $STR_A3_Showcase_FiringFromVehicles_Debriefing_Win01_description;
+	};
+	
+	class Win02
+	{
+		description = $STR_A3_Showcase_FiringFromVehicles_Debriefing_Win02_description;
+	};
+	
+	class Win03
+	{
+		description = $STR_A3_Showcase_FiringFromVehicles_Debriefing_Win03_description;
+	};
+	
+	class Fail01
+	{
+		subtitle = $STR_A3_Showcase_FiringFromVehicles_Debriefing_Fail01_subtitle;
+	};
+	
+	class Fail02
+	{
+		subtitle = $STR_A3_Showcase_FiringFromVehicles_Debriefing_Fail02_subtitle;
+	};
+};
+
+class CfgNotifications
+{
+	class BIS_Showcase_FFV_UAV_enabled
+	{
+		description = $STR_A3_Showcase_FiringFromVehicles_Notification_BIS_Showcase_FFV_UAV_enabled_desc;
+		iconPicture = "\a3\ui_f\data\map\markers\nato\b_uav.paa";
+		sound = "taskCreated";
+		title = $STR_A3_Showcase_FiringFromVehicles_Notification_BIS_Showcase_FFV_UAV_enabled_title;
+	};
+	
+	class BIS_Showcase_FFV_UAV_taken
+	{
+		description = $STR_A3_Showcase_FiringFromVehicles_Notification_BIS_Showcase_FFV_UAV_taken_desc;
+		iconPicture = "\a3\ui_f\data\map\markers\nato\b_uav.paa";
+		sound = "taskCreated";
+		title = $STR_A3_Showcase_FiringFromVehicles_Notification_BIS_Showcase_FFV_UAV_taken_title;
+	};
+};
+
+class CfgFunctions
+{
+	class BIS_Showcase_FFV
+	{
+		class Functions
+		{
+			file = "\a3\missions_f_mark\showcases\showcase_firingfromvehicles.altis\functions";
+			
+			class addLoadout	{};
+			class UAV		{ext = ".fsm";};
+		};
+	};
+};

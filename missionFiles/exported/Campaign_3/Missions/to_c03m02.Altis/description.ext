@@ -1,0 +1,60 @@
+dev = "Will";
+author = $STR_A3_Bohemia_Interactive;
+briefingName = $STR_A3_TO_C03m02_missionName;
+onLoadName = $STR_A3_TO_C03m02_missionName;
+onLoadMission = $STR_A3_TO_C03m02_onLoadMission;
+overviewText = "";
+overviewPicture = "A3\Missions_F_Tacops\data\img\campaign3_m2_ca.paa";
+briefing = 0;
+
+class CfgFunctions
+{
+	class A3_Missions_F_Tacops
+    {
+        tag = "BIS";
+		project = "arma3";
+
+		#include "\A3\Missions_F_Tacops\cfgFunctions.inc"
+
+        class Mission
+        {
+			file = "\a3\Missions_F_Tacops\Campaign_3\Missions\to_c03m02.Altis\functions";
+			class aa2_apcFound			{};
+			class aa2_attackMassive		{};
+			class aa2_decisionPoint		{};
+			class aa2_evacuation 		{};
+			class aa2_scouting 			{};
+			class aa2_loadPersistence	{};
+			class aa2_savePersistence	{};
+        };
+    };
+};
+
+class CfgDebriefing
+{
+    class End1
+    {
+        title = $STR_A3_TO_C03m02_end01Title;
+        //subtitle = $STR_A3_TO_C03m02_end01Desc;
+        description = $STR_A3_TO_C03m02_end01Desc;
+        pictureBackground = "A3\Missions_F_Tacops\data\img\campaign3_m2_ca.paa";
+        //picture = "b_inf";
+        pictureColor[] = {0.8,0.3,0.6,1};
+    };
+    class End2
+    {
+        title = $STR_A3_TO_C03m02_end02Title;
+        //subtitle = $STR_A3_TO_C03m02_end02Desc;
+        description = $STR_A3_TO_C03m02_end02Desc;
+        pictureBackground = "A3\Missions_F_Tacops\data\img\campaign3_m2_ca.paa";
+        pictureColor[] = {0.8,0.3,0.6,1};
+    };
+    class Fail1
+    {
+        title = $STR_A3_TO_C03m02_end03Title;
+        //subtitle = $STR_A3_TO_C03m02_end03Desc;
+        description = $STR_A3_TO_C03m02_end03Desc;
+        pictureBackground = "";
+        pictureColor[] = {0.8,0.3,0.6,1};
+    };
+};

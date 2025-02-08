@@ -1,0 +1,909 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Mission Flow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-75.000000,-575.000000,25.000000,-525.000000,0.000000,"Start"};
+item1[] = {"Start_attack",2,250,-75.000000,-275.000000,25.000000,-225.000000,0.000000,"Start attack"};
+item2[] = {"At_ruins",4,218,-75.000000,-200.000000,25.000000,-150.000000,0.000000,"At ruins"};
+item3[] = {"Ready_to_fight",2,250,-75.000000,-125.000000,25.000000,-75.000000,0.000000,"Ready to fight"};
+item4[] = {"Defeat_enemies",4,218,-75.000000,-50.000000,25.000000,0.000000,0.000000,"Defeat enemies"};
+item5[] = {"Found_APC",2,250,-75.000000,25.000000,25.000000,75.000000,0.000000,"Found APC"};
+item6[] = {"In_APC",4,218,-75.000000,100.000000,25.000000,150.000000,0.000000,"In APC"};
+item7[] = {"Player_destroyed",4,218,-200.000000,25.000000,-100.000000,75.000000,0.000000,"Player destroyed" \n "that APC"};
+item8[] = {"Fail",1,250,-325.000000,25.000000,-225.000000,75.000000,0.000000,"Fail"};
+item9[] = {"Help_friednlies",2,250,-75.000000,175.000000,25.000000,225.000000,0.000000,"Help friednlies"};
+item10[] = {"Enemy_defeated",4,218,-75.000000,250.000000,25.000000,300.000000,0.000000,"Enemy defeated"};
+item11[] = {"Phase_2_Orders",2,250,-75.000000,325.000000,25.000000,375.000000,0.000000,"Phase 2" \n "Orders"};
+item12[] = {"Clear_the_Area",4,218,-150.000000,400.000000,-50.000000,450.000000,0.000000,"Clear the" \n "Area"};
+item13[] = {"Helping_Evac",4,218,0.000000,400.000000,100.000000,450.000000,0.000000,"Helping" \n "Evac"};
+item14[] = {"Clearing_the_Are",2,250,-150.000000,475.000000,-50.000000,525.000000,0.000000,"Clearing the" \n "Area"};
+item15[] = {"Failed",4,218,0.000000,550.000000,100.000000,600.000000,0.000000,"Failed"};
+item16[] = {"_",4,218,-75.000000,700.000000,25.000000,750.000000,0.000000,""};
+item17[] = {"Help_with_defens",2,250,-75.000000,925.000000,25.000000,975.000000,0.000000,"Help" \n "with defense"};
+item18[] = {"Timeout",4,218,-75.000000,1000.000000,25.000000,1050.000000,0.000000,"Timeout"};
+item19[] = {"Evac___Massive_a",2,250,-75.000000,1075.000000,25.000000,1125.000000,0.000000,"Evac +" \n "Massive attack"};
+item20[] = {"All_in_LZ",4,218,-75.000000,1150.000000,25.000000,1200.000000,0.000000,"All in LZ"};
+item21[] = {"End",1,250,-75.000000,1225.000000,25.000000,1275.000000,0.000000,"End"};
+item22[] = {"Activate_Evac",2,250,0.000000,475.000000,100.000000,525.000000,0.000000,"Activate Evac"};
+item23[] = {"Finished",4,218,-150.000000,550.000000,-50.000000,600.000000,0.000000,"Finished"};
+item24[] = {"Task_failed",2,250,0.000000,625.000000,100.000000,675.000000,0.000000,"Task failed"};
+item25[] = {"Timed_out",4,218,-275.000000,550.000000,-175.000000,600.000000,0.000000,"Timed out"};
+item26[] = {"Task_Canceled",2,250,-275.000000,625.000000,-175.000000,675.000000,0.000000,"Task Canceled"};
+item27[] = {"Task_succeed",2,250,-150.000000,625.000000,-50.000000,675.000000,0.000000,"Task succeed"};
+item28[] = {"Completed",4,218,125.000000,550.000000,225.000000,600.000000,0.000000,"Completed"};
+item29[] = {"Dialog",2,250,125.000000,625.000000,225.000000,675.000000,0.000000,"Dialog"};
+item30[] = {"Tasking_Defense",2,250,-75.000000,775.000000,25.000000,825.000000,0.000000,"Tasking" \n "Defense"};
+item31[] = {"Back_at__defense",4,218,-75.000000,850.000000,25.000000,900.000000,0.000000,"Back at " \n "defense"};
+item32[] = {"Mortar_Strike",2,4346,-75.000000,-425.000000,25.000000,-375.000000,0.000000,"Mortar Strike"};
+item33[] = {"Mortar_attack__o",4,218,-75.000000,-350.000000,25.000000,-300.000000,0.000000,"Mortar attack " \n "over"};
+item34[] = {"Animated_Briefing",4,218,-75.000000,-500.000000,25.000000,-450.000000,0.000000,"Animated" \n "Briefing Done"};
+item35[] = {"",7,210,296.000000,-554.000000,304.000000,-546.000000,0.000000,""};
+item36[] = {"",7,210,296.000000,-404.000000,304.000000,-396.000000,0.000000,""};
+item37[] = {"",7,210,296.000000,346.000000,304.000000,354.000000,0.000000,""};
+item38[] = {"Cheat_1",4,218,175.000000,325.000000,275.000000,375.000000,0.000000,"Cheat 1"};
+item39[] = {"",7,210,296.000000,795.999939,304.000000,804.000000,0.000000,""};
+item40[] = {"Cheat_2",4,218,175.000000,775.000000,275.000000,825.000000,0.000000,"Cheat 2"};
+item41[] = {"Set_up_mission_",2,250,100.000000,250.000000,200.000000,300.000000,0.000000,"Set up mission " \n "phase"};
+item42[] = {"true",4,218,50.000000,325.000000,150.000000,375.000000,0.000000,"true"};
+item43[] = {"Set_up_mission__1",2,250,100.000000,850.000000,200.000000,900.000000,0.000000,"Set up mission " \n "phase"};
+item44[] = {"true",4,218,50.000000,775.000000,150.000000,825.000000,0.000000,"true"};
+link0[] = {0,34};
+link1[] = {0,35};
+link2[] = {1,2};
+link3[] = {2,3};
+link4[] = {3,4};
+link5[] = {4,5};
+link6[] = {5,6};
+link7[] = {5,7};
+link8[] = {6,9};
+link9[] = {7,8};
+link10[] = {9,10};
+link11[] = {10,11};
+link12[] = {11,12};
+link13[] = {11,13};
+link14[] = {12,14};
+link15[] = {13,22};
+link16[] = {14,23};
+link17[] = {14,25};
+link18[] = {15,24};
+link19[] = {16,30};
+link20[] = {17,18};
+link21[] = {18,19};
+link22[] = {19,20};
+link23[] = {20,21};
+link24[] = {22,15};
+link25[] = {22,28};
+link26[] = {23,27};
+link27[] = {24,16};
+link28[] = {25,26};
+link29[] = {26,16};
+link30[] = {27,16};
+link31[] = {28,29};
+link32[] = {29,16};
+link33[] = {30,31};
+link34[] = {31,17};
+link35[] = {32,33};
+link36[] = {32,36};
+link37[] = {33,1};
+link38[] = {34,32};
+link39[] = {35,36};
+link40[] = {36,37};
+link41[] = {37,38};
+link42[] = {37,39};
+link43[] = {38,41};
+link44[] = {39,40};
+link45[] = {40,43};
+link46[] = {41,42};
+link47[] = {42,11};
+link48[] = {43,44};
+link49[] = {44,30};
+globals[] = {0.000000,0,0,0,0,640,480,1,244,6316128,1,-498.309814,258.124512,-26.285400,-753.737671,1044,1004,1};
+window[] = {2,-1,-1,-1,-1,1320,234,1559,234,3,1062};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Mission Flow";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"enableSaving [false, false];" \n
+                         "uinamespace setvariable [""RscDisplayCampaignLoad_filter"",""TO_3""];" \n
+                         "" \n
+                         "BIS_bluforUnits = units BIS_groupNovember + units BIS_groupRomeo + units BIS_groupOscar;" \n
+                         "" \n
+                         "{_x disableAI ""path""} forEach BIS_bluforUnits;" \n
+                         "" \n
+                         "// launch mortar attack" \n
+                         "[BIS_mortarGroup] call BIS_fnc_to_activateUnits;" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Cheat_1">*/
+                                class Cheat_1
+                                {
+                                        itemno = 38;
+                                        priority = 0.000000;
+                                        to="Set_up_mission_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""BIS_cheat_1"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_2">*/
+                                class Cheat_2
+                                {
+                                        itemno = 40;
+                                        priority = 0.000000;
+                                        to="Set_up_mission__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""BIS_cheat_2"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Animated_Briefing">*/
+                                class Animated_Briefing
+                                {
+                                        itemno = 34;
+                                        priority = 0.000000;
+                                        to="Mortar_Strike";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(missionNamespace getVariable [""BIS_fnc_eventTimeline_playing"",true])" \n
+                                         "//!BIS_fnc_eventTimeline_playing"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Start_attack">*/
+                class Start_attack
+                {
+                        name = "Start_attack";
+                        itemno = 1;
+                        init = /*%FSM<STATEINIT""">*/"private _movingUnits = units BIS_groupRomeo + units BIS_groupNovember;" \n
+                         "" \n
+                         "{_x enableAI ""path""} forEach _movingUnits;" \n
+                         "{_x disableAI ""autocombat""} forEach BIS_bluforUnits;" \n
+                         "" \n
+                         "[" \n
+                         "	TRUE," \n
+                         "	""tsk_ruins""," \n
+                         "	[" \n
+                         "		localize ""STR_A3_TO_C03m02_tskRuinsDesc""," \n
+                         "		localize ""STR_A3_TO_C03m02_tskRuinsTitle""," \n
+                         "		nil" \n
+                         "	]," \n
+                         "	BIS_ruins," \n
+                         "	true," \n
+                         "	0," \n
+                         "	true," \n
+                         "	""attack""," \n
+                         "	false" \n
+                         "] call BIS_fnc_taskCreate;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "At_ruins">*/
+                                class At_ruins
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="Ready_to_fight";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_atRuins"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Ready_to_fight">*/
+                class Ready_to_fight
+                {
+                        name = "Ready_to_fight";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/"{_x disableAI ""autocombat""} forEach (units group player);" \n
+                         "" \n
+                         "[""Village""] call BIS_fnc_to_activateUnits;" \n
+                         "[""Ruins""] call BIS_fnc_TO_activateUnits;" \n
+                         "" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 30;" \n
+                         "		{" \n
+                         "		_b = ""Sh_82mm_AMOS"" createVehicle getPos _x;" \n
+                         "		_b setVelocity [0,0,-1];" \n
+                         "		sleep 3;" \n
+                         "	} forEach [BIS_target_1,BIS_target_2,BIS_target_3,BIS_target_4,BIS_target_5];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Defeat_enemies">*/
+                                class Defeat_enemies
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="Found_APC";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{alive _x && side group _x == RESISTANCE} count ([""Ruins""] call BIS_fnc_TO_unitList) == 0 || triggerActivated trg_ruins"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Found_APC">*/
+                class Found_APC
+                {
+                        name = "Found_APC";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"//make other group fight" \n
+                         "BIS_ruinsCaptured = true;" \n
+                         "" \n
+                         "[""tsk_ruins"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "" \n
+                         "// give player some subordinates" \n
+                         "[] spawn BIS_fnc_aa2_apcFound;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Player_destroyed">*/
+                                class Player_destroyed
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Fail";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_apc"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "In_APC">*/
+                                class In_APC
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Help_friednlies";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"vehicle player == BIS_apc && !isNil ""BIS_apcRepaired"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Fail">*/
+                class Fail
+                {
+                        name = "Fail";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"[""end"",false] call BIS_fnc_endMission;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Help_friednlies">*/
+                class Help_friednlies
+                {
+                        name = "Help_friednlies";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/"BIS_enRoute = true;" \n
+                         "" \n
+                         "// new task: Friendlies needs help. " \n
+                         "[""tsk_apc"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "{_x setSkill 1} forEach units group player;" \n
+                         "" \n
+                         "// Task: Assist second team" \n
+                         "[" \n
+                         "	TRUE," \n
+                         "	""tsk_bravo""," \n
+                         "	[" \n
+                         "		localize ""STR_A3_TO_C03m02_tskBravoDesc""," \n
+                         "		localize ""STR_A3_TO_C03m02_tskBravoTitle""," \n
+                         "		nil" \n
+                         "	]," \n
+                         "	BIS_village," \n
+                         "	true," \n
+                         "	0," \n
+                         "	true," \n
+                         "	""move""," \n
+                         "	false" \n
+                         "] call BIS_fnc_taskCreate;" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Enemy_defeated">*/
+                                class Enemy_defeated
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="Phase_2_Orders";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{side _x == RESISTANCE} count ([""Village""] call BIS_fnc_TO_unitList) <= 2"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Phase_2_Orders">*/
+                class Phase_2_Orders
+                {
+                        name = "Phase_2_Orders";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"// Time for phase 2 start" \n
+                         "private _t2 = time;" \n
+                         "BIS_decisionPoint = true;" \n
+                         "" \n
+                         "// Activate new phase" \n
+                         "[] spawn BIS_fnc_aa2_decisionPoint;" \n
+                         "" \n
+                         "// Activate needed units" \n
+                         "[""Flatlands"",""LZ""] call BIS_fnc_TO_activateUnits;" \n
+                         "" \n
+                         "// Second mortar strike" \n
+                         "[] spawn {" \n
+                         "{" \n
+                         "	_b = ""Sh_82mm_AMOS"" createVehicle getPos _x;" \n
+                         "	_b setVelocity [0,0,-1];" \n
+                         "	sleep 4;" \n
+                         "	} forEach [BIS_target_1,BIS_target_2,BIS_target_3,BIS_target_4,BIS_target_5];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Helping_Evac">*/
+                                class Helping_Evac
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Activate_Evac";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_evac  && !isNil ""BIS_decisionDone"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Clear_the_Area">*/
+                                class Clear_the_Area
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="Clearing_the_Are";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_scouting && !isNil ""BIS_decisionDone"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Clearing_the_Are">*/
+                class Clearing_the_Are
+                {
+                        name = "Clearing_the_Are";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn BIS_fnc_aa2_scouting;" \n
+                         "BIS_to_injuredCaptured = true;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timed_out">*/
+                                class Timed_out
+                                {
+                                        itemno = 25;
+                                        priority = 0.000000;
+                                        to="Task_Canceled";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t2 + 400"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Finished">*/
+                                class Finished
+                                {
+                                        itemno = 23;
+                                        priority = 0.000000;
+                                        to="Task_succeed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""BIS_areaClear"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Help_with_defens">*/
+                class Help_with_defens
+                {
+                        name = "Help_with_defens";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/"//[""tsk_defend"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "private _survivors = units BIS_defenseGroup + units group player;" \n
+                         "private _atDefenseTime = time;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	private _handle = [""am_oscar_to_point_superior""] spawn BIS_fnc_missionConversations;" \n
+                         "	waitUntil {scriptDone _handle};" \n
+                         "" \n
+                         "	// Delete all units in no man's land" \n
+                         "	{" \n
+                         "		if (_x isKindOf ""Man"") then {" \n
+                         "			deleteVehicle _x;" \n
+                         "		};" \n
+                         "	} forEach (([""Flatlands 1"",""Scout Attack""] call BIS_fnc_to_unitList) - [BIS_gorgon]);" \n
+                         "" \n
+                         "	if (side effectiveCommander BIS_gorgon != WEST) then {" \n
+                         "		deleteVehicle BIS_gorgon;" \n
+                         "	};" \n
+                         "" \n
+                         "	sleep 10;" \n
+                         "	//playMusic ""Suspense"";" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout">*/
+                                class Timeout
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="Evac___Massive_a";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t3 + 180 || time > _atDefenseTime + 30"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Evac___Massive_a">*/
+                class Evac___Massive_a
+                {
+                        name = "Evac___Massive_a";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn BIS_fnc_aa2_attackMassive;" \n
+                         "" \n
+                         "private _evacTime = time;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "All_in_LZ">*/
+                                class All_in_LZ
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{alive _x && _x distance BIS_lz_2 > 500} count _survivors == 0 && !isNil ""BIS_canRetreat"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 21;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	private _handle = [""ta_retreat_complete""] spawn BIS_fnc_missionConversations;" \n
+                         "	waitUntil {scriptDone _handle};" \n
+                         "	[""tsk_end"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "" \n
+                         "	sleep 5;" \n
+                         "	[] call BIS_fnc_aa2_savePersistence;" \n
+                         "	activateKey ""BIS_TO_3_to_c03m02_Infantry"";" \n
+                         "" \n
+                         "	if (count BIS_wounded == BIS_wounded_start) then {" \n
+                         "		setStatValue [""ToLifeline"",1];" \n
+                         "	};" \n
+                         "	if (BIS_to_injuredCaptured) then {" \n
+                         "		setCustomMissionData [""End1"", ""Infantry""];" \n
+                         "		[""End1""] call BIS_fnc_endMission;" \n
+                         "	} else {" \n
+                         "		setCustomMissionData [""End2"", ""Infantry""];" \n
+                         "		if (!isNil ""BIS_to_nInjured_2"" && {BIS_to_nInjured_2 > 0}) then {" \n
+                         "			[""End2""] call BIS_fnc_endMission;" \n
+                         "		} else {" \n
+                         "			[""End1""] call BIS_fnc_endMission;" \n
+                         "		};" \n
+                         "	};" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Activate_Evac">*/
+                class Activate_Evac
+                {
+                        name = "Activate_Evac";
+                        itemno = 22;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn BIS_fnc_aa2_evacuation;" \n
+                         "BIS_to_injuredCaptured = false;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Completed">*/
+                                class Completed
+                                {
+                                        itemno = 28;
+                                        priority = 0.000000;
+                                        to="Dialog";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""BIS_evacCompleted"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Failed">*/
+                                class Failed
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="Task_failed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""BIS_evacFailed"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Task_failed">*/
+                class Task_failed
+                {
+                        name = "Task_failed";
+                        itemno = 24;
+                        init = /*%FSM<STATEINIT""">*/"[""tsk_evac"", ""FAILED""] call BIS_fnc_taskSetState;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	[""ta_moveBack""] spawn BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="Tasking_Defense";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Task_Canceled">*/
+                class Task_Canceled
+                {
+                        name = "Task_Canceled";
+                        itemno = 26;
+                        init = /*%FSM<STATEINIT""">*/"[""tsk_support"",""CANCELED""] call BIS_fnc_taskSetState;" \n
+                         "[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	private _handle = [""ta_moveBack""] spawn BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="Tasking_Defense";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Task_succeed">*/
+                class Task_succeed
+                {
+                        name = "Task_succeed";
+                        itemno = 27;
+                        init = /*%FSM<STATEINIT""">*/"[""tsk_support"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	[""ta_moveBack""] spawn BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="Tasking_Defense";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Dialog">*/
+                class Dialog
+                {
+                        name = "Dialog";
+                        itemno = 29;
+                        init = /*%FSM<STATEINIT""">*/"" \n
+                         "[""ta_lz_blazer""] spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "private _injuredInApc = {vehicle _x == BIS_apc} count (getMissionLayerEntities ""Wounded"" select 0);" \n
+                         "" \n
+                         "if (_injuredInApc > 0) then {" \n
+                         "	[""tsk_evac"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "} else {" \n
+                         "	[""tsk_evac"",""FAILED""] call BIS_fnc_taskSetState;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="Tasking_Defense";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Tasking_Defense">*/
+                class Tasking_Defense
+                {
+                        name = "Tasking_Defense";
+                        itemno = 30;
+                        init = /*%FSM<STATEINIT""">*/"// Count remaining units in No man's land" \n
+                         "private _nAttackersLeft = {side _x == resistance} count ([""Scout Attack""] call BIS_fnc_to_unitList);" \n
+                         "private _gorgonSurvived = alive BIS_gorgon;" \n
+                         "" \n
+                         "private _nLosses = _nAttackersLeft / 3;" \n
+                         "if (_gorgonSurvived) then {_nLosses = _nLosses + 2};" \n
+                         "" \n
+                         "// Begin counterAttack" \n
+                         "private _t3 = time;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 15;" \n
+                         "	// Task: Assist second team" \n
+                         "	[" \n
+                         "		TRUE," \n
+                         "		""tsk_defense_2""," \n
+                         "		[" \n
+                         "			localize ""STR_A3_TO_C03m02_tskDefendDesc""," \n
+                         "			localize ""STR_A3_TO_C03m02_tskDefendTitle""," \n
+                         "			nil" \n
+                         "		]," \n
+                         "		BIS_village," \n
+                         "		true," \n
+                         "		0," \n
+                         "		true," \n
+                         "		""defend""," \n
+                         "		false" \n
+                         "	] call BIS_fnc_taskCreate;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Back_at__defense">*/
+                                class Back_at__defense
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Help_with_defens";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"player distance BIS_village < 100"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Mortar_Strike">*/
+                class Mortar_Strike
+                {
+                        name = "Mortar_Strike";
+                        itemno = 32;
+                        init = /*%FSM<STATEINIT""">*/"enableSaving [true, false];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Cheat_1">*/
+                                class Cheat_1
+                                {
+                                        itemno = 38;
+                                        priority = 0.000000;
+                                        to="Set_up_mission_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""BIS_cheat_1"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_2">*/
+                                class Cheat_2
+                                {
+                                        itemno = 40;
+                                        priority = 0.000000;
+                                        to="Set_up_mission__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""BIS_cheat_2"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Mortar_attack__o">*/
+                                class Mortar_attack__o
+                                {
+                                        itemno = 33;
+                                        priority = 0.000000;
+                                        to="Start_attack";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""BIS_mortarDone"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Set_up_mission_">*/
+                class Set_up_mission_
+                {
+                        name = "Set_up_mission_";
+                        itemno = 41;
+                        init = /*%FSM<STATEINIT""">*/"// Remove soldier from Kappa and Ruins" \n
+                         "{deleteVehicle _x} forEach (([""Ruins"",""Village""] call BIS_fnc_to_unitList) select {side _x == resistance});" \n
+                         "" \n
+                         "private _group = createGroup west;" \n
+                         "[player] join _group;" \n
+                         "" \n
+                         "BIS_apc setDamage 0;" \n
+                         "BIS_apc setPos getMarkerPos ""mrk_village"";" \n
+                         "[BIS_groupCrew] call BIS_fnc_TO_activateUnits;" \n
+                         "units BIS_groupCrew join _group;" \n
+                         "{_x moveInAny BIS_apc} forEach units group player;" \n
+                         "" \n
+                         "// Set groups to correct positions" \n
+                         "{_x setPos getPos BIS_teleport} forEach units BIS_groupRomeo;" \n
+                         "BIS_groupRomeo setCurrentWaypoint [BIS_groupRomeo, 4];" \n
+                         "" \n
+                         "{_x setPos getPos BIS_village;_x enableAI ""path""} forEach units BIS_groupNovember;" \n
+                         "BIS_groupNovember setCurrentWaypoint [BIS_groupNovember, 4];" \n
+                         "" \n
+                         "[""tsk_ruins"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "[""tsk_apc"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "" \n
+                         "BIS_apcReady = true;" \n
+                         "BIS_apcRepaired = true;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "true">*/
+                                class true
+                                {
+                                        itemno = 42;
+                                        priority = 0.000000;
+                                        to="Phase_2_Orders";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Set_up_mission__1">*/
+                class Set_up_mission__1
+                {
+                        name = "Set_up_mission__1";
+                        itemno = 43;
+                        init = /*%FSM<STATEINIT""">*/"// Remove soldier from Kappa and Ruins" \n
+                         "{deleteVehicle _x} forEach (([""Ruins"",""Village""] call BIS_fnc_to_unitList) select {side _x == resistance});" \n
+                         "" \n
+                         "private _group = createGroup west;" \n
+                         "[player] join _group;" \n
+                         "" \n
+                         "BIS_apc setDamage 0;" \n
+                         "BIS_apc setPos getMarkerPos ""BIS_secondArrows_1"";" \n
+                         "[BIS_groupCrew] call BIS_fnc_TO_activateUnits;" \n
+                         "units BIS_groupCrew join _group;" \n
+                         "{_x moveInAny BIS_apc} forEach units group player;" \n
+                         "" \n
+                         "// Set groups to correct positions" \n
+                         "{_x setPos getPos BIS_teleport; _x enableAI ""path""; _x disableAI ""autocombat""} forEach units BIS_groupRomeo;" \n
+                         "BIS_groupRomeo setCurrentWaypoint [BIS_groupRomeo, 6];" \n
+                         "" \n
+                         "{_x setPos getPos BIS_village; _x enableAI ""path""; _x disableAI ""autocombat""} forEach units BIS_groupNovember;" \n
+                         "BIS_groupNovember setCurrentWaypoint [BIS_groupNovember, 4];" \n
+                         "" \n
+                         "[""tsk_ruins"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "[""tsk_apc"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "" \n
+                         "BIS_apcReady = true;" \n
+                         "BIS_apcRepaired = true;" \n
+                         "" \n
+                         "{_x setPos getMarkerPos ""mrk_village""; _x enableAI ""path""; _x disableAI ""autocombat""} forEach units BIS_groupOscar;" \n
+                         "BIS_groupOscar setCurrentWaypoint [BIS_groupOscar, 3];" \n
+                         "" \n
+                         "[""tsk_evac"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "[""tsk_support"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "BIS_apcReady = true;" \n
+                         "BIS_to_injuredCaptured = false;" \n
+                         "" \n
+                         "BIS_retreat = true;" \n
+                         "" \n
+                         "// Set up Kappa defenders" \n
+                         "BIS_defenseGroup = createGroup west;" \n
+                         "private _positions = [BIS_p1,BIS_p2,BIS_p3,BIS_p4,BIS_p5,BIS_p6];" \n
+                         "{" \n
+                         "	if (_forEachIndex == 6) exitWith {};" \n
+                         "	[_x] join BIS_defenseGroup;" \n
+                         "	_x setPos getPos (_positions select _forEachIndex);" \n
+                         "	_x disableAI ""path"";" \n
+                         "	deleteVehicle (_positions select _forEachIndex);" \n
+                         "} forEach units BIS_groupNovember;" \n
+                         "" \n
+                         "//BIS_oscar = leader BIS_groupNovember;" \n
+                         "" \n
+                         "// Delete all units from flatlands and evac zone" \n
+                         "" \n
+                         "{deleteVehicle _x} forEach ([""Scout Attack"",""Wounded"",""Flatlands 1""] call BIS_fnc_to_unitList);"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "true">*/
+                                class true
+                                {
+                                        itemno = 44;
+                                        priority = 0.000000;
+                                        to="Tasking_Defense";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "Fail",
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

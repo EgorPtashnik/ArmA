@@ -1,0 +1,732 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Pilot">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-56.056091,-403.729340,43.943909,-353.729340,0.000000,"Start"};
+item1[] = {"Timeout",4,218,70.901123,-141.237869,170.901123,-91.237869,2.000000,"Timeout"};
+item2[] = {"Activate_enemies",2,4346,-167.025116,-32.299774,-67.025116,17.700226,0.000000,"Activate enemies" \n "+ Conversation"};
+item3[] = {"Near_Pilot",4,218,-166.896851,-132.303223,-66.896851,-82.303223,2.000000,"Near Pilot"};
+item4[] = {"Pilot_killed",4,218,272.243347,178.156586,372.243347,228.156601,0.000000,"Pilot killed"};
+item5[] = {"Failed",1,250,436.949463,176.412659,536.949463,226.412659,0.000000,"Failed"};
+item6[] = {"Checked_conditio",4,218,-477.857452,247.861435,-377.857452,297.861420,0.000000,"Checked condition"};
+item7[] = {"Pilot_joins_you",2,250,-473.182007,330.856750,-383.182007,380.856750,0.000000,"Pilot joins you"};
+item8[] = {"Enemies_nearby",4,218,-75.000000,100.000000,25.000000,150.000000,0.000000,"Enemies nearby"};
+item9[] = {"Under_attack",2,250,-75.000000,175.000000,25.000000,225.000000,0.000000,"Under attack"};
+item10[] = {"Wait",4,218,-75.000000,250.000000,25.000000,300.000000,0.000000,"Wait"};
+item11[] = {"Shoot_Pilot",2,250,-75.000000,325.000000,25.000000,375.000000,0.000000,"Shoot Pilot"};
+item12[] = {"Attackers_killed",4,218,-248.347534,173.901184,-148.347534,223.901184,0.000000,"Attackers killed"};
+item13[] = {"Wait",2,250,-250.000000,250.000000,-150.000000,300.000000,0.000000,"Wait"};
+item14[] = {"_",4,218,-56.056091,-303.729340,43.943909,-253.729340,0.000000,""};
+item15[] = {"Shoot_flares",2,250,-56.056091,-228.729340,43.943909,-178.729340,0.000000,"Shoot flares"};
+item16[] = {"Timeout_1",4,218,68.943909,-228.729340,168.943909,-178.729340,0.000000,"Timeout"};
+item17[] = {"_",2,250,68.943909,-303.729340,168.943909,-253.729340,0.000000,""};
+item18[] = {"Conversation_don",4,218,-472.956848,423.186523,-382.956848,473.186493,0.000000,"Conversation" \n "done"};
+item19[] = {"Pilot_joins",3,250,-472.378235,517.022827,-382.378235,567.022827,0.000000,"Pilot joins"};
+item20[] = {"Away_from_Wreck",4,218,-472.155029,607.610229,-382.155029,657.610229,0.000000,"Away" \n "from" \n "Wreck"};
+item21[] = {"Pilot_safe",1,250,-470.519287,696.052368,-380.519257,746.052368,0.000000,"Pilot safe"};
+item22[] = {"Never_near_Pilot",4,218,-249.952972,335.216766,-149.952972,385.216736,2.000000,"Never" \n "near" \n "Pilot"};
+item23[] = {"Wait_1",2,250,-245.784363,413.941101,-155.784363,463.941101,0.000000,"Wait"};
+item24[] = {"Near_Pilot",4,218,-245.899048,492.315491,-155.899048,542.315491,0.000000,"Near Pilot"};
+item25[] = {"Start__conversat",2,250,-245.899048,570.042480,-155.899017,620.042480,0.000000,"Start " \n "conversation"};
+item26[] = {"",7,210,-205.062042,407.423370,-197.062042,415.423370,0.000000,""};
+item27[] = {"Activate_enemies_1",2,250,74.094147,-31.949188,174.094147,18.050812,0.000000,"Activate enemies"};
+item28[] = {"",7,210,-300.726410,586.485229,-292.726440,594.485229,0.000000,""};
+item29[] = {"",7,210,-2030.854858,203.899063,-2022.854858,211.899124,0.000000,""};
+item30[] = {"",7,210,-123.083420,431.641479,-115.083473,439.641479,0.000000,""};
+item31[] = {"",7,210,-122.789253,268.956848,-114.789284,276.956848,0.000000,""};
+item32[] = {"",7,210,-300.047302,270.191437,-292.047302,278.191437,0.000000,""};
+item33[] = {"",7,210,-123.412720,590.226807,-115.412750,598.226807,0.000000,""};
+item34[] = {"",7,210,-103.197540,349.594727,-95.197571,357.594727,0.000000,""};
+item35[] = {"",7,210,-102.825684,198.791382,-94.825714,206.791382,0.000000,""};
+item36[] = {"",7,210,319.451843,590.660217,327.451813,598.660217,0.000000,""};
+item37[] = {"",7,210,319.605133,344.373047,327.605103,352.373047,0.000000,""};
+item38[] = {"",7,210,-123.637848,47.278931,-115.637878,55.278931,0.000000,""};
+item39[] = {"",7,210,121.113037,48.111435,129.113007,56.111435,0.000000,""};
+item40[] = {"",7,210,318.179169,48.947281,326.179138,56.947281,0.000000,""};
+link0[] = {0,14};
+link1[] = {1,27};
+link2[] = {2,6};
+link3[] = {2,8};
+link4[] = {2,38};
+link5[] = {3,2};
+link6[] = {4,5};
+link7[] = {6,7};
+link8[] = {7,18};
+link9[] = {8,9};
+link10[] = {9,4};
+link11[] = {9,10};
+link12[] = {9,35};
+link13[] = {10,11};
+link14[] = {11,34};
+link15[] = {11,37};
+link16[] = {12,13};
+link17[] = {13,22};
+link18[] = {13,31};
+link19[] = {13,32};
+link20[] = {14,15};
+link21[] = {15,1};
+link22[] = {15,3};
+link23[] = {15,16};
+link24[] = {16,17};
+link25[] = {17,14};
+link26[] = {18,19};
+link27[] = {19,20};
+link28[] = {20,21};
+link29[] = {22,26};
+link30[] = {23,24};
+link31[] = {23,30};
+link32[] = {24,25};
+link33[] = {25,28};
+link34[] = {25,33};
+link35[] = {26,23};
+link36[] = {27,3};
+link37[] = {27,8};
+link38[] = {27,39};
+link39[] = {28,32};
+link40[] = {30,33};
+link41[] = {31,30};
+link42[] = {32,6};
+link43[] = {33,36};
+link44[] = {34,35};
+link45[] = {35,12};
+link46[] = {36,37};
+link47[] = {37,4};
+link48[] = {38,39};
+link49[] = {39,40};
+link50[] = {40,4};
+globals[] = {0.000000,0,0,0,0,640,480,1,54,6316128,1,-578.937866,185.710693,759.419312,-190.713593,808,1004,1};
+window[] = {2,-1,-1,-1,-1,1119,78,1536,78,3,826};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Pilot";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"//BIS_pilot setUnconscious true;  " \n
+                         "BIS_pilot setCaptive true; " \n
+                         "" \n
+                         "BIS_pilot disableAi ""all"";" \n
+                         "" \n
+                         "BIS_Pilot switchMove ""AmovPercMstpSrasWrflDnon_AmovPknlMstpSrasWrflDnon"";" \n
+                         "" \n
+                         "BIS_pilot setSkill 0;" \n
+                         "BIS_pilot setSkill [""AimingAccuracy"",0];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="Shoot_flares";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > 1*MINUTE"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Activate_enemies">*/
+                class Activate_enemies
+                {
+                        name = "Activate_enemies";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"//[""Pilot is calling on radio for help. He is near VTOL that crashlanded on grid xxx-xxx""] call BIS_fnc_to_devNote;" \n
+                         "[BIS_wreckPatrol] call BIS_fnc_TO_activateUnits;" \n
+                         "{_x disableAI ""autocombat""} forEach units BIS_wreckPatrol;" \n
+                         "" \n
+                         "//BIS_pilot setUnconscious false;" \n
+                         "BIS_pilot allowDamage true;" \n
+                         "BIS_pilot setCaptive true;" \n
+                         "" \n
+                         "" \n
+                         "	//make sure he's not gonna play waving animations any more" \n
+                         "" \n
+                         "	[" \n
+                         "		TRUE," \n
+                         "		""tsk_pilot""," \n
+                         "		[" \n
+                         "			localize ""STR_A3_TO_C03m01_tskPilotDesc""," \n
+                         "			localize ""STR_A3_TO_C03m01_tskPilotTitle""," \n
+                         "			nil" \n
+                         "		]," \n
+                         "		BIS_deadPilot," \n
+                         "		true," \n
+                         "		1," \n
+                         "		true," \n
+                         "		""move""," \n
+                         "		false" \n
+                         "	] call BIS_fnc_taskCreate;" \n
+                         "	BIS_to_pilotConversationHandle = [""ta_pilot_found"",""to_c03_m01"",[[""PILOT"",1]], ""DIRECT""] call bis_fnc_kbTell;" \n
+                         "" \n
+                         "//add action" \n
+                         "[] spawn" \n
+                         "{" \n
+                         "	waitUntil{scriptDone BIS_to_pilotConversationHandle};" \n
+                         "	" \n
+                         "	" \n
+                         "	_return =" \n
+                         "	[" \n
+                         "   	 BIS_deadPilot,                                                                           // Object the action is attached to" \n
+                         "    	 localize ""str_a3_to_c03m01_actionPilot"",                                                                       // Title of the action" \n
+                         "   	 ""\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa"",                      // Idle icon shown on screen" \n
+                         "   	 ""\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa"",                      // Progress icon shown on screen" \n
+                         "   	 ""(_this distance _target < 2) && (cursorObject == _target)"",                                                        // Condition for the action to be shown" \n
+                         "   	 ""(_caller distance _target < 2) && (cursorObject == _target)"",                                                      // Condition for the action to progress" \n
+                         "   	 {},                                                                                  // Code executed when action starts" \n
+                         "   	 {},                                                                                  // Code executed on every progress tick" \n
+                         "       {BIS_deadMedicChecked = true;},                                                // Code executed on completion" \n
+                         "    	 {},                                                                                  // Code executed on interrupted" \n
+                         "   	 [],                                                                                  // Arguments passed to the scripts as _this select 3" \n
+                         "   	 3,                                                                                  // Action duration [s]" \n
+                         "   	 99,                                                                                   // Priority" \n
+                         "   	 true,                                                                                // Remove on completion" \n
+                         "   	 false                                                                                // Show in unconscious state " \n
+                         "	] call BIS_fnc_holdActionAdd;" \n
+                         "	                                  // example for MP compatible implementation" \n
+                         "" \n
+                         "	BIS_deadPilot setVariable [""actionID"", _return];" \n
+                         "}"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Enemies_nearby">*/
+                                class Enemies_nearby
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="Under_attack";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"leader BIS_wreckPatrol distance BIS_pilot < 25"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Pilot_killed">*/
+                                class Pilot_killed
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="Failed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_pilot"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Checked_conditio">*/
+                                class Checked_conditio
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Pilot_joins_you";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""BIS_deadMedicChecked"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Failed">*/
+                class Failed
+                {
+                        name = "Failed";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"if (triggerActivated trg_pilot) then " \n
+                         "{" \n
+                         "	[""tsk_pilot"",""FAILED""] call BIS_fnc_taskSetState;" \n
+                         "" \n
+                         "	if(!isNil {BIS_deadPilot getVariable ""actionID""}) then" \n
+                         "	{" \n
+                         "		[BIS_deadPilot, BIS_deadPilot getVariable ""actionID""] call BIS_fnc_holdActionRemove;" \n
+                         "	};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Pilot_joins_you">*/
+                class Pilot_joins_you
+                {
+                        name = "Pilot_joins_you";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"//[""Pilot thanks you for the rescue. He tells you that there should be regroup point near original marked LZ. You should get there together.""] call BIS_fnc_to_devNote;" \n
+                         "" \n
+                         "[""10_GivingFAK""] spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "[""tsk_pilot"",""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "" \n
+                         "//make him join you (and set everything up)" \n
+                         "BIS_pilotRescued = true;" \n
+                         "" \n
+                         "BIS_timeSincePilotSaved = time;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Conversation_don">*/
+                                class Conversation_don
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="Pilot_joins";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"missionNamespace getVariable [""BIS_to_pilotConversationOver"", false];"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Under_attack">*/
+                class Under_attack
+                {
+                        name = "Under_attack";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/"//destroy animation handler if present" \n
+                         "if((BIS_pilot getVariable [""BIS_PilotHandlerAnimDone"", -1]) != -1) then" \n
+                         "{" \n
+                         "	BIS_pilot removeEventHandler [""AnimDone"", BIS_pilot getVariable ""BIS_PilotHandlerAnimDone""];" \n
+                         "};" \n
+                         "" \n
+                         "//make pilot crouch" \n
+                         "BIS_Pilot switchMove ""AmovPercMstpSrasWrflDnon_AmovPknlMstpSrasWrflDnon"";" \n
+                         "" \n
+                         "_timeout = time + 1*MINUTE"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="Shoot_Pilot";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Attackers_killed">*/
+                                class Attackers_killed
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="Wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{alive _x} count units BIS_wreckPatrol == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Pilot_killed">*/
+                                class Pilot_killed
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="Failed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_pilot"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Shoot_Pilot">*/
+                class Shoot_Pilot
+                {
+                        name = "Shoot_Pilot";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"BIS_pilot setCaptive false;" \n
+                         "BIS_pilot enableAI ""all"";" \n
+                         "BIS_pilot disableAI ""path"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Pilot_killed">*/
+                                class Pilot_killed
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="Failed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_pilot"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Attackers_killed">*/
+                                class Attackers_killed
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="Wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{alive _x} count units BIS_wreckPatrol == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Wait">*/
+                class Wait
+                {
+                        name = "Wait";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Never_near_Pilot">*/
+                                class Never_near_Pilot
+                                {
+                                        itemno = 22;
+                                        priority = 2.000000;
+                                        to="Wait_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(triggerActivated trg_pilot)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Pilot_killed">*/
+                                class Pilot_killed
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="Failed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_pilot"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Checked_conditio">*/
+                                class Checked_conditio
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Pilot_joins_you";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""BIS_deadMedicChecked"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Shoot_flares">*/
+                class Shoot_flares
+                {
+                        name = "Shoot_flares";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/"[BIS_pilot,""F_40mm_Red""] call BIS_fnc_aa1_fireFlare;" \n
+                         "" \n
+                         "private _t = time;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Near_Pilot">*/
+                                class Near_Pilot
+                                {
+                                        itemno = 3;
+                                        priority = 2.000000;
+                                        to="Activate_enemies";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_pilot"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Timeout">*/
+                                class Timeout
+                                {
+                                        itemno = 1;
+                                        priority = 2.000000;
+                                        to="Activate_enemies_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > 6*MINUTE"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Timeout_1">*/
+                                class Timeout_1
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 30;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="Shoot_flares";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > 1*MINUTE"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Pilot_joins">*/
+                class Pilot_joins
+                {
+                        name = "Pilot_joins";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"//delete spawned script for copying player's stance" \n
+                         "//terminate (BIS_Pilot getVariable ""BIS_pilotCopyStance"");" \n
+                         "" \n
+                         "[BIS_pilot] joinSilent group player;" \n
+                         "deleteWaypoint [group player , currentWaypoint (group player)];" \n
+                         "" \n
+                         "//play animation as he may be stuck scanning the horizon and won't move" \n
+                         "BIS_Pilot switchMove ""AidlPknlMstpSrasWrflDnon_G01_player""; " \n
+                         "" \n
+                         "BIS_pilot setCaptive false;" \n
+                         "BIS_pilot enableAI ""all"";" \n
+                         "BIS_pilot setUnitPos ""AUTO"";" \n
+                         "BIS_pilot setSkill 0.5;" \n
+                         "BIS_pilot setSkill [""AimingAccuracy"",0.5];" \n
+                         "" \n
+                         "//copy player's stance" \n
+                         "BIS_pilot setVariable" \n
+                         "[" \n
+                         "	""BIS_pilotCopyStance""," \n
+                         "	[] spawn " \n
+                         "	{" \n
+                         "		while{true} do" \n
+                         "		{" \n
+                         "			switch (stance player) do" \n
+                         "			{" \n
+                         "				case ""STAND"": { BIS_Pilot setUnitPos ""UP"" };" \n
+                         "				case ""CROUCH"": { BIS_Pilot setUnitPos ""MIDDLE"" };					" \n
+                         "				case ""PRONE"": { BIS_Pilot setUnitPos ""DOWN"" };" \n
+                         "				default { BIS_Pilot setUnitPos ""UP"" };" \n
+                         "			};" \n
+                         "			sleep 1;" \n
+                         "		};" \n
+                         "	}" \n
+                         "];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Away_from_Wreck">*/
+                                class Away_from_Wreck
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Pilot_safe";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"trg_pilot distance BIS_pilot > 15"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Pilot_safe">*/
+                class Pilot_safe
+                {
+                        name = "Pilot_safe";
+                        itemno = 21;
+                        init = /*%FSM<STATEINIT""">*/"//delete spawned script for copying player's stance" \n
+                         "terminate (BIS_Pilot getVariable ""BIS_pilotCopyStance"");" \n
+                         "missionNamespace setVariable [""STAT_TaskPilot"", ""TaskPilotDone""];" \n
+                         "BIS_pilot setUnitPos ""AUTO"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Wait_1">*/
+                class Wait_1
+                {
+                        name = "Wait_1";
+                        itemno = 23;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Pilot_killed">*/
+                                class Pilot_killed
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="Failed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_pilot"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Near_Pilot">*/
+                                class Near_Pilot
+                                {
+                                        itemno = 24;
+                                        priority = 0.000000;
+                                        to="Start__conversat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_pilot"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Start__conversat">*/
+                class Start__conversat
+                {
+                        name = "Start__conversat";
+                        itemno = 25;
+                        init = /*%FSM<STATEINIT""">*/"[" \n
+                         "	TRUE," \n
+                         "	""tsk_pilot""," \n
+                         "	[" \n
+                         "		localize ""STR_A3_TO_C03m01_tskPilotDesc""," \n
+                         "		localize ""STR_A3_TO_C03m01_tskPilotTitle""," \n
+                         "		nil" \n
+                         "	]," \n
+                         "	BIS_deadPilot," \n
+                         "	true," \n
+                         "	1," \n
+                         "	true," \n
+                         "	""move""," \n
+                         "	false" \n
+                         "] call BIS_fnc_taskCreate;" \n
+                         "BIS_to_pilotConversationHandle = [""ta_pilot_found"",""to_c03_m01"",[[""PILOT"",1]]] call bis_fnc_kbTell;" \n
+                         "" \n
+                         "[] spawn" \n
+                         "{" \n
+                         "	waitUntil{scriptDone BIS_to_pilotConversationHandle};" \n
+                         "" \n
+                         "	_return =" \n
+                         "	[" \n
+                         "   	 BIS_deadPilot,                                                                           // Object the action is attached to" \n
+                         "    	 ""Check pilot"",                                                                       // Title of the action" \n
+                         "   	 ""\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa"",                      // Idle icon shown on screen" \n
+                         "   	 ""\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa"",                      // Progress icon shown on screen" \n
+                         "   	 ""(_this distance _target < 2) && (cursorObject == _target)"",                                                        // Condition for the action to be shown" \n
+                         "   	 ""(_caller distance _target < 2) && (cursorObject == _target)"",                                                      // Condition for the action to progress" \n
+                         "   	 {},                                                                                  // Code executed when action starts" \n
+                         "   	 {},                                                                                  // Code executed on every progress tick" \n
+                         "       {BIS_deadMedicChecked = true;},                                                // Code executed on completion" \n
+                         "    	 {},                                                                                  // Code executed on interrupted" \n
+                         "   	 [],                                                                                  // Arguments passed to the scripts as _this select 3" \n
+                         "   	 3,                                                                                  // Action duration [s]" \n
+                         "   	 99,                                                                                   // Priority" \n
+                         "   	 true,                                                                                // Remove on completion" \n
+                         "   	 false                                                                                // Show in unconscious state " \n
+                         "	] call BIS_fnc_holdActionAdd;" \n
+                         "	                                  // example for MP compatible implementation" \n
+                         "" \n
+                         "	BIS_deadPilot setVariable [""actionID"", _return];" \n
+                         "}                      "/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Pilot_killed">*/
+                                class Pilot_killed
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="Failed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_pilot"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Checked_conditio">*/
+                                class Checked_conditio
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Pilot_joins_you";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""BIS_deadMedicChecked"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Activate_enemies_1">*/
+                class Activate_enemies_1
+                {
+                        name = "Activate_enemies_1";
+                        itemno = 27;
+                        init = /*%FSM<STATEINIT""">*/"//[""Pilot is calling on radio for help. He is near VTOL that crashlanded on grid xxx-xxx""] call BIS_fnc_to_devNote;" \n
+                         "[BIS_wreckPatrol] call BIS_fnc_TO_activateUnits;" \n
+                         "{_x disableAI ""autocombat""} forEach units BIS_wreckPatrol;" \n
+                         "" \n
+                         "//BIS_pilot setUnconscious false;" \n
+                         "BIS_pilot allowDamage true;" \n
+                         "BIS_pilot setCaptive true;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Near_Pilot">*/
+                                class Near_Pilot
+                                {
+                                        itemno = 3;
+                                        priority = 2.000000;
+                                        to="Activate_enemies";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_pilot"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Pilot_killed">*/
+                                class Pilot_killed
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="Failed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_pilot"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Enemies_nearby">*/
+                                class Enemies_nearby
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="Under_attack";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"leader BIS_wreckPatrol distance BIS_pilot < 25"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "Failed",
+                "Pilot_safe",
+        };
+};
+/*%FSM</COMPILE>*/

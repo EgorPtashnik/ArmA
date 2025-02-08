@@ -1,0 +1,1 @@
+#include "Opening\initOpening.sqf";

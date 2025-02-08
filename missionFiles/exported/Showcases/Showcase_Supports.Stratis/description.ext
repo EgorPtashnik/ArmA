@@ -1,0 +1,57 @@
+dev = "Jezuro";
+author = "Bohemia Interactive";
+
+briefingName = $STR_A3_Showcase_Supports_briefingName; 
+OnLoadName 		= "$STR_A3_Showcase_Supports_briefingName";
+onLoadMission 		= "$STR_A3_Showcase_Supports_Showcase_Summary_text";
+onLoadMissionTime 	= 1;
+
+overviewText = "$STR_A3_Showcase_Supports_Showcase_Summary_text";
+overviewPicture = "\a3\Missions_F_Beta\data\img\Showcase_Supports_overview_CA.paa";
+
+doneKeys[] = {"BIS_Showcase_Supports.Stratis_done"};
+
+briefing = "[1,0] select ([] call (uinamespace getvariable 'bis_fnc_isCampaign'))";
+debriefing = "[1,0] select ([] call (uinamespace getvariable 'bis_fnc_isCampaign'))";
+
+class CfgDebriefing
+{
+	class Showcase_Commanding_I_1
+	{
+		title = "";
+		subtitle = "";
+		description = "$STR_A3_Showcase_Supports_end1_text";
+		pictureBackground = "\a3\Missions_F_Beta\data\img\Showcase_Supports_overview_CA.paa";
+		picture = "b_inf";
+		pictureColor[] = {0.0,0.3,0.6,1};
+	};
+	
+	class Showcase_Commanding_I_2: Showcase_Commanding_I_1
+	{
+		description = "$STR_A3_Showcase_Supports_end2_text";
+	};
+	
+	class EndLoser: Showcase_Commanding_I_1
+	{
+		description = "$STR_A3_Showcase_Supports_endLoser_text";
+	};
+};
+
+class CfgCommunicationMenu
+{
+	class Attack;
+	class Bravo: Attack
+	{
+		text = $STR_A3_radio_b;
+		expression = "BIS_bravoGo = TRUE;";
+		icon = "\a3\ui_f\data\map\markers\nato\b_inf.paa";
+		removeAfterExpressionCall = 1;
+	};
+	class Echo: Attack
+	{
+		text = $STR_A3_radio_e;
+		expression = "BIS_echoGo = TRUE;";
+		icon = "\a3\ui_f\data\map\markers\nato\b_motor_inf.paa";
+		removeAfterExpressionCall = 1;
+	};
+};

@@ -1,0 +1,102 @@
+class CfgSounds {
+    sounds[] = {beep, in1, in2, in3, in4, in5, in6, noise1, noise2, noise3, noise4};
+    
+    class beep
+	{
+	name = "beep";
+	sound[] = {"sound\beep.ogg", db+10, 1.0};
+	titles[] = {0,""};
+	};
+
+	class in1
+	{
+		name = "in1";
+		sound[] = {"sound\in1.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in2
+	{
+		name = "in2";
+		sound[] = {"sound\in2.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in3
+	{
+		name = "in3";
+		sound[] = {"sound\in3.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in4
+	{
+		name = "in4";
+		sound[] = {"sound\in4.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in5
+	{
+		name = "in5";
+		sound[] = {"sound\in5.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in6
+	{
+		name = "in6";
+		sound[] = {"sound\in6.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class noise1
+	{
+		name = "noise1";
+		sound[] = {"sound\noise1.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class noise2
+	{
+		name = "noise2";
+		sound[] = {"sound\noise2.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class noise3
+	{
+		name = "noise3";
+		sound[] = {"sound\noise3.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	
+	class noise4
+	{
+		name = "noise4";
+		sound[] = {"sound\noise4.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+};
+
+class CfgDebriefing
+{
+	class fail1
+	{
+		title = "Миссия Провалена";
+		subtitle = "Подкрепления прибыли";
+		description = "Вражеская техника не была уничтожена. Подкрепления восстановили контроль над ремонтной базой.";
+		pictureBackground = "";
+		picture = "KIA";
+		pictureColor[] = { 1.0, 0.0, 0.0, 0.8 };
+	};
+	class win
+	{
+		title = "Миссия Выполнена";
+		subtitle = "Техника уничтожена";
+		description = "Вражеская техника успешно уничтожена. <br/> Более того, вы уничтожили вертолёт. Эти события окажут огромное влиянием на состояние войск СССР в регионе.";
+		pictureBackground = "";
+		picture = "b_hq";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+};

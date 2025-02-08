@@ -1,0 +1,122 @@
+dev = "Sarge";
+author = $STR_A3_Bohemia_Interactive;
+briefingName = "$STR_A3_TO_C02m02_missionName";
+onLoadName = "$STR_A3_TO_C02m02_onLoadName";
+onLoadMission = "$STR_A3_TO_C02m02_onLoadMission";
+overviewText = "";
+overviewPicture = "A3\Missions_F_Tacops\data\img\campaign2_m2_ca.paa"; 	//TODO: Add your image
+
+briefing = 0;
+
+class CfgFunctions
+{
+	class A3_Missions_F_Tacops
+    {
+        tag = "BIS";
+		project = "arma3";
+
+		#include "\A3\Missions_F_Tacops\cfgFunctions.inc"
+    };
+};
+
+class CfgDebriefing
+{
+    // infantry
+    class End1 // Best
+    {
+        title = "$STR_A3_TO_c02m02_MissionComplete";
+        subtitle = "";
+        description = "$STR_A3_TO_c02m02_INF_completeGood";
+        pictureBackground = "";
+        //picture = "b_inf";
+        pictureColor[] = {0.8,0.3,0.6,1};
+    };
+    class End2 // Good
+    {
+        title = "$STR_A3_TO_c02m02_MissionComplete";
+        subtitle = " ";
+        description = "$STR_A3_TO_c02m02_INF_completeOk";
+        pictureBackground = "";
+        pictureColor[] = {0.8,0.3,0.6,1};
+    };
+    class End3 // Bad
+    {
+        title = "$STR_A3_TO_c02m02_MissionComplete";
+        subtitle = "";
+        description = "$STR_A3_TO_c02m02_INF_completeBad";
+        pictureBackground = "";
+        pictureColor[] = {0.8,0.3,0.6,1};
+    };
+    // Special units
+    class End4 // Best
+    {
+        title = "$STR_A3_TO_c02m02_MissionComplete";
+        subtitle = "";
+        description = "$STR_A3_TO_c02m02_SPEC_completeGood";
+        pictureBackground = "";
+        pictureColor[] = {0.8,0.3,0.6,1};
+    };
+    class End5  // Good
+    {
+        title = "$STR_A3_TO_c02m02_MissionComplete";
+        subtitle = "";
+        description = "$STR_A3_TO_c02m02_SPEC_completeOk";
+        pictureBackground = "";
+        pictureColor[] = {0.8,0.3,0.6,1};
+    };
+    class End6 // Bad
+    {
+        title = "$STR_A3_TO_c02m02_MissionComplete";
+        subtitle = "";
+        description = "$STR_A3_TO_c02m02_SPEC_completeBad";
+        pictureBackground = "";
+        pictureColor[] = {0.8,0.3,0.6,1};
+    };
+    class Fail1
+    {
+        title = "$STR_A3_TO_c02m02_MissionFailed";
+        subtitle = "";
+        description = "";
+        pictureBackground = "";
+        pictureColor[] = {0.8,0.3,0.6,1};
+    };
+    class WarCrime // war crime civilians killed or wounded soldiers
+    {
+        title = "$STR_A3_mission_failed_title";
+        subtitle = "";
+        description = "$STR_A3_TO_C01_War_Crime";
+        pictureBackground = "";
+        pictureColor[] = {0.8,0.3,0.6,1};
+    };
+};
+
+class CfgCommunicationMenu
+{
+    class BIS_MortarSupport
+    {
+        text = "$STR_A3_TO_Radio_Artillery";
+        submenu = ""; // Submenu opened upon activation (expression is ignored when submenu is not empty.)
+        expression = "[_pos] spawn fnc_MortarSupport;"; // Code executed upon activation
+        icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\artillery_ca.paa"; // TODO: Better icon
+        cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
+        enable = "1"; // Simple expression condition for enabling the item
+        removeAfterExpressionCall = 1; // 1 to remove the item after calling
+    };
+    class BIS_InfantryGo
+    {
+        text = "$STR_A3_TO_Radio_Infantry";
+        expression = "BIS_attackOnHoudan = true";
+        icon = "\a3\ui_f\data\map\markers\nato\b_mech_inf.paa";
+        removeAfterExpressionCall = 1;
+    };
+};
+
+class CfgSounds
+{
+    class ChurchBell
+    {
+        name = "bell in the church";
+        sound[] = {"@A3\Sounds_F\ambient\objects\bell_small", 0.5, 1};
+        titles[] = {0,""};
+    };
+};

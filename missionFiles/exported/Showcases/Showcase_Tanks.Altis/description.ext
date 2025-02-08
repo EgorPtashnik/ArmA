@@ -1,0 +1,34 @@
+dev = "Jezuro";
+author = "Bohemia Interactive";
+
+briefingName = $STR_A3_Showcase_Tanks_Mission_Name; 
+OnLoadName 		= "$STR_A3_Showcase_Tanks_briefingName_short";
+onLoadMission 		= "$STR_A3_Showcase_Tanks_Showcase_Summary_text";
+onLoadMissionTime 	= 1;
+
+overviewText = "$STR_A3_Showcase_Tanks_Showcase_Summary_text";
+overviewPicture = "\a3\Missions_F_Gamma\data\img\Showcase_Tanks_overview_CA.paa";
+
+doneKeys[] = {"BIS_Showcase_Tanks.Altis_done"};
+
+briefing = "[1,0] select ([] call (uinamespace getvariable 'bis_fnc_isCampaign'))";
+debriefing = "[1,0] select ([] call (uinamespace getvariable 'bis_fnc_isCampaign'))";
+
+class CfgDebriefing
+{
+	class Win01
+	{
+		description = $STR_A3_Showcase_Tanks_end1_text;
+	};
+	
+	class Fail01
+	{
+		subtitle = $STR_A3_showcase_drones_debriefing_fail02_subtitle;
+		description = $STR_A3_Showcase_Tanks_end6_text;
+	};
+	
+	class Fail02
+	{
+		description = $STR_A3_Showcase_Tanks_endLoser_text;
+	};
+};

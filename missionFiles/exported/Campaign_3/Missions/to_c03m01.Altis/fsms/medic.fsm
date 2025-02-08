@@ -1,0 +1,679 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, medic">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-75.000000,-125.000000,25.000000,-75.000000,0.000000,"Start"};
+item1[] = {"Player_Nearby",4,218,-75.000000,-25.000000,25.000000,25.000000,0.000000,"Player Nearby"};
+item2[] = {"Remove__captivit",2,250,-75.000000,75.000000,25.000000,125.000000,0.000000,"Remove " \n "captivity"};
+item3[] = {"Medic_Killed",4,218,-200.000000,150.000000,-100.000000,200.000000,3.000000,"Medic Killed"};
+item4[] = {"Injured_killed",4,218,-75.000000,150.000000,25.000000,200.000000,2.000000,"Injured killed"};
+item5[] = {"Failed_rescue",1,250,-200.000000,275.000000,-100.000000,325.000000,0.000000,"Failed rescue"};
+item6[] = {"Medic_join_you",1,250,-75.000000,275.000000,25.000000,325.000000,0.000000,"Medic join you"};
+item7[] = {"Both_alive",4,218,50.000000,150.000000,150.000000,200.000000,0.000000,"Both alive"};
+item8[] = {"Medikit_tasking",2,250,50.000000,275.000000,150.000000,325.000000,0.000000,"Medikit tasking"};
+item9[] = {"Retrieved_back",4,218,-25.000000,350.000000,75.000000,400.000000,0.000000,"Retrieved back"};
+item10[] = {"_",2,250,-25.000000,425.000000,75.000000,475.000000,0.000000,""};
+item11[] = {"Medic_dead",4,218,-100.000000,500.000000,0.000000,550.000000,1.000000,"Medic dead"};
+item12[] = {"Cancel_task",1,250,-100.000000,575.000000,0.000000,625.000000,0.000000,"Cancel task"};
+item13[] = {"Medic_alive",4,218,25.000000,500.000000,125.000000,550.000000,0.000000,"Medic alive"};
+item14[] = {"Transfer_medikit",2,250,25.000000,575.000000,125.000000,625.000000,0.000000,"Transfer medikit"};
+item15[] = {"Injured_dead",4,218,-25.000000,675.000000,75.000000,725.000000,0.000000,"Injured dead"};
+item16[] = {"Injured_alive",4,218,100.000000,675.000000,200.000000,725.000000,0.000000,"Injured alive"};
+item17[] = {"Medic_joins",1,250,-25.000000,750.000000,75.000000,800.000000,0.000000,"Medic joins"};
+item18[] = {"Revive",3,250,106.395317,754.263672,196.395325,804.263672,0.000000,"Revive"};
+item19[] = {"Medic_or_injured",4,218,121.156403,346.156372,221.156403,396.156372,0.000000,"Medic or" \n "injured killed"};
+item20[] = {"Medic_join_you_1",1,250,125.000000,425.000000,225.000000,475.000000,0.000000,"Medic join you"};
+item21[] = {"Medic_killed",4,218,-3.299835,845.757263,86.700165,895.757263,0.000000,"Medic killed"};
+item22[] = {"Injured_killed",4,218,106.553093,845.596497,196.553085,895.596497,0.000000,"Injured killed"};
+item23[] = {"Revive_done",4,218,224.142456,846.645508,314.142456,896.645447,0.000000,"Revive done"};
+item24[] = {"Both_join",1,250,224.090302,937.659363,314.090332,987.659302,0.000000,"Both join"};
+item25[] = {"Medic_joins_1",1,250,101.424347,937.304565,201.424347,987.304565,0.000000,"Medic joins"};
+item26[] = {"Cancel_task_1",1,250,-9.580719,937.732239,90.419281,987.732239,0.000000,"Cancel task"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,4};
+link4[] = {2,7};
+link5[] = {3,5};
+link6[] = {4,6};
+link7[] = {7,8};
+link8[] = {8,9};
+link9[] = {8,19};
+link10[] = {9,10};
+link11[] = {10,11};
+link12[] = {10,13};
+link13[] = {11,12};
+link14[] = {13,14};
+link15[] = {14,15};
+link16[] = {14,16};
+link17[] = {15,17};
+link18[] = {16,18};
+link19[] = {18,21};
+link20[] = {18,22};
+link21[] = {18,23};
+link22[] = {19,20};
+link23[] = {21,26};
+link24[] = {22,25};
+link25[] = {23,24};
+globals[] = {0.000000,0,0,0,0,640,480,1,29,6316128,1,-560.566772,494.014954,1255.506226,-166.169937,721,1029,1};
+window[] = {2,-1,-1,-1,-1,901,52,1492,52,3,739};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "medic";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"//rotate medic towards injured" \n
+                         "_rotation = [BIS_medic, BIS_injured] call BIS_fnc_relativeDirTo;" \n
+                         "BIS_medic setDir (getDir BIS_medic)+_rotation;" \n
+                         "" \n
+                         "/*" \n
+                         "// setup medic's animation over injured teammate" \n
+                         "[] spawn {" \n
+                         "	// TODO: Attach medic and injured" \n
+                         "	while {isNil ""BIS_helpedMedic"" && alive BIS_medic && alive BIS_injured} do {" \n
+                         "		sleep 0.05;" \n
+                         "		if (animationState BIS_medic != ""AinvPknlMstpSnonWnonDnon_medic0"") then {" \n
+                         "			BIS_medic playMoveNow ""AinvPknlMstpSnonWnonDnon_medic0"";" \n
+                         "		};" \n
+                         "		// TODO: Detach medic and injured" \n
+                         "	};" \n
+                         "	detach BIS_injured;" \n
+                         "};" \n
+                         "*/" \n
+                         "BIS_medic switchMove ""UnconsciousReviveMedic_B"";" \n
+                         "" \n
+                         "BIS_medic setVariable " \n
+                         "[" \n
+                         "	""BIS_MedicHandlerAnimDone""," \n
+                         "	BIS_medic addEventHandler " \n
+                         "	[" \n
+                         "		""AnimDone"", " \n
+                         "		{" \n
+                         "			private _anim 	= _this select 1;" \n
+                         "			" \n
+                         "			switch (toLower _anim) do " \n
+                         "			{" \n
+                         "				//Regaining consciousness" \n
+                         "				case ""unconsciousrevivemedic_b"": " \n
+                         "				{" \n
+                         "					BIS_medic switchMove ""UnconsciousReviveMedic_B"";" \n
+                         "				};" \n
+                         "			};" \n
+                         "		}" \n
+                         "	]" \n
+                         "];" \n
+                         "" \n
+                         "" \n
+                         "//setup variable for later use" \n
+                         "BIS_reviveDone = nil;" \n
+                         "" \n
+                         "BIS_injured disableAi ""MOVE"";" \n
+                         "BIS_injured disableAi ""ANIM"";" \n
+                         "BIS_injured disableAi ""FSM"";" \n
+                         "BIS_injured disableAi ""TARGET"";" \n
+                         "BIS_injured disableAi ""AUTOTARGET"";" \n
+                         "" \n
+                         "BIS_medic disableAi ""ALL"";" \n
+                         "" \n
+                         "BIS_injured switchMove ""UnconsciousFaceUp"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Player_Nearby">*/
+                                class Player_Nearby
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Remove__captivit";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_medic"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Remove__captivit">*/
+                class Remove__captivit
+                {
+                        name = "Remove__captivit";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"BIS_medic setCaptive false;" \n
+                         "BIS_injured setCaptive false;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Medic_Killed">*/
+                                class Medic_Killed
+                                {
+                                        itemno = 3;
+                                        priority = 3.000000;
+                                        to="Failed_rescue";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_medic"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Injured_killed">*/
+                                class Injured_killed
+                                {
+                                        itemno = 4;
+                                        priority = 2.000000;
+                                        to="Medic_join_you";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_injured"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Both_alive">*/
+                                class Both_alive
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Medikit_tasking";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Failed_rescue">*/
+                class Failed_rescue
+                {
+                        name = "Failed_rescue";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"// nothing happens. No task, etc."/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Medic_join_you">*/
+                class Medic_join_you
+                {
+                        name = "Medic_join_you";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"// medic joins you" \n
+                         "" \n
+                         "[""21_injuredDead""] spawn BIS_fnc_missionConversations;" \n
+                         "BIS_helpedMedic = true;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 3;" \n
+                         "" \n
+                         "	BIS_medic switchMove ""UnconsciousMedicOutRifle"";" \n
+                         "	BIS_medic enableAI ""all"";" \n
+                         "	BIS_medic setUnitPos ""AUTO"";" \n
+                         "	BIS_medic removeEventHandler [""AnimDone"", BIS_medic getVariable ""BIS_MedicHandlerAnimDone""];" \n
+                         "" \n
+                         "	BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "	BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "	BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "	BIS_medic addWeapon ""arifle_MX_ACO_F"";" \n
+                         "	BIS_medic selectWeapon ""arifle_MX_ACO_F"";" \n
+                         "" \n
+                         "	[BIS_medic] joinSilent group player;" \n
+                         "	deleteWaypoint [group player , currentWaypoint (group player)];" \n
+                         "	missionNamespace setVariable [""STAT_TaskMedic"", ""TaskMedicDone""];" \n
+                         "};" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Medikit_tasking">*/
+                class Medikit_tasking
+                {
+                        name = "Medikit_tasking";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"[""20_atMedic""] spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	[" \n
+                         "		WEST," \n
+                         "		""tsk_medic""," \n
+                         "		[" \n
+                         "			localize ""STR_A3_TO_C03m01_tskMedicDesc""," \n
+                         "			localize ""STR_A3_TO_C03m01_tskMedicTitle""," \n
+                         "			nil" \n
+                         "		]," \n
+                         "		BIS_medic," \n
+                         "		true," \n
+                         "		1," \n
+                         "		true," \n
+                         "		""""," \n
+                         "		false" \n
+                         "	] call BIS_fnc_taskCreate;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Medic_or_injured">*/
+                                class Medic_or_injured
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="Medic_join_you_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_medic || !alive BIS_injured"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Retrieved_back">*/
+                                class Retrieved_back
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_medikit"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Medic_dead">*/
+                                class Medic_dead
+                                {
+                                        itemno = 11;
+                                        priority = 1.000000;
+                                        to="Cancel_task";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_medic"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Medic_alive">*/
+                                class Medic_alive
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Transfer_medikit";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"alive BIS_medic"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Cancel_task">*/
+                class Cancel_task
+                {
+                        name = "Cancel_task";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/"[""tsk_medic"",""CANCELED""] call BIS_fnc_taskSetState;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Transfer_medikit">*/
+                class Transfer_medikit
+                {
+                        name = "Transfer_medikit";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/"player removeItem ""Medikit"";" \n
+                         "BIS_medic addItem ""Medikit"";" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Injured_alive">*/
+                                class Injured_alive
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="Revive";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"alive BIS_injured"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Injured_dead">*/
+                                class Injured_dead
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="Medic_joins";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_injured"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Medic_joins">*/
+                class Medic_joins
+                {
+                        name = "Medic_joins";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/"[""21_injuredDead""] spawn BIS_fnc_missionConversations;" \n
+                         "BIS_helpedMedic = true;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 3;" \n
+                         "	[""tsk_medic"",""CANCELED""] call BIS_fnc_taskSetState;" \n
+                         "" \n
+                         "	BIS_medic switchMove ""UnconsciousMedicOutRifle"";" \n
+                         "	BIS_medic enableAI ""all"";" \n
+                         "	BIS_medic setUnitPos ""AUTO"";" \n
+                         "	BIS_medic removeEventHandler [""AnimDone"", BIS_medic getVariable ""BIS_MedicHandlerAnimDone""];" \n
+                         "" \n
+                         "	[BIS_medic] joinSilent group player;" \n
+                         "	deleteWaypoint [group player , currentWaypoint (group player)];" \n
+                         "" \n
+                         "	BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "	BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "	BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "	BIS_medic addWeapon ""arifle_MX_ACO_F"";" \n
+                         "	BIS_medic selectWeapon ""arifle_MX_ACO_F"";" \n
+                         "" \n
+                         "	missionNamespace setVariable [""STAT_TaskMedic"", ""TaskMedicDone""];" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Revive">*/
+                class Revive
+                {
+                        name = "Revive";
+                        itemno = 18;
+                        init = /*%FSM<STATEINIT""">*/"//[""25_gaveMedikit""] spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "//start conversation" \n
+                         "[] spawn" \n
+                         "{" \n
+                         "	[""ta_wounded_soldier_revived"",""to_c03_m01"",[[""BARKLEM"",0],[""MEDIC"",1]], ""DIRECT""] call bis_fnc_kbTell;" \n
+                         "};" \n
+                         "" \n
+                         "BIS_medic removeEventHandler [""AnimDone"", BIS_medic getVariable ""BIS_MedicHandlerAnimDone""];" \n
+                         "" \n
+                         "BIS_medic setVariable " \n
+                         "[" \n
+                         "	""BIS_MedicHandlerAnimDone""," \n
+                         "	BIS_medic addEventHandler " \n
+                         "	[" \n
+                         "		""AnimDone"", " \n
+                         "		{" \n
+                         "			private _anim 	= _this select 1;" \n
+                         "			" \n
+                         "			switch (toLower _anim) do " \n
+                         "			{" \n
+                         "				//Regaining consciousness" \n
+                         "				case ""unconsciousrevivemedic_b"": " \n
+                         "				{	" \n
+                         "					BIS_medic switchMove ""UnconsciousReviveMedic_A"";" \n
+                         "					BIS_medic setAnimSpeedCoef 1.5;" \n
+                         "				};" \n
+                         "				case ""unconsciousrevivemedic_a"": " \n
+                         "				{" \n
+                         "					BIS_medic setAnimSpeedCoef 1;" \n
+                         "					BIS_injured switchMove ""UnconsciousReviveLegs_A"";" \n
+                         "					BIS_injured setAnimSpeedCoef 1.5;" \n
+                         "					BIS_medic switchMove ""UnconsciousMedicOut"";" \n
+                         "					BIS_reviveDone = true;" \n
+                         "					" \n
+                         "					[] spawn" \n
+                         "					{" \n
+                         "						sleep 1.5;" \n
+                         "						[""ta_wounded_soldier_revived"",""to_c03_m01"",[[""BARKLEM"",1],[""BARKLEM"",3]], ""DIRECT""] call bis_fnc_kbTell;" \n
+                         "					};	" \n
+                         "				};" \n
+                         "				case ""unconsciousmedicout"": " \n
+                         "				{" \n
+                         "					[] spawn" \n
+                         "					{" \n
+                         "						sleep 10;" \n
+                         "						BIS_medic switchMove ""UnconsciousMedicOutRifle"";	" \n
+                         "						BIS_medic enableAI ""all"";" \n
+                         "						BIS_medic setUnitPos ""AUTO"";" \n
+                         "					};" \n
+                         "					BIS_medic removeEventHandler [""AnimDone"", BIS_medic getVariable ""BIS_MedicHandlerAnimDone""];" \n
+                         "				};" \n
+                         "			};" \n
+                         "		}" \n
+                         "	]" \n
+                         "];" \n
+                         "" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Injured_killed">*/
+                                class Injured_killed
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="Medic_joins_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_injured"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Revive_done">*/
+                                class Revive_done
+                                {
+                                        itemno = 23;
+                                        priority = 0.000000;
+                                        to="Both_join";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""BIS_reviveDone"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Medic_killed">*/
+                                class Medic_killed
+                                {
+                                        itemno = 21;
+                                        priority = 0.000000;
+                                        to="Cancel_task_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive BIS_medic"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Medic_join_you_1">*/
+                class Medic_join_you_1
+                {
+                        name = "Medic_join_you_1";
+                        itemno = 20;
+                        init = /*%FSM<STATEINIT""">*/"[""tsk_medic"",""FAILED""] call BIS_fnc_taskSetState;" \n
+                         "//conversation removed because it spawns even if you're far away from the medic and that doesn't make sense" \n
+                         "//[""21_injuredDead""] spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 3;" \n
+                         "	" \n
+                         "	BIS_medic switchMove ""UnconsciousMedicOutRifle"";" \n
+                         "	BIS_medic enableAI ""all"";" \n
+                         "	BIS_medic setUnitPos ""AUTO"";" \n
+                         "	BIS_medic removeEventHandler [""AnimDone"", BIS_medic getVariable ""BIS_MedicHandlerAnimDone""];" \n
+                         "" \n
+                         "	sleep 1;" \n
+                         "" \n
+                         "	//only save if player is nearby, not if medic is killed when player is far away" \n
+                         "	if(player distance BIS_medic < 40) then" \n
+                         "	{" \n
+                         "		[BIS_medic] joinSilent group player;" \n
+                         "" \n
+                         "		BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "		BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "		BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "		BIS_medic addWeapon ""arifle_MX_ACO_F"";" \n
+                         "		BIS_medic selectWeapon ""arifle_MX_ACO_F"";" \n
+                         "" \n
+                         "		deleteWaypoint [group player , currentWaypoint (group player)];" \n
+                         "	};" \n
+                         "	missionNamespace setVariable [""STAT_TaskMedic"", ""TaskMedicDone""];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Both_join">*/
+                class Both_join
+                {
+                        name = "Both_join";
+                        itemno = 24;
+                        init = /*%FSM<STATEINIT""">*/"//medic is done with animation" \n
+                         "BIS_helpedMedic = true;" \n
+                         "" \n
+                         "//both join you" \n
+                         "[BIS_medic, BIS_injured] joinSilent group player;" \n
+                         "" \n
+                         "BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "BIS_medic addWeapon ""arifle_MX_ACO_F"";" \n
+                         "BIS_medic selectWeapon ""arifle_MX_ACO_F"";" \n
+                         "" \n
+                         "deleteWaypoint [group player , currentWaypoint (group player)];" \n
+                         "" \n
+                         "//injured start playing the animation" \n
+                         "BIS_injured setVariable " \n
+                         "[" \n
+                         "	""BIS_InjuredHandlerAnimDone""," \n
+                         "	BIS_injured addEventHandler " \n
+                         "	[" \n
+                         "		""AnimDone"", " \n
+                         "		{" \n
+                         "			private _anim 	= _this select 1;" \n
+                         "			" \n
+                         "			switch (toLower _anim) do " \n
+                         "			{" \n
+                         "				case ""unconsciousrevivelegs_a"": " \n
+                         "				{" \n
+                         "					BIS_injured setAnimSpeedCoef 1;" \n
+                         "					BIS_injured switchMove ""UnconsciousOutProne"";" \n
+                         "				};" \n
+                         "				case ""unconsciousoutprone"": " \n
+                         "				{" \n
+                         "					BIS_injured setDamage 0;" \n
+                         "					BIS_injured setUnconscious false;" \n
+                         "					" \n
+                         "					BIS_injured setUnitPos ""AUTO"";" \n
+                         "					BIS_injured enableAI ""all"";" \n
+                         "				" \n
+                         "					BIS_injured removeEventHandler [""AnimDone"", BIS_injured getVariable ""BIS_InjuredHandlerAnimDone""];" \n
+                         "				};" \n
+                         "			};" \n
+                         "		}" \n
+                         "	]" \n
+                         "];" \n
+                         "" \n
+                         "//task completed" \n
+                         "[] spawn " \n
+                         "{" \n
+                         "	sleep 2;" \n
+                         "	[""tsk_medic"",""SUCCEEDED""] call BIS_fnc_taskSetState;	" \n
+                         "	missionNamespace setVariable [""STAT_TaskMedic"", ""TaskMedicDone""];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Medic_joins_1">*/
+                class Medic_joins_1
+                {
+                        name = "Medic_joins_1";
+                        itemno = 25;
+                        init = /*%FSM<STATEINIT""">*/"[""21_injuredDead""] spawn BIS_fnc_missionConversations;" \n
+                         "BIS_helpedMedic = true;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 3;" \n
+                         "	[""tsk_medic"",""CANCELED""] call BIS_fnc_taskSetState;" \n
+                         "	" \n
+                         "	BIS_medic switchMove ""UnconsciousMedicOutRifle"";" \n
+                         "	BIS_medic enableAI ""all"";" \n
+                         "	BIS_medic setUnitPos ""AUTO"";" \n
+                         "	BIS_medic removeEventHandler [""AnimDone"", BIS_medic getVariable ""BIS_MedicHandlerAnimDone""];" \n
+                         "" \n
+                         "	BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "	BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "	BIS_medic addMagazine ""30Rnd_65x39_caseless_mag_Tracer"";" \n
+                         "	BIS_medic addWeapon ""arifle_MX_ACO_F"";" \n
+                         "	BIS_medic selectWeapon ""arifle_MX_ACO_F"";" \n
+                         "" \n
+                         "" \n
+                         "	[BIS_medic] joinSilent group player;" \n
+                         "	deleteWaypoint [group player , currentWaypoint (group player)];" \n
+                         "	missionNamespace setVariable [""STAT_TaskMedic"", ""TaskMedicDone""];" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Cancel_task_1">*/
+                class Cancel_task_1
+                {
+                        name = "Cancel_task_1";
+                        itemno = 26;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn " \n
+                         "{" \n
+                         "	sleep 2;" \n
+                         "	[""tsk_medic"",""CANCELED""] call BIS_fnc_taskSetState;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "Failed_rescue",
+                "Medic_join_you",
+                "Cancel_task",
+                "Medic_joins",
+                "Medic_join_you_1",
+                "Both_join",
+                "Medic_joins_1",
+                "Cancel_task_1",
+        };
+};
+/*%FSM</COMPILE>*/

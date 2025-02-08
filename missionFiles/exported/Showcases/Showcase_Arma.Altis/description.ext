@@ -1,0 +1,67 @@
+dev 			= "Nelson";
+author			= $STR_A3_Bohemia_Interactive;
+briefingName 		= $STR_A3_Showcase_Arma_Mission_Name;
+OnLoadName 		= $STR_A3_Showcase_Arma_Mission_Name;
+onLoadMission 		= $STR_A3_Showcase_Arma_Showcase_Summary_text;
+overviewText 		= $STR_A3_Showcase_Arma_Showcase_Summary_text;
+overviewPicture 	= "\a3\Missions_F_Gamma\data\img\Showcase_Arma_overview_CA.paa";
+doneKeys[] 		= {"BIS_Showcase_Arma.Altis_done"};
+
+class CfgFunctions {
+	class BIS {
+		class Showcase_Armed_Assault {
+			class saa_addWaypoint		{ file = "functions\fn_addWaypoint.sqf"; };
+			class saa_ambientFiring		{ file = "functions\fn_ambientFiring.sqf"; };
+			class saa_echoSupportCalled	{ file = "functions\fn_echoSupportCalled.sqf"; };
+			class saa_handleDamage		{ file = "functions\fn_handleDamage.sqf"; };
+			class saa_apcHit		{ file = "functions\fn_apcHit.sqf"; };
+			class saa_chopperLanding	{ file = "functions\fn_chopperLanding.sqf"; };
+			class saa_music			{ file = "functions\fn_music.sqf"; };
+			class saa_bobcatPush		{ file = "functions\fn_bobcatPush.sqf"; };
+		};
+	};
+};
+
+class CfgDebriefing {
+	class WIN1 {
+		description 		= $STR_A3_Showcase_Arma_Debriefing_WIN1;
+		subtitle 		= "";
+		backgroundPicture 	= "";
+		picture 		= "";
+		pictureColor[] 		= {1,0,1,1};
+	};
+	
+	class WIN2 : WIN1 {
+		description 		= $STR_A3_Showcase_Arma_Debriefing_WIN2;
+		subtitle		= $STR_A3_Showcase_Arma_Debriefing_Subtitle_WIN2;
+	};
+	
+	class WIN3 : WIN1 {
+		description 		= $STR_A3_Showcase_Arma_Debriefing_WIN3;
+		subtitle		= $STR_A3_Showcase_Arma_Debriefing_Subtitle_WIN3;
+	};
+	
+	class FAIL1 : WIN1 {
+		description 		= $STR_A3_Showcase_Arma_Debriefing_FAIL1;
+	};
+	
+	class FAIL2 : WIN1 {
+		description 		= $STR_A3_Showcase_Arma_Debriefing_FAIL2;
+		subtitle		= $STR_A3_Showcase_Arma_Debriefing_Subtitle_FAIL2AND3;
+	};
+	
+	class FAIL3 : WIN1 {
+		description 		= $STR_A3_Showcase_Arma_Debriefing_FAIL3;
+		subtitle		= $STR_A3_Showcase_Arma_Debriefing_Subtitle_FAIL2AND3;
+	};
+};
+
+class CfgCommunicationMenu {
+	class Attack;
+	class Echo: Attack {
+		text = $STR_A3_Showcase_Arma_Support;
+		expression = "[] call BIS_fnc_saa_echoSupportCalled;";
+		icon = "\a3\ui_f\data\map\markers\nato\b_motor_inf.paa";
+		removeAfterExpressionCall = 1;
+	};
+};

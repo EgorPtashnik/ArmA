@@ -1,0 +1,258 @@
+/*%FSM<COMPILE "scriptedFSM.cfg, missionFlow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init",0,250,-75.000000,-1830.000000,15.000000,-1785.000000,0.000000,"init"};
+item1[] = {"detected",4,218,-76.968704,-1719.588379,13.031296,-1669.588379,0.000000,"detected"};
+item2[] = {"reaction_forces",2,250,-79.289688,-1631.570068,10.710327,-1581.570068,0.000000,"reaction" \n "forces"};
+item3[] = {"vehicles_destroy",4,218,-73.792572,-1507.252441,16.207428,-1457.252441,0.000000,"vehicles" \n "destroyed"};
+item4[] = {"___minutes_passe",4,218,65.692375,-1624.838501,155.692383,-1574.838501,0.000000,"7 minutes" \n "passed"};
+item5[] = {"fail_1",1,250,194.573151,-1516.587646,284.573181,-1466.587646,0.000000,"fail_1"};
+item6[] = {"completeDestroy",2,4346,-73.994308,-1396.073730,16.005707,-1346.073730,0.000000,"completeDestroy"};
+item7[] = {"",7,210,233.441589,-1606.392578,241.441589,-1598.392578,0.000000,""};
+item8[] = {"reinf___500m",4,218,-228.854507,-1401.663940,-138.854492,-1351.663940,0.000000,"reinf" \n "> 500m"};
+item9[] = {"reinf__500m",4,218,77.812798,-1393.024048,167.812805,-1343.024048,0.000000,"reinf" \n "<500m"};
+item10[] = {"setup_ambush",2,250,-229.691895,-1248.507202,-139.691925,-1198.507080,0.000000,"setup" \n "ambush"};
+item11[] = {"retreat",2,250,76.794342,-1247.922485,166.794373,-1197.922363,0.000000,"retreat"};
+item12[] = {"reinf_destroyed",4,218,-80.480728,-1250.298584,9.519272,-1200.298584,0.000000,"reinf" \n "destroyed"};
+item13[] = {"heli_down",4,218,-78.893539,-1147.069824,11.106461,-1097.069824,0.000000,"heli" \n "down"};
+item14[] = {"Extract",2,250,-75.831635,-1046.596313,14.168381,-996.596252,0.000000,"Extract"};
+item15[] = {"player_in_blueHe",4,218,-77.764870,-949.631470,12.235138,-899.631470,0.000000,"player" \n "in" \n "blueHeli"};
+item16[] = {"win",1,250,-74.353638,-835.354614,15.646393,-785.354614,0.000000,"win"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,4};
+link4[] = {3,6};
+link5[] = {4,7};
+link6[] = {6,8};
+link7[] = {6,9};
+link8[] = {7,5};
+link9[] = {8,10};
+link10[] = {9,11};
+link11[] = {10,12};
+link12[] = {11,13};
+link13[] = {12,11};
+link14[] = {13,14};
+link15[] = {14,15};
+link16[] = {15,16};
+globals[] = {0.000000,0,0,0,0,640,480,1,513,6316128,1,-379.819855,349.377228,-1081.333740,-1813.036865,873,876,1};
+window[] = {2,-1,-1,-1,-1,845,78,1609,78,3,891};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "missionFlow";
+        class States
+        {
+                /*%FSM<STATE "init">*/
+                class init
+                {
+                        name = "init";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"f_introDone = false;" \n
+                         "" \n
+                         "f_detectedByEnemy = false;" \n
+                         "f_vehicledDestroyed = false;" \n
+                         "" \n
+                         "" \n
+                         "{ if (!isPlayer _x) then { _x setSkill 1; _x setUnitPos ""MIDDLE""; doStop _x; } } forEach units grpPlayer;" \n
+                         "grpPlayer setBehaviour ""STEALTH"";" \n
+                         "grpPlayer setCombatMode ""BLUE"";" \n
+                         "" \n
+                         "" \n
+                         "{_x hideObject true; _x enableSimulation false;} forEach units grpReinf;" \n
+                         "ural hideObject true;" \n
+                         "ural enableSimulation false;" \n
+                         "heli hideObject true;" \n
+                         "heli enableSimulation false;" \n
+                         "blueHeli hideObject true;" \n
+                         "blueHeli enableSimulation false;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "detected">*/
+                                class detected
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="reaction_forces";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"f_detectedByEnemy"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "reaction_forces">*/
+                class reaction_forces
+                {
+                        name = "reaction_forces";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"private _timeout = time;" \n
+                         "execVM ""scripts_fsm\detected.sqf"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "___minutes_passe">*/
+                                class ___minutes_passe
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="fail_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout + 7*60;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "vehicles_destroy">*/
+                                class vehicles_destroy
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="completeDestroy";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{canMove _x} count [bmp_1, bmp_2, tank, car_1, car_2, car_3, car_4] == 0;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "fail_1">*/
+                class fail_1
+                {
+                        name = "fail_1";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"execVM ""scripts_fsm\fail_1.sqf"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "completeDestroy">*/
+                class completeDestroy
+                {
+                        name = "completeDestroy";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"[""task_destroy"", ""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "savegame;" \n
+                         "[""destroy-1""] call fnc_comms;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "reinf__500m">*/
+                                class reinf__500m
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="retreat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"leader grpReinf distance getMarkerPos ""marker_base"" < 500 "/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "reinf___500m">*/
+                                class reinf___500m
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="setup_ambush";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"leader grpReinf distance getMarkerPos ""marker_base"" >= 500 "/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "setup_ambush">*/
+                class setup_ambush
+                {
+                        name = "setup_ambush";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"execVM ""scripts_fsm\ambush.sqf"""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "reinf_destroyed">*/
+                                class reinf_destroyed
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="retreat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"[""task_ambush""] call BIS_fnc_taskCompleted;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "retreat">*/
+                class retreat
+                {
+                        name = "retreat";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"execVM ""scripts_fsm\retreat.sqf"""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "heli_down">*/
+                                class heli_down
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Extract";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive heli"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Extract">*/
+                class Extract
+                {
+                        name = "Extract";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/"execVM ""scripts_fsm\extract.sqf"""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "player_in_blueHe">*/
+                                class player_in_blueHe
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="win";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"player in blueHeli;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "win">*/
+                class win
+                {
+                        name = "win";
+                        itemno = 16;
+                        init = /*%FSM<STATEINIT""">*/"[""win"", true] call BIS_fnc_endMission;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="init";
+        finalStates[] =
+        {
+                "fail_1",
+                "win",
+        };
+};
+/*%FSM</COMPILE>*/

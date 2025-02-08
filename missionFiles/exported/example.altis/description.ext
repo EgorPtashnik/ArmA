@@ -1,0 +1,96 @@
+
+doneKeys[] = { "BF_aafK34" };
+OverviewPicture = "aaf34A.jpg";
+loadScreen  = "aaf34B.jpg";
+
+class Header
+{
+	gameType =  Coop;
+	minPlayers =  1;
+	maxPlayers = 8;	
+};
+
+author = "J.P. BlackFox";
+
+class CfgIdentities
+{
+    class ID_TD
+    {
+        name = "Samaras";
+        face="WhiteHead_10";
+	glasses="G_bandanna_beast";
+	speaker="Male01GRE";
+	nameSound = "Samaras";
+	pitch=1.05;
+    };
+    class ID_TC
+    {
+        name = "Lykaios";
+        face="WhiteHead_12";
+	glasses="G_bandanna_blk";
+	speaker="Male02GRE";
+	nameSound = "Lykaios";
+	pitch=0.97;
+    };
+	
+	class plyArmstrong
+	{
+		name		= "Armstrong";
+		nameSound	= "Armstrong"; 
+		face		= "Barklem";
+		glasses		= "";
+		speaker		= "Male05ENG";
+		pitch		= 0.89;
+	};
+	
+	class plyBennett
+	{
+		name		= "Bennett";
+		nameSound	= "Bennett"; 
+		face		= "Sturrock";
+		glasses		= "G_Combat";
+		speaker		= "Male03ENG";
+		pitch		= 0.97;
+	};
+	
+	class ID_1
+	{
+		name		= "Nikas";
+		nameSound	= "Nikas"; 
+		face		= "GreekHead_A3_02";
+		glasses		= "G_Aviator";
+		speaker		= "Male02GRE";
+		pitch		= 1;
+	};
+	
+	class ID_2
+	{
+		name		= "Gekas";
+		nameSound	= "Gekas"; 
+		face		= "GreekHead_A3_03";
+		glasses		= "G_Lowprofile";
+		speaker		= "Male01GRE";
+		pitch		= 1;
+	};
+	
+	class ID_3
+	{
+		name		= "Anthis";
+		nameSound	= "Anthis"; 
+		face		= "RussianHead_5";
+		glasses		= "";
+		speaker		= "Male05GRE";
+		pitch		= 1;
+	};
+	
+	class ID_4
+	{
+		name		= "Petros";
+		nameSound	= "Petros"; 
+		face		= "GreekHead_A3_01";
+		glasses		= "G_Spectacles";
+		speaker		= "Male01GRE";
+		pitch		= 1;
+	};
+	
+};

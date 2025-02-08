@@ -1,0 +1,692 @@
+/*%FSM<COMPILE "C:\bis\fsmeditor\scriptedFSM.cfg, LiveFeed">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-40.000000,0.000000,50.000000,50.000000,0.000000,"Start"};
+item1[] = {"End",1,250,-40.000000,1890.000000,50.000000,1940.000000,0.000000,"End"};
+item2[] = {"Timeout",4,218,-40.000000,210.000000,50.000000,260.000000,0.000000,"Timeout"};
+item3[] = {"_",8,218,-40.000000,70.000000,50.000000,120.000000,0.000000,""};
+item4[] = {"Zoom_in",2,250,-40.000000,280.000000,50.000000,330.000000,0.000000,"Zoom in"};
+item5[] = {"Timeout",4,218,-40.000000,350.000000,50.000000,400.000000,0.000000,"Timeout"};
+item6[] = {"Player_UAV_dead",4,218,70.000000,1680.000000,160.000000,1730.000000,5.000000,"Player/UAV" \n "dead"};
+item7[] = {"Start_Live_Feed",2,250,-40.000000,140.000000,50.000000,190.000000,0.000000,"Start" \n "Live Feed"};
+item8[] = {"",7,210,111.000000,440.999969,119.000000,449.000031,0.000000,""};
+item9[] = {"Thermal",2,250,-40.000000,420.000000,50.000000,470.000000,0.000000,"Thermal"};
+item10[] = {"",7,210,111.000000,580.999939,119.000000,589.000061,0.000000,""};
+item11[] = {"Timeout",4,218,-40.000000,1750.000000,50.000000,1800.000000,0.000000,"Timeout"};
+item12[] = {"",7,210,111.000000,300.999969,119.000000,309.000031,0.000000,""};
+item13[] = {"",7,210,111.000000,160.999969,119.000000,169.000031,0.000000,""};
+item14[] = {"",7,210,111.000000,1841.000000,119.000000,1849.000000,0.000000,""};
+item15[] = {"",7,210,1.000011,1841.000000,8.999989,1849.000000,0.000000,""};
+item16[] = {"Normal_mode_Zoom",2,250,-40.000000,1680.000000,50.000000,1730.000000,0.000000,"Normal mode" \n "Zoom out"};
+item17[] = {"Timeout",4,218,-40.000000,490.000000,50.000000,540.000000,0.000000,"Timeout"};
+item18[] = {"Target_Barricade",2,250,-40.000000,560.000000,50.000000,610.000000,0.000000,"Target" \n "Barricade"};
+item19[] = {"Timeout",4,218,-40.000000,630.000000,50.000000,680.000000,0.000000,"Timeout"};
+item20[] = {"Zoom_in_1",2,250,-40.000000,700.000000,50.000000,750.000000,0.000000,"Zoom in"};
+item21[] = {"Timeout",4,218,-40.000000,770.000000,50.000000,820.000000,0.000000,"Timeout"};
+item22[] = {"Target_cars",2,250,-40.000000,980.000000,50.000000,1030.000000,0.000000,"Target" \n "cars"};
+item23[] = {"Timeout",4,218,-40.000000,1050.000000,50.000000,1100.000000,0.000000,"Timeout"};
+item24[] = {"Target_northern",2,250,-40.000000,1120.000000,50.000000,1170.000000,0.000000,"Target" \n "northern" \n "group"};
+item25[] = {"Timeout",4,218,-40.000000,1190.000000,50.000000,1240.000000,0.000000,"Timeout"};
+item26[] = {"Target_patrol",2,250,-40.000000,1540.000000,50.000000,1590.000000,0.000000,"Target" \n "patrol"};
+item27[] = {"Timeout",4,218,-40.000000,1610.000000,50.000000,1660.000000,0.000000,"Timeout"};
+item28[] = {"",7,210,111.000000,721.000000,119.000000,729.000000,0.000000,""};
+item29[] = {"",7,210,111.000000,1000.999878,119.000000,1009.000122,0.000000,""};
+item30[] = {"",7,210,111.000008,1141.000000,119.000000,1149.000000,0.000000,""};
+item31[] = {"",7,210,111.000000,1561.000000,119.000000,1569.000000,0.000000,""};
+item32[] = {"Zoom_out",2,250,-40.000000,840.000000,50.000000,890.000000,0.000000,"Zoom out"};
+item33[] = {"Timeout",4,218,-40.000000,910.000000,50.000000,960.000000,0.000000,"Timeout"};
+item34[] = {"",7,210,111.000000,861.000000,119.000000,869.000000,0.000000,""};
+item35[] = {"Zoom_in_2",2,250,-40.000000,1260.000000,50.000000,1310.000000,0.000000,"Zoom in"};
+item36[] = {"Timeout",4,218,-40.000000,1330.000000,50.000000,1380.000000,0.000000,"Timeout"};
+item37[] = {"",7,210,111.000000,1281.000000,119.000000,1289.000000,0.000000,""};
+item38[] = {"Zoom_out_1",2,250,-40.000000,1400.000000,50.000000,1450.000000,0.000000,"Zoom out"};
+item39[] = {"Timeout",4,218,-40.000000,1470.000000,50.000000,1520.000000,0.000000,"Timeout"};
+item40[] = {"",7,210,111.000000,1421.000000,119.000000,1429.000000,0.000000,""};
+item41[] = {"",7,210,-109.000008,1211.000000,-101.000000,1219.000000,0.000000,""};
+item42[] = {"",7,210,-109.000000,1561.000000,-101.000000,1569.000000,0.000000,""};
+link0[] = {0,3};
+link1[] = {2,4};
+link2[] = {3,7};
+link3[] = {4,5};
+link4[] = {4,12};
+link5[] = {5,9};
+link6[] = {6,14};
+link7[] = {7,2};
+link8[] = {7,13};
+link9[] = {8,10};
+link10[] = {9,8};
+link11[] = {9,17};
+link12[] = {10,28};
+link13[] = {11,15};
+link14[] = {12,8};
+link15[] = {13,12};
+link16[] = {14,15};
+link17[] = {15,1};
+link18[] = {16,6};
+link19[] = {16,11};
+link20[] = {17,18};
+link21[] = {18,10};
+link22[] = {18,19};
+link23[] = {19,20};
+link24[] = {20,21};
+link25[] = {20,28};
+link26[] = {21,32};
+link27[] = {22,23};
+link28[] = {22,29};
+link29[] = {23,24};
+link30[] = {24,25};
+link31[] = {24,30};
+link32[] = {25,41};
+link33[] = {26,27};
+link34[] = {26,31};
+link35[] = {27,16};
+link36[] = {28,34};
+link37[] = {29,30};
+link38[] = {30,37};
+link39[] = {31,6};
+link40[] = {32,33};
+link41[] = {32,34};
+link42[] = {33,22};
+link43[] = {34,29};
+link44[] = {35,36};
+link45[] = {35,37};
+link46[] = {36,38};
+link47[] = {37,40};
+link48[] = {38,39};
+link49[] = {38,40};
+link50[] = {39,26};
+link51[] = {40,31};
+link52[] = {41,42};
+link53[] = {42,26};
+globals[] = {10.000000,1,0,0,0,640,480,1,92,6316128,1,-544.556641,592.014587,765.216248,-63.500084,1414,1031,1};
+window[] = {2,-1,-1,-32000,-32000,985,225,1665,225,3,1432};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "LiveFeed";
+  class States
+  {
+    /*%FSM<STATE "Start">*/
+    class Start
+    {
+      name = "Start";
+      itemno = 0;
+      init = /*%FSM<STATEINIT""">*/"// Starting live feed FSM" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          itemno = 3;
+          priority = 0.000000;
+          to="Start_Live_Feed";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "End">*/
+    class End
+    {
+      name = "End";
+      itemno = 1;
+      init = /*%FSM<STATEINIT""">*/"[] call BIS_fnc_liveFeedTerminate;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Zoom_in">*/
+    class Zoom_in
+    {
+      name = "Zoom_in";
+      itemno = 4;
+      init = /*%FSM<STATEINIT""">*/"// Definition of the Time" \n
+       "        _t = time;" \n
+       "" \n
+       "// Zoom in" \n
+       "	BIS_liveFeed camPrepareFOV 0.055;" \n
+       "	BIS_liveFeed camCommitPrepared 5;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Player_UAV_dead">*/
+        class Player_UAV_dead
+        {
+          itemno = 6;
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive BIS_Player) or" \n
+           "(damage BIS_UAV == 1)" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Timeout">*/
+        class Timeout
+        {
+          itemno = 5;
+          priority = 0.000000;
+          to="Thermal";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + 5" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Start_Live_Feed">*/
+    class Start_Live_Feed
+    {
+      name = "Start_Live_Feed";
+      itemno = 7;
+      init = /*%FSM<STATEINIT""">*/"// Definition of the Time" \n
+       "        _t = time;" \n
+       "" \n
+       "[] spawn {" \n
+       "// Starting Live feed" \n
+       "" \n
+       "/*" \n
+       "        _pos = [" \n
+       "		position BIS_UAV select 0," \n
+       "		position BIS_UAV select 1," \n
+       "		(position BIS_UAV select 2) -1" \n
+       "	        ];" \n
+       "*/                " \n
+       "" \n
+       "        _pos = [" \n
+       "		11023.3," \n
+       "		14756.8," \n
+       "		700" \n
+       "	        ];" \n
+       "	" \n
+       "	[_pos, (getMarkerPos ""BIS_mrkCamp""), BIS_Player,0] call BIS_fnc_liveFeed;" \n
+       "" \n
+       "	If (!(isNil ""BIS_liveFeed"")) Then {" \n
+       "		BIS_liveFeed camPrepareFOV 0.1;" \n
+       "		BIS_liveFeed camCommitPrepared 0;" \n
+       "		};" \n
+       "" \n
+       "        sleep 0.05;" \n
+       "        // BIS_UAV call  BIS_fnc_liveFeedSetSource;" \n
+       "" \n
+       "};" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Player_UAV_dead">*/
+        class Player_UAV_dead
+        {
+          itemno = 6;
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive BIS_Player) or" \n
+           "(damage BIS_UAV == 1)" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Timeout">*/
+        class Timeout
+        {
+          itemno = 2;
+          priority = 0.000000;
+          to="Zoom_in";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + 2.5" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Thermal">*/
+    class Thermal
+    {
+      name = "Thermal";
+      itemno = 9;
+      init = /*%FSM<STATEINIT""">*/"// Definition of the time" \n
+       "        _t = time;" \n
+       "" \n
+       "// Thermal view        " \n
+       "        2 call BIS_fnc_liveFeedEffects;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Player_UAV_dead">*/
+        class Player_UAV_dead
+        {
+          itemno = 6;
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive BIS_Player) or" \n
+           "(damage BIS_UAV == 1)" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Timeout">*/
+        class Timeout
+        {
+          itemno = 17;
+          priority = 0.000000;
+          to="Target_Barricade";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + 3" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Normal_mode_Zoom">*/
+    class Normal_mode_Zoom
+    {
+      name = "Normal_mode_Zoom";
+      itemno = 16;
+      init = /*%FSM<STATEINIT""">*/"// Definition of the Time" \n
+       "        _t = time;" \n
+       "" \n
+       "// Normal view        " \n
+       "        0 call BIS_fnc_liveFeedEffects;" \n
+       "" \n
+       "// Zoom out" \n
+       "	BIS_liveFeed camPrepareFOV 0.1;" \n
+       "	BIS_liveFeed camCommitPrepared 7.5;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Player_UAV_dead">*/
+        class Player_UAV_dead
+        {
+          itemno = 6;
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive BIS_Player) or" \n
+           "(damage BIS_UAV == 1)" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Timeout">*/
+        class Timeout
+        {
+          itemno = 11;
+          priority = 0.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + 7.5" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Target_Barricade">*/
+    class Target_Barricade
+    {
+      name = "Target_Barricade";
+      itemno = 18;
+      init = /*%FSM<STATEINIT""">*/"// Definition of the time" \n
+       "        _t = time;" \n
+       "" \n
+       "// New cam target: southern barricade        " \n
+       "        [(leader BIS_grpFIA06),3] call BIS_fnc_liveFeedSetTarget;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Player_UAV_dead">*/
+        class Player_UAV_dead
+        {
+          itemno = 6;
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive BIS_Player) or" \n
+           "(damage BIS_UAV == 1)" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Timeout">*/
+        class Timeout
+        {
+          itemno = 19;
+          priority = 0.000000;
+          to="Zoom_in_1";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + 3" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Zoom_in_1">*/
+    class Zoom_in_1
+    {
+      name = "Zoom_in_1";
+      itemno = 20;
+      init = /*%FSM<STATEINIT""">*/"// Definition of the Time" \n
+       "        _t = time;" \n
+       "" \n
+       "// Zoom in" \n
+       "	BIS_liveFeed camPrepareFOV 0.0175;" \n
+       "	BIS_liveFeed camCommitPrepared 3;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Player_UAV_dead">*/
+        class Player_UAV_dead
+        {
+          itemno = 6;
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive BIS_Player) or" \n
+           "(damage BIS_UAV == 1)" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Timeout">*/
+        class Timeout
+        {
+          itemno = 21;
+          priority = 0.000000;
+          to="Zoom_out";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + 8" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Target_cars">*/
+    class Target_cars
+    {
+      name = "Target_cars";
+      itemno = 22;
+      init = /*%FSM<STATEINIT""">*/"// Definition of the time" \n
+       "        _t = time;" \n
+       "" \n
+       "// New cam target: FIA cistern        " \n
+       "        [BIS_FIA_Cistern,4] call BIS_fnc_liveFeedSetTarget;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Player_UAV_dead">*/
+        class Player_UAV_dead
+        {
+          itemno = 6;
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive BIS_Player) or" \n
+           "(damage BIS_UAV == 1)" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Timeout">*/
+        class Timeout
+        {
+          itemno = 23;
+          priority = 0.000000;
+          to="Target_northern";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + 4" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Target_northern">*/
+    class Target_northern
+    {
+      name = "Target_northern";
+      itemno = 24;
+      init = /*%FSM<STATEINIT""">*/"// Definition of the time" \n
+       "        _t = time;" \n
+       "" \n
+       "// New cam target: Burning barrel        " \n
+       "        [(leader BIS_grpFIA02),5] call BIS_fnc_liveFeedSetTarget;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Player_UAV_dead">*/
+        class Player_UAV_dead
+        {
+          itemno = 6;
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive BIS_Player) or" \n
+           "(damage BIS_UAV == 1)" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Timeout">*/
+        class Timeout
+        {
+          itemno = 25;
+          priority = 0.000000;
+          to="Target_patrol";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + 10" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Target_patrol">*/
+    class Target_patrol
+    {
+      name = "Target_patrol";
+      itemno = 26;
+      init = /*%FSM<STATEINIT""">*/"// Definition of the time" \n
+       "        _t = time;" \n
+       "" \n
+       "// New cam target: patrol        " \n
+       "        [(leader BIS_grpFIA03),5] call BIS_fnc_liveFeedSetTarget;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Player_UAV_dead">*/
+        class Player_UAV_dead
+        {
+          itemno = 6;
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive BIS_Player) or" \n
+           "(damage BIS_UAV == 1)" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Timeout">*/
+        class Timeout
+        {
+          itemno = 27;
+          priority = 0.000000;
+          to="Normal_mode_Zoom";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + 10" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Zoom_out">*/
+    class Zoom_out
+    {
+      name = "Zoom_out";
+      itemno = 32;
+      init = /*%FSM<STATEINIT""">*/"// Definition of the Time" \n
+       "        _t = time;" \n
+       "" \n
+       "// Zoom in" \n
+       "	BIS_liveFeed camPrepareFOV 0.0225;" \n
+       "	BIS_liveFeed camCommitPrepared 3;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Player_UAV_dead">*/
+        class Player_UAV_dead
+        {
+          itemno = 6;
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive BIS_Player) or" \n
+           "(damage BIS_UAV == 1)" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Timeout">*/
+        class Timeout
+        {
+          itemno = 33;
+          priority = 0.000000;
+          to="Target_cars";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + 3" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Zoom_in_2">*/
+    class Zoom_in_2
+    {
+      name = "Zoom_in_2";
+      itemno = 35;
+      init = /*%FSM<STATEINIT""">*/"// Definition of the Time" \n
+       "        _t = time;" \n
+       "" \n
+       "// Zoom in" \n
+       "	BIS_liveFeed camPrepareFOV 0.00175;" \n
+       "	BIS_liveFeed camCommitPrepared 5;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Player_UAV_dead">*/
+        class Player_UAV_dead
+        {
+          itemno = 6;
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive BIS_Player) or" \n
+           "(damage BIS_UAV == 1)" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Timeout">*/
+        class Timeout
+        {
+          itemno = 36;
+          priority = 0.000000;
+          to="Zoom_out_1";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + 10" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Zoom_out_1">*/
+    class Zoom_out_1
+    {
+      name = "Zoom_out_1";
+      itemno = 38;
+      init = /*%FSM<STATEINIT""">*/"// Definition of the Time" \n
+       "        _t = time;" \n
+       "" \n
+       "// Zoom in" \n
+       "	BIS_liveFeed camPrepareFOV 0.0225;" \n
+       "	BIS_liveFeed camCommitPrepared 5;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Player_UAV_dead">*/
+        class Player_UAV_dead
+        {
+          itemno = 6;
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive BIS_Player) or" \n
+           "(damage BIS_UAV == 1)" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Timeout">*/
+        class Timeout
+        {
+          itemno = 39;
+          priority = 0.000000;
+          to="Target_patrol";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + 5" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Start";
+  finalStates[] =
+  {
+    "End",
+  };
+};
+/*%FSM</COMPILE>*/

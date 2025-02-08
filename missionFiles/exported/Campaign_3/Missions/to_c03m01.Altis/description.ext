@@ -1,0 +1,34 @@
+enableCampaignSystems = 1;
+
+dev = "Will";
+author = $STR_A3_Bohemia_Interactive;
+briefingName = $STR_A3_TO_C03m01_missionName;
+onLoadName = $STR_A3_TO_C03m01_onLoadName;
+onLoadMission = $STR_A3_TO_C03m01_onLoadMission;
+overviewText = "";
+overviewPicture = "A3\Missions_F_Tacops\data\img\campaign3_m1_ca.paa"; 	//TODO: Add your image
+briefing = 0;
+
+class CfgFunctions
+{
+	class A3_Missions_F_Tacops
+    {
+        tag = "BIS";
+		project = "arma3";
+
+		#include "\A3\Missions_F_Tacops\cfgFunctions.inc"
+
+        class Mission
+        {
+			file = "\a3\Missions_F_Tacops\Campaign_3\Missions\to_c03m01.Altis\functions";
+			class AA1_parachute				{};
+			class AA1_intro					{};
+			class AA1_alone					{};
+			class AA1_reconGuards			{};
+			class AA1_supplies 				{};
+			class AA1_savePersistence 		{};
+			class AA1_regroupPoint	 		{};
+			class AA1_spotterConversation	{};
+        };
+    };
+};

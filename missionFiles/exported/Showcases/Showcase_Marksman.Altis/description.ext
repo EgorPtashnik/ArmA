@@ -1,0 +1,51 @@
+dev = "Vasek";
+
+author = 		$STR_A3_Bohemia_Interactive;
+briefingName = 		$STR_A3_Showcase_Marksman_Mission_Name;
+onLoadName = 		$STR_A3_Showcase_Marksman_Mission_Name;
+onLoadMission = 	$STR_A3_Showcase_Marksman_Showcase_Summary_text;
+overviewText = 		$STR_A3_Showcase_Marksman_Showcase_Summary_text;
+overviewPicture = 	"\a3\Missions_F_Mark\data\img\Showcase_Marksman_overview_CA.paa";
+doneKeys[] = 		{"BIS_Showcase_Marksman.Altis_done"};
+
+briefing = "[1,0] select ([] call (uinamespace getvariable 'bis_fnc_isCampaign'))";
+debriefing = "[1,0] select ([] call (uinamespace getvariable 'bis_fnc_isCampaign'))";
+
+class CfgDebriefing
+{
+	class Win01
+	{
+                description = $STR_A3_Showcase_Marksman_Debriefing_Win01_text;
+                subtitle = "";
+		backgroundPicture = "";
+		picture = "";
+		pictureColor[] = {0.0,0.3,0.6,1};
+	};
+
+	class Win02 : Win01
+	{
+                description = $STR_A3_Showcase_Marksman_Debriefing_Win02_text;
+	};
+
+	class Fail01 : Win01
+	{
+                description = "";  
+                subtitle = $STR_A3_Showcase_Marksman_Debriefing_Fail01_text;
+	};
+
+	class Fail02 : Win01
+	{
+                description = "";  
+                subtitle = $STR_A3_Showcase_SlingLoading_Debriefing_Fail03_text; // Failed to follow orders ending
+	};  
+};
+
+class CfgCommunicationMenu
+{
+ class Attack
+ {
+  text = $STR_A3_group_vipergreen;
+  expression = "BIS_AttackStarted = true";
+  icon = "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";
+ };
+};

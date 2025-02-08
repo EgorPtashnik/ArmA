@@ -1,0 +1,153 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, pilotAnim">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-53.751495,-290.672394,46.248505,-240.672394,0.000000,"Start"};
+item1[] = {"Pilot_waves",2,250,-48.967804,-93.397568,41.032166,-43.397568,0.000000,"Pilot waves"};
+item2[] = {"Near_Pilot",4,218,-48.410645,-7.711670,41.589355,42.288300,0.000000,"Near Pilot"};
+item3[] = {"Approaching_Pilo",4,218,-53.459595,-187.381805,46.540405,-137.381805,2.000000,"Approaching Pilot"};
+item4[] = {"Pilot_crouches",1,4346,-47.443665,82.203415,42.556366,132.203384,0.000000,"Pilot crouches"};
+link0[] = {0,3};
+link1[] = {1,2};
+link2[] = {2,4};
+link3[] = {3,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,30,6316128,1,-425.901550,472.632629,478.742676,-459.929108,985,1029,1};
+window[] = {2,-1,-1,-32000,-32000,1147,1946,3592,26,3,1003};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "pilotAnim";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"BIS_pilot switchMove ""AidlPknlMstpSrasWrflDnon_G01_player"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Approaching_Pilo">*/
+                                class Approaching_Pilo
+                                {
+                                        itemno = 3;
+                                        priority = 2.000000;
+                                        to="Pilot_waves";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_pilotLong && {BIS_pilot getVariable [""approachAnimEnabled"", false]}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Pilot_waves">*/
+                class Pilot_waves
+                {
+                        name = "Pilot_waves";
+                        itemno = 1;
+                        init = /*%FSM<STATEINIT""">*/"//rotate medic towards injured" \n
+                         "_rotation = [BIS_pilot, player] call BIS_fnc_relativeDirTo;" \n
+                         "BIS_pilot setDir (getDir BIS_pilot)+_rotation;" \n
+                         "" \n
+                         "//stand up" \n
+                         "BIS_pilot switchMove ""Acts_SupportTeam_Front_FromKneelLoop"";" \n
+                         "" \n
+                         "BIS_pilot setVariable " \n
+                         "[" \n
+                         "	""BIS_PilotHandlerAnimDone""," \n
+                         "	BIS_pilot addEventHandler " \n
+                         "	[" \n
+                         "		""AnimDone"", " \n
+                         "		{" \n
+                         "			private _anim 	= _this select 1;" \n
+                         "			" \n
+                         "			switch (toLower _anim) do " \n
+                         "			{" \n
+                         "				//Start waving" \n
+                         "				case ""acts_supportteam_front_fromkneelloop"": " \n
+                         "				{" \n
+                         "					BIS_Pilot switchMove ""Acts_PercMstpSlowWrflDnon_handup2""" \n
+                         "				};" \n
+                         "				//Loop waving" \n
+                         "				case ""acts_percmstpslowwrfldnon_handup2"": " \n
+                         "				{" \n
+                         "					BIS_Pilot switchMove ""Acts_PercMstpSlowWrflDnon_handup2""" \n
+                         "				};" \n
+                         "			};" \n
+                         "		}" \n
+                         "	]" \n
+                         "];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Near_Pilot">*/
+                                class Near_Pilot
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="Pilot_crouches";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_pilotMedium && {BIS_pilot getVariable [""approachAnimEnabled"", false]}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Pilot_crouches">*/
+                class Pilot_crouches
+                {
+                        name = "Pilot_crouches";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"BIS_pilot removeEventHandler [""AnimDone"", BIS_pilot getVariable ""BIS_PilotHandlerAnimDone""];" \n
+                         "" \n
+                         "BIS_pilot setVariable " \n
+                         "[" \n
+                         "	""BIS_PilotHandlerAnimDone""," \n
+                         "	BIS_pilot addEventHandler " \n
+                         "	[" \n
+                         "		""AnimDone"", " \n
+                         "		{" \n
+                         "			private _anim 	= _this select 1;" \n
+                         "			" \n
+                         "			switch (toLower _anim) do " \n
+                         "			{" \n
+                         "				//If he's waving, make him stop waving and crouch" \n
+                         "				case ""acts_percmstpslowwrfldnon_handup2"": " \n
+                         "				{" \n
+                         "					BIS_Pilot switchMove ""AmovPercMstpSrasWrflDnon_AmovPknlMstpSrasWrflDnon"";" \n
+                         "					BIS_pilot removeEventHandler [""AnimDone"", BIS_pilot getVariable ""BIS_PilotHandlerAnimDone""];" \n
+                         "				};" \n
+                         "				//if he's standing, make him crouch" \n
+                         "				case ""acts_supportteam_front_fromkneelloop"": " \n
+                         "				{" \n
+                         "					BIS_Pilot switchMove ""AmovPercMstpSrasWrflDnon_AmovPknlMstpSrasWrflDnon"";" \n
+                         "					BIS_pilot removeEventHandler [""AnimDone"", BIS_pilot getVariable ""BIS_PilotHandlerAnimDone""];" \n
+                         "				};" \n
+                         "				default " \n
+                         "				{ " \n
+                         "				//crouch if anything else is playing" \n
+                         "					BIS_Pilot switchMove ""AmovPercMstpSrasWrflDnon_AmovPknlMstpSrasWrflDnon"";" \n
+                         "					BIS_pilot removeEventHandler [""AnimDone"", BIS_pilot getVariable ""BIS_PilotHandlerAnimDone""];" \n
+                         "				};" \n
+                         "			};" \n
+                         "		}" \n
+                         "	]" \n
+                         "];" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "Pilot_crouches",
+        };
+};
+/*%FSM</COMPILE>*/

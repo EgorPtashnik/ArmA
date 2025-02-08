@@ -1,0 +1,145 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, tankStopper">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"_",8,218,-150.000000,-300.000000,-50.000000,-250.000000,0.000000,""};
+item1[] = {"first_check",2,250,-150.000000,-200.000000,-50.000000,-150.000000,0.000000,"first check"};
+item2[] = {"GO",4,218,-150.000000,-100.000000,-50.000000,-50.000000,0.000000,"GO"};
+item3[] = {"second_check",2,250,-150.000000,-25.000000,-50.000000,25.000000,0.000000,"second check"};
+item4[] = {"STOP",4,218,-150.000000,50.000000,-50.000000,100.000000,0.000000,"STOP"};
+item5[] = {"",7,210,-229.000015,71.000000,-221.000000,79.000000,0.000000,""};
+item6[] = {"",7,210,-229.000000,-179.000000,-221.000015,-171.000000,0.000000,""};
+item7[] = {"stop_move",0,250,-150.000000,-375.000000,-50.000000,-325.000000,0.000000,"stop" \n "move"};
+item8[] = {"not_check__any_m",4,218,-25.000000,-25.000000,75.000000,25.000000,0.000000,"not check " \n "any more"};
+item9[] = {"END_THIS",1,250,-25.000000,50.000000,75.000000,100.000000,0.000000,"END THIS"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {3,8};
+link5[] = {4,5};
+link6[] = {5,6};
+link7[] = {6,1};
+link8[] = {7,0};
+link9[] = {8,9};
+globals[] = {0.000000,0,0,0,0,640,480,1,134,6316128,1,-430.319244,174.290710,277.796265,-428.872406,859,1004,1};
+window[] = {2,-1,-1,-1,-1,1031,182,1622,182,3,877};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "tankStopper";
+        class States
+        {
+                /*%FSM<STATE "first_check">*/
+                class first_check
+                {
+                        name = "first_check";
+                        itemno = 1;
+                        init = /*%FSM<STATEINIT""">*/"_tankToStop forceSpeed 0;" \n
+                         "" \n
+                         "terminate (_tankToStop getVariable ""obstacleChecker"");" \n
+                         "" \n
+                         "_tankToStop setVariable [""obstacleChecker"", [45,_tankToStop] execVM ""checkObstacles.sqf""];" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "GO">*/
+                                class GO
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="second_check";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_tankToStop GetVariable [""stopThis"",false]) and !(_tankToStop GetVariable [""stopThisVillage"",false])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "second_check">*/
+                class second_check
+                {
+                        name = "second_check";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/"_tankToStop forceSpeed _tankSpeed;" \n
+                         "" \n
+                         "terminate (_tankToStop getVariable ""obstacleChecker"");" \n
+                         "" \n
+                         "_tankToStop setVariable [""obstacleChecker"", [60,_tankToStop] execVM ""checkObstacles.sqf""];" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_check__any_m">*/
+                                class not_check__any_m
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="END_THIS";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_DourdanAttack"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "STOP">*/
+                                class STOP
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="first_check";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_tankToStop GetVariable [""stopThis"",false] or (_tankToStop GetVariable [""stopThisVillage"",false])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "stop_move">*/
+                class stop_move
+                {
+                        name = "stop_move";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"_tankToStop = _this select 0;" \n
+                         "_tankSpeed = _this select 1;" \n
+                         "//true to stop false to go" \n
+                         "_tankToStop setVariable [""stopThisVillage"",false];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 0;
+                                        priority = 0.000000;
+                                        to="first_check";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END_THIS">*/
+                class END_THIS
+                {
+                        name = "END_THIS";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="stop_move";
+        finalStates[] =
+        {
+                "END_THIS",
+        };
+};
+/*%FSM</COMPILE>*/
