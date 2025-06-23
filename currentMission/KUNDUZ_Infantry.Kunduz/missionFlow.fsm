@@ -1,0 +1,436 @@
+/*%FSM<COMPILE "C:\Myself\steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, missionFlow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"start",0,250,-71.223778,-1841.368042,18.776222,-1796.368042,0.000000,"start"};
+item1[] = {"mission_started",4,218,-72.872467,-1757.616699,17.127533,-1707.616699,0.000000,"mission started"};
+item2[] = {"win_1",1,250,-81.206787,-1180.657715,8.793243,-1130.657715,0.000000,"win 1"};
+item3[] = {"intro",2,250,-78.554092,-1673.852295,11.445923,-1623.852295,0.000000,"intro"};
+item4[] = {"",7,210,-38.654797,-1557.830566,-30.654804,-1549.830566,0.000000,""};
+item5[] = {"__st_car_KIA",4,218,-437.732056,-1469.453369,-347.732025,-1419.453369,0.000000,"1st car KIA"};
+item6[] = {"__nd_car_KIA",4,218,-311.669952,-1470.766357,-221.669937,-1420.766357,0.000000,"2nd car KIA"};
+item7[] = {"__rd_car_KIA",4,218,-192.434418,-1471.209839,-102.434402,-1421.209839,0.000000,"3rd car KIA"};
+item8[] = {"all_cars_destroy",4,218,-80.033554,-1469.512085,9.966461,-1419.512085,0.000000,"all cars" \n "destroyed"};
+item9[] = {"",7,210,-38.424526,-1594.670288,-30.424534,-1586.670288,0.000000,""};
+item10[] = {"report",2,250,-439.062897,-1376.179688,-349.062897,-1326.179688,0.000000,"report"};
+item11[] = {"report_1",2,250,-313.677002,-1372.303589,-223.677002,-1322.303589,0.000000,"report"};
+item12[] = {"report_2",2,4346,-193.878708,-1374.723389,-103.878708,-1324.723389,0.000000,"report"};
+item13[] = {"_",2,250,-81.272858,-1376.683716,8.727158,-1326.683716,0.000000,""};
+item14[] = {"",7,210,-391.698639,-1562.546265,-383.698669,-1554.546265,0.000000,""};
+item15[] = {"",7,210,-262.998840,-1559.985107,-254.998840,-1551.985107,0.000000,""};
+item16[] = {"",7,210,-145.824371,-1558.704590,-137.824371,-1550.704590,0.000000,""};
+item17[] = {"",7,210,-509.326019,-1599.341309,-501.326050,-1591.341309,0.000000,""};
+item18[] = {"",7,210,-516.366943,-1256.684082,-508.366943,-1248.684082,0.000000,""};
+item19[] = {"",7,210,-399.114136,-1254.305298,-391.114136,-1246.305298,0.000000,""};
+item20[] = {"",7,210,-275.652771,-1252.836182,-267.652740,-1244.836182,0.000000,""};
+item21[] = {"",7,210,-152.810028,-1252.467773,-144.810013,-1244.467773,0.000000,""};
+item22[] = {"intro_done",4,218,80.561028,-1677.633057,170.561035,-1627.633057,0.000000,"intro done"};
+item23[] = {"setup",2,250,82.318665,-1610.049805,172.318680,-1560.049683,0.000000,"setup"};
+item24[] = {"_",4,218,-80.975258,-1294.501221,9.024750,-1244.501221,0.000000,""};
+link0[] = {0,1};
+link1[] = {1,3};
+link2[] = {3,22};
+link3[] = {4,8};
+link4[] = {4,16};
+link5[] = {5,10};
+link6[] = {6,11};
+link7[] = {7,12};
+link8[] = {8,13};
+link9[] = {9,4};
+link10[] = {10,19};
+link11[] = {11,20};
+link12[] = {12,21};
+link13[] = {13,24};
+link14[] = {14,5};
+link15[] = {15,6};
+link16[] = {15,14};
+link17[] = {16,7};
+link18[] = {16,15};
+link19[] = {17,9};
+link20[] = {18,17};
+link21[] = {19,18};
+link22[] = {20,19};
+link23[] = {21,20};
+link24[] = {22,23};
+link25[] = {23,9};
+link26[] = {24,2};
+globals[] = {0.000000,0,0,0,0,640,480,1,525,6316128,1,-492.250854,145.263702,-1144.749634,-1784.454956,873,876,1};
+window[] = {2,-1,-1,-1,-1,793,26,1557,26,3,891};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "missionFlow";
+        class States
+        {
+                /*%FSM<STATE "start">*/
+                class start
+                {
+                        name = "start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"private _cars = [car_1, car_2, car_3];" \n
+                         "private _car_1_destroyed = false;" \n
+                         "private _car_2_destroyed = false;" \n
+                         "private _car_3_destroyed = false;" \n
+                         "" \n
+                         "// setup random positions for cars " \n
+                         "// setup patrols" \n
+                         "{" \n
+                         "	private _newPos = [carPositionArea] call BIS_fnc_randomPosTrigger;" \n
+                         "	private _groupPatrolPos = [_newPos, 20, 50] call BIS_fnc_findSafePos;" \n
+                         "	_x setPosATL _newPos;" \n
+                         "	" \n
+                         "" \n
+                         "	private _groupPatrol = [" \n
+                         "		_groupPatrolPos, east," \n
+                         "		[""UK3CB_TKA_O_GL"", ""UK3CB_TKA_O_RIF_1"", ""UK3CB_TKA_O_LAT""]" \n
+                         "	] call BIS_fnc_spawnGroup;" \n
+                         "	[_groupPatrol, _newPos, 100] call BIS_fnc_taskPatrol;" \n
+                         "} forEach _cars;" \n
+                         "" \n
+                         "private _introDone = false;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "mission_started">*/
+                                class mission_started
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="intro";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "win_1">*/
+                class win_1
+                {
+                        name = "win_1";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "intro">*/
+                class intro
+                {
+                        name = "intro";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "intro_done">*/
+                                class intro_done
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="setup";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_introDone"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "report">*/
+                class report
+                {
+                        name = "report";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"_car_1_destroyed = true;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__rd_car_KIA">*/
+                                class __rd_car_KIA
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="report_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_car_3_destroyed) &&" \n
+                                         "{ !alive _x; } count cars == 3" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__nd_car_KIA">*/
+                                class __nd_car_KIA
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="report_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_car_2_destroyed) &&" \n
+                                         "{ !alive _x; } count cars == 2" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__st_car_KIA">*/
+                                class __st_car_KIA
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="report";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_car_1_destroyed) &&" \n
+                                         "{ !alive _x; } count cars == 1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "all_cars_destroy">*/
+                                class all_cars_destroy
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{ !alive _x; } count cars == 3 &&" \n
+                                         "_car_1_destroyed &&" \n
+                                         "_car_2_destroyed &&" \n
+                                         "_car_3_destroyed" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "report_1">*/
+                class report_1
+                {
+                        name = "report_1";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"_car_2_destroyed = true;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__rd_car_KIA">*/
+                                class __rd_car_KIA
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="report_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_car_3_destroyed) &&" \n
+                                         "{ !alive _x; } count cars == 3" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__nd_car_KIA">*/
+                                class __nd_car_KIA
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="report_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_car_2_destroyed) &&" \n
+                                         "{ !alive _x; } count cars == 2" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__st_car_KIA">*/
+                                class __st_car_KIA
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="report";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_car_1_destroyed) &&" \n
+                                         "{ !alive _x; } count cars == 1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "all_cars_destroy">*/
+                                class all_cars_destroy
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{ !alive _x; } count cars == 3 &&" \n
+                                         "_car_1_destroyed &&" \n
+                                         "_car_2_destroyed &&" \n
+                                         "_car_3_destroyed" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "report_2">*/
+                class report_2
+                {
+                        name = "report_2";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/"_car_3_destroyed = true;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__rd_car_KIA">*/
+                                class __rd_car_KIA
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="report_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_car_3_destroyed) &&" \n
+                                         "{ !alive _x; } count cars == 3" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__nd_car_KIA">*/
+                                class __nd_car_KIA
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="report_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_car_2_destroyed) &&" \n
+                                         "{ !alive _x; } count cars == 2" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__st_car_KIA">*/
+                                class __st_car_KIA
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="report";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_car_1_destroyed) &&" \n
+                                         "{ !alive _x; } count cars == 1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "all_cars_destroy">*/
+                                class all_cars_destroy
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{ !alive _x; } count cars == 3 &&" \n
+                                         "_car_1_destroyed &&" \n
+                                         "_car_2_destroyed &&" \n
+                                         "_car_3_destroyed" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 24;
+                                        priority = 0.000000;
+                                        to="win_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "setup">*/
+                class setup
+                {
+                        name = "setup";
+                        itemno = 23;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__rd_car_KIA">*/
+                                class __rd_car_KIA
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="report_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_car_3_destroyed) &&" \n
+                                         "{ !alive _x; } count cars == 3" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__nd_car_KIA">*/
+                                class __nd_car_KIA
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="report_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_car_2_destroyed) &&" \n
+                                         "{ !alive _x; } count cars == 2" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__st_car_KIA">*/
+                                class __st_car_KIA
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="report";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_car_1_destroyed) &&" \n
+                                         "{ !alive _x; } count cars == 1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "all_cars_destroy">*/
+                                class all_cars_destroy
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{ !alive _x; } count cars == 3 &&" \n
+                                         "_car_1_destroyed &&" \n
+                                         "_car_2_destroyed &&" \n
+                                         "_car_3_destroyed" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="start";
+        finalStates[] =
+        {
+                "win_1",
+        };
+};
+/*%FSM</COMPILE>*/
