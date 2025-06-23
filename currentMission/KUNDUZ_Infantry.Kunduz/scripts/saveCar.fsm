@@ -1,0 +1,257 @@
+/*%FSM<COMPILE "C:\Users\yahor.ptashnik\Work\LP3\ArmA\HELPERS\FSMEditor\scriptedFSM.cfg, saveCar">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"start",0,250,-86.415405,-1817.380737,3.584602,-1772.380737,0.000000,"start"};
+item1[] = {"end",1,250,116.172928,-1288.880371,206.172958,-1238.880371,0.000000,"end"};
+item2[] = {"_",8,218,-85.456665,-1735.769043,4.543335,-1685.769043,0.000000,""};
+item3[] = {"wait_until_comba",2,250,-79.497498,-1636.482056,10.502518,-1586.481934,0.000000,"wait until" \n "combat"};
+item4[] = {"_",8,218,-85.602509,-1531.428955,4.397491,-1481.428955,0.000000,""};
+item5[] = {"set_timer",2,250,-238.567551,-1536.264771,-148.567535,-1486.264648,0.000000,"set timer"};
+item6[] = {"___seconds",4,218,-239.172180,-1639.652222,-149.172180,-1589.652222,0.000000,"5 seconds"};
+item7[] = {"combat",4,218,241.890564,-1635.011719,331.890594,-1585.011719,0.000000,"combat"};
+item8[] = {"_",2,250,241.589279,-1558.963013,331.589294,-1508.962891,0.000000,""};
+item9[] = {"__0_wp",4,218,239.820831,-1473.485107,329.820831,-1423.485107,0.000000,">0 wp"};
+item10[] = {"delete_wp",2,250,370.690552,-1474.664063,460.690552,-1424.664063,0.000000,"delete wp"};
+item11[] = {"_",8,218,369.511536,-1553.067993,459.511536,-1503.067993,0.000000,""};
+item12[] = {"___wp",4,218,116.614517,-1558.963013,206.614517,-1508.963013,0.000000,"0 wp"};
+item13[] = {"save_car_task",2,4346,114.846039,-1469.359009,204.846054,-1419.358887,0.000000,"save car" \n "task"};
+item14[] = {"KIA",4,218,114.845482,-1388.005615,204.845490,-1338.005615,0.000000,"KIA"};
+item15[] = {"",7,210,80.389053,-1616.953735,88.389053,-1608.953735,0.000000,""};
+item16[] = {"",7,210,78.031036,-1367.004272,86.031036,-1359.004272,0.000000,""};
+link0[] = {0,2};
+link1[] = {2,3};
+link2[] = {3,4};
+link3[] = {3,15};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,3};
+link7[] = {7,8};
+link8[] = {8,9};
+link9[] = {8,12};
+link10[] = {9,10};
+link11[] = {10,11};
+link12[] = {11,8};
+link13[] = {12,13};
+link14[] = {13,14};
+link15[] = {14,1};
+link16[] = {15,7};
+link17[] = {15,16};
+link18[] = {16,14};
+globals[] = {0.000000,0,0,0,0,640,480,1,541,6316128,1,-138.518768,516.382935,-1233.467773,-1762.654785,995,804,1};
+window[] = {2,-1,-1,-1,-1,805,38,1569,38,3,1022};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "saveCar";
+        class States
+        {
+                /*%FSM<STATE "start">*/
+                class start
+                {
+                        name = "start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_driver = _this select 0;" \n
+                         "_car = _this select 1;" \n
+                         "_group = group _driver;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="wait_until_comba";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "end">*/
+                class end
+                {
+                        name = "end";
+                        itemno = 1;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait_until_comba">*/
+                class wait_until_comba
+                {
+                        name = "wait_until_comba";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "combat">*/
+                                class combat
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"behaviour _driver == ""Combat"" ||" \n
+                                         "damage _driver > 0.1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "KIA">*/
+                                class KIA
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="end";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _x"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="set_timer";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "set_timer">*/
+                class set_timer
+                {
+                        name = "set_timer";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "___seconds">*/
+                                class ___seconds
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="wait_until_comba";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 5"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "___wp">*/
+                                class ___wp
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="save_car_task";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(count (waypoints _group)) == 0" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__0_wp">*/
+                                class __0_wp
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="delete_wp";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(count (waypoints _group)) > 0" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "delete_wp">*/
+                class delete_wp
+                {
+                        name = "delete_wp";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"deleteWaypoint ((waypoints _group) select 0);" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 11;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "save_car_task">*/
+                class save_car_task
+                {
+                        name = "save_car_task";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"if (alive _car) then {" \n
+                         "	_driver assignAsDriver _car;" \n
+                         "    [_driver] orderGetIn true;" \n
+                         "    _wp = _group addWaypoint [getMarkerPos ""carEvac"", 0];" \n
+                         "    _wp setWaypointType ""MOVE"";" \n
+                         "    _wp setWaypointSpeed ""FULL"";" \n
+                         "    _wp setWaypointCombatMode ""BLUE"";" \n
+                         "} else {" \n
+                         "	// car is destroyed, make SAD wp" \n
+                         "	_wp = _group addWaypoint [(getPosATL _driver), 0];" \n
+                         "   _wp setWaypointType ""SAD"";" \n
+                         "	_group setBehaviour ""Combat"";  " \n
+                         "}"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "KIA">*/
+                                class KIA
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="end";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _x"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="start";
+        finalStates[] =
+        {
+                "end",
+        };
+};
+/*%FSM</COMPILE>*/
