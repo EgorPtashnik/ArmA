@@ -58,6 +58,7 @@ p_1 linkItem "ItemWatch";
 p_1 linkItem "ItemRadio";
 [p_1,"GreekHead_A3_06","male12eng"] call BIS_fnc_setIdentity;
 
+// Others
 {
 	removeAllWeapons _x;
 	removeAllItems _x;
