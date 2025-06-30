@@ -25,7 +25,20 @@
 1. [BIS_fnc_randomPos](#bis_fnc_randompos)
 1. [BIS_fnc_findSafePos](#bis_fnc_findsafepos)
 1. [BIS_fnc_randomPosTrigger](#bis_fnc_randompostrigger)
-
+1. [BIS_fnc_showSubtitle](#bis_fnc_showsubtitle)
+1. [BIS_fnc_spawnCrew](#bis_fnc_spawncrew)
+1. [BIS_fnc_spawnEnemy](#bis_fnc_spawnenemy)
+1. [BIS_fnc_spawnGroup](#bis_fnc_spawngroup)
+1. [BIS_fnc_spawnObjects](#bis_fnc_spawnobjects)
+1. [BIS_fnc_spawnVehicle](#bis_fnc_spawnvehicle)
+1. [BIS_fnc_spotter](#bis_fnc_spotter)
+1. [BIS_fnc_stalk](#bis_fnc_stalk)
+1. [BIS_fnc_taskDefend](#bis_fnc_taskdefend)
+1. [BIS_fnc_taskPatrol](#bis_fnc_taskpatrol)
+1. [BIS_fnc_taskAttack](#bis_fnc_taskattack)
+1. [BIS_fnc_textTiles](#bis_fnc_texttiles)
+1. [BIS_fnc_typeText](#bis_fnc_typetext)
+1. [BIS_fnc_typeText2](#bis_fnc_typetext2)
 
 Some script commands
 ```
@@ -1033,3 +1046,310 @@ param call BIS_fnc_randomPosTrigger
 
 #### Example
 `marker1 call BIS_fnc_randomPosTrigger;`
+
+# BIS_fnc_showSubtitle
+Displays a subtitle at the bottom of the screen.
+```
+[name, subtitle] spawn BIS_fnc_showSubtitle
+```
+- name: String - name of the speaker
+- subtitle: String - subtitle to display
+- RETURNS: Script Handle - script controlling the displayed subtitle
+#### Example
+`["CROSSROAD", "Mission is a go, I repeat, mission is a go, Crossroad, out."] spawn BIS_fnc_showSubtitle;`
+
+# BIS_fnc_spawnCrew
+Function to fill all crew positions in a vehicle, including turrets. In dummy mode no objects are created and the returned array contains only ones; this mode can be used to count the actual crew of an existing vehicle or vehicle type (see also crew, fullCrew).
+```
+[vehicle, group, dummyMode, dummyType, crewType] call BIS_fnc_spawnCrew
+```
+- vehicle: Object - vehicle
+- group: Group - crew's group
+- dummyMode: Boolean - (Optional, default false) true to enable dummy mode
+- dummyType: String - (Optional, default "") dummy type
+- crewType: String - (Optional, default "") crew type
+- RETURNS: Array or Number - created crew objects or crew count
+
+#### Example
+`[BIS_vehicle, group player] call BIS_fnc_spawnCrew;`
+
+# BIS_fnc_spawnEnemy
+Constantly spawns enemies around a player according to array of enemy classes. The units will try to hunt down the player.
+```
+[aPlayer, target, side, classes, maxEnemies, delay, code] spawn BIS_fnc_spawnEnemy
+```
+- aPlayer: Object - a unit that is a player
+- target: Object - reference object (enemies will be spawned on same direction in respect to the player)
+- side: Side - side of the spawned enemies
+- classes: Array of Strings - list of enemy classes (units will form a group together) ⚠ Classes must be of the defined side, otherwise they will attack each other.
+- maxEnemies: Number - (Optional, default 10) maximum number of enemies at once
+- delay: Number - (Optional, default 30) time between spawn waves
+- code: Code - (Optional, default {}) - code to execute on each unit (referenced by _this)
+- RETURNS: Nothing
+`[player, player, opfor, ["O_Soldier_F"]] spawn BIS_fnc_spawnEnemy;`
+
+# BIS_fnc_spawnGroup
+Function which handles the spawning of a dynamic group of characters. The composition of the group can be passed to the function. Alternatively a number can be passed and the function will spawn that amount of characters with a random type.
+```
+[position, side, toSpawn, relPositions, ranks, skillRange, ammoRange, randomControls, azimuth, precisePos, maxVehicles] call BIS_fnc_spawnGroup
+```
+- position: Array format Position - group's starting position
+- side: Side - group's side
+- toSpawn - can be one of:
+	- Array - list of character types
+	- Number - amount of characters to spawn
+	- Config - CfgGroups entry
+- relPositions: Array of Positions (Optional, default []) a list of relative positions
+- ranks: Array of Strings/Numbers - (Optional, default []) ranks (see BIS_fnc_setRank) - must be same size as toSpawn's array
+- skillRange: Array of Numbers - (Optional, default []) skill range format [min, max]
+- ammoRange: Array of Numbers - (Optional, default []) ammunition range (0..1) format [min, max]
+- randomControls: Array of Numbers - (Optional, default [-1, 1]) to format [minUnits, chance]:
+	- minUnits: Number - (Optional, default -1) amount of mandatory units
+	- chance: Number - (Optional, default -1) spawn chance for remaining units in range 0..1
+- azimuth: Number - (Optional, default 0) azimuth/direction
+- precisePos: Boolean - (Optional, default true) forces precise position placement
+- maxVehicles: Number - (Optional, default 10e10) vehicle number limit
+- RETURNS: Group
+
+#### Example
+```
+//Spawn five random EAST units at aPosition:
+[getPosATL aPosition, east, 5] call BIS_fnc_spawnGroup;
+
+//Spawn a Stryker MGS Platoon at marker "tankSpawn":
+[getMarkerPos "tankSpawn", side player, (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Armored" >> "US_MGSPlatoon")] call BIS_fnc_spawnGroup;
+
+//Spawn a TK Militia Medic and Soldier at aPos facing south:
+[getPos aPos, east, ["TK_INS_Bonesetter_EP1", "TK_INS_Soldier_2_EP1"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
+```
+
+# BIS_fnc_spawnObjects
+Create a stack of objects at given position or on top of given object (eg. table).
+```
+[position, className, count, offsetMatrix, offsetDir, dirNoise, enableSimulation] call BIS_fnc_spawnObjects
+```
+- position: Array format PositionASL, or Array as [referenceObject, placement]
+	- referenceObject: Object
+	- placement: String - can be:
+		- "BOTTOM" = at the bottom of the object
+		- "TOP" = top of the objects boundingbox
+		- "GROUND" = sitting just on the ground
+		- "ROADWAY" = sitting just on the ground
+- className: String - class of the object(s) to spawn; all will use the same class
+- count: Number - (Optional, default: 1) how many objects will be spawned
+- offsetMatrix: Array - (Optional, default: [0,0,0]) starting spawning position offset
+- offsetDir: Number - (Optional, default: 0) starting spawning direction offset
+- dirNoise: Code - (Optional, default: {0}) spawned object direction delta from the starting direction, defined as code returning dir delta value
+- enableSimulation: Boolean - (Optional, default: false) shall the simulation of the spawned objects be enabled or not
+- RETURNS: Array of created Objects
+
+#### Example
+```
+private _randomPos = [(random 0.2) -0.1, (random 0.2) -0.1, 0];
+_objects = [[_table, "TOP"], "Box_NATO_Wps_F", 3, _randomPos,(random 20)-10] call BIS_fnc_spawnObjects;
+```
+
+# BIS_fnc_spawnVehicle
+Function to spawn a certain vehicle type with all crew (including turrets). The vehicle can either become part of an existing group or create a new group.
+```
+[position, direction, type, sideOrGroup] call BIS_fnc_spawnVehicle
+```
+- position: Array format Position - desired position
+- direction: Number - desired azimuth/direction
+- type: String - type of the vehicle
+- sideOrGroup: Side or Group - side or existing group
+- RETURNS: Array format [createdVehicle, crew, group]:
+	- createdVehicle: Object - the created vehicle
+	- crew: Array of Objects - the vehicle's crew members
+	- group: Group - created or passed group
+
+#### Examples
+```
+[getPos player, 180, "BMP3", east] call BIS_fnc_spawnVehicle;
+
+private _result = [getPos player, 180, "BMP3", east] call BIS_fnc_spawnVehicle;
+
+private _vehicle = _result select 0;
+_result params ["_vehicle", "_crew", "_group"];
+```
+
+# BIS_fnc_spotter
+Make spotter report target distance to sniper. Will only stop if one of the two units dies.
+```
+[sniper, spotter] spawn BIS_fnc_spotter
+```
+- sniper: Object - sniper unit
+- spotter: Object - spotter unit
+- RETURNS: Nothing
+#### Example
+`[player, spotter] spawn BIS_fnc_spotter;`
+
+# BIS_fnc_stalk
+Continuously set WP of one group to a different group to hunt it. It does not change the group's behaviour.
+Script terminates if one of the groups is eliminated or if the optional condition is activated.
+```
+[stalker, stalked, refresh, radius, endCondition, endDestination] spawn BIS_fnc_stalk
+```
+- stalker: Group - the group that will move towards the other
+- stalked: Group - the group that will be followed
+- refresh: Number - (Optional, default 10, minimum 5) time between waypoint updates
+- radius: Number - (Optional, default 0, minimum 0) waypoint "precision"
+- endCondition: Code - (Optional, default {false}) condition that if true stops stalker to follow stalked
+- endDestination: String or Position or Object or Number - (Optional, default 0) destination stalker will go after endCondition is met (or stalked is killed)
+	- String - destination marker name
+	- Position - destination
+	- Object - destination
+	- Number
+		- 0: return to original group waypoints
+		- 1: search around their current stalking position, in a 50m radius
+		- 2: return to the original position before stalking
+- RETURNS: Boolean - true when done
+#### Example
+```
+private _stalking = [BIS_grpStalkers, BIS_grpPlayer] spawn BIS_fnc_stalk;
+
+private _stalking = [grp1, group player, nil, nil, { player distance BIS_Heli < 100 }, "BIS_mrkRetreatMarker"] spawn BIS_fnc_stalk;
+
+private _stalking = [BIS_grpStalkers, BIS_grpPlayer, 20, 10, { BIS_Return }, 1] spawn BIS_fnc_stalk;
+
+private _stalking = [BIS_grpStalkers, BIS_grpPlayer, 5, 0, { dayTime > 20 }, [3600,600,0]] spawn BIS_fnc_stalk;
+```
+
+# BIS_fnc_taskDefend
+Group will man nearby static defenses within a 100 metre radius of the defense position and guard the position. Some units will man weapons, others will patrol and the remainder will sit on the ground
+```
+[group, position] call BIS_fnc_taskDefend
+```
+- group: Group
+- position: Array in format Position
+- RETURNS: Boolean
+```
+[group player, getPosATL leader player] call BIS_fnc_taskDefend;
+
+The easiest way to use this function is to create a group, then add the following code to the group leader's init field:
+[group this, getPosATL this] call BIS_fnc_taskDefend;
+```
+
+# BIS_fnc_taskPatrol
+Create a random patrol of several waypoints around a given position.
+```
+[group, position, distance, blacklist] call BIS_fnc_taskPatrol
+```
+- group: Group - the group to patrol
+- position: Position - the position on which to base the patrol
+- distance: Number - maximum distance between waypoints in meters
+- blacklist: Array - (optional) blacklist of areas
+- RETURNS: Boolean
+```
+[group _unit, getPos _unit, 1000] call BIS_fnc_taskPatrol;
+```
+
+# BIS_fnc_taskAttack
+This function adds a Seek and Destroy waypoint on defined position to the group and set its behaviour to "AWARE". If the group has other waypoints, the waypoint will be added at the end of the list.
+```
+[group, position] call BIS_fnc_taskAttack
+```
+- group: Group
+- position: Position
+- RETURNS: Boolean
+```
+[opforGroup, getPosATL player] call BIS_fnc_taskAttack;
+```
+
+# BIS_fnc_textTiles
+Shows an animated text with background tiles.
+```
+[content, position, tileSize, duration, fadeInOutTime, tileTransparency] spawn BIS_fnc_textTiles
+```
+- content: String or Structured Text
+	- String - path to texure
+	- Structured Text - formatted text
+- position: Boolean or Array (optional, default [0, 0, 1, 1])
+	- Boolean - true to use mission area set in the layout options, false for full screen
+	- Array - screen space coordinates in format [x, y, w, h]
+- tileSize: Number or Array (optional, default 10 ([10,10])
+	- Number - tile size in screen space coordinates. Tile will be square
+	- Array - tile size in screen space coordinates in format [w, h]
+- duration: Number - (optional, default 5) duration in seconds
+- fadeInOutTime: Number or Array - (optional, default 0) duration of the fade effect in seconds
+	- Array - format [fadeIn, fadeOut]
+	- Number - duration of the fadeIn/Out effect
+- tileTransparency: Number - (optional, default 0.3) transparency or alpha value of the tiles. 0 means invisible and 1 fully visible
+- RETURNS: Boolean - returns always true
+```
+[parseText "<t font='PuristaBold' size='1.6'>MyMission</t><br />by Username", true, nil, 7, 0.7, 0] spawn BIS_fnc_textTiles;
+
+["path\to\image.paa"] spawn BIS_fnc_textTiles;
+```
+
+# BIS_fnc_typeText
+Types a structured text on the screen, letter by letter, cursor blinking.
+```
+[stringLines, posX, posY, rootFormat] spawn BIS_fnc_typeText
+```
+- stringLines:
+	- Array of Strings - array containing lines of text with same structured text formatting.
+	- Array of Arrays format [text, format, blinkCount]:
+		- text: String - (Optional, default "")
+		- format: String - (Optional, default "<t align = 'center' shadow = '1' size = '0.7'>%1</t><br/>")
+		- blinkCount: Number - (Optional, default 5) number of cursor blinks after text typing
+- posX: Number - (Optional, default 0)
+- posY: Number - (Optional, default 0)
+- rootFormat: String - (Optional, default "<t>%1</t>") the parent format
+- RETURNS: Nothing
+```
+[
+	[
+		["CAMP ROGAIN,", "<t align = 'center' shadow = '1' size = '0.7' font='PuristaBold'>%1</t>"],
+		["RESUPPLY POINT", "<t align = 'center' shadow = '1' size = '0.7'>%1</t><br/>"],
+		["10 MINUTES LATER ...", "<t align = 'center' shadow = '1' size = '1.0'>%1</t>", 15]
+	]
+] spawn BIS_fnc_typeText;
+
+[
+	[
+		["Hello there...", nil, 30]
+	],
+	0, safeZoneY + safeZoneH / 2
+] spawn BIS_fnc_typeText;
+```
+
+# BIS_fnc_typeText2
+Types a structured text on the screen, letter by letter, cursor blinking. Note that line returns are manual, unlike BIS_fnc_typeText.
+```
+[stringLines, posX, posY, alignBottom, rootFormat, abortParams, abortCond, playSounds] call BIS_fnc_typeText2
+```
+- stringLines:
+	- Array of Strings - array containing lines of text with same structured text formatting.
+	- Array of Array of Strings [text, format, color]
+		- text: String - (Optional, default "")
+		- format: String - (Optional, default "align = 'center' size = '0.7'") a linebreak is defined as "<br/>" and this only!
+		- color: String - (Optional, default "#ffffff")
+- posX: Number - (Optional, default 0)
+- posY: Number - (Optional, default 0)
+- alignBottom: Boolean - (Optional, default true)
+- rootFormat: String - (Optional, default "<t>%1</t>")
+- abortParams: Array - (Optional, default [])
+- abortCond: Code - (Optional, default { false })
+- playSounds: Boolean - (Optional, default true)
+- RETURNS: Nothing
+```
+[
+	[
+		["CAMP ROGAIN, ", "align = 'center' shadow = '1' size = '0.7' font='PuristaBold'"],
+		["RESUPPLY POINT", "align = 'center' shadow = '1' size = '0.7'", "#aaaaaa"],
+		["", "<br/>"], // line break
+		["10 MINUTES LATER...", "align = 'center' shadow = '1' size = '1.0'"]
+	]
+] spawn BIS_fnc_typeText2;
+
+[
+	["Hello there"],
+	safeZoneX, safeZoneH / 2,
+	true,
+	"<t font='PuristaBold'>%1</t>",
+	[],
+	{ false },
+	true
+] spawn BIS_fnc_typeText2;
+```
