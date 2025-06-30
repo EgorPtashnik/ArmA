@@ -18,6 +18,14 @@
 1. [BIS_fnc_getArea](#bis_fnc_getarea)
 1. [BIS_fnc_holdActionAdd](#bis_fnc_holdactionadd)
 1. [BIS_fnc_holdActionRemove](#bis_fnc_holdactionremove)
+1. [BIS_fnc_moveIn](#bis_fnc_movein)
+1. [BIS_fnc_jukebox](#bis_fnc_jukebox)
+1. [BIS_fnc_infoText](#bis_fnc_infotext)
+1. [BIS_fnc_lookAtArray](#bis_fnc_lookatarray)
+1. [BIS_fnc_randomPos](#bis_fnc_randompos)
+1. [BIS_fnc_findSafePos](#bis_fnc_findsafepos)
+1. [BIS_fnc_randomPosTrigger](#bis_fnc_randompostrigger)
+
 
 Some script commands
 ```
@@ -25,7 +33,7 @@ isEqualTo (val1 isEqualTo val2) - более строгое сравнение
 setUnconscious (unit setUnconscious true) - падает без сознания
 ```
 
-## BIS_fnc_addCommMenuItem
+# BIS_fnc_addCommMenuItem
 Добавляет комм меню (0-8) юниту.
 ```
 [owner, itemClass, textArguments, expressionArguments, notification] call BIS_fnc_addCommMenuItem
@@ -65,7 +73,7 @@ private _supportHeli = [player,"Support_Request_CAS_Heli"] call BIS_fnc_addCommM
 _supportHeli = [player,"Support_Request_CAS_Heli",nil,nil,""] call BIS_fnc_addCommMenuItem; // don't show notification
 ```
 
-## BIS_fnc_removeCommMenuItem
+# BIS_fnc_removeCommMenuItem
 Убирает комм меню (0-8) у юнита
 ```
 [owner,itemID] call BIS_fnc_removeCommMenuItem
@@ -80,7 +88,7 @@ private _supportHeli = [player, "Support_Request_CAS_Heli"] call BIS_fnc_addComm
 [player, _supportHeli] call BIS_fnc_removeCommMenuItem;
 ```
 
-## BIS_fnc_advHint
+# BIS_fnc_advHint
 Shows advanced hint to player.
 ```
 [classes, duration1, condition1, duration2, condition2, showing, onlyFullHint, onlyOnce, useSound] call BIS_fnc_advHint
@@ -102,7 +110,7 @@ Shows advanced hint to player.
 [["Common", "GPS"], 15, "", 35, "", false, false, false, true] call BIS_fnc_advHint; // default
 ```
 
-## BIS_fnc_ambientAnim
+# BIS_fnc_ambientAnim
 Play set of ambient animations on given unit. If the unit should react to combat, use BIS_fnc_ambientAnimCombat instead.
 ```
 [unit, animationSet, equipmentLevel, snapTo, interpolate, attachToLogic] call BIS_fnc_ambientAnim
@@ -172,7 +180,7 @@ RANDOM```
 };
 ```
 
-## BIS_fnc_ambientFlyby
+# BIS_fnc_ambientFlyby
 Spawns an air unit that moves from point A to point B, never engaging nor being engaged. It is set as captive and will despawn once it reaches its destination.
 ```
 [startPos, endPos, altitude, speedMode, classname, side] call BIS_fnc_ambientFlyby
@@ -193,7 +201,7 @@ Spawns an air unit that moves from point A to point B, never engaging nor being 
 [getPosATL player, getPosATL opforUnit, 400, "FULL", "B_Heli_Light_01_Armed_F", west] call BIS_fnc_ambientFlyby;
 ```
 
-## BIS_fnc_attachToRelative
+# BIS_fnc_attachToRelative
 Attaches object 1 to object 2, while preserving object 1 initial position and orientation against object 2.
 ```
 [object1, object2, visual] call BIS_fnc_attachToRelative
@@ -206,7 +214,7 @@ Attaches object 1 to object 2, while preserving object 1 initial position and or
 #### Examples
 `[tank, car] call BIS_fnc_attachToRelative;`
 
-## BIS_fnc_blackIn
+# BIS_fnc_blackIn
 Unregister a black screen. When none other black screen is registered, fade it out.
 ```
 [id, smoothing, fadeSpeed] call BIS_fnc_blackIn
@@ -218,7 +226,7 @@ Unregister a black screen. When none other black screen is registered, fade it o
 #### Examples
 `["TAG_aVeryUniqueID", false, 5] call BIS_fnc_blackIn;`
 
-## BIS_fnc_blackOut
+# BIS_fnc_blackOut
 Register a black screen. Start the black screen when the first request is registered.
 ```
 [id, smoothing, fadeSpeed] call BIS_fnc_blackIn
@@ -230,7 +238,7 @@ Register a black screen. Start the black screen when the first request is regist
 #### Examples
 `["TAG_aVeryUniqueID", false, 5] call BIS_fnc_blackOut;`
 
-## BIS_fnc_cinemaBorder
+# BIS_fnc_cinemaBorder
 Creates cinematic borders. Player cannot move during cutscene.
 ```
 [mode, duration, sound, view] call BIS_fnc_cinemaBorder
@@ -245,7 +253,7 @@ Creates cinematic borders. Player cannot move during cutscene.
 #### Example
 `[1, 2, true, true] call BIS_fnc_cinemaBorder;`
 
-## BIS_fnc_dynamicText
+# BIS_fnc_dynamicText
 Shows dynamic opening credits or any type of text.
 ```
 [text, x, y, duration, fadeInTime, deltaY, rscLayer] spawn BIS_fnc_dynamicText
@@ -271,7 +279,7 @@ duration and the absolute deltaY value will influence the movement speed.```
 #### Example
 `["<t color='#ff0000' size='.8'>Warning!<br />Stop doing what you are doing</t>",-1,-1,4,1,0,789] spawn BIS_fnc_dynamicText;`
 
-## BIS_fnc_earthquake
+# BIS_fnc_earthquake
 Earthquake simulation - now just camera shake and sound. Stamina is impacted by the earthquake too. Earthquake will last between 13 and 20 seconds. While earthquake is in progress missionNamespace variable BIS_fnc_earthquake_inprogress will be true.
 ```
 [intensity] spawn BIS_fnc_earthquake
@@ -282,7 +290,7 @@ Earthquake simulation - now just camera shake and sound. Stamina is impacted by 
 #### Example
 `[4] spawn BIS_fnc_earthquake;`
 
-## BIS_fnc_enemyDetected
+# BIS_fnc_enemyDetected
 Returns true if unit knows about nearby enemy unit or driven vehicle.
 ```
 unit call BIS_fnc_enemyDetected
@@ -297,7 +305,7 @@ private _enemyDetected = _unit call BIS_fnc_enemyDetected;
 private _enemyDetected = [_unit, 100] call BIS_fnc_enemyDetected;
 ```
 
-## BIS_fnc_establishingShot
+# BIS_fnc_establishingShot
 Plays a fake UAV observational sequence which serves as an establishing shot.
 ```
 [target, text, altitude, radius, angle, rotation, iconOptions, mode, fadeIn, waitTime] spawn BIS_fnc_establishingShot
@@ -353,7 +361,7 @@ The effect will automatically be terminated once the establishing shot ended.
 ] spawn BIS_fnc_establishingShot;
 ```
 
-## BIS_fnc_fireSupport
+# BIS_fnc_fireSupport
 Mortar/artillery fire support.
 ```
 [arty,target,mag,radius,rounds,delay,conditionEnd,safezone] spawn BIS_fnc_fireSupport
@@ -381,7 +389,7 @@ Number - Precise delay```
 [BIS_Mortar, "BIS_mrkTargetArea", "8Rnd_82mm_Mo_shells", 100, 24, 10, { BIS_Player distance BIS_EscapeZone < 100 }] spawn BIS_fnc_fireSupport;
 ```
 
-## BIS_fnc_fireSupportVirtual
+# BIS_fnc_fireSupportVirtual
 Fires virtual mortar/artillery fire support.
 ```
 [target, ammo, radius, rounds, delay, conditionEnd, safezone, alt, speed, sounds] spawn BIS_fnc_fireSupportVirtual
@@ -411,7 +419,7 @@ max: Number - max delay```
 [BIS_Player, nil, 100, 24, 10, {dayTime > 20}, 50] spawn BIS_fnc_fireSupportVirtual;
 ```
 
-## BIS_fnc_fireSupportCluster
+# BIS_fnc_fireSupportCluster
 Virtual fire support - cluster shell.
 ```
 [position,ammo,radius,rounds,delay,conditionEnd,safezone,altitude,velocity,sounds] spawn BIS_fnc_fireSupportCluster
@@ -439,7 +447,7 @@ Virtual fire support - cluster shell.
 ["BIS_mrkTargetArea", "", 100, [4,10], 10, { BIS_Player distance BIS_EscapeZone < 100 }] spawn BIS_fnc_fireSupportCluster;
 ```
 
-## BIS_fnc_getArea
+# BIS_fnc_getArea
 Extracts area information from trigger, marker, location or array
 ```
 param call BIS_fnc_getArea
@@ -453,7 +461,7 @@ Array - array in format [center, distance] or [center, [a, b, angle, rect]] or [
 #### Examples
 `private _area = [player, 100] call BIS_fnc_getArea;`
 
-## BIS_fnc_holdActionAdd
+# BIS_fnc_holdActionAdd
 Adds an action to an object which requires the user to hold a key to perform the action.
 ```
 [target, title, idleIcon, progressIcon, conditionShow, conditionProgress, codeStart, codeProgress, codeCompleted, codeInterrupted, arguments, duration, priority, removeCompleted, showUnconscious, showWindow] call BIS_fnc_holdActionAdd
@@ -802,7 +810,7 @@ SCRIPT TO SHOW ALL ICONS
 };
 ```
 
-## BIS_fnc_holdActionRemove
+# BIS_fnc_holdActionRemove
 Removes a hold action. This does exactly the same as removeAction.
 ```
 [target,ID] call BIS_fnc_holdActionRemove
@@ -814,3 +822,214 @@ Removes a hold action. This does exactly the same as removeAction.
 ```
 [player,10] call BIS_fnc_holdActionRemove;
 ```
+
+# BIS_fnc_moveIn
+Moves a unit into vehicle. Compatible with assignedVehicleRole output.
+```
+[vehicle, unit, role] call BIS_fnc_moveIn
+```
+- vehicle: Object
+- unit: Object - the unit to move into vehicle - must be local
+- role: Array - wanted seat, in format ["role"] or ["role", turretPath]. Can be one of:
+```
+"driver"
+"gunner"
+"commander"
+"cargo"
+"turret"
+"": will load unit in the first available seat (using moveInAny)
+```
+- RETURNS: Boolean - true if moved in successfully
+#### Example
+```
+[myCar, player, "cargo"] call BIS_fnc_moveIn;
+
+[myTank, player, ["turret", [0]]] call BIS_fnc_moveIn;
+
+[myTank, player, ["turret", -1]] call BIS_fnc_moveIn; // will moveInDriver the player
+```
+
+# BIS_fnc_jukebox
+Plays music, depending on the player group status.
+```
+[function, parameters] call BIS_fnc_jukebox
+```
+- function: String - (Optional, default "initialize") can be one of:
+```
+"initialize"
+"terminate"
+"readContainerFromConfig"
+"isInitialized"
+"forceBehaviour"
+"status"
+"randomMusic"
+"selectMusic"
+"playMusic"
+"nearEnemies"
+"hasContact"
+"isContact"
+"isStealth"
+"isCombat"
+"isSafe"
+"onEachFrame"
+```
+- parameters: Array - (Optional)
+    - "initialize": [stealthMusics, combatMusics, safeMusics, volume, transition, radius, executionRate, noRepeat]
+        - stealthMusics: Array of Strings
+        - combatMusics: Array of Strings
+        - safeMusics: Array of Strings
+        - volume: Number
+    - "terminate": none
+    - "readContainerFromConfig": [wantedTheme]
+    - "isInitialized": none
+    - "forceBehaviour": [behaviour]
+        - behaviour: String - can be "stealth", "combat" or "safe". Any other value will reset the forced behaviour.
+    - "status": none
+    - "randomMusic": [container]
+        - container: Array of Strings - music list to choose from
+    - "selectMusic": none
+    - "playMusic": [musicName]
+        - musicName: String
+    - "nearEnemies": none
+    - "hasContact": none
+    - "isContact": none
+    - "isStealth": none
+    - "isCombat": none
+    - "isSafe": none
+    - "onEachFrame": none
+- RETURNS:
+```
+Array for:
+    "readContainerFromConfig"
+    "nearEnemies" - a list of enemies nearby
+Boolean for:
+    "isInitialized"
+    "hasContact"
+    "isContact"
+    "isStealth"
+    "isCombat"
+    "isSafe"
+String for:
+    "status" - can be "stealth", "combat", "safe" or "error"
+    "randomMusic" - one of the available musics
+    "selectMusic"
+Nothing for:
+    "initialize"
+    "terminate"
+    "forceBehaviour"
+    "playMusic"
+    "onEachFrame"
+```
+
+#### Example
+`[] call BIS_fnc_jukebox;`
+
+# BIS_fnc_infoText
+Display a text in the "mission" GUI area with some effects. Good for the beginning of a mission.
+```
+[string_1, string_2, string_n] spawn BIS_fnc_infoText
+```
+- Array of Strings
+- RETURNS: Nothing
+#### Example
+```
+["Somewhere on Altis", format ["Year %1", date select 0], mapGridPosition player] spawn BIS_fnc_infoText;
+```
+
+# BIS_fnc_lookAtArray
+Executes a code when one of the specified objects is looked at (player's cursor pointed towards it) for enough time
+```
+[initialize, lookAtData] call BIS_fnc_lookAtArray
+```
+- initialize: Boolean - true to initialize, false to remove it
+-lookAtData: Array - an array with arrays of look-up-data in form of:
+```
+0: Object - Object to be looked at
+1: Number - How long player has to look at it
+2: Boolean - true to remove it from array when player looked at it
+3: Code - Code spawned when player looked long enough at the object
+```
+- RETURNS: Nothing
+#### Example
+```
+private _lookAtArray =
+[
+	[
+		BIS_apc,										// name of object
+		2,												// time we have to look at it
+		false,											// do we destroy the entry after we looked at it
+		{ ["What a wonderful APC"] call BIS_fnc_log; }	// code
+	],
+	[
+		BIS_otherUnit,
+		2,
+		false,
+		{ ["apc looked at"] call BIS_fnc_log; }
+	]
+];
+[true, _lookAtArray] spawn "BIS_fnc_lookAtArray";
+sleep 15;
+[false] spawn "BIS_fnc_lookAtArray";
+```
+
+# BIS_fnc_randomPos
+Selects random position according to given params within given area
+```
+[whitelist, blacklist, code] call BIS_fnc_randomPos
+```
+- whitelist: Array - whitelisted areas. If not given, whole map is used. Areas can be:
+```
+Object - trigger
+String - marker
+Array - in format [center, radius] or [center, [a, b, angle, rect]]
+Location - location
+```
+- blacklist: Array - (Optional, default []) blacklisted areas. If not given, water is blacklisted. Areas can be:
+```
+Object - trigger
+String - marker name or special tags names: "water" - exclude water, "ground" - exclude land
+Array - in format [center, radius] or [center, [a, b, angle, rect]]
+Location - location
+```
+- code: Code - (Optional, default { true }) custom condition which should return true for current position candidate passed in _this variable to be accepted. If not specified all candidates are accepted
+- RETURNS: Array - position candidate in format [x,y,z] or [0,0] if position cannot be found
+#### Example
+```
+private _randomPosMapNoWater = [] call BIS_fnc_randomPos;
+
+private _randomPosMapNoWater = [nil, ["water"]] call BIS_fnc_randomPos;
+
+private _randomPosMapNoLand = [nil, ["ground"]] call BIS_fnc_randomPos;
+
+private _randomPosMap = [nil, []] call BIS_fnc_randomPos;
+
+private _randomPosAroundPlayer = [[[position player, 50]], []] call BIS_fnc_randomPos;
+```
+
+# BIS_fnc_findSafePos
+
+This function generates position on a map according to several given parameters (see diagram).
+
+Diagram
+The position pos will be generated inside an area which resides between minDist and maxDist from the given center. If objDist is also specified, the position will be selected objDist away from nearest terrain object. If maxGrad > 0 then the position will be also checked for how flat the area around is within objDist radius. The function can additionally be instructed to generate position specifically on water or land (waterMode) or on a shoreline (shoreMode). The shoreLine param will be ignored if position is not requested specifically on land.
+
+
+Additionally, generated position could be checked against the list of blacklisted positions blacklistPos. If search for suitable position failed, defaultPos position will be used. The format for defaultPos is array with 2 positions: [posOnLand, posOnWater].
+```
+[center, minDist, maxDist, objDist, waterMode, maxGrad, shoreMode, blacklistPos, defaultPos] call BIS_fnc_findSafePos
+```
+
+# BIS_fnc_randomPosTrigger
+Selects random position within trigger, marker, location area or area defined by array
+```
+param call BIS_fnc_randomPosTrigger
+```
+- param: can be one of:
+	- Object - trigger
+	- String - marker
+	- Location - location
+	- Array - array in format [center, distance] or [center, [a, b, angle, rect]] or [center, [a, b, angle, rect, height]]
+- RETURNS: Array - random position in format [x,y,z]
+
+#### Example
+`marker1 call BIS_fnc_randomPosTrigger;`
