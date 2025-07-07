@@ -22,6 +22,7 @@
 1. [CBA_fnc_taskDefend](#cba_fnc_taskdefend)
 1. [CBA_fnc_taskPatrol](#cba_fnc_taskpatrol)
 1. [CBA_fnc_taskSearchArea](#cba_fnc_tasksearcharea)
+1. [CBA_fnc_addWaypoint](#cba_fnc_addwaypoint)
 
 # CBA_fnc_buildingPositions
 ```
@@ -284,4 +285,28 @@ None
 Examples
 [this, "Mark1"] call CBA_fnc_taskSearchArea;
 [(allGroups select 2), [getPos player, 200, 200, 0, false]] call CBA_fnc_taskSearchArea;
+```
+
+# CBA_fnc_taskSearchArea
+```
+Description
+A function used to add a waypoint to a group.
+
+Parameters
+Group (Group or Object)
+Position (XYZ, Object, Location or Group)
+
+Optional
+Radius (Scalar)
+Waypoint Type (String)
+Behaviour (String)
+Combat Mode (String)
+Speed Mode (String)
+Formation (String)
+Code To Execute at Each Waypoint (String)
+TimeOut at each Waypoint (Array [Min, Med, Max])
+Waypoint Completion Radius (Scalar)
+
+Example
+[this, this, 300, "MOVE", "AWARE", "YELLOW", "FULL", "STAG COLUMN", "this spawn CBA_fnc_searchNearby", [3, 6, 9]] call CBA_fnc_addWaypoint
 ```
