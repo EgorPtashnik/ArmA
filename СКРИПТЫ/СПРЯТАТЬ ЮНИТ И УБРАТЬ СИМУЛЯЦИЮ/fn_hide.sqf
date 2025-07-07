@@ -15,8 +15,9 @@ params [
 ];
 
 {
-	_x enableSimulation !_toHide;
-	_x hideObject _toHide;
-	_x setCaptive _toHide;
-	_x allowDamage !_toHide;
+	private _vehicle = vehicle _x;
+	_vehicle enableSimulation !_toHide;
+	_vehicle hideObject _toHide;
+	_vehicle setCaptive _toHide;
+	_vehicle allowDamage !_toHide;
 } forEach units _group;
