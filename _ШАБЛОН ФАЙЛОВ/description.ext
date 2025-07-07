@@ -1,0 +1,102 @@
+class CfgDebriefing
+{
+	class fail01
+	{
+		title = "Mission Failed";
+		subtitle = "";
+		description = "";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+	class win01
+	{
+		title = "Mission Completed";
+		subtitle = "";
+		description = "";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+};
+
+class CfgSounds {
+    sounds[] = {mybeep, myin1, myin2, myin3, myin4, myin5, myin6, mynoise1, mynoise2, mynoise3, mynoise4};
+    
+    class beep
+	{
+	name = "mybeep";
+	sound[] = {"sounds\beep.ogg", db+10, 1.0};
+	titles[] = {0,""};
+	};
+
+	class in1
+	{
+		name = "myin1";
+		sound[] = {"sounds\in1.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in2
+	{
+		name = "myin2";
+		sound[] = {"sounds\in2.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in3
+	{
+		name = "myin3";
+		sound[] = {"sounds\in3.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in4
+	{
+		name = "myin4";
+		sound[] = {"sounds\in4.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in5
+	{
+		name = "myin5";
+		sound[] = {"sounds\in5.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class in6
+	{
+		name = "myin6";
+		sound[] = {"sounds\in6.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class noise1
+	{
+		name = "mynoise1";
+		sound[] = {"sounds\noise1.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class noise2
+	{
+		name = "mynoise2";
+		sound[] = {"sounds\noise2.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class noise3
+	{
+		name = "mynoise3";
+		sound[] = {"sounds\noise3.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	
+	class noise4
+	{
+		name = "mynoise4";
+		sound[] = {"sounds\noise4.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+};

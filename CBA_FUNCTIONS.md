@@ -1,3 +1,12 @@
+// EXECUTE UNSCHEDULED
+[code, arguments] call CBA_fnc_directCall;
+
+// EXECUTE UNSSCHEDULED AFTER DELAY
+[code, [arg1, arg2], delay] call CBA_fnc_waitAndExecute;
+
+// EXECUTE UNSCHEDULED AFTER CONDITION
+[condition, statement, [argForBoth], timeOut, codeIfTimeOut] call CBA_fnc_waitUntilAndExecute;
+
 # MENU
 1. [CBA_fnc_buildingPositions](#cba_fnc_buildingpositions)
 1. [CBA_fnc_clearWaypoints](#cba_fnc_clearwaypoints)

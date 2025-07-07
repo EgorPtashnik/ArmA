@@ -39,6 +39,7 @@
 1. [BIS_fnc_textTiles](#bis_fnc_texttiles)
 1. [BIS_fnc_typeText](#bis_fnc_typetext)
 1. [BIS_fnc_typeText2](#bis_fnc_typetext2)
+1. [BIS_fnc_fadeEffect](#bis_fnc_fadeeffect)
 
 Some script commands
 ```
@@ -1352,4 +1353,21 @@ Types a structured text on the screen, letter by letter, cursor blinking. Note t
 	{ false },
 	true
 ] spawn BIS_fnc_typeText2;
+```
+
+# BIS_fnc_fadeEffect
+Easily carry out complex fading. Default values will be used if parameters are not defined or set to nil.
+```
+[fadeInOrOut, blackOrWhite, duration, blur, music, ending, success] spawn BIS_fnc_fadeEffect
+```
+- fadeInOrOut: Number - (Optional, default 1) 0 to fade out, 1 to fade in
+- fadeColor: String - (Optional, default "BLACK") case-sensitive can be "BLACK" or "WHITE"
+- duration: Number - (Optional, default 3) fade duration in seconds
+- blur: Number - (Optional, default 0) 0 to not blur, 1 to blur (blur-in for fade-in, blur-out for fade-out)
+- music: String - (Optional, default "") only for fade-out music class name defined in CfgMusic
+- ending: String - (Optional, default "") "" to not end the mission, else a value compatible with endMission or failMission. Will end mission only for the local player
+- success: Number - (Optional, default 1) if ending != "" 1 to end mission with success, 0 to fail mission
+- RETURNS: Nothin
+```
+[1, "WHITE", 5, 1] spawn BIS_fnc_fadeEffect;
 ```
