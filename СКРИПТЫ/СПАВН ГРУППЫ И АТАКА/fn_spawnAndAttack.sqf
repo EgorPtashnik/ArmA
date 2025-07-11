@@ -28,6 +28,11 @@ params [
 	["_precisePos", true]
 ];
 
+
+private _attackPos = [];
+
+private _spawnPos = [];
+
 if (typeName _spawnPosition == "STRING") then {
 	_spawnPos = getMarkerPos _spawnPosition;
 } else {

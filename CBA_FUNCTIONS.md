@@ -287,7 +287,7 @@ Examples
 [(allGroups select 2), [getPos player, 200, 200, 0, false]] call CBA_fnc_taskSearchArea;
 ```
 
-# CBA_fnc_taskSearchArea
+# CBA_fnc_addWaypoint
 ```
 Description
 A function used to add a waypoint to a group.
