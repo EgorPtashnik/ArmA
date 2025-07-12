@@ -1371,3 +1371,16 @@ Easily carry out complex fading. Default values will be used if parameters are n
 ```
 [1, "WHITE", 5, 1] spawn BIS_fnc_fadeEffect;
 ```
+
+# A3\functions_f\Waypoints\fn_wpArtillery.sqf
+Description:
+ group members fire artillery barrage on waypoint position
+
+Parameters:
+	0: GROUP
+	1: ARRAY - waypoint position
+	2: OBJECT - target to which waypoint is attached to
+	3 (Optional): NUMBER - number of fired rounds
+	4 (Optional): STRING - magazine type
+Returns:
+	BOOL
