@@ -307,6 +307,8 @@ Code To Execute at Each Waypoint (String)
 TimeOut at each Waypoint (Array [Min, Med, Max])
 Waypoint Completion Radius (Scalar)
 
+Returns waypoint;
+
 Example
 [this, this, 300, "MOVE", "AWARE", "YELLOW", "FULL", "STAG COLUMN", "this spawn CBA_fnc_searchNearby", [3, 6, 9]] call CBA_fnc_addWaypoint
 ```
