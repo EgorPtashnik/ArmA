@@ -1,5 +1,5 @@
 // init.sqf
-#include "fsm\core.sqf";
+#include "fsmCore.sqf";
 
 // Create a new state machine
 mySM = [] call SM_fnc_create;
