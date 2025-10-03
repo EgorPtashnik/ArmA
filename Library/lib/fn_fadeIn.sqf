@@ -5,8 +5,12 @@ params [
 	["_color", "BLACK"],
 	["_blur", 0]
 ];
-
 0 fadeSound 0;
+enableRadio false;
+enableSentences false;
+cutText ["", "BLACK", 0.001];
+sleep 5;
+0 fadeSound 1;
+enableRadio true;
+enableSentences true;
 [1, _color, _duration, _blur] spawn BIS_fnc_fadeEffect;
-sleep 3;
-_duration fadeSound 1;

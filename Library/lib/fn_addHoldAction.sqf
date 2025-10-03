@@ -11,7 +11,7 @@ params [
 	["_arguments", []],
 	["_removeCompleted", true],
 	["_priority", 1000],
-	["_iconProgress", ""],
+	["_iconProgress", objNull],
 	["_conditionToProgress", "true"],
 	["_codeStart", {}],
 	["_codeProgress", {}],
@@ -20,7 +20,7 @@ params [
 	["_showWindow", true]
 ];
 
-if (!_iconProgress) then {
+if (isNull _iconProgress) then {
 	_iconProgress = _iconStart;
 };
 
