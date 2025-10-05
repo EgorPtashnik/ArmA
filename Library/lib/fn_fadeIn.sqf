@@ -1,4 +1,4 @@
-// [5, "BLACK", 0] spawn EP_fnc_fadeIn;
+// [5, "BLACK", 0] call EP_fnc_fadeIn;
 
 params [
 	["_duration", 5],
@@ -14,3 +14,5 @@ sleep 5;
 enableRadio true;
 enableSentences true;
 [1, _color, _duration, _blur] spawn BIS_fnc_fadeEffect;
+
+_duration;

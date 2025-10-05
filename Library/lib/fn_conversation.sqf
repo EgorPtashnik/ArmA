@@ -1,4 +1,4 @@
-// 	z;
+// 	["TITLE", "SUBTITLES"] spawn EP_fnc_conversation ;
 
 params [
 	"_title",

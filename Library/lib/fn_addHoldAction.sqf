@@ -1,6 +1,5 @@
-/**
-	Add hold action to object
- */
+//	[player, "Hold Action Title", { missionNamespace setVariable ["Start", true]; }, ""] call EP_fnc_addHoldAction;
+
 params [
 	"_attachTo",
 	"_title",

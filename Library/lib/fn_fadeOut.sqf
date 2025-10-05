@@ -1,4 +1,4 @@
-// [5, "BLACK", 0] spawn EP_fnc_fadeOut;
+// [5, "BLACK", 0] call EP_fnc_fadeOut;
 
 params [
 	["_duration", 5],
@@ -8,3 +8,5 @@ params [
 
 [0, _color, _duration, _blur] spawn BIS_fnc_fadeEffect;
 _duration fadeSound 0;
+
+_duration;
