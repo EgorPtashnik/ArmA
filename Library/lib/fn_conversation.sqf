@@ -39,6 +39,8 @@ if (_isRadio) then {
 	};
 	stopSound _soundId;
 	playSoundUI [ _radioSoundOut ];
+	sleep 2;
 } else {
 	playSoundUI [ "mybeep" ];
+	sleep ( _duration * 10 );
 };
