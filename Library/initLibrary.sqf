@@ -7,6 +7,9 @@ EP_fnc_fadeOut = compile preprocessFileLineNumbers "lib\fn_fadeOut.sqf";
 EP_fnc_showHideUnits = compile preprocessFileLineNumbers "lib\fn_showHideUnits.sqf";
 
 // Event Machine
-EP_em_addEvent = compile preprocessFileLineNumbers "lib\EventMachine\fn_em_addEvent.sqf";
-EP_em_fireEvent = compile preprocessFileLineNumbers "lib\EventMachine\fn_em_fireEvent.sqf";
-EP_em_createEventMachine = compile preprocessFileLineNumbers "lib\EventMachine\fn_em_createEventMachine.sqf";
+EP_fsm_createStateMachine = compile preprocessFileLineNumbers "lib\StateMachine\fn_createStateMachine.sqf";
+EP_fsm_addState = compile preprocessFileLineNumbers "lib\StateMachine\fn_addState.sqf";
+EP_fsm_getState = compile preprocessFileLineNumbers "lib\StateMachine\fn_getState.sqf";
+EP_fsm_handleUpdate = compile preprocessFileLineNumbers "lib\StateMachine\fn_handleUpdate.sqf";
+EP_fsm_setState = compile preprocessFileLineNumbers "lib\StateMachine\fn_setState.sqf";
+EP_fsm_startStateMachine = compile preprocessFileLineNumbers "lib\StateMachine\fn_startStateMachine.sqf";
