@@ -11,8 +11,8 @@ private _addEventHandlers = {
 		["_enableSentences", false]
 	];
 	_vehicle setVariable ["EP_enableSentences", _enableSentences];
-	_vehicle setVariable ["EP_cameraExternal", _enableSentences];
-	_vehicle setVariable ["EP_getOutText", _enableSentences];
+	_vehicle setVariable ["EP_cameraExternal", _cameraExternal];
+	_vehicle setVariable ["EP_getOutText", _getOutText];
 
 	_vehicle addEventHandler ["GetIn", {
 		params ["_vehicle", "_role", "_unit"];
