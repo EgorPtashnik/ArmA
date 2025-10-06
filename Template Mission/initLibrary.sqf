@@ -22,3 +22,4 @@ EP_fsm_startStateMachine = compile preprocessFileLineNumbers "lib\StateMachine\f
 */
 EP_applySystem_OneManTank = compile preprocessFileLineNumbers "lib\Systems\fn_applySystem_OneManTank.sqf";
 EP_applySystem_CasualHealth = compile preprocessFileLineNumbers "lib\Systems\fn_applySystem_CasualHealth.sqf";
+EP_applySystem_HealthBar = compile preprocessFileLineNumbers "lib\Systems\fn_applySystem_HealthBar.sqf";
