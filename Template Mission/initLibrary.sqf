@@ -7,10 +7,18 @@ EP_fnc_fadeOut = compile preprocessFileLineNumbers "lib\fn_fadeOut.sqf";
 EP_fnc_showHideUnits = compile preprocessFileLineNumbers "lib\fn_showHideUnits.sqf";
 EP_fnc_doArtilleryFire = compile preprocessFileLineNumbers "lib\fn_doArtilleryFire.sqf";
 
-// Event Machine
+/**
+	State Machine Functions
+*/
 EP_fsm_createStateMachine = compile preprocessFileLineNumbers "lib\StateMachine\fn_createStateMachine.sqf";
 EP_fsm_addState = compile preprocessFileLineNumbers "lib\StateMachine\fn_addState.sqf";
 EP_fsm_getState = compile preprocessFileLineNumbers "lib\StateMachine\fn_getState.sqf";
 EP_fsm_handleUpdate = compile preprocessFileLineNumbers "lib\StateMachine\fn_handleUpdate.sqf";
 EP_fsm_setState = compile preprocessFileLineNumbers "lib\StateMachine\fn_setState.sqf";
 EP_fsm_startStateMachine = compile preprocessFileLineNumbers "lib\StateMachine\fn_startStateMachine.sqf";
+
+/**
+	Systems
+*/
+EP_applySystem_OneManTank = compile preprocessFileLineNumbers "lib\Systems\fn_applySystem_OneManTank.sqf";
+EP_applySystem_CasualHealth = compile preprocessFileLineNumbers "lib\Systems\fn_applySystem_CasualHealth.sqf";
