@@ -43,7 +43,6 @@ private _addEventHandlers = {
 			_agent allowDamage false;
 			_agent moveInDriver _this;
 		};
-		hint str countr;
 	}];
 
 	_vehicle addEventHandler ["GetOut", {
