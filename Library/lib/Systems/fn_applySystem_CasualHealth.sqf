@@ -30,7 +30,6 @@ if (typeName _units == "GROUP") then {
 		if (_unit getVariable ["EP_headshotKill", false]) then {
 			_headDamage = _unit getHit "head";
 		};
-		// hint str (_unit getHit "head");
 		if (_headDamage >= 1) exitWith {
 			_unit setDamage 1;
 			_unit removeEventHandler [_thisEvent, _thisEventHandler];
