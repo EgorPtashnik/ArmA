@@ -1,3 +1,5 @@
+// [assignedVehicles group player, false, "Выйти"] call EP_applySystem_OneManTank;
+
 params [
 	"_vehicles",
 	["_enableSentences", false],
