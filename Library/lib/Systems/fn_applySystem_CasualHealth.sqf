@@ -4,7 +4,8 @@ params [
 	"_units",
 	["_regenHealth", true],
 	["_defaultDamage", 0.1],
-	["_headshotKill", true]	
+	["_headshotKill", true],
+	["_threshold", 0.2]
 ];
 
 if (typeName _units == "GROUP") then {
@@ -14,6 +15,7 @@ if (typeName _units == "GROUP") then {
 {
 	_x setVariable ["EP_defaultDamage", _defaultDamage];
 	_x setVariable ["EP_headshotKill", _headshotKill];
+	_x setVariable ["EP_lastHitTime", time];
 	_x setVariable ["EP_health", 0];
 
 	_x addEventHandler ["HandleDamage", {
@@ -45,8 +47,8 @@ if (typeName _units == "GROUP") then {
 
 // Loop to provide heal regeneration if needed
 if (_regenHealth) then {
-	[_units] spawn {
-		params ["_units"];
+	[_units, _threshold] spawn {
+		params ["_units", "_threshold"];
 
 		private [ "_unitDamage", "_lastHitTime" ];
 		while { (_units findIf { alive _x; }) > -1 } do {
@@ -54,7 +56,7 @@ if (_regenHealth) then {
 				if (alive _x) then {
 					_unitDamage = _x getVariable ["EP_health", 0];
 					_lastHitTime = _x getVariable ["EP_lastHitTime", time];
-					if ( _unitDamage > 0.2 && _lastHitTime <= time ) then {
+					if ( _unitDamage > _threshold && _lastHitTime <= time ) then {
 						_unitDamage = _unitDamage - 0.05;
 						_x setDamage _unitDamage;
 						_x setVariable ["EP_health", _unitDamage];
