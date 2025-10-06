@@ -3,13 +3,17 @@
 params [
 	"_artillery",
 	"_targetPosition",
-	"_magazineType",
 	"_roundsNumber",
+	["_magazineType", objNull],
 	["_sleepRange", [0.5, 1, 1.5]]
 ];
 
 if (typeName _artillery == "GROUP") then {
 	_artillery = [_artillery, true] call BIS_fnc_groupVehicles;
+};
+
+if (isNull _magazineType) then {
+	_magazineType = magazines (_artillery select 0) select 0;
 };
 
 private _isInRange = _targetPosition inRangeOfArtillery [_artillery, _magazineType];
