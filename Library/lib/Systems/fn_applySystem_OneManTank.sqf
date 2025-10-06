@@ -4,7 +4,7 @@ params [
 	"_vehicles",
 	["_enableSentences", false],
 	["_getOutText", "Выйти"],
-	["_cameraExternal", true];
+	["_cameraExternal", true]
 ];
 
 private _addEventHandlers = {
@@ -18,21 +18,24 @@ private _addEventHandlers = {
 
 	_vehicle addEventHandler ["GetIn", {
 		params ["_vehicle", "_role", "_unit"];
-	
+		isAgent
 		enableSentences ( _vehicle getVariable ["EP_enableSentences", false] );
 
 		_vehicle engineOn true;
 		_vehicle lock true;
-		if (_vehicle getVariable ["EP_cameraExternal", false]) then {
+		if ( _vehicle getVariable ["EP_cameraExternal", false] ) then {
 			_vehicle switchCamera "EXTERNAL";
 		};
-		_vehicle addAction [_vehicle getVariable "EP_getOutText", {
-			params ["_target", "_caller", "_actionId"];
-			_target removeAction _actionId;
-			_caller action ["GetOut", _target];
-		}];
 
-		_unit action ["MoveInGunner", _vehicle];
+		if (!isAgent (teamMember driver _vehicle)) then {
+			_vehicle addAction [_vehicle getVariable "EP_getOutText", {
+				params ["_target", "_caller", "_actionId"];
+				_target removeAction _actionId;
+				_caller action ["GetOut", _target];
+			}, [], 1.5, false];
+		};
+
+		_unit action ["MoveToGunner", _vehicle];
 		// Create agent driver
 		_vehicle spawn {
 			waitUntil {!isNull gunner _this};
@@ -40,6 +43,7 @@ private _addEventHandlers = {
 			_agent allowDamage false;
 			_agent moveInDriver _this;
 		};
+		hint str countr;
 	}];
 
 	_vehicle addEventHandler ["GetOut", {
