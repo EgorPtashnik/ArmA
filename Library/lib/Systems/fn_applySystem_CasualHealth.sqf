@@ -5,7 +5,8 @@ params [
 	["_regenHealth", true],
 	["_defaultDamage", 0.1],
 	["_headshotKill", true],
-	["_threshold", 0.2]
+	["_threshold", 0.2],
+	["_regenCoef", 0.05]
 ];
 
 if (typeName _units == "GROUP") then {
@@ -57,7 +58,7 @@ if (_regenHealth) then {
 					_unitDamage = _x getVariable ["EP_health", 0];
 					_lastHitTime = _x getVariable ["EP_lastHitTime", time];
 					if ( _unitDamage > _threshold && _lastHitTime <= time ) then {
-						_unitDamage = _unitDamage - 0.05;
+						_unitDamage = _unitDamage - _regenCoef;
 						_x setDamage _unitDamage;
 						_x setVariable ["EP_health", _unitDamage];
 					};
