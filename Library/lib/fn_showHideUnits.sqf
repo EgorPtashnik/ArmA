@@ -5,7 +5,7 @@ params [
   ["_toHide", true]
 ];
 
-if (typeName _units == "GROUP") then {
+if ((typeName _units) == "GROUP") then {
   _units = units _units;
 };
 

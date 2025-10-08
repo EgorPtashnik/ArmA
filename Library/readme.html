@@ -66,6 +66,7 @@
 					<li><a href="#EP_fnc_doArtilleryFire">EP_fnc_doArtilleryFire</a></li>
 					<li><a href="#EP_fnc_addWaypoint">EP_fnc_addWaypoint</a></li>
 					<li><a href="#EP_fnc_clearWaypoints">EP_fnc_clearWaypoints</a></li>
+					<li><a href="#EP_fnc_createUnits">EP_fnc_createUnits</a></li>
 				</ul>
 				<h3 style="font-size:1em; margin-top:1em;">Системы</h3>
 				<ul style="list-style:none; padding-left:0;">
@@ -315,6 +316,26 @@
 					<div class="example"><strong>Example:</strong><br>
 						<code id="example-EP_fnc_clearWaypoints">[_group] call EP_fnc_clearWaypoints;</code>
 						<button class="copy-btn" data-target="example-EP_fnc_clearWaypoints">Copy</button>
+					</div>
+				</div>
+				<div class="function-block" id="EP_fnc_createUnits">
+					<h3><code>EP_fnc_createUnits</code></h3>
+					<div>Создать группу с техникой</div>
+					<strong>Parameters:</strong>
+					<ul>
+						<li>_spawnPosition</li>
+						<li>_sideOrGroup</li>
+						<li>_units</li>
+						<li>_vehicles (default: [])</li>
+						<li>_relPositions (default: []; format: [distance, direction])</li>
+						<li>_createCrewForVehicles (default: true)</li>
+						<li>_deleteGroupWhenEmpty (default: true)</li>
+						<li>_vehicleSpecialParam (default: "NONE")</li>
+					</ul>
+					<div class="returns"><strong>Returns:</strong> _group</div>
+					<div class="example"><strong>Example:</strong><br>
+						<code id="example-EP_fnc_createUnits">[_spawnPosition, _sideOrGroup, _units, _vehicles*, _relPositions*, _createCrewForVehicles*, _deleteGroupWhenEmpty*, _vehicleSpecialParam* ] call EP_fnc_createUnits;</code>
+						<button class="copy-btn" data-target="example-EP_fnc_createUnits">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_fsm_createStateMachine">

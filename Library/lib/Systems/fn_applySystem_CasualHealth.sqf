@@ -9,7 +9,7 @@ params [
 	["_regenCoef", 0.05]
 ];
 
-if (typeName _units == "GROUP") then {
+if ((typeName _units) == "GROUP") then {
 	_units = units _units;
 };
 

@@ -54,7 +54,7 @@ private _addEventHandlers = {
 	}];
 };
 
-if (typeName _vehicles == "ARRAY") then {
+if ((typeName _vehicles) == "ARRAY") then {
 	{ [_x, _enableSentences] call _addEventHandlers; } forEach _vehicles;
 } else {
 	[_vehicles, _enableSentences] call _addEventHandlers;

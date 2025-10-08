@@ -10,7 +10,7 @@ params [
 	["_sleepRange", [0.5, 1, 1.5]]
 ];
 
-if (typeName _artillery == "GROUP") then {
+if ((typeName _artillery) == "GROUP") then {
 	_artillery = [_artillery, true] call BIS_fnc_groupVehicles;
 };
 

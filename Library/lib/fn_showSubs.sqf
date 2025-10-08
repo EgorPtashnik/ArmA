@@ -13,7 +13,7 @@ private _colorMap = ["#40d2fb", "#b5f961", "#ffffff"];
 private _color = "";
 private _message = "<br/><br/><br/><br/><br/><t align='center' shadow='2' color='%1' size='1.5' font='RobotoCondensedBold'>%2:</t><br/><t color='#ffffff' size='1.5' shadow='2' font='RobotoCondensedBold'>%3</t>";
 
-if (typeName _chatType != "STRING") then {
+if ((typeName _chatType) != "STRING") then {
     _color = _colorMap select _chatType;
 } else {
 	_color = _chatType;
