@@ -65,6 +65,7 @@
 					<li><a href="#EP_fnc_showHideUnits">EP_fnc_showHideUnits</a></li>
 					<li><a href="#EP_fnc_doArtilleryFire">EP_fnc_doArtilleryFire</a></li>
 					<li><a href="#EP_fnc_addWaypoint">EP_fnc_addWaypoint</a></li>
+					<li><a href="#EP_fnc_clearWaypoints">EP_fnc_clearWaypoints</a></li>
 				</ul>
 				<h3 style="font-size:1em; margin-top:1em;">Системы</h3>
 				<ul style="list-style:none; padding-left:0;">
@@ -301,6 +302,19 @@
 					<div class="example"><strong>Example:</strong><br>
 						<code id="example-EP_fnc_addWaypoint">[_group, _position, _wpParams*, _setCurrent*, _syncWaypoints*] call EP_fnc_addWaypoint;</code>
 						<button class="copy-btn" data-target="example-EP_fnc_addWaypoint">Copy</button>
+					</div>
+				</div>
+				<div class="function-block" id="EP_fnc_clearWaypoints">
+					<h3><code>EP_fnc_clearWaypoints</code></h3>
+					<div>Удалить все вейпоинты группы</div>
+					<strong>Parameters:</strong>
+					<ul>
+						<li>_group</li>
+					</ul>
+					<div class="returns"><strong>Returns:</strong> None</div>
+					<div class="example"><strong>Example:</strong><br>
+						<code id="example-EP_fnc_clearWaypoints">[_group] call EP_fnc_clearWaypoints;</code>
+						<button class="copy-btn" data-target="example-EP_fnc_clearWaypoints">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_fsm_createStateMachine">

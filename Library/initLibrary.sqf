@@ -7,6 +7,7 @@ EP_fnc_fadeOut = compile preprocessFileLineNumbers "lib\fn_fadeOut.sqf";
 EP_fnc_showHideUnits = compile preprocessFileLineNumbers "lib\fn_showHideUnits.sqf";
 EP_fnc_doArtilleryFire = compile preprocessFileLineNumbers "lib\fn_doArtilleryFire.sqf";
 EP_fnc_addWaypoint = compile preprocessFileLineNumbers "lib\fn_addWaypoint.sqf";
+EP_fnc_clearWaypoints = compile preprocessFileLineNumbers "lib\fn_clearWaypoints.sqf";
 
 /**
 	State Machine Functions
