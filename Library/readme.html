@@ -161,8 +161,6 @@
 		</nav>
 		<main class="main-content">
 			<h1>ArmA Library Documentation</h1>
-			<p>This page lists all functions defined in <code>initLibrary.sqf</code>, BIS, and CBA, with their purpose and
-				usage.</p>
 			<div class="function-list">
 				<!-- Library Functions -->
 				<div class="function-block" id="EP_fnc_addHoldAction">
@@ -266,7 +264,8 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> _units</div>
 					<div class="example"><strong>Example:</strong><br>
-						<code>[_units, _toHide*] call EP_fnc_showHideUnits;</code>
+						<code id="example-EP_fnc_showHideUnits">[_units, _toHide*] call EP_fnc_showHideUnits;</code>
+						<button class="copy-btn" data-target="example-EP_fnc_showHideUnits">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_fnc_doArtilleryFire">
@@ -282,7 +281,8 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> _artillery</div>
 					<div class="example"><strong>Example:</strong><br>
-						<code>[_artillery, _targetPosition, _roundsNumber, _magazineType*, _sleepRange*] call EP_fnc_doArtilleryFire;</code>
+						<code id="example-EP_fnc_doArtilleryFire">[_artillery, _targetPosition, _roundsNumber, _magazineType*, _sleepRange*] call EP_fnc_doArtilleryFire;</code>
+						<button class="copy-btn" data-target="example-EP_fnc_doArtilleryFire">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_fsm_createStateMachine">
@@ -294,7 +294,8 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> _sm</div>
 					<div class="example"><strong>Example:</strong><br>
-						<code>[] call EP_fsm_createStateMachine;</code>
+						<code  >[] call EP_fsm_createStateMachine;</code>
+						<button class="copy-btn" data-target="example-EP_fsm_createStateMachine">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_fsm_addState">
@@ -309,7 +310,8 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> None</div>
 					<div class="example"><strong>Example:</strong><br>
-						<code>[_sm, _name, _onEnter, _transitions] call EP_fsm_addState;</code>
+						<code id="example-EP_fsm_addState">[_sm, _name, _onEnter, _transitions] call EP_fsm_addState;</code>
+						<button class="copy-btn" data-target="example-EP_fsm_addState">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_fsm_getState">
@@ -322,7 +324,8 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> None</div>
 					<div class="example"><strong>Example:</strong><br>
-						<code>[_sm, _name] call EP_fsm_getState;</code>
+						<code id="example-EP_fsm_getState">[_sm, _name] call EP_fsm_getState;</code>
+						<button class="copy-btn" data-target="example-EP_fsm_getState">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_fsm_handleUpdate">
@@ -334,7 +337,8 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> None</div>
 					<div class="example"><strong>Example:</strong><br>
-						<code>[_sm] call EP_fsm_handleUpdate;</code>
+						<code id="example-EP_fsm_handleUpdate">[_sm] call EP_fsm_handleUpdate;</code>
+						<button class="copy-btn" data-target="example-EP_fsm_handleUpdate">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_fsm_setState">
@@ -347,7 +351,8 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> None</div>
 					<div class="example"><strong>Example:</strong><br>
-						<code>[_sm, _newStateName] call EP_fsm_setState;</code>
+						<code id="example-EP_fsm_setState">[_sm, _newStateName] call EP_fsm_setState;</code>
+						<button class="copy-btn" data-target="example-EP_fsm_setState">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_fsm_startStateMachine">
@@ -360,7 +365,8 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> None</div>
 					<div class="example"><strong>Example:</strong><br>
-						<code>[_sm, _initial] call EP_fsm_startStateMachine;</code>
+						<code id="example-EP_fsm_startStateMachine">[_sm, _initial] call EP_fsm_startStateMachine;</code>
+						<button class="copy-btn" data-target="example-EP_fsm_startStateMachine">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_applySystem_OneManTank">
@@ -375,7 +381,8 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> None</div>
 					<div class="example"><strong>Example:</strong><br>
-						<code>[_vehicles, _enableSentences*, _getOutText*, _cameraExternal*] call EP_applySystem_OneManTank;</code>
+						<code id="example-EP_applySystem_OneManTank">[_vehicles, _enableSentences*, _getOutText*, _cameraExternal*] call EP_applySystem_OneManTank;</code>
+						<button class="copy-btn" data-target="example-EP_applySystem_OneManTank">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_applySystem_CasualHealth">
@@ -392,7 +399,8 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> None</div>
 					<div class="example"><strong>Example:</strong><br>
-						<code>[_units, _regenHealth*, _defaultDamage*, _headshotKill*, _threshold*, _regenCoef*] call EP_applySystem_CasualHealth;</code>
+						<code id="example-EP_applySystem_CasualHealth">[_units, _regenHealth*, _defaultDamage*, _headshotKill*, _threshold*, _regenCoef*] call EP_applySystem_CasualHealth;</code>
+						<button class="copy-btn" data-target="example-EP_applySystem_CasualHealth">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_applySystem_HealthBar">
@@ -411,7 +419,8 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> None</div>
 					<div class="example"><strong>Example:</strong><br>
-						<code>[_healthCharNumber*, _healthSymbol*, _healthMediumThreshold*, _healthHighThreshold*, _healthPosFromBottomPerc*, _healthPosFromRightPerc*, _healthColorMap*, _updateOnEach*] spawn EP_applySystem_HealthBar;</code>
+						<code id="example-EP_applySystem_HealthBar">[_healthCharNumber*, _healthSymbol*, _healthMediumThreshold*, _healthHighThreshold*, _healthPosFromBottomPerc*, _healthPosFromRightPerc*, _healthColorMap*, _updateOnEach*] spawn EP_applySystem_HealthBar;</code>
+						<button class="copy-btn" data-target="example-EP_applySystem_HealthBar">Copy</button>
 					</div>
 				</div>
 		</main>
