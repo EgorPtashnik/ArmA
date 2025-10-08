@@ -1,0 +1,4 @@
+TEST:
+[_group, _position, _wpParams*, _setCurrent*, _syncWaypoints*] call EP_fnc_addWaypoint;
+[_group] call EP_fnc_clearWaypoints;
+[_spawnPosition, _sideOrGroup, _units, _vehicles*, _relPositions*, _createCrewForVehicles*, _deleteGroupWhenEmpty*, _vehicleSpecialParam* ] call EP_fnc_createUnits;
