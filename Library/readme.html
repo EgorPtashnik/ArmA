@@ -64,6 +64,7 @@
 					<li><a href="#EP_fnc_fadeOut">EP_fnc_fadeOut</a></li>
 					<li><a href="#EP_fnc_showHideUnits">EP_fnc_showHideUnits</a></li>
 					<li><a href="#EP_fnc_doArtilleryFire">EP_fnc_doArtilleryFire</a></li>
+					<li><a href="#EP_fnc_addWaypoint">EP_fnc_addWaypoint</a></li>
 				</ul>
 				<h3 style="font-size:1em; margin-top:1em;">Системы</h3>
 				<ul style="list-style:none; padding-left:0;">
@@ -283,6 +284,23 @@
 					<div class="example"><strong>Example:</strong><br>
 						<code id="example-EP_fnc_doArtilleryFire">[_artillery, _targetPosition, _roundsNumber, _magazineType*, _sleepRange*] call EP_fnc_doArtilleryFire;</code>
 						<button class="copy-btn" data-target="example-EP_fnc_doArtilleryFire">Copy</button>
+					</div>
+				</div>
+				<div class="function-block" id="EP_fnc_addWaypoint">
+					<h3><code>EP_fnc_addWaypoint</code></h3>
+					<div>Добавить вейпоинт группе</div>
+					<strong>Parameters:</strong>
+					<ul>
+						<li>_group</li>
+						<li>_position</li>
+						<li>_wpParams (default: [])</li>
+						<li>_setCurrent (default: false)</li>
+						<li>_syncWaypoints (default: []])</li>
+					</ul>
+					<div class="returns"><strong>Returns:</strong> _waypoint</div>
+					<div class="example"><strong>Example:</strong><br>
+						<code id="example-EP_fnc_addWaypoint">[_group, _position, _wpParams*, _setCurrent*, _syncWaypoints*] call EP_fnc_addWaypoint;</code>
+						<button class="copy-btn" data-target="example-EP_fnc_addWaypoint">Copy</button>
 					</div>
 				</div>
 				<div class="function-block" id="EP_fsm_createStateMachine">

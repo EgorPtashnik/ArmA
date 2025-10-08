@@ -25,7 +25,7 @@ private _wpParamsMap = createHashMapFromArray [
 	["type", "MOVE"], 
 	["behaviour", "UNCHANGED"],
 	["combat", "NO CHANGE"],
-	["speec", "UNCHANGED"],
+	["speed", "UNCHANGED"],
 	["formation", "NO CHANGE"],
 	["onComplete", ""],
 	["timeout", [0,0,0]],
@@ -81,7 +81,5 @@ if ( (_wpParamsMap get "attachVehicle") != -1) then {
 	_waypoint waypointAttachVehicle _wpParamsMap get "attachVehicle";
 };
 // process optionals === END
-
-
 
 _waypoint
