@@ -73,6 +73,7 @@
 					<li><a href="#EP_applySystem_OneManTank">EP_applySystem_OneManTank</a></li>
 					<li><a href="#EP_applySystem_CasualHealth">EP_applySystem_CasualHealth</a></li>
 					<li><a href="#EP_applySystem_HealthBar">EP_applySystem_HealthBar</a></li>
+					<li><a href="#EP_applySystem_SimpleConvoy">EP_applySystem_SimpleConvoy</a></li>
 				</ul>
 				<h3 style="font-size:1em; margin-top:1em;">FSM</h3>
 				<ul style="list-style:none; padding-left:0;">
@@ -461,6 +462,9 @@
 					<div>Показать полоску здоровья игроку</div>
 					<strong>Parameters:</strong>
 					<ul>
+						<li>_targetUnit (default: player)</li>
+						<li>_layerId (default: 1)</li>
+						<li>_healthShowVehicle (default: false)</li>
 						<li>_healthCharNumber (default: 66)</li>
 						<li>_healthSymbol (default: "I")</li>
 						<li>_healthMediumThreshold (default: 20)</li>
@@ -472,8 +476,24 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> None</div>
 					<div class="example"><strong>Example:</strong><br>
-						<code id="example-EP_applySystem_HealthBar">[_healthCharNumber*, _healthSymbol*, _healthMediumThreshold*, _healthHighThreshold*, _healthPosFromBottomPerc*, _healthPosFromRightPerc*, _healthColorMap*, _updateOnEach*] spawn EP_applySystem_HealthBar;</code>
+						<code id="example-EP_applySystem_HealthBar">[_targetUnit*, _layerId*, _healthShowVehicle*, _healthCharNumber*, _healthSymbol*, _healthMediumThreshold*, _healthHighThreshold*, _healthPosFromBottomPerc*, _healthPosFromRightPerc*, _healthColorMap*, _updateOnEach*] spawn EP_applySystem_HealthBar;</code>
 						<button class="copy-btn" data-target="example-EP_applySystem_HealthBar">Copy</button>
+					</div>
+				</div>
+				<div class="function-block" id="EP_applySystem_SimpleConvoy">
+					<h3><code>EP_applySystem_SimpleConvoy</code></h3>
+					<div>Применить систему конвоя к группе</div>
+					<strong>Parameters:</strong>
+					<ul>
+						<li>_convoyGroup</li>
+						<li>_convoySpeed (default: 50)</li>
+						<li>_convoySeparation (default: 50)</li>
+						<li>_pushThrough (default: true)</li>
+					</ul>
+					<div class="returns"><strong>Returns:</strong> None</div>
+					<div class="example"><strong>Example:</strong><br>
+						<code id="example-EP_applySystem_SimpleConvoy">[_convoyGroup, _convoySpeed*, _convoySeparation*, _pushThrough*] spawn EP_applySystem_SimpleConvoy;</code>
+						<button class="copy-btn" data-target="example-EP_applySystem_SimpleConvoy">Copy</button>
 					</div>
 				</div>
 		</main>

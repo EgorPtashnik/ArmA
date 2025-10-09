@@ -43,20 +43,20 @@ _position = _position call CBA_fnc_getPos;
 
 // addWaypoint expects ASL when a negative radius is provided for exact placement
 // otherwise waypoints will be placed under the ground
-if (_radius < 0) then {
+if ( (_wpParamsMap get "radius") < 0) then {
     _position = AGLToASL _position;
 };
 
-private _waypoint = _group addWaypoint [_position, _radius];
+private _waypoint = _group addWaypoint [_position, (_wpParamsMap get "radius")];
 
-_waypoint setWaypointType _wpParamsMap get "type";
-_waypoint setWaypointBehaviour _wpParamsMap get "behaviour";
-_waypoint setWaypointCombatMode _wpParamsMap get "combat";
-_waypoint setWaypointSpeed _wpParamsMap get "speed";
-_waypoint setWaypointFormation _wpParamsMap get "formation";
-_waypoint setWaypointStatements _wpParamsMap get "onComplete";
-_waypoint setWaypointTimeout _wpParamsMap get "timeout";
-_waypoint setWaypointCompletionRadius _wpParamsMap get "compRadius";
+_waypoint setWaypointType (_wpParamsMap get "type");
+_waypoint setWaypointBehaviour (_wpParamsMap get "behaviour");
+_waypoint setWaypointCombatMode (_wpParamsMap get "combat");
+_waypoint setWaypointSpeed (_wpParamsMap get "speed");
+_waypoint setWaypointFormation (_wpParamsMap get "formation");
+_waypoint setWaypointStatements (_wpParamsMap get "onComplete");
+_waypoint setWaypointTimeout (_wpParamsMap get "timeout");
+_waypoint setWaypointCompletionRadius (_wpParamsMap get "compRadius");
 
 // process optionals
 if (_setCurrent) then {
@@ -68,17 +68,17 @@ if ( count _syncWaypoints > 0 ) then {
 };
 
 if ( (_wpParamsMap get "housePos") != -1) then {
-	_waypoint setWaypointHousePosition _wpParamsMap get "housePos";
+	_waypoint setWaypointHousePosition (_wpParamsMap get "housePos");
 };
 
 // can be used with object ID (like house ID) to attach waypoint to a house
 if ( (_wpParamsMap get "attachObject") != -1) then {
-	_waypoint waypointAttachObject _wpParamsMap get "attachObject";
+	_waypoint waypointAttachObject (_wpParamsMap get "attachObject");
 };
 
 // for GETIN waypoint
 if ( (_wpParamsMap get "attachVehicle") != -1) then {
-	_waypoint waypointAttachVehicle _wpParamsMap get "attachVehicle";
+	_waypoint waypointAttachVehicle (_wpParamsMap get "attachVehicle");
 };
 // process optionals === END
 

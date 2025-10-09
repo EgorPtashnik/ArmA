@@ -1,5 +1,8 @@
 // [] spawn EP_applySystem_HealthBar;
 params [
+	["_targetUnit", player],
+	["_layerId", 1],
+	["_healthShowVehicle", false],
 	["_healthCharNumber", 66],
 	["_healthSymbol", "I"],
 	["_healthMediumThreshold", 20],
@@ -12,6 +15,8 @@ params [
 
 private _healthBarHandler = {
 	params [
+		"_unit",
+		"_layer",
 		"_charNumber",
 		"_symbol",
 		"_mediumThreshold",
@@ -21,8 +26,8 @@ private _healthBarHandler = {
 		"_colorMap"
 	];
 
-	private _health = damage player;
-	private _savedHealth = player getVariable ["EP_healthBarDamage", objNull];
+	private _health = damage _unit;
+	private _savedHealth = _unit getVariable ["EP_healthBarDamage", objNull];
 
 	if ( (_savedHealth !== _health) || (isNull _savedHealth) ) then {
 
@@ -41,16 +46,18 @@ private _healthBarHandler = {
 				format ["<t font='PuristaBold' color='%1' align='left' shadow='2' size='0.5'>%2</t>", _color, _displayString],
 				safeZoneW + safeZoneX * _posFromRightPerc,
 				safeZoneH + safeZoneY * _posFromBottomPerc,
-				1, 0, 0, 1
+				1, 0, 0, _layer
 		] spawn BIS_fnc_dynamicText;
 
-		player setVariable ["EP_healthBarDamage", _health];
+		_unit setVariable ["EP_healthBarDamage", _health];
 	};
 };
 
-while { alive player } do {
-	if (vehicle player isEqualTo player) then {
+while { alive _targetUnit } do {
+	if ( (vehicle _targetUnit isEqualTo _targetUnit) || _healthShowVehicle) then {
 		[
+			vehicle _targetUnit,
+			_layerId,
 			_healthCharNumber,
 			_healthSymbol,
 			_healthMediumThreshold,
@@ -60,10 +67,10 @@ while { alive player } do {
 			_healthColorMap
 		] call _healthBarHandler;
 	} else {
-		["", -1, -1, 0, 0, 0, 1] spawn BIS_fnc_dynamicText;
-		player setVariable ["EP_healthBarDamage", objNull];
+		["", -1, -1, 0, 0, 0, _layerId] spawn BIS_fnc_dynamicText;
+		vehicle _targetUnit setVariable ["EP_healthBarDamage", objNull];
 	};
 	sleep _updateOnEach;
 };
 
-["", -1, -1, 0, 0, 0, 1] spawn BIS_fnc_dynamicText;
+["", -1, -1, 0, 0, 0, _layerId] spawn BIS_fnc_dynamicText;
