@@ -8,8 +8,9 @@ params [
 0 fadeSound 0;
 enableRadio false;
 enableSentences false;
-cutText ["", "BLACK", 0.001];
+["EP_blackScreen", false] call BIS_fnc_blackOut;
 sleep 5;
+["EP_blackScreen", false] call BIS_fnc_blackIn;
 0 fadeSound 1;
 enableRadio true;
 enableSentences true;
