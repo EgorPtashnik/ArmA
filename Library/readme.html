@@ -74,6 +74,7 @@
 					<li><a href="#EP_applySystem_CasualHealth">EP_applySystem_CasualHealth</a></li>
 					<li><a href="#EP_applySystem_HealthBar">EP_applySystem_HealthBar</a></li>
 					<li><a href="#EP_applySystem_SimpleConvoy">EP_applySystem_SimpleConvoy</a></li>
+					<li><a href="#EP_applySystem_RandomRadio">EP_applySystem_RandomRadio</a></li>
 				</ul>
 				<h3 style="font-size:1em; margin-top:1em;">FSM</h3>
 				<ul style="list-style:none; padding-left:0;">
@@ -339,7 +340,7 @@
 					</ul>
 					<div class="returns"><strong>Returns:</strong> _sm</div><br>
 					<div class="example"><strong><button class="copy-btn" data-target="example-EP_fsm_createStateMachine">Copy</button> Example:</strong><br><br>
-						<code  >[] call EP_fsm_createStateMachine;</code>
+						<code id="example-EP_fsm_createStateMachine">[] call EP_fsm_createStateMachine;</code>
 					</div>
 				</div>
 				<div class="function-block" id="EP_fsm_addState">
@@ -475,6 +476,20 @@
 					<div class="returns"><strong>Returns:</strong> None</div><br>
 					<div class="example"><strong><button class="copy-btn" data-target="example-EP_applySystem_SimpleConvoy">Copy</button> Example:</strong><br><br>
 						<code id="example-EP_applySystem_SimpleConvoy">[_convoyGroup, _convoySpeed*, _convoySeparation*, _pushThrough*] spawn EP_applySystem_SimpleConvoy;</code>
+					</div>
+				</div>
+				<div class="function-block" id="EP_applySystem_RandomRadio">
+					<h3><code>EP_applySystem_RandomRadio</code></h3>
+					<div>Применить систему рандомного радио</div>
+					<strong>Parameters:</strong>
+					<ul>
+						<li>_side</li>
+						<li>_sleepBetween (default: 10)</li>
+						<li>_condition</li>
+					</ul>
+					<div class="returns"><strong>Returns:</strong> None</div><br>
+					<div class="example"><strong><button class="copy-btn" data-target="example-EP_applySystem_RandomRadio">Copy</button> Example:</strong><br><br>
+						<code id="example-EP_applySystem_RandomRadio">[_side, _sleepBetween*, _condition*] spawn EP_applySystem_RandomRadio;</code>
 					</div>
 				</div>
 		</main>

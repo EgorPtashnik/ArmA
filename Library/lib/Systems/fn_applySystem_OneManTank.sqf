@@ -18,7 +18,6 @@ private _addEventHandlers = {
 
 	_vehicle addEventHandler ["GetIn", {
 		params ["_vehicle", "_role", "_unit"];
-		isAgent
 		enableSentences ( _vehicle getVariable ["EP_enableSentences", false] );
 
 		_vehicle engineOn true;

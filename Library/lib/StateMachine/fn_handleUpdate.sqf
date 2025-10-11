@@ -9,8 +9,8 @@ private _stateDef = [_sm, _current] call EP_fsm_getState;
 private _transitions = _stateDef select 2;
 
 {
-	private _cond = _x select 0;
-	private _next = _x select 1;
+	private _next = _x select 0;
+	private _cond = _x select 1;
 	if (call _cond) exitWith {
 		[_sm, _next] call EP_fsm_setState;
 	};
