@@ -61,6 +61,4 @@ _hasRelPositions = (count _relPositions > 0);
 	};
 } forEach _vehicles;
 
-// relative positions
-
 _group;
