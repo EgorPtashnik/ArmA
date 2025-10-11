@@ -18,7 +18,10 @@ params [
 	onComplete:  	["true", "hint 'hello'; hint 'goodbuy'] [condition, "code"]
 	timeout:		 	[min,mid,max]
 	compRadious:	30
-	syncWaypoint: [wp1, wp2]
+	syncWaypoint: [wp1, wp2],
+	housePos,
+	attachObject,
+	attachVehicle
 */
 private _wpParamsMap = createHashMapFromArray [
 	["radius", -1],
@@ -27,13 +30,13 @@ private _wpParamsMap = createHashMapFromArray [
 	["combat", "NO CHANGE"],
 	["speed", "UNCHANGED"],
 	["formation", "NO CHANGE"],
-	["onComplete", ""],
+	["onComplete", ["true", ""]],
 	["timeout", [0,0,0]],
 	["compRadius", 0],
 	["syncWaypoints", []],
 	["housePos", -1],
-	["attachObject", -1],
-	["attachVehicle", -1]
+	["attachObject", objNull],
+	["attachVehicle", objNull]
 ];
  _group = _group call CBA_fnc_getGroup;
 _position = _position call CBA_fnc_getPos;
@@ -72,12 +75,12 @@ if ( (_wpParamsMap get "housePos") != -1) then {
 };
 
 // can be used with object ID (like house ID) to attach waypoint to a house
-if ( (_wpParamsMap get "attachObject") != -1) then {
+if ( !(isNull(_wpParamsMap get "attachObject")) ) then {
 	_waypoint waypointAttachObject (_wpParamsMap get "attachObject");
 };
 
 // for GETIN waypoint
-if ( (_wpParamsMap get "attachVehicle") != -1) then {
+if ( !(isNull(_wpParamsMap get "attachVehicle")) ) then {
 	_waypoint waypointAttachVehicle (_wpParamsMap get "attachVehicle");
 };
 // process optionals === END
