@@ -27,9 +27,9 @@ private _healthBarHandler = {
 	];
 
 	private _health = damage _unit;
-	private _savedHealth = _unit getVariable ["EP_healthBarDamage", objNull];
+	private _savedHealth = _unit getVariable ["EP_healthBarDamage", -1];
 
-	if ( (_savedHealth !== _health) || (isNull _savedHealth) ) then {
+	if ( (_savedHealth == -1) || !(_savedHealth != _health)  ) then {
 
 		private _displayString = "";
 		private _counter = _charNumber - _health * _charNumber;

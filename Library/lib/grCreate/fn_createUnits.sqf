@@ -4,7 +4,7 @@ params [
 	"_units",
 	["_vehicles", []],
 	["_relPositions", []],
-	["_createCrewForVehicles", true]
+	["_createCrewForVehicles", true],
 	["_deleteGroupWhenEmpty", true],
 	["_vehicleSpecialParam", "NONE"]
 ];
@@ -17,7 +17,7 @@ switch (typeName _spawnPosition) do
 {
 	case "ARRAY": { _position = _spawnPosition; };
 	case "STRING": { _position = markerPos _spawnPosition; };
-	default: { _position = getPos _spawnPosition; };
+	default { _position = getPos _spawnPosition; };
 };
 
 // group
