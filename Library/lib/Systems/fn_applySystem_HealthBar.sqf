@@ -29,8 +29,7 @@ private _healthBarHandler = {
 	private _health = damage _unit;
 	private _savedHealth = _unit getVariable ["EP_healthBarDamage", -1];
 
-	if ( (_savedHealth == -1) || !(_savedHealth != _health)  ) then {
-
+	if ( (_savedHealth == -1) || (_savedHealth != _health)  ) then {
 		private _displayString = "";
 		private _counter = _charNumber - _health * _charNumber;
 		for "_i" from 1 to _counter do {
@@ -46,7 +45,7 @@ private _healthBarHandler = {
 				format ["<t font='PuristaBold' color='%1' align='left' shadow='2' size='0.5'>%2</t>", _color, _displayString],
 				safeZoneW + safeZoneX * _posFromRightPerc,
 				safeZoneH + safeZoneY * _posFromBottomPerc,
-				1, 0, 0, _layer
+				999, 0, 0, _layer
 		] spawn BIS_fnc_dynamicText;
 
 		_unit setVariable ["EP_healthBarDamage", _health];
@@ -54,7 +53,7 @@ private _healthBarHandler = {
 };
 
 while { alive _targetUnit } do {
-	if ( (vehicle _targetUnit isEqualTo _targetUnit) || _healthShowVehicle) then {
+	if ( ( (vehicle _targetUnit) isEqualTo _targetUnit) || _healthShowVehicle) then {
 		[
 			vehicle _targetUnit,
 			_layerId,
