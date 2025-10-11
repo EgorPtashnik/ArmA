@@ -39,3 +39,4 @@ EP_applySystem_OneManTank = compile preprocessFileLineNumbers "lib\Systems\fn_ap
 EP_applySystem_CasualHealth = compile preprocessFileLineNumbers "lib\Systems\fn_applySystem_CasualHealth.sqf";
 EP_applySystem_HealthBar = compile preprocessFileLineNumbers "lib\Systems\fn_applySystem_HealthBar.sqf";
 EP_applySystem_SimpleConvoy = compile preprocessFileLineNumbers "lib\Systems\fn_applySystem_SimpleConvoy.sqf";
+EP_applySystem_RandomRadio = compile preprocessFileLineNumbers "lib\Systems\fn_applySystem_RandomRadio.sqf";
