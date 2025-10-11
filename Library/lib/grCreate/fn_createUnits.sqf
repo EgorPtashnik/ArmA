@@ -3,14 +3,14 @@ params [
 	"_sideOrGroup",
 	"_units",
 	["_vehicles", []],
+	["_direction", -1],
 	["_relPositions", []],
 	["_createCrewForVehicles", true],
 	["_deleteGroupWhenEmpty", true],
 	["_vehicleSpecialParam", "NONE"]
 ];
 
-private ["_group", "_position", "_hasRelPositions", "_offset", "_direction", "_unit", "_vehicle"];
-_direction = objNull;
+private ["_group", "_position", "_hasRelPositions", "_offset", "_unit", "_vehicle"];
 
 // position TODO
 switch (typeName _spawnPosition) do
@@ -38,8 +38,8 @@ _hasRelPositions = (count _relPositions > 0);
 
 	_unit = _group createUnit [_x, _position, [], 0, "NONE"];
 
-	if (!(isNull _direction)) then {
-		_unit setDirection _direction;
+	if (_direction != -1) then {
+		_unit setDir _direction;
 	};
 
 } forEach _units;
@@ -56,6 +56,10 @@ _hasRelPositions = (count _relPositions > 0);
 	_group addVehicle _vehicle;
 	if (_createCrewForVehicles) then {
 		_group createVehicleCrew _vehicle;
+	};
+
+	if (_direction != -1) then {
+		_vehicle setDir _direction;
 	};
 } forEach _vehicles;
 

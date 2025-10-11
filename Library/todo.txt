@@ -1,7 +1,4 @@
 TEST:
-
-[_group] call EP_fnc_clearWaypoints;
-
 [ _spawnPosition,
   _sideOrGroup,
   _units,
