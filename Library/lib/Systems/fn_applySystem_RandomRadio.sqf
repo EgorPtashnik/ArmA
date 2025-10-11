@@ -29,7 +29,7 @@ private ["_sounds", "_source"];
 if (_side == west) then {
 	_sounds = _radioSoundsWest;
 } else {
-	_sounds = _radioSoundsWest;
+	_sounds = _radioSoundsEast;
 };
 
 while { call _condition } do {
