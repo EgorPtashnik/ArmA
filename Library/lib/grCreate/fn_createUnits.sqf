@@ -49,8 +49,6 @@ _hasRelPositions = (count _relPositions > 0);
 	if (_hasRelPositions && _vehicleSpecialParam != "FLY") then {
 		_offset = _relPositions deleteAt 0;
 		_position = _position getPos [ (_offset select 0), (_offset select 1) ];
-	} else {
-		_position = getPos leader _group;
 	};
 	_vehicle = createVehicle [_x, _position, [], 0, _vehicleSpecialParam];
 	_group addVehicle _vehicle;
