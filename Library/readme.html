@@ -67,6 +67,7 @@
 					<li><a href="#EP_fnc_addWaypoint">EP_fnc_addWaypoint</a></li>
 					<li><a href="#EP_fnc_clearWaypoints">EP_fnc_clearWaypoints</a></li>
 					<li><a href="#EP_fnc_createUnits">EP_fnc_createUnits</a></li>
+					<li><a href="#EP_fnc_handleTasks">EP_fnc_handleTasks</a></li>
 				</ul>
 				<h3 style="font-size:1em; margin-top:1em;">Системы</h3>
 				<ul style="list-style:none; padding-left:0;">
@@ -329,6 +330,37 @@
 					<div class="returns"><strong>Returns:</strong> _group</div><br>
 					<div class="example"><strong><button class="copy-btn" data-target="example-EP_fnc_createUnits">Copy</button> Example:</strong><br><br>
 						<code id="example-EP_fnc_createUnits">[_spawnPosition, _sideOrGroup, _units, _vehicles*, direction*, _relPositions*, _createCrewForVehicles*, _deleteGroupWhenEmpty*, _vehicleSpecialParam* ] call EP_fnc_createUnits;</code>
+					</div>
+				</div>
+				<div class="function-block" id="EP_fnc_handleTasks">
+					<h3><code>EP_fnc_handleTasks</code></h3>
+					<div>Процесс задачи. Задачи перечисляются в переменной EP_tasks.</div>
+          <div>EP_tasks = createHashMapFromArray [
+          [ "TaskCaptureCity_1", [ player, "TaskCaptureCity_1",
+            ["Join an attack on position <marker name='o_1'>Alpha</marker> and secure the area.", "Position Alpha"],
+            markerPos "o_1", true, -1, true, "a", false]
+          ],
+
+          [ "TaskCaptureCity_2", [ player, "TaskCaptureCity_2",
+            ["Keep advancing and capture position <marker name='o_2'>Beta</marker>.", "Position Beta"],
+            markerPos "o_2", true, -1, true, "b", false]
+          ],
+
+          [ "TaskCaptureCity_3", [ player, "TaskCaptureCity_3",
+            ["It's time to end thid. Knock out the enemy from his last line of defence at position <marker name='o_3'>Gamma</marker>.", "Gamma"],
+            markerPos "o_3", true, -1, true, "g", false]
+          ]
+        ];
+          </div>
+					<strong>Parameters:</strong>
+					<ul>
+						<li>_taskId</li>
+						<li>_newState (default: "SUCCEEDED")</li>
+						<li>_showHint (default: true)</li>
+					</ul>
+					<div class="returns"><strong>Returns:</strong> _taskId</div><br>
+					<div class="example"><strong><button class="copy-btn" data-target="example-EP_fnc_handleTasks">Copy</button> Example:</strong><br><br>
+						<code id="example-EP_fnc_handleTasks">[_taskId, _newState*, _showHint*] call EP_fnc_handleTasks;</code>
 					</div>
 				</div>
 				<div class="function-block" id="EP_fsm_createStateMachine">

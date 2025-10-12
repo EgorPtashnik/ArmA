@@ -1,14 +1,14 @@
-// 	["TITLE", "SUBTITLES"] spawn EP_fnc_conversation ;
+// 	["TITLE", "SUBTITLES"] spawn EP_fnc_conversation;
 
 params [
 	"_title",
 	"_subtitles",
-	["_duration", 0.5],
+	["_duration", 5],
 	["_isRadio", true],
 	["_radioSoundIn", "myin1"],
 	["_radioSoundOut", "myin4"],
 	["_chatType", 2],
-    ["_toUpper", true]
+	["_toUpper", true]
 ];
 
 private _noises = ["mynoise1", "mynoise2", "mynoise3"];
@@ -28,12 +28,12 @@ if (_toUpper) then {
 
 _message = formatText [_message, _color, _title, _subtitles];
 
-cutText [str _message, "PLAIN DOWN", _duration, true, true];
+cutText [str _message, "PLAIN DOWN", _duration/10, true, true];
 
 if (_isRadio) then {
 	playSoundUI [ _radioSoundIn ];
 	private _time = time;
-	while { time < ( _time + _duration * 10 ) } do {
+	while { time < ( _time + _duration ) } do {
 		_soundId = playSoundUI [ ( selectRandom _noises ) ];
 		sleep 5;
 	};
@@ -42,5 +42,5 @@ if (_isRadio) then {
 	sleep 2;
 } else {
 	playSoundUI [ "mybeep" ];
-	sleep ( _duration * 10 );
+	sleep ( _duration );
 };
