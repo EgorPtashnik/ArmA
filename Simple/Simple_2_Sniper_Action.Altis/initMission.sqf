@@ -34,10 +34,14 @@ EP_GROUP_DYNAMIC_PATROL setCombatBehaviour "SAFE";
 "EP_MARKER_DYNAMIC_PATROL_KIA" setMarkerPos (getMarkerPos "EP_MARKER_DYNAMIC_PATROL");
 
 // PREPARE INSERTION
-enableRadio false;
-enableSentences false;
-["EP_BLACK_SCREEN", false] call BIS_fnc_blackOut;
-[0, 1.5, false, true] call BIS_fnc_cinemaBorder;
+EP_SKIP_INTRO = false;
+
+if !(EP_SKIP_INTRO) then {
+	enableRadio false;
+	enableSentences false;
+	["EP_BLACK_SCREEN", false] call BIS_fnc_blackOut;
+	[0, 1.5, false, true] call BIS_fnc_cinemaBorder;
+};
 
 // PLAYER PROFILE
 player setName ["Aaron Lorent", "Aaron", "Lorent"];

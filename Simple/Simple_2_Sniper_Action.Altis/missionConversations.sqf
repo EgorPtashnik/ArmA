@@ -8,7 +8,7 @@ case "INSERTION": {
 case "IN_POSITION": {
 	[[
 		["Ghost", "In position. Over.", 0],
-		["Scout Actual", "Roger. We are moving out. Check check the area. Out.", 5]
+		["Scout Actual", "Roger. We are moving out. Check the area. Out.", 5]
 	]] call EP_fnc_chat;
 };
 
@@ -41,7 +41,7 @@ case "STATIC_PATROL_KIA": {
 
 case "SCOUT_OBEY": {
 	[[
-		["Scout", "I would prefer you to decide when we can move and when we must stop. Let's do like that: code Green - go, code Red - stop. How copy?", 0],
+		["Scout Actual", "I would prefer you to decide when we can move and when we must stop. Let's do like that: code Green - go, code Red - stop. How copy?", 0],
 		["Ghost", "Solid copy. Wait for my sygnal then. Ghost out.", 5]
 	]] call EP_fnc_chat;
 };
@@ -66,7 +66,7 @@ case "DYNAMIC_PATROL_KILL_RADIOMAN_FIRST": {
 
 case "SCOUT_NEAR_BASE": {
 	[[
-		["Scout", "Ghost, come in. We are in position near base. Merlin has joined the channel.", 0],
+		["Scout Actual", "Ghost, come in. We are in position near base. Merlin has joined the channel.", 0],
 		["Merlin", "Come in. Raindrop has done all preparations and is ready to provide artillery support. How copy? Over.", 5],
 		["Ghost", "Good to hear you, Merlin. Solid copy. How many rounds do they have?", 10],
 		["Merlin", "Unfortunately two. But these are laser designated missiles. So peak the target wisely.", 15],
@@ -78,7 +78,7 @@ case "SCOUT_NEAR_BASE": {
 case "BASE_SEE_AMMO": {
 	[[
 		["Ghost", "See the supply truck. Looks like they are not going anywhere in the nearest time.", 0],
-		["Scout", "Good to know. These ammo should be transfered to the frontline.", 5],
+		["Scout Actual", "Good to know. These ammo should be transfered to the frontline.", 5],
 		["Merlin", "That's why we must not allow this. Be adviced. Do not send scout until main defence line is down. Merlin out.", 10]
 	]] call EP_fnc_chat;
 };
@@ -104,23 +104,22 @@ case "BASE_CALL_ARTILLERY": {
 };
 
 case "BASE_SCOUT_ATTACK": {
-
+	[[
+		["Ghost", "Scout, this is Ghost. Push forward. I repeat. Start the attack! Over.", 0],
+		["Scout Actual", "Moving out, Ghost. Scout Actual out.", 5]
+	]] call EP_fnc_chat;
 };
 
 case "BASE_CAPTURED": {
-
+	[[
+		["Scout Actual", "Merlin, this is Scout. I think the base is under our control. We start planting explosives/ Scout Actual out.", 0],
+		["Merlin", "Ghost, come in. You are the Scout's eye out there. Check the AO and report about any hostiles directly to Scout. How copy? Over.", 10],
+		["Ghost", "Solid copy. Watching. Ghost out.", 20]
+	]] call EP_fnc_chat;
 };
 
-case "QRF_EN_ROUTE": {
-
+case "SCOUT_RETREATED": {
+	[[
+		["Scout Actual", "Ghost, come in. Charges are set off. Prepare for impact.", 0]
+	]] call EP_fnc_chat;
 };
-
-case "QRF_SEE": {
-
-};
-
-case "SCOUT_COMPROMISED": {
-
-};
-
-

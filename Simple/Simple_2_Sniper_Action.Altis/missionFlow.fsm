@@ -38,7 +38,7 @@ item33[] = {"Scout_Route_Loop",2,250,-75.000000,-250.000000,25.000000,-200.00000
 item34[] = {"Repeated__Scout",4,218,100.000000,-275.000000,200.000000,-225.000000,0.000000,"Repeated:" \n "Scout - Go"};
 item35[] = {"Repeated__Scout_1",4,218,100.000000,-350.000000,200.000000,-300.000000,0.000000,"Repeated:" \n "Scout - Stop"};
 item36[] = {"Radioman_In_Comb",4,218,-375.000000,-250.000000,-275.000000,-200.000000,0.000000,"Radioman" \n "In Combat"};
-item37[] = {"_",8,218,-75.000000,50.000000,25.000000,100.000000,0.000000,""};
+item37[] = {"Wait",4,218,-75.000000,50.000000,25.000000,100.000000,0.000000,"Wait"};
 item38[] = {"Base_Event_Loop",2,250,-75.000000,150.000000,25.000000,200.000000,0.000000,"Base Event" \n "Loop"};
 item39[] = {"",7,210,71.000000,146.000015,79.000000,154.000000,0.000000,""};
 item40[] = {"",7,210,71.000000,121.000000,79.000000,129.000000,0.000000,""};
@@ -78,17 +78,17 @@ item73[] = {"",7,210,-328.999969,546.000000,-321.000031,554.000000,0.000000,""};
 item74[] = {"Support__Call_Sc",4,218,-275.000000,600.000000,-175.000000,650.000000,0.000000,"Support:" \n "Call" \n "Scout"};
 item75[] = {"",7,210,-129.000000,621.000000,-121.000008,629.000000,0.000000,""};
 item76[] = {"",7,210,-329.000000,621.000000,-321.000000,629.000000,0.000000,""};
-item77[] = {"Base_Unit_In_Com",4,218,100.000000,675.000000,250.000000,775.000000,0.000000,"Base Unit" \n "In Combat"};
-item78[] = {"",7,210,-28.999992,721.000000,-21.000008,729.000000,0.000000,""};
-item79[] = {"Base_Captured_or",4,218,-100.000000,800.000000,50.000000,900.000000,0.000000,"Base Captured" \n "or" \n "QRF Arrived"};
-item80[] = {"",7,210,-4.000000,221.000015,4.000000,228.999985,0.000000,""};
-item81[] = {"",7,210,171.000000,646.000000,179.000000,654.000000,0.000000,""};
-item82[] = {"",7,210,-4.000000,646.000000,4.000000,654.000000,0.000000,""};
-item83[] = {"TODO",3,250,-450.000000,525.000000,-350.000000,575.000000,0.000000,"TODO"};
-item84[] = {"TODO_1",3,250,-450.000000,600.000000,-350.000000,650.000000,0.000000,"TODO"};
-item85[] = {"TODO_2",3,250,275.000000,700.000000,375.000000,750.000000,0.000000,"TODO"};
-item86[] = {"TODO_3",3,250,75.000000,825.000000,175.000000,875.000000,0.000000,"TODO"};
-item87[] = {"____FAKE____",9,8909884,0.000000,7995617029256728400000000000000000.000000,-0.000000,-1.#QNAN0,0.000000,"____FAKE____"};
+item77[] = {"Base_Captured",4,218,-75.000000,725.000000,25.000000,775.000000,0.000000,"Base Captured"};
+item78[] = {"Scout_KIA",4,218,-275.000000,675.000000,-175.000000,725.000000,5.000000,"Scout" \n "KIA"};
+item79[] = {"Fail_Scout_KIA",1,250,-500.000000,675.000000,-400.000000,725.000000,0.000000,"Fail" \n "Scout KIA"};
+item80[] = {"",7,210,-129.000000,696.000000,-120.999992,704.000000,0.000000,""};
+item81[] = {"Send_QRF",2,250,-75.000000,825.000000,25.000000,875.000000,0.000000,"Send" \n "QRF"};
+item82[] = {"timeout",4,218,-75.000000,925.000000,25.000000,975.000000,0.000000,"timeout"};
+item83[] = {"",7,210,-229.000000,846.000000,-221.000000,854.000000,0.000000,""};
+item84[] = {"Scout_Retreat",2,250,-75.000000,1025.000000,25.000000,1075.000000,0.000000,"Scout" \n "Retreat"};
+item85[] = {"",7,210,-229.000000,1046.000000,-221.000000,1054.000000,0.000000,""};
+item86[] = {"Scout_Retreated",4,218,-75.000000,1125.000000,25.000000,1175.000000,0.000000,"Scout" \n "Retreated"};
+item87[] = {"End_Mission",1,250,-75.000000,1250.000000,25.000000,1300.000000,0.000000,"End" \n "Mission"};
 link0[] = {0,1};
 link1[] = {1,2};
 link2[] = {2,9};
@@ -141,7 +141,7 @@ link48[] = {36,23};
 link49[] = {37,38};
 link50[] = {38,8};
 link51[] = {38,47};
-link52[] = {38,78};
+link52[] = {38,77};
 link53[] = {39,38};
 link54[] = {40,39};
 link55[] = {41,42};
@@ -188,16 +188,21 @@ link95[] = {72,75};
 link96[] = {73,70};
 link97[] = {74,76};
 link98[] = {75,74};
-link99[] = {76,73};
-link100[] = {77,81};
-link101[] = {78,77};
+link99[] = {75,80};
+link100[] = {76,73};
+link101[] = {77,81};
 link102[] = {78,79};
-link103[] = {80,38};
+link103[] = {80,78};
 link104[] = {81,82};
-link105[] = {82,80};
-link106[] = {79,87};
-globals[] = {0.000000,0,0,0,0,640,480,1,746,6316128,1,-489.861786,423.511871,951.844788,35.332458,873,876,1};
-window[] = {2,-1,-1,-1,-1,923,156,1687,156,3,891};
+link105[] = {81,83};
+link106[] = {82,84};
+link107[] = {83,78};
+link108[] = {84,85};
+link109[] = {84,86};
+link110[] = {85,83};
+link111[] = {86,87};
+globals[] = {0.000000,0,0,0,0,640,480,1,758,6316128,1,-691.055298,695.912231,1319.402100,180.628723,1710,1404,1};
+window[] = {2,-1,-1,-32000,-32000,805,38,1569,38,3,1737};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -235,28 +240,30 @@ class FSM
                         name = "Insertion";
                         itemno = 2;
                         init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
-                         "	private [""_thread""];" \n
-                         "	sleep 3;" \n
+                         "	if !(EP_SKIP_INTRO) then {" \n
+                         "		private [""_thread""];" \n
+                         "		sleep 3;" \n
                          "" \n
-                         "	enableRadio true;" \n
-                         "	enableSentences true;" \n
-                         "	" \n
-                         "	[""EP_BLACK_SCREEN"", false] call BIS_fnc_blackIn;" \n
-                         "	0 fadeMusic 1;" \n
-                         "	[1, ""BLACK"", 7, 1] spawn BIS_fnc_fadeEffect;" \n
+                         "		enableRadio true;" \n
+                         "		enableSentences true;" \n
+                         "		" \n
+                         "		[""EP_BLACK_SCREEN"", false] call BIS_fnc_blackIn;" \n
+                         "		0 fadeMusic 1;" \n
+                         "		[1, ""BLACK"", 7, 1] spawn BIS_fnc_fadeEffect;" \n
                          "" \n
-                         "	sleep 7;" \n
+                         "		sleep 7;" \n
                          "" \n
-                         "	_thread = [[" \n
-                         "		[""Operation 'Silent Surgeon'"", ""<t align = 'center' shadow = '1' size = '0.7'>%1</t><br/>""]," \n
-                         "		[""Captain Aaron Lorant, British Special Forces"", ""<t align = 'center' shadow = '1' size = '0.7'>%1</t><br/>""]," \n
-                         "		[format [""Southern Altis, %1"", [dayTime, ""HH:MM""] call BIS_fnc_timeToString]," \n
-                         "		""<t align = 'center' shadow = '1' size = '0.7'>%1</t><br/>"", 15]" \n
-                         "	], safeZoneW + safeZoneX * 2.3, safeZoneH + safeZoneY * 2] spawn BIS_fnc_typeText;" \n
-                         "	" \n
-                         "	waitUntil {sleep 1; scriptDone _thread};" \n
+                         "		_thread = [[" \n
+                         "			[""Operation 'Silent Surgeon'"", ""<t align = 'center' shadow = '1' size = '0.7'>%1</t><br/>""]," \n
+                         "			[""Captain Aaron Lorant, British Special Forces"", ""<t align = 'center' shadow = '1' size = '0.7'>%1</t><br/>""]," \n
+                         "			[format [""Southern Altis, %1"", [dayTime, ""HH:MM""] call BIS_fnc_timeToString]," \n
+                         "			""<t align = 'center' shadow = '1' size = '0.7'>%1</t><br/>"", 15]" \n
+                         "		], safeZoneW + safeZoneX * 2.3, safeZoneH + safeZoneY * 2] spawn BIS_fnc_typeText;" \n
+                         "		" \n
+                         "		waitUntil {sleep 1; scriptDone _thread};" \n
                          "" \n
-                         "	[1, 1.5, false, true] call BIS_fnc_cinemaBorder;" \n
+                         "		[1, 1.5, false, true] call BIS_fnc_cinemaBorder;" \n
+                         "	};" \n
                          "" \n
                          "	sleep 2;" \n
                          "" \n
@@ -568,22 +575,24 @@ class FSM
                          "" \n
                          "	sleep 5;" \n
                          "" \n
+                         "	// Support Item IDs" \n
                          "	player setVariable [""SUPPORT_SCOUT_ATTACK"", [player, ""SCOUT_ATTACK""] call BIS_fnc_addCommMenuItem];" \n
                          "	player setVariable [""SUPPORT_MARK_TARGET"", [player, ""MARK_TARGET""] call BIS_fnc_addCommMenuItem];" \n
                          "	player setVariable [""SUPPORT_CALL_ARTILLERY"", [player, ""CALL_ARTILLERY""] call BIS_fnc_addCommMenuItem];" \n
+                         "	player setVariable [""MARKED_TARGETS"", []];" \n
                          "}"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
-                                /*%FSM<LINK "_">*/
-                                class _
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
                                 {
                                         itemno = 37;
                                         priority = 0.000000;
                                         to="Base_Event_Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _thread"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"savegame;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                         };
@@ -801,16 +810,15 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
-                                /*%FSM<LINK "Player_see_Static">*/
-                                class Player_see_Static
+                                /*%FSM<LINK "Scout_KIA">*/
+                                class Scout_KIA
                                 {
-                                        itemno = 62;
-                                        priority = 0.000000;
-                                        to="Base_Event_Loop";
+                                        itemno = 78;
+                                        priority = 5.000000;
+                                        to="Fail_Scout_KIA";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(isNil ""EP_BASE_SEE_STATIC"") && {cursorTarget in [EP_BASE_STATICDEF, EP_BASE_STATICDEF_GUN]}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"""BASE_STATIC"" call BIS_fnc_missionTasks;" \n
-                                         "EP_BASE_SEE_STATIC = true;"/*%FSM</ACTION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{alive _x} count (units EP_GROUP_SCOUT) == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "Player_see_Offic">*/
@@ -861,6 +869,19 @@ class FSM
                                          "EP_BASE_OFFICER_KIA = true;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
+                                /*%FSM<LINK "Player_see_APC">*/
+                                class Player_see_APC
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Base_Event_Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(isNil ""EP_BASE_SEE_APC"") && {cursorTarget == EP_BASE_APC}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"""BASE_APC"" call BIS_fnc_missionTasks;" \n
+                                         "EP_BASE_SEE_APC = true;" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "Patrol_KIA">*/
                                 class Patrol_KIA
                                 {
@@ -873,29 +894,27 @@ class FSM
                                          "EP_BASE_PATROL_KIA = true;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
-                                /*%FSM<LINK "Player_see_Ammo">*/
-                                class Player_see_Ammo
+                                /*%FSM<LINK "Base_Captured">*/
+                                class Base_Captured
                                 {
-                                        itemno = 59;
+                                        itemno = 77;
                                         priority = 0.000000;
-                                        to="Base_Event_Loop";
+                                        to="Send_QRF";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(isNil ""EP_BASE_SEE_AMMO"") && {cursorTarget in [EP_BASE_AMMO_TRUCK_1, EP_BASE_AMMO_TRUCK_2, EP_BASE_AMMO_TRUCK_3]}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"""BASE_SEE_AMMO"" spawn BIS_fnc_missionConversations;" \n
-                                         "EP_BASE_SEE_AMMO = true;"/*%FSM</ACTION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(isNil ""EP_BASE_CAPTURED"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"savegame;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
-                                /*%FSM<LINK "Player_see_APC">*/
-                                class Player_see_APC
+                                /*%FSM<LINK "Player_see_Static">*/
+                                class Player_see_Static
                                 {
-                                        itemno = 5;
+                                        itemno = 62;
                                         priority = 0.000000;
                                         to="Base_Event_Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(isNil ""EP_BASE_SEE_APC"") && {cursorTarget == EP_BASE_APC}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"""BASE_APC"" call BIS_fnc_missionTasks;" \n
-                                         "EP_BASE_SEE_APC = true;" \n
-                                         ""/*%FSM</ACTION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(isNil ""EP_BASE_SEE_STATIC"") && {cursorTarget in [EP_BASE_STATICDEF, EP_BASE_STATICDEF_GUN]}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"""BASE_STATIC"" call BIS_fnc_missionTasks;" \n
+                                         "EP_BASE_SEE_STATIC = true;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "Static_Defence_K">*/
@@ -920,16 +939,19 @@ class FSM
                                         condition=/*%FSM<CONDITION""">*/"!(isNil ""EP_MARK_TARGET"")"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"private [""_cursorPointerPos"", ""_markedTargets""];" \n
                                          "_cursorPointerPos = screenToWorld [0.5,0.5];" \n
-                                         "_markedTargets = (player getVariable [""MARKED_TARGETS"", []]) + _cursorPointerPos;" \n
+                                         "" \n
+                                         "// Push Marked Targets Coordinates" \n
+                                         "_markedTargets = player getVariable [""MARKED_TARGETS"", []];" \n
+                                         "_markedTargets pushBack [_cursorPointerPos, false];" \n
+                                         "" \n
                                          "player setVariable [""MARKED_TARGETS"", _markedTargets];" \n
                                          "" \n
                                          "if (count _markedTargets == 2) then {" \n
                                          "	[player, player getVariable ""SUPPORT_MARK_TARGET""] call BIS_fnc_removeCommMenuItem;" \n
-                                         "	player setVariable [""SUPPORT_MARK_TARGET"", nil];" \n
                                          "} else {" \n
                                          "	""BASE_MARK_TARGET"" spawn BIS_fnc_missionConversations;" \n
-                                         "	EP_MARK_TARGET = nil;" \n
                                          "};" \n
+                                         "EP_MARK_TARGET = nil;" \n
                                          "" \n
                                          ""/*%FSM</ACTION""">*/;
                                 };
@@ -942,18 +964,36 @@ class FSM
                                         to="Base_Event_Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"!(isNil ""EP_CALL_ARTILLERY"")"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (count (player getVariable [""MARKED_TARGETS"", []] == 0) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if ({ (_x # 1) == false} count (player getVariable [""MARKED_TARGETS"", []]) == 0) then {" \n
                                          "	""BASE_NO_MARKED_TARGETS"" spawn BIS_fnc_missionConversations;" \n
-                                         "};" \n
+                                         "	EP_CALL_ARTILLERY = nil;" \n
+                                         "} else {" \n
+                                         "	EP_CALL_ARTILLERY = nil;" \n
+                                         "	[] spawn {" \n
+                                         "		""BASE_CALL_ARTILLERY"" call BIS_fnc_missionConversations;" \n
+                                         "		" \n
+                                         "		private [""_coordinates"", ""_pos"", ""_isFired"", ""_mag""];" \n
+                                         "		_coordinates = player getVariable ""MARKED_TARGETS"";" \n
                                          "" \n
-                                         "[] spawn {" \n
-                                         "	""BASE_CALL_ARTILLERY"" call BIS_fnc_missionConversations;" \n
-                                         "	" \n
-                                         "	private [""_coordinates""];" \n
-                                         "	_coordinates = player getVariable ""MARKED_TARGETS"";" \n
-                                         "};" \n
+                                         "		if (count _coordinates == 2) then {" \n
+                                         "			[player, player getVariable ""SUPPORT_CALL_ARTILLERY""] call BIS_fnc_removeCommMenuItem;" \n
+                                         "		};" \n
                                          "" \n
-                                         "EP_CALL_ARTILLERY = nil;"/*%FSM</ACTION""">*/;
+                                         "		{" \n
+                                         "			_isFired = _x # 1;" \n
+                                         "			if !(_isFired) then {" \n
+                                         "				_x set [1, true];" \n
+                                         "				_pos = _x # 0;" \n
+                                         "				_mag = (getArtilleryAmmo [EP_ARTI]) # 0;" \n
+                                         "				EP_ARTI doArtilleryFire [_pos, _mag, 1];" \n
+                                         "				waitUntil {sleep 1; unitReady EP_ARTI};" \n
+                                         "			};" \n
+                                         "		} forEach _coordinates;" \n
+                                         "" \n
+                                         "		player setVariable [""MARKED_TARGETS"", _coordinates];" \n
+                                         "	};" \n
+                                         "};" \n
+                                         ""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "Support__Call_Sc">*/
@@ -964,88 +1004,170 @@ class FSM
                                         to="Base_Event_Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"!(isNil ""EP_SCOUT_ATTACK"")"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"EP_SCOUT_ATTACK = nil;"/*%FSM</ACTION""">*/;
+                                        action=/*%FSM<ACTION""">*/"{_x enableAI ""MOVE""; _x setUnitPos ""AUTO""} forEach units EP_GROUP_SCOUT;" \n
+                                         "" \n
+                                         "_wp = EP_GROUP_SCOUT addWaypoint [getMarkerPos ""EP_WP_SCOUT_5"", 0];" \n
+                                         "_wp setWaypointType ""SAD"";" \n
+                                         "_wp setWaypointBehaviour ""COMBAT"";" \n
+                                         "_wp setWaypointCombatMode ""RED"";" \n
+                                         "_wp setWaypointFormation ""WEDGE"";" \n
+                                         "" \n
+                                         """BASE_SCOUT_ATTACK"" spawn BIS_fnc_missionConversations;" \n
+                                         "" \n
+                                         "EP_SCOUT_ATTACK = nil;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
-                                /*%FSM<LINK "Base_Unit_In_Com">*/
-                                class Base_Unit_In_Com
+                                /*%FSM<LINK "Player_see_Ammo">*/
+                                class Player_see_Ammo
                                 {
-                                        itemno = 77;
+                                        itemno = 59;
                                         priority = 0.000000;
                                         to="Base_Event_Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"{combatBehaviour _x == ""COMBAT""} count (getMissionLayerEntities ""LAYER_BASE_UNITS"" # 0) > 1;"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"// Send QRF depending on Officer's State + Report"/*%FSM</ACTION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(isNil ""EP_BASE_SEE_AMMO"") && {cursorTarget in [EP_BASE_AMMO_TRUCK_1, EP_BASE_AMMO_TRUCK_2, EP_BASE_AMMO_TRUCK_3]}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"""BASE_SEE_AMMO"" spawn BIS_fnc_missionConversations;" \n
+                                         "EP_BASE_SEE_AMMO = true;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
-                                /*%FSM<LINK "Base_Captured_or">*/
-                                class Base_Captured_or
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Fail_Scout_KIA">*/
+                class Fail_Scout_KIA
+                {
+                        name = "Fail_Scout_KIA";
+                        itemno = 79;
+                        init = /*%FSM<STATEINIT""">*/"[""Scout_KIA"", false] call BIS_fnc_endMission;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Send_QRF">*/
+                class Send_QRF
+                {
+                        name = "Send_QRF";
+                        itemno = 81;
+                        init = /*%FSM<STATEINIT""">*/"// Send QRF depending on Officer's State + Report" \n
+                         """BASE_CAPTURED"" spawn BIS_fnc_missionConversations;" \n
+                         """BASE"" call BIS_fnc_missionTasks;" \n
+                         "{(units _x) call EP_fnc_showUnits} forEach (getMissionLayerEntities ""LAYER_QRF"" # 2);" \n
+                         "" \n
+                         "_wp = EP_GROUP_QRF addWaypoint [EP_QRF_CAR, 0];" \n
+                         "_wp setWaypointType ""GETIN"";" \n
+                         "_wp setWaypointSpeed ""FULL"";" \n
+                         "" \n
+                         "_wp = EP_GROUP_QRF addWaypoint [getMarkerPos ""EP_WP_QRF_UNLOAD"", 0];" \n
+                         "_wp setWaypointBehaviour ""AWARE"";" \n
+                         "_wp setWaypointType ""GETOUT"";" \n
+                         "_wp setWaypointSpeed ""FULL"";" \n
+                         "" \n
+                         "_wp = EP_GROUP_QRF addWaypoint [getMarkerPos ""EP_WP_QRF_SAD"", 0];" \n
+                         "_wp setWaypointBehaviour ""COMBAT"";" \n
+                         "_wp setWaypointType ""SAD"";" \n
+                         "_wp setWaypointSpeed ""FULL"";" \n
+                         "" \n
+                         "_time = time + 180;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Scout_KIA">*/
+                                class Scout_KIA
                                 {
-                                        itemno = 79;
-                                        priority = 0.000000;
-                                        to="____FAKE____";
+                                        itemno = 78;
+                                        priority = 5.000000;
+                                        to="Fail_Scout_KIA";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{alive _x} count (units EP_GROUP_SCOUT) == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "timeout">*/
+                                class timeout
+                                {
+                                        itemno = 82;
+                                        priority = 0.000000;
+                                        to="Scout_Retreat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _time"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                         };
                 };
                 /*%FSM</STATE>*/
-                /*%FSM<STATE "TODO">*/
-                class TODO
+                /*%FSM<STATE "Scout_Retreat">*/
+                class Scout_Retreat
                 {
-                        name = "TODO";
-                        itemno = 83;
-                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
-                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
-                        class Links
-                        {
-                        };
-                };
-                /*%FSM</STATE>*/
-                /*%FSM<STATE "TODO_1">*/
-                class TODO_1
-                {
-                        name = "TODO_1";
+                        name = "Scout_Retreat";
                         itemno = 84;
-                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"{ deleteWaypoint _x } forEachReversed waypoints EP_GROUP_SCOUT;" \n
+                         "" \n
+                         "EP_GROUP_SCOUT setBehaviourStrong ""CARELESS"";" \n
+                         "EP_GROUP_SCOUT setSpeedMode ""FULL"";" \n
+                         "{_x setUnitPos ""UP""; _x enableStamina false} forEach units EP_GROUP_SCOUT;" \n
+                         "" \n
+                         "_wp = EP_GROUP_SCOUT addWaypoint [getPos leader EP_GROUP_SCOUT, 0];" \n
+                         "_wp setWaypointType ""MOVE"";" \n
+                         "" \n
+                         "_wp = EP_GROUP_SCOUT addWaypoint [getMarkerPos ""EP_WP_SCOUT_RETREAT_1"", 0];" \n
+                         "_wp setWaypointStatements [""true"", ""EP_SCOUT_RETREATED = true;""];" \n
+                         "" \n
+                         "_wp = EP_GROUP_SCOUT addWaypoint [getMarkerPos ""EP_WP_SCOUT_RETREAT_2"", 0];" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                                /*%FSM<LINK "Scout_KIA">*/
+                                class Scout_KIA
+                                {
+                                        itemno = 78;
+                                        priority = 5.000000;
+                                        to="Fail_Scout_KIA";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{alive _x} count (units EP_GROUP_SCOUT) == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Scout_Retreated">*/
+                                class Scout_Retreated
+                                {
+                                        itemno = 86;
+                                        priority = 0.000000;
+                                        to="End_Mission";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(isNil ""EP_SCOUT_RETREATED"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                         };
                 };
                 /*%FSM</STATE>*/
-                /*%FSM<STATE "TODO_2">*/
-                class TODO_2
+                /*%FSM<STATE "End_Mission">*/
+                class End_Mission
                 {
-                        name = "TODO_2";
-                        itemno = 85;
-                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
-                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
-                        class Links
-                        {
-                        };
-                };
-                /*%FSM</STATE>*/
-                /*%FSM<STATE "TODO_3">*/
-                class TODO_3
-                {
-                        name = "TODO_3";
-                        itemno = 86;
-                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
-                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
-                        class Links
-                        {
-                        };
-                };
-                /*%FSM</STATE>*/
-                /*%FSM<STATE "____FAKE____">*/
-                class ____FAKE____
-                {
-                        name = "____FAKE____";
+                        name = "End_Mission";
                         itemno = 87;
-                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	""SCOUT_RETREATED"" call BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "	sleep 5;" \n
+                         "" \n
+                         "	// Create explosions" \n
+                         "	private [""_charge""];" \n
+                         "	{_x setDamage 1} forEach [EP_BASE_AMMO_TRUCK_1, EP_BASE_AMMO_TRUCK_2, EP_BASE_AMMO_TRUCK_3];" \n
+                         "	{" \n
+                         "		_charge = ""DemoCharge_Remote_Ammo_Scripted"" createVehicle (getMarkerPos _x);" \n
+                         "		_charge setDamage 1;" \n
+                         "	} forEach [""POS_BASE_AMMO_CACHE_1"", ""POS_BASE_AMMO_CACHE_2""];" \n
+                         "" \n
+                         "	sleep 5;" \n
+                         "" \n
+                         "	""Win"" call BIS_fnc_endMission;" \n
+                         "}"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -1057,6 +1179,8 @@ class FSM
         finalStates[] =
         {
                 "Fail_Compromised",
+                "Fail_Scout_KIA",
+                "End_Mission",
         };
 };
 /*%FSM</COMPILE>*/

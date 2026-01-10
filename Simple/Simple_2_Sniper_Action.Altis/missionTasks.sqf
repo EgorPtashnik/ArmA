@@ -176,7 +176,3 @@ case "BASE_STATIC": {
 		[_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
 	};
 };
-
-case "DESTROY_QRF": {
-
-};

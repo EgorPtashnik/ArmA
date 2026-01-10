@@ -1,6 +1,6 @@
 class CfgDebriefing {
 	class Compromised {
-		title = "Mission Failed";
+		title = "Operation Failed";
 		subtitle = "";
 		description = "You have being compromised";
 		pictureBackground = "";
@@ -8,12 +8,21 @@ class CfgDebriefing {
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
 
-	class Win {
-		title = "Миссия Выполнена";
+	class Scout_KIA {
+		title = "Operation Failed";
 		subtitle = "";
-		description = "";
+		description = "Group Scout Status: KIA";
 		pictureBackground = "";
 		picture = "";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+
+	class Win {
+		title = "Mission Accomplished";
+		subtitle = "Enemy supply line is destroyed.";
+		description = "";
+		pictureBackground = "";
+		picture = "\A3\ui_f\data\map\markers\nato\b_recon.paa";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
 };
@@ -55,9 +64,9 @@ class CfgCommunicationMenu {
 		submenu = "";
 		expression = "EP_CALL_ARTILLERY = true;";
 		icon = "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa";
-		cursor = "\a3\ui_f\data\igui\cfg\simpletasks\types\destroy_ca.paa";
+		cursor = "";
 		enable = "1";
-		removeAfterExpressionCall = 1;
+		removeAfterExpressionCall = 0;
 	};
 
 	class SCOUT_ATTACK {
@@ -65,7 +74,7 @@ class CfgCommunicationMenu {
 		submenu = "";
 		expression = "EP_SCOUT_ATTACK = true;";
 		icon = "\A3\ui_f\data\map\markers\nato\b_recon.paa";
-		cursor = "\A3\ui_f\data\map\markers\nato\b_recon.paa";
+		cursor = "";
 		enable = "1";
 		removeAfterExpressionCall = 1;
 	};
