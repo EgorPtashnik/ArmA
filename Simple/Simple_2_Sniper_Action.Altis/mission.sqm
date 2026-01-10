@@ -20,7 +20,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=112;
+		nextID=175;
 	};
 	class Camera
 	{
@@ -44,6 +44,8 @@ addons[]=
 	"CUP_Weapons_Grenades",
 	"A3_Weapons_F_Items",
 	"CUP_Weapons_NVG",
+	"A3_Aegis_Weapons_F_Aegis",
+	"Desert",
 	"A3_Ui_F",
 	"Flex_CUP_IAF_Faction",
 	"A3_Modules_F_Curator_Misc",
@@ -52,6 +54,7 @@ addons[]=
 	"A3_Structures_F_EPA_Mil_Scrapyard",
 	"A3_Structures_F_Civ_Constructions",
 	"A3_Weapons_F_Ammoboxes",
+	"A3_Aegis_Supplies_F_Aegis_Ammoboxes",
 	"A3_Supplies_F_Exp_Ammoboxes",
 	"A3_Structures_F_Mil_Shelters",
 	"RF_Props_Cargo",
@@ -73,7 +76,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=28;
+		items=31;
 		class Item0
 		{
 			className="CUP_Creatures_Military_BAF";
@@ -123,117 +126,136 @@ class AddonsMetaData
 		};
 		class Item9
 		{
+			className="A3_Aegis_Weapons_F_Aegis";
+			name="Arma 3 Aegis - Weapons and Accessories";
+			author="Avery Kaiserin";
+			url="https://steamcommunity.com/sharedfiles/filedetails/?id=949252631";
+		};
+		class Item10
+		{
+			className="Desert";
+			name="Desert";
+		};
+		class Item11
+		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item10
+		class Item12
 		{
 			className="Flex_CUP_IAF_Faction";
 			name="Flex_CUP_IAF_Faction";
 		};
-		class Item11
+		class Item13
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item12
+		class Item14
 		{
 			className="CUP_BaseConfigs";
 			name="CUP_BaseConfigs";
 		};
-		class Item13
+		class Item15
 		{
 			className="CUP_CA_Config";
 			name="CUP_CA_Config";
 		};
-		class Item14
+		class Item16
 		{
 			className="A3_Structures_F_EPA";
 			name="Arma 3 Survive Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item15
+		class Item17
 		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item16
+		class Item18
+		{
+			className="A3_Aegis_Supplies_F_Aegis";
+			name="Arma 3 Aegis - Ammoboxes and Supplies";
+			author="Avery Kaiserin";
+			url="https://steamcommunity.com/sharedfiles/filedetails/?id=949252631";
+		};
+		class Item19
 		{
 			className="A3_Supplies_F_Exp";
 			name="Arma 3 Apex - Ammoboxes and Supplies";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item17
+		class Item20
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item18
+		class Item21
 		{
 			className="RF_Props";
 			name="Arma 3 Creator DLC: Reaction Forces - Decorative and Mission Objects";
 			author="Rotators Collective";
 			url="https://reactionforces.rotators.net/";
 		};
-		class Item19
+		class Item22
 		{
 			className="gm_weapons_ammoboxes";
 			name="gm_weapons_ammoboxes";
 			author="Global Mobilization";
 			url="global-mobilization.com";
 		};
-		class Item20
+		class Item23
 		{
 			className="CUP_Misc3_Config";
 			name="CUP_Misc3_Config";
 		};
-		class Item21
+		class Item24
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item22
+		class Item25
 		{
 			className="CUP_CAStructures_E_Misc_Misc_Market";
 			name="CUP_CAStructures_E_Misc_Misc_Market";
 		};
-		class Item23
+		class Item26
 		{
 			className="CUP_CAMisc";
 			name="CUP_CAMisc";
 		};
-		class Item24
+		class Item27
 		{
 			className="Flex_CUP_IAF_G_Faction";
 			name="Flex_CUP_IAF_G_Faction";
 		};
-		class Item25
+		class Item28
 		{
 			className="A3_Soft_F_Enoch";
 			name="Arma 3 Contact Platform - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item26
+		class Item29
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item27
+		class Item30
 		{
 			className="CUP_TrackedVehicles_M270";
 			name="CUP_TrackedVehicles_M270";
@@ -254,11 +276,15 @@ randomSeed=223538;
 class ScenarioData
 {
 	author="черкашик";
+	overviewText="Simple Sniper Action";
+	overviewTextLocked="Simple Sniper Action";
+	onLoadMission="Simple Sniper Action";
 };
 class Mission
 {
 	class Intel
 	{
+		briefingName="Simple: Support Sniper";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;
