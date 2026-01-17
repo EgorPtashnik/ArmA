@@ -42,3 +42,5 @@ _units = [EP_PLAYER] + getMissionLayerEntities "Layer_Start_Base_Units" # 0;
 "PATROL" call BIS_fnc_missionTasks;
 
 EP_MISSION_STARTED = true;
+
+[] call BIS_fnc_jukebox;
