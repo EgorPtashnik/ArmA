@@ -1,0 +1,348 @@
+/*%FSM<COMPILE "D:\steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, missionFlow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"start",0,250,-75.000000,-1825.000000,25.000000,-1775.000000,0.000000,"start"};
+item1[] = {"mission_started",4,218,-75.000000,-1725.000000,25.000000,-1675.000000,0.000000,"mission" \n "started"};
+item2[] = {"insertion",2,250,-75.000000,-1625.000000,25.000000,-1575.000000,0.000000,"insertion"};
+item3[] = {"timeout_30",4,218,-75.000000,-1525.000000,25.000000,-1475.000000,0.000000,"timeout" \n "30"};
+item4[] = {"TODO",2,250,50.000000,-1625.000000,150.000000,-1575.000000,0.000000,"TODO"};
+item5[] = {"comms_check",2,250,-75.000000,-1425.000000,25.000000,-1375.000000,0.000000,"comms" \n "check"};
+item6[] = {"heli_crash_start",4,218,-75.000000,-1325.000000,25.000000,-1275.000000,0.000000,"heli crash" \n "start"};
+item7[] = {"prepare_heli_crash",2,250,-75.000000,-1225.000000,25.000000,-1175.000000,0.000000,"prepare heli crash" \n "site"};
+item8[] = {"preparations_don",4,218,-75.000000,-1125.000000,25.000000,-1075.000000,0.000000,"preparations" \n "done"};
+item9[] = {"report_heli_crash",2,250,-75.000000,-1025.000000,25.000000,-975.000000,0.000000,"report" \n "heli crash" \n "+ task"};
+item10[] = {"in_heli",4,218,-75.000000,-925.000000,25.000000,-875.000000,0.000000,"in" \n "heli"};
+item11[] = {"join___move_Little",2,250,-75.000000,-825.000000,25.000000,-775.000000,0.000000,"join +" \n "move" \n "Little Bird"};
+item12[] = {"landed",4,218,-75.000000,-725.000000,25.000000,-675.000000,0.000000,"landed"};
+item13[] = {"check_heli_crash",2,250,-75.000000,-600.000000,25.000000,-550.000000,0.000000,"check heli" \n "crash"};
+item14[] = {"dismounted",4,218,-75.000000,-500.000000,25.000000,-450.000000,0.000000,"dismounted"};
+item15[] = {"savegame",2,250,-75.000000,-400.000000,25.000000,-350.000000,0.000000,"savegame"};
+item16[] = {"near_heli",4,218,-75.000000,-300.000000,25.000000,-250.000000,0.000000,"near" \n "heli"};
+item17[] = {"Spawn_enemy",2,250,-75.000000,-175.000000,25.000000,-125.000000,0.000000,"Spawn" \n "enemy"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,5};
+link4[] = {5,6};
+link5[] = {6,7};
+link6[] = {7,8};
+link7[] = {8,9};
+link8[] = {9,10};
+link9[] = {10,11};
+link10[] = {11,12};
+link11[] = {12,13};
+link12[] = {13,14};
+link13[] = {14,15};
+link14[] = {15,16};
+link15[] = {16,17};
+globals[] = {0.000000,0,0,0,0,640,480,1,647,6316128,1,-289.581238,310.460297,-1202.891357,-1837.986816,873,924,1};
+window[] = {2,-1,-1,-32000,-32000,819,52,1583,52,3,891};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "missionFlow";
+        class States
+        {
+                /*%FSM<STATE "start">*/
+                class start
+                {
+                        name = "start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"private [""_time"", ""_thread""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "mission_started">*/
+                                class mission_started
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="insertion";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(isNil ""EP_MISSION_STARTED"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "insertion">*/
+                class insertion
+                {
+                        name = "insertion";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_time = time + 30;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "timeout_30">*/
+                                class timeout_30
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="comms_check";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _time"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "TODO">*/
+                class TODO
+                {
+                        name = "TODO";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "comms_check">*/
+                class comms_check
+                {
+                        name = "comms_check";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"_thread = ""START_REPORT"" spawn BIS_fnc_missionConversations;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "heli_crash_start">*/
+                                class heli_crash_start
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="prepare_heli_crash";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(isNil ""EP_HELI_CRASH_START"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "prepare_heli_crash">*/
+                class prepare_heli_crash
+                {
+                        name = "prepare_heli_crash";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"private [""_crashVariants""];" \n
+                         "_crashVariants = [""1"", ""2"", ""3""];" \n
+                         "" \n
+                         "EP_HELI_CRASH_VARIANT = selectRandom [""1"", ""2"", ""3""];" \n
+                         "" \n
+                         "// Create HashMap with all needed heli crash variables" \n
+                         "EP_CRASH_MAP = createHashMap;" \n
+                         "EP_CRASH_MAP set [""MARKER"", (""EP_MARKER_HELI_CRASH_"" + EP_HELI_CRASH_VARIANT)];" \n
+                         "EP_CRASH_MAP set [""WRECK"", (missionNamespace getVariable (""EP_HELI_WRECK_"" + EP_HELI_CRASH_VARIANT))];" \n
+                         "EP_CRASH_MAP set [""SPAWN"", [getMarkerPos ""EP_MARKER_SPAWN_"" + EP_HELI_CRASH_VARIANT + ""_1"", getMarkerPos ""EP_MARKER_SPAWN_"" + EP_HELI_CRASH_VARIANT + ""_2""]];" \n
+                         "" \n
+                         "(EP_CRASH_MAP get ""MARKER"") setMarkerAlpha 1;" \n
+                         "" \n
+                         "//Cleanup" \n
+                         "{" \n
+                         "	if (_x != EP_HELI_CRASH_VARIANT) then {" \n
+                         "		{" \n
+                         "			deleteVehicle _x;" \n
+                         "		} forEach getMissionLayerEntities (""Layer_Heli_Crash_Site_"" + _x) # 0;" \n
+                         "		deleteVehicle ( ((missionNamespace getVariable ( ""EP_MODULE_SMOKE_"" + _x )) getVariable ""effectEmitter"") select 0);" \n
+                         "	};" \n
+                         "} forEach _crashVariants;" \n
+                         "" \n
+                         "_thread = _crashVariants spawn {" \n
+                         "	sleep 1;" \n
+                         "	{" \n
+                         "		if (_x != EP_HELI_CRASH_VARIANT) then {" \n
+                         "			deleteVehicle ( ((missionNamespace getVariable ( ""EP_MODULE_SMOKE_"" + _x )) getVariable ""effectEmitter"") select 0 );" \n
+                         "			deleteVehicle (missionNamespace getVariable (""EP_PILOT_"" + _x + ""_1""));" \n
+                         "			deleteVehicle (missionNamespace getVariable (""EP_PILOT_"" + _x + ""_2""));" \n
+                         "		};" \n
+                         "	} forEach _this;" \n
+                         "};" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "preparations_don">*/
+                                class preparations_don
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="report_heli_crash";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _thread"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "report_heli_crash">*/
+                class report_heli_crash
+                {
+                        name = "report_heli_crash";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/"_thread = [] spawn {" \n
+                         "	EP_LITTLE_BIRD enableSimulation true;" \n
+                         "	EP_LITTLE_BIRD lock false;" \n
+                         "" \n
+                         "	""REPORT_HELI_CRASH"" call BIS_fnc_missionConversations;" \n
+                         "	""PATROL"" call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "	//Pilot" \n
+                         "	group EP_PILOT_RESCUE addVehicle EP_LITTLE_BIRD;" \n
+                         "	EP_PILOT_RESCUE assignAsDriver EP_LITTLE_BIRD;" \n
+                         "	[EP_PILOT_RESCUE] orderGetIn true;" \n
+                         "	[] spawn { waitUntil {EP_PILOT_RESCUE in EP_LITTLE_BIRD}; EP_LITTLE_BIRD engineOn true;};" \n
+                         "" \n
+                         "	//Rescue group" \n
+                         "	EP_GROUP_RESCUE addVehicle EP_LITTLE_BIRD;" \n
+                         "	{_x assignAsCargo EP_LITTLE_BIRD} forEach units EP_GROUP_RESCUE;" \n
+                         "	EP_PLAYER assignAsCargo EP_LITTLE_BIRD;" \n
+                         "	(units EP_GROUP_RESCUE) orderGetIn true;" \n
+                         "" \n
+                         "	""GET_IN_HELI"" call BIS_fnc_missionTasks;" \n
+                         "}"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "in_heli">*/
+                                class in_heli
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="join___move_Little";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _thread && EP_PLAYER in EP_LITTLE_BIRD"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "join___move_Little">*/
+                class join___move_Little
+                {
+                        name = "join___move_Little";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"""GET_IN_HELI"" call BIS_fnc_missionTasks;" \n
+                         "[EP_PLAYER] joinSilent EP_GROUP_RESCUE;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	waitUntil { {!(_x in EP_LITTLE_BIRD)} count units EP_GROUP_RESCUE == 0 };" \n
+                         "" \n
+                         "	//setup Little Bird" \n
+                         "	private [""_group"", ""_wp"", ""_pos"", ""_heliPad""];" \n
+                         "	_group = group EP_PILOT_RESCUE;" \n
+                         "	EP_LITTLE_BIRD lock true;" \n
+                         "	EP_LITTLE_BIRD flyInHeight 30;" \n
+                         "" \n
+                         "	_pos = [getPos (EP_CRASH_MAP get ""WRECK""), 500, 500, 20] call BIS_fnc_findSafePos;" \n
+                         "	_wp  = _group addWaypoint [_pos, 0];" \n
+                         "	_wp setWaypointType ""MOVE"";" \n
+                         "" \n
+                         "	_pos = [getPos (EP_CRASH_MAP get ""WRECK""), 100, 250, 20] call BIS_fnc_findSafePos;" \n
+                         "	_heliPad = ""HeliHEmpty"" createVehicle _pos;" \n
+                         "	_wp = _group addWaypoint [_pos, 0];" \n
+                         "	_wp setWaypointType ""SCIPTED"";" \n
+                         "	_wp setWaypointScript ""A3\functions_f\waypoints\fn_wpLand.sqf"";" \n
+                         "" \n
+                         "	sleep 10;" \n
+                         "" \n
+                         "	""IN_HELI"" spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "	waitUntil {sleep 1; !(isTouchingGround EP_LITTLE_BIRD)};" \n
+                         "" \n
+                         "	sleep 30;" \n
+                         "	savegame;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "landed">*/
+                                class landed
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="check_heli_crash";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _thread && isTouchingGround EP_LITTLE_BIRD"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "check_heli_crash">*/
+                class check_heli_crash
+                {
+                        name = "check_heli_crash";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"EP_GROUP_RESCUE leaveVehicle EP_LITTLE_BIRD;" \n
+                         "_thread = ""DISMOUNTED"" spawn BIS_fnc_missionConversations;" \n
+                         "EP_GROUP_RESCUE move (getPos (EP_CRASH_MAP get ""WRECK""));" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "dismounted">*/
+                                class dismounted
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="savegame";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _thread && ({_x in EP_LITTLE_BIRD} count units EP_GROUP_RESCUE) == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "savegame">*/
+                class savegame
+                {
+                        name = "savegame";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/"savegame;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "near_heli">*/
+                                class near_heli
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="Spawn_enemy";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(leader EP_GROUP_RESCUE) distance2D (getPos (EP_CRASH_MAP get ""WRECK"")) < 30"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Spawn_enemy">*/
+                class Spawn_enemy
+                {
+                        name = "Spawn_enemy";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="start";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

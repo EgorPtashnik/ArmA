@@ -1,0 +1,362 @@
+/*%FSM<COMPILE "D:\steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, missionFlow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"start",0,250,-75.000000,-1825.000000,25.000000,-1775.000000,0.000000,"start"};
+item1[] = {"mission_started",4,218,-75.000000,-1725.000000,25.000000,-1675.000000,0.000000,"mission" \n "started"};
+item2[] = {"At_Base",2,250,-75.000000,-1625.000000,25.000000,-1575.000000,0.000000,"At" \n "Base"};
+item3[] = {"Landed_at_Heli_C",4,218,-75.000000,-1525.000000,25.000000,-1475.000000,0.000000,"Landed at" \n "Heli Crash"};
+item4[] = {"Sapper_Alive",4,218,-200.000000,-1350.000000,-100.000000,-1300.000000,0.000000,"Sapper" \n "Alive"};
+item5[] = {"Sapper_KIA",4,218,50.000000,-1350.000000,150.000000,-1300.000000,0.000000,"Sapper" \n "KIA"};
+item6[] = {"player_mine_heli",2,250,50.000000,-1250.000000,150.000000,-1200.000000,0.000000,"player" \n "mine heli"};
+item7[] = {"mine_heli",2,250,-200.000000,-1250.000000,-100.000000,-1200.000000,0.000000,"mine" \n "heli"};
+item8[] = {"",7,210,-154.000000,-1404.000000,-146.000015,-1396.000000,0.000000,""};
+item9[] = {"",7,210,96.000000,-1404.000000,104.000000,-1396.000000,0.000000,""};
+item10[] = {"at_safe_distance",4,218,-75.000000,-1100.000000,25.000000,-1050.000000,0.000000,"at safe" \n "distance"};
+item11[] = {"end_mission",1,250,-75.000000,-975.000000,25.000000,-925.000000,0.000000,"end" \n "mission"};
+item12[] = {"At_Crash_Site",2,250,-75.000000,-1425.000000,25.000000,-1375.000000,0.000000,"At" \n "Crash Site"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,12};
+link4[] = {4,7};
+link5[] = {5,6};
+link6[] = {6,10};
+link7[] = {7,10};
+link8[] = {8,4};
+link9[] = {9,5};
+link10[] = {10,11};
+link11[] = {12,8};
+link12[] = {12,9};
+globals[] = {0.000000,0,0,0,0,640,480,1,661,6316128,1,-303.064819,460.504333,-900.926514,-1709.102783,873,924,1};
+window[] = {2,-1,-1,-1,-1,819,52,1583,52,3,891};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "missionFlow";
+        class States
+        {
+                /*%FSM<STATE "start">*/
+                class start
+                {
+                        name = "start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"private [""_time"", ""_thread""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "mission_started">*/
+                                class mission_started
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="At_Base";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(isNil ""EP_MISSION_STARTED"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "At_Base">*/
+                class At_Base
+                {
+                        name = "At_Base";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_thread = [] spawn {" \n
+                         "	//============================================================Insertion - START TODO" \n
+                         "	sleep 30;" \n
+                         "" \n
+                         "	""START_REPORT"" call BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "	waitUntil {sleep 1; !(isNil ""EP_HELI_CRASH_START"")};" \n
+                         "	//============================================================Insertion - END" \n
+                         "" \n
+                         "	EP_HELI_CRASH_START = true; //TODO - REMOVE" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "	//============================================================Prepare Heli Crash Site - START" \n
+                         "	private [""_crashVariants""];" \n
+                         "	_crashVariants = [""1"", ""2"", ""3""];" \n
+                         "" \n
+                         "	EP_HELI_CRASH_VARIANT = selectRandom _crashVariants;" \n
+                         "" \n
+                         "	//Create HashMap with all needed heli crash variables" \n
+                         "	EP_CRASH_MAP = createHashMap;" \n
+                         "	EP_CRASH_MAP set [""MARKER"", (""EP_MARKER_HELI_CRASH_"" + EP_HELI_CRASH_VARIANT)];" \n
+                         "	EP_CRASH_MAP set [""WRECK"", (missionNamespace getVariable (""EP_HELI_WRECK_"" + EP_HELI_CRASH_VARIANT))];" \n
+                         "	EP_CRASH_MAP set [""SPAWN"", [getMarkerPos (""EP_MARKER_SPAWN_"" + EP_HELI_CRASH_VARIANT + ""_1""), getMarkerPos (""EP_MARKER_SPAWN_"" + EP_HELI_CRASH_VARIANT + ""_2"")]];" \n
+                         "" \n
+                         "	(EP_CRASH_MAP get ""MARKER"") setMarkerAlpha 1;" \n
+                         "" \n
+                         "	//Clean up not needed crash sites" \n
+                         "	{" \n
+                         "		if (_x != EP_HELI_CRASH_VARIANT) then {" \n
+                         "			{ deleteVehicle _x; } forEach getMissionLayerEntities (""Layer_Heli_Crash_Site_"" + _x) # 0;" \n
+                         "			deleteVehicle ( ((missionNamespace getVariable ( ""EP_MODULE_SMOKE_"" + _x )) getVariable ""effectEmitter"") select 0);" \n
+                         "		};" \n
+                         "	} forEach _crashVariants;" \n
+                         "" \n
+                         "	sleep 1;" \n
+                         "" \n
+                         "	{" \n
+                         "		if (_x != EP_HELI_CRASH_VARIANT) then {" \n
+                         "			deleteVehicle ( ((missionNamespace getVariable ( ""EP_MODULE_SMOKE_"" + _x )) getVariable ""effectEmitter"") select 0 );" \n
+                         "			deleteVehicle (missionNamespace getVariable (""EP_PILOT_"" + _x + ""_1""));" \n
+                         "			deleteVehicle (missionNamespace getVariable (""EP_PILOT_"" + _x + ""_2""));" \n
+                         "		};" \n
+                         "	} forEach _crashVariants;" \n
+                         "	//============================================================Prepare Heli Crash Site - END" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "	//============================================================Report Heli Crash - START" \n
+                         "	EP_LITTLE_BIRD enableSimulation true;" \n
+                         "	EP_LITTLE_BIRD lock false;" \n
+                         "" \n
+                         "	""REPORT_HELI_CRASH"" call BIS_fnc_missionConversations;" \n
+                         "	""PATROL"" call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "	//Pilot" \n
+                         "	group EP_PILOT_RESCUE addVehicle EP_LITTLE_BIRD;" \n
+                         "	EP_PILOT_RESCUE assignAsDriver EP_LITTLE_BIRD;" \n
+                         "	[EP_PILOT_RESCUE] orderGetIn true;" \n
+                         "	[] spawn { waitUntil {EP_PILOT_RESCUE in EP_LITTLE_BIRD}; EP_LITTLE_BIRD engineOn true;};" \n
+                         "" \n
+                         "	//Rescue group" \n
+                         "	EP_GROUP_RESCUE addVehicle EP_LITTLE_BIRD;" \n
+                         "	{_x assignAsCargo EP_LITTLE_BIRD} forEach units EP_GROUP_RESCUE;" \n
+                         "	EP_PLAYER assignAsCargo EP_LITTLE_BIRD;" \n
+                         "	(units EP_GROUP_RESCUE) orderGetIn true;" \n
+                         "" \n
+                         "	""GET_IN_HELI"" call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "	waitUntil {sleep 1; EP_PLAYER in EP_LITTLE_BIRD};" \n
+                         "" \n
+                         "	""GET_IN_HELI"" call BIS_fnc_missionTasks;" \n
+                         "	[EP_PLAYER] joinSilent EP_GROUP_RESCUE;" \n
+                         "" \n
+                         "	waitUntil {sleep 1; {!(_x in EP_LITTLE_BIRD)} count units EP_GROUP_RESCUE == 0};" \n
+                         "" \n
+                         "	//setup Little Bird" \n
+                         "	private [""_group"", ""_wp"", ""_pos"", ""_heliPad""];" \n
+                         "	_group = group EP_PILOT_RESCUE;" \n
+                         "	EP_LITTLE_BIRD lock true;" \n
+                         "	EP_LITTLE_BIRD flyInHeight 30;" \n
+                         "" \n
+                         "	_pos = [getPos (EP_CRASH_MAP get ""WRECK""), 500, 500, 20] call BIS_fnc_findSafePos;" \n
+                         "	_wp  = _group addWaypoint [_pos, 0];" \n
+                         "	_wp setWaypointType ""MOVE"";" \n
+                         "" \n
+                         "	_pos = [getPos (EP_CRASH_MAP get ""WRECK""), 100, 250, 20] call BIS_fnc_findSafePos;" \n
+                         "	_heliPad = ""HeliHEmpty"" createVehicle _pos;" \n
+                         "	_wp = _group addWaypoint [_pos, 0];" \n
+                         "	_wp setWaypointType ""SCRIPTED"";" \n
+                         "	_wp setWaypointScript ""A3\functions_f\waypoints\fn_wpLand.sqf"";" \n
+                         "" \n
+                         "	sleep 10;" \n
+                         "" \n
+                         "	""IN_HELI"" spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "	waitUntil {sleep 1; !(isTouchingGround EP_LITTLE_BIRD)};" \n
+                         "" \n
+                         "	sleep 60;" \n
+                         "" \n
+                         "	savegame;" \n
+                         "	//============================================================Report Heli Crash - END" \n
+                         "}"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Landed_at_Heli_C">*/
+                                class Landed_at_Heli_C
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="At_Crash_Site";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _thread && isTouchingGround EP_LITTLE_BIRD"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "player_mine_heli">*/
+                class player_mine_heli
+                {
+                        name = "player_mine_heli";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"_thread = [] spawn {" \n
+                         "	""DESTROY_HELI_KIA"" call BIS_fnc_missionConversations;" \n
+                         "	""DESTROY_WRECK"" call BIS_fnc_missionTasks;" \n
+                         "	""GET_CHARGES"" call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "	EP_PLAYER addEventHandler [""Fired"", {" \n
+                         "		params [""_unit"", ""_weapon"", ""_muzzle"", ""_mode"", ""_ammo"", ""_magazine"", ""_projectile"", ""_gunner""];" \n
+                         "		hint (str _ammo);" \n
+                         "		if (_ammo == ""DemoCharge_Remote_Ammo"") then {" \n
+                         "			// Check if the projectile is near the target object" \n
+                         "			if (_projectile distance (EP_CRASH_MAP get ""WRECK"") < 10) then {" \n
+                         "				EP_CHARGES_SET = true;" \n
+                         "			};" \n
+                         "		};" \n
+                         "	}];" \n
+                         "" \n
+                         "	waitUntil {sleep 1; !(isNil ""EP_CHARGES_SET"")};" \n
+                         "" \n
+                         "	sleep 5;" \n
+                         "" \n
+                         "	EP_GROUP_RESCUE move [15076.3,8806.93,0];" \n
+                         "	""RETREAT"" spawn BIS_fnc_missionConversations;" \n
+                         "}" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "at_safe_distance">*/
+                                class at_safe_distance
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="end_mission";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _thread && (leader EP_GROUP_RESCUE) distance2D (EP_CRASH_MAP get ""WRECK"") > 100"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "mine_heli">*/
+                class mine_heli
+                {
+                        name = "mine_heli";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"_thread = [] spawn {" \n
+                         "	""DESTROY_HELI_ALIVE"" call BIS_fnc_missionConversations;" \n
+                         "	EP_SAPPER doMove (getPos (EP_CRASH_MAP get ""WRECK""));" \n
+                         "	waitUntil {moveToCompleted EP_SAPPER};" \n
+                         "" \n
+                         "	sleep 60;" \n
+                         "" \n
+                         "	EP_GROUP_RESCUE move [15076.3,8806.93,0];" \n
+                         "	""RETREAT"" spawn BIS_fnc_missionConversations;" \n
+                         "}" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "at_safe_distance">*/
+                                class at_safe_distance
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="end_mission";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _thread && (leader EP_GROUP_RESCUE) distance2D (EP_CRASH_MAP get ""WRECK"") > 100"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "end_mission">*/
+                class end_mission
+                {
+                        name = "end_mission";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"//Blow up the wreck" \n
+                         "[] spawn {" \n
+                         "	private _wreck = EP_CRASH_MAP get ""WRECK"";" \n
+                         "	_wreck enableSimulation true;" \n
+                         "	_wreck setDamage 1;" \n
+                         "" \n
+                         "	sleep 1;" \n
+                         "" \n
+                         "	""RETREATED"" call BIS_fnc_missionConversations;" \n
+                         "	""CRASH_SITE"" call BIS_fnc_missionTasks;" \n
+                         "	""Win"" call BIS_fnc_endMission;" \n
+                         "}"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "At_Crash_Site">*/
+                class At_Crash_Site
+                {
+                        name = "At_Crash_Site";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/"_thread = [] spawn {" \n
+                         "	//============================================================Dismount Heli - START" \n
+                         "	EP_GROUP_RESCUE leaveVehicle EP_LITTLE_BIRD;" \n
+                         "	private [""_thread"", ""_pos""];" \n
+                         "	_thread = ""DISMOUNTED"" spawn BIS_fnc_missionConversations;" \n
+                         "	_pos = getPos (EP_CRASH_MAP get ""WRECK"");" \n
+                         "" \n
+                         "	EP_GROUP_RESCUE setBehaviourStrong ""AWARE"";" \n
+                         "	EP_GROUP_RESCUE setSpeedMode ""NORMAL"";" \n
+                         "	EP_GROUP_RESCUE move _pos;" \n
+                         "" \n
+                         "	waitUntil {sleep 1; scriptDone _thread && ({_x in EP_LITTLE_BIRD} count units EP_GROUP_RESCUE) == 0 && !(EP_PLAYER in EP_LITTLE_BIRD)};" \n
+                         "	[] spawn { (group EP_PILOT_RESCUE) move [15076.3,8806.93,0]; sleep 120; deleteVehicleCrew EP_LITTLE_BIRD; deleteVehicle EP_LITTLE_BIRD; };" \n
+                         "	sleep 1;" \n
+                         "	savegame;" \n
+                         "	sleep 2;" \n
+                         "	""CRASH_SITE"" call BIS_fnc_missionTasks;" \n
+                         "	[(EP_CRASH_MAP get ""SPAWN""), _pos] spawn EP_fnc_spawnEnemy;" \n
+                         "	//============================================================Dismount Heli - END" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "	waitUntil {sleep 1; (leader EP_GROUP_RESCUE) distance2D (getPos (EP_CRASH_MAP get ""WRECK"")) < 30};" \n
+                         "	//============================================================Near Crash Site - START" \n
+                         "" \n
+                         "	sleep 5;" \n
+                         "" \n
+                         "	""ENEMY_EN_ROUTE"" call BIS_fnc_missionConversations;" \n
+                         "	//============================================================Near Crash Site - START" \n
+                         "}"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Sapper_KIA">*/
+                                class Sapper_KIA
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="player_mine_heli";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _thread && !(alive EP_SAPPER)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Sapper_Alive">*/
+                                class Sapper_Alive
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="mine_heli";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _thread && alive EP_SAPPER"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="start";
+        finalStates[] =
+        {
+                "end_mission",
+        };
+};
+/*%FSM</COMPILE>*/
