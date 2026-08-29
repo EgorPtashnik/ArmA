@@ -1,0 +1,608 @@
+/*%FSM<COMPILE "D:\steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, missionFlow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"start",0,250,-50.000000,-1750.000000,50.000000,-1700.000000,0.000000,"start"};
+item1[] = {"Mission_started",4,218,-50.000000,-1675.000000,50.000000,-1625.000000,0.000000,"Mission" \n "started"};
+item2[] = {"Insertion",2,250,-50.000000,-1600.000000,50.000000,-1550.000000,0.000000,"Insertion"};
+item3[] = {"Insertion_Done",4,218,-50.000000,-1525.000000,50.000000,-1475.000000,0.000000,"Insertion" \n "Done"};
+item4[] = {"Send_Blufor_Infa",2,250,-50.000000,-1450.000000,50.000000,-1400.000000,0.000000,"Send Blufor" \n "Infantry"};
+item5[] = {"Combat_Started",4,218,-50.000000,-1375.000000,50.000000,-1325.000000,0.000000,"Combat" \n "Started"};
+item6[] = {"OPFOR_Response",2,250,-50.000000,-1300.000000,50.000000,-1250.000000,0.000000,"OPFOR" \n "Response"};
+item7[] = {"Outpost_Captured",4,218,-50.000000,-1225.000000,50.000000,-1175.000000,0.000000,"Outpost" \n "Captured"};
+item8[] = {"Spawn_OPFOR_QRF",2,250,-50.000000,-1125.000000,50.000000,-1075.000000,0.000000,"Spawn" \n "OPFOR" \n "QRF"};
+item9[] = {"QRF_KIA",4,218,-150.000000,-1050.000000,-50.000000,-1000.000000,0.000000,"QRF" \n "KIA"};
+item10[] = {"Timeout",4,218,50.000000,-1050.000000,150.000000,-1000.000000,0.000000,"Timeout"};
+item11[] = {"Send_Heli_Reinf",2,250,-50.000000,-975.000000,50.000000,-925.000000,0.000000,"Send" \n "Heli Reinf"};
+item12[] = {"Heli_Reinf_Arriv",4,218,-50.000000,-875.000000,50.000000,-825.000000,0.000000,"Heli Reinf" \n "Arrived"};
+item13[] = {"Assault_Phase",2,250,-50.000000,-775.000000,50.000000,-725.000000,0.000000,"Assault" \n "Phase"};
+item14[] = {"Alpha_Captured",4,218,100.000000,-700.000000,200.000000,-650.000000,0.000000,"Alpha" \n "Captured"};
+item15[] = {"Comms",2,250,225.000000,-700.000000,325.000000,-650.000000,0.000000,"Comms"};
+item16[] = {"Bravo_Combat",4,218,100.000000,-625.000000,200.000000,-575.000000,0.000000,"Bravo" \n "Combat"};
+item17[] = {"OPFOR_Response_1",2,250,225.000000,-625.000000,325.000000,-575.000000,0.000000,"OPFOR" \n "Response"};
+item18[] = {"Bravo_Captured",4,218,-50.000000,-625.000000,50.000000,-575.000000,0.000000,"Bravo" \n "Captured"};
+item19[] = {"OPFOR_Surrender",1,250,-50.000000,-550.000000,50.000000,-500.000000,0.000000,"OPFOR" \n "Surrender"};
+item20[] = {"",7,210,-4.000000,-679.000000,4.000000,-671.000000,0.000000,""};
+item21[] = {"",7,210,71.000000,-679.000000,79.000000,-671.000000,0.000000,""};
+item22[] = {"",7,210,71.000000,-604.000000,79.000000,-596.000000,0.000000,""};
+item23[] = {"",7,210,346.000000,-604.000000,354.000000,-596.000000,0.000000,""};
+item24[] = {"",7,210,346.000000,-679.000000,354.000000,-671.000000,0.000000,""};
+item25[] = {"",7,210,346.000000,-729.000000,354.000000,-721.000000,0.000000,""};
+item26[] = {"",7,210,71.000000,-729.000000,79.000000,-721.000000,0.000000,""};
+item27[] = {"BLUFOR_Casualtie",4,218,-200.000000,-625.000000,-100.000000,-575.000000,0.000000,"BLUFOR" \n "Casualties"};
+item28[] = {"BLUFOR_Retreat",1,250,-200.000000,-550.000000,-100.000000,-500.000000,0.000000,"BLUFOR" \n "Retreat"};
+item29[] = {"CHEAT_Assault",4,218,-300.000000,-1750.000000,-200.000000,-1700.000000,2.000000,"CHEAT" \n "Assault"};
+item30[] = {"Prepare_Assault",2,250,-300.000000,-1625.000000,-200.000000,-1575.000000,0.000000,"Prepare" \n "Assault"};
+item31[] = {"_",8,218,-300.000000,-975.000000,-200.000000,-925.000000,0.000000,""};
+link0[] = {0,1};
+link1[] = {0,29};
+link2[] = {1,2};
+link3[] = {2,3};
+link4[] = {3,4};
+link5[] = {4,5};
+link6[] = {5,6};
+link7[] = {6,7};
+link8[] = {7,8};
+link9[] = {8,9};
+link10[] = {8,10};
+link11[] = {9,11};
+link12[] = {10,11};
+link13[] = {11,12};
+link14[] = {12,13};
+link15[] = {13,20};
+link16[] = {14,15};
+link17[] = {15,24};
+link18[] = {16,17};
+link19[] = {17,23};
+link20[] = {18,19};
+link21[] = {20,18};
+link22[] = {20,21};
+link23[] = {20,27};
+link24[] = {21,14};
+link25[] = {21,22};
+link26[] = {22,16};
+link27[] = {23,24};
+link28[] = {24,25};
+link29[] = {25,26};
+link30[] = {26,20};
+link31[] = {27,28};
+link32[] = {29,30};
+link33[] = {30,31};
+link34[] = {31,11};
+globals[] = {0.000000,0,0,0,0,640,480,1,674,6316128,1,-398.663055,489.801300,-398.185791,-1266.985840,1988,1944,1};
+window[] = {2,-1,-1,-32000,-32000,881,114,1645,114,3,2015};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "missionFlow";
+        class States
+        {
+                /*%FSM<STATE "start">*/
+                class start
+                {
+                        name = "start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"private [""_time"", ""_handle""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "CHEAT_Assault">*/
+                                class CHEAT_Assault
+                                {
+                                        itemno = 29;
+                                        priority = 2.000000;
+                                        to="Prepare_Assault";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"false"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Mission_started">*/
+                                class Mission_started
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Insertion";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Insertion">*/
+                class Insertion
+                {
+                        name = "Insertion";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"[""EP_blackScreen"", false] call BIS_fnc_blackOut;" \n
+                         "[0, 0, false, true] call BIS_fnc_cinemaBorder;" \n
+                         "spawn {" \n
+                         "	sleep 3;" \n
+                         "" \n
+                         "	[""EP_blackScreen"", false] spawn BIS_fnc_blackIn;" \n
+                         "	private _handle = [1, ""BLACK"", 5, 0] spawn BIS_fnc_fadeEffect;" \n
+                         "	playMusic ""Track_R_09"";" \n
+                         "" \n
+                         "	waitUntil { scriptDone _handle };" \n
+                         "	[1, 1.5, false, true] call BIS_fnc_cinemaBorder;" \n
+                         "	sleep 1.5;" \n
+                         "" \n
+                         "	_handle = [[ " \n
+                         "		[""CAMP VANGUARD"", ""<t align='start' shadow='1' size='0.7' font='PuristaBold'>%1</t><br/>"", 10], " \n
+                         "		[""GRID "" + mapGridPosition player, ""<t align='start' shadow='1' size='0.7' font='PuristaMedium'>%1</t><br/>"", 10], " \n
+                         "		[(""2025, JUNE, "") + ([dayTime, ""HH:MM""] call BIS_fnc_timeToString), ""<t align='start' shadow='1' size='0.7' font='PuristaMedium'>%1</t>"", 30] " \n
+                         "	], 0, 0] spawn BIS_fnc_typeText;" \n
+                         "	waitUntil { scriptDone _handle };" \n
+                         "	""C1"" call EP_fnc_missionConversations;" \n
+                         "};" \n
+                         "" \n
+                         "[B_Apc, ""B_WpInsertion"", ""TR UNLOAD""] call EP_fnc_addWaypoint;" \n
+                         "" \n
+                         "//TODO Comms" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Insertion_Done">*/
+                                class Insertion_Done
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Send_Blufor_Infa";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((units B_Inf) findIf {_x in B_Apc}) == -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Send_Blufor_Infa">*/
+                class Send_Blufor_Infa
+                {
+                        name = "Send_Blufor_Infa";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"// Send player group to outpost" \n
+                         "[B_Inf, ""O_MrkOutpost""] call EP_fnc_addWaypoint;" \n
+                         "" \n
+                         "// TODO Comms"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Combat_Started">*/
+                                class Combat_Started
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="OPFOR_Response";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(combatBehaviour O_InfOutpost) == ""COMBAT"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "OPFOR_Response">*/
+                class OPFOR_Response
+                {
+                        name = "OPFOR_Response";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"[O_InfOutpost, ""O_MrkOutpost"", ""GUARD"", ""RED"", ""COMBAT""] call EP_fnc_addWaypoint;" \n
+                         "" \n
+                         "// Trigger for outpost capture" \n
+                         "private _trigger = [""O_MrkOutpost"", 1, [100, 100, 0, false], [""EAST"", ""NOT PRESENT"", false], [{this}, {}, {}] ] call EP_fnc_createTrigger;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Outpost_Captured">*/
+                                class Outpost_Captured
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Spawn_OPFOR_QRF";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated _trigger"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Spawn_OPFOR_QRF">*/
+                class Spawn_OPFOR_QRF
+                {
+                        name = "Spawn_OPFOR_QRF";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"deleteVehicle _trigger;" \n
+                         """O_MrkOutpost"" setMarkerColor ""ColorWEST"";" \n
+                         "private _time = time;" \n
+                         "" \n
+                         "" \n
+                         "[B_Apc, ([""O_MrkOutpost"", 100] call EP_fnc_getRandomPosition)] call EP_fnc_addWaypoint;" \n
+                         "[B_Inf, ""O_MrkOutpost"", ""GUARD"", ""COMBAT""] call EP_fnc_addWaypoint;" \n
+                         "" \n
+                         "// TODO Comms" \n
+                         "" \n
+                         "// Spawn OPFOR QRF" \n
+                         "private _qrf = call compileScript [""scripts\SpawnQRF.sqf"", true];" \n
+                         "//TODO Comms" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout">*/
+                                class Timeout
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="Send_Heli_Reinf";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _time + 600"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "QRF_KIA">*/
+                                class QRF_KIA
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Send_Heli_Reinf";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((units _qrf) findIf {alive _x}) == -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Send_Heli_Reinf">*/
+                class Send_Heli_Reinf
+                {
+                        name = "Send_Heli_Reinf";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"// Show and send helicopters" \n
+                         "[""B_Helis"", true] call EP_fnc_showObjects;" \n
+                         "[B_Heli_1, Helipad_1, ""CARELESS"", [ { true }, { B_Heli_1 landAt [Helipad_1, ""GetOut""] } ]] call EP_fnc_addWaypoint;" \n
+                         "[B_Heli_1, Helipad_1, ""TR UNLOAD""] call EP_fnc_addWaypoint;" \n
+                         "[B_Heli_1, B_Heli_1, [{ true }, { [this, 50] call EP_fnc_cleanupArea }]] call EP_fnc_addWaypoint;" \n
+                         "" \n
+                         "[B_Heli_2, Helipad_2, ""CARELESS"", [ { true }, { B_Heli_2 landAt [Helipad_2, ""GetOut""] } ]] call EP_fnc_addWaypoint;" \n
+                         "[B_Heli_2, Helipad_2, ""TR UNLOAD""] call EP_fnc_addWaypoint;" \n
+                         "[B_Heli_2, B_Heli_2, [{ true }, { [this, 50] call EP_fnc_cleanupArea }]] call EP_fnc_addWaypoint;" \n
+                         "" \n
+                         "[B_Heli_3, Helipad_3, ""CARELESS"", [ { true }, { B_Heli_3 landAt [Helipad_3, ""GetOut""] } ]] call EP_fnc_addWaypoint;" \n
+                         "[B_Heli_3, Helipad_3, ""TR UNLOAD""] call EP_fnc_addWaypoint;" \n
+                         "[B_Heli_3, B_Heli_3, [{ true }, { [this, 50] call EP_fnc_cleanupArea }]] call EP_fnc_addWaypoint;" \n
+                         "" \n
+                         "" \n
+                         "private _heliInfUnits = [B_InfHeli_1, B_InfHeli_2, B_InfHeli_3] call EP_fnc_collectUnits;" \n
+                         "" \n
+                         "// TODO Comms"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Heli_Reinf_Arriv">*/
+                                class Heli_Reinf_Arriv
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="Assault_Phase";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_heliInfUnits findIf { vehicle _x != _x }) == -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Assault_Phase">*/
+                class Assault_Phase
+                {
+                        name = "Assault_Phase";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"""O_MrkAlpha"" setMarkerAlpha 1;" \n
+                         """O_MrkBravo"" setMarkerAlpha 1;" \n
+                         "" \n
+                         "// TODO Comms" \n
+                         "" \n
+                         "// Send one group to point Alpha" \n
+                         "[B_InfHeli_3, ""O_MrkAlpha""] call EP_fnc_addWaypoint;" \n
+                         "" \n
+                         "// Send others to Bravo" \n
+                         "{ [B_InfHeli_1, _x] call EP_fnc_addWaypoint } forEach [""O_Wp_InfHeli_1_1"", ""O_MrkBravo""];" \n
+                         "{ [B_InfHeli_2, _x] call EP_fnc_addWaypoint } forEach [""O_Wp_InfHeli_2_1"", ""O_Wp_InfHeli_2_2"", ""O_MrkBravo""];" \n
+                         "" \n
+                         "B_Inf call EP_fnc_clearWaypoints;" \n
+                         "[B_Inf, ""O_MrkBravo""] call EP_fnc_addWaypoint;" \n
+                         "" \n
+                         "" \n
+                         "//********************************************************************" \n
+                         "// OPFOR Setup" \n
+                         "//********************************************************************" \n
+                         "" \n
+                         "// Alpha" \n
+                         "private _alphaClasses = [" \n
+                         "    ""Atlas_O_Soldier_R_TL_F"", " \n
+                         "    ""Atlas_O_Soldier_R_GL_F"", " \n
+                         "    ""Atlas_O_Soldier_R_M_F"", " \n
+                         "    ""Atlas_O_Soldier_R_AR_F""" \n
+                         "];" \n
+                         "" \n
+                         "private _alphaGrp = [""O_MrkAlpha"", opfor, _alphaClasses] call EP_fnc_createGroup;" \n
+                         "hint str _alphaGrp;" \n
+                         "[_alphaGrp, _alphaGrp, ""GUARD""] call EP_fnc_addWaypoint;" \n
+                         "" \n
+                         "" \n
+                         "//Bravo" \n
+                         "[""O_Bravo"", true] call EP_fnc_showObjects;" \n
+                         "[O_BravoGuards, O_BravoGuards, 200] call EP_fnc_taskDefend;" \n
+                         "[(units O_BravoStatic), ""UP"", [""PATH"", false]] call EP_fnc_setAIMode;" \n
+                         "" \n
+                         "private _bravoGroups = [O_BravoGuards, O_BravoPatrol, O_BravoStatic];" \n
+                         "private _bravoUnits = _bravoGroups call EP_fnc_collectUnits;" \n
+                         "private _bravoThreshold = (count _bravoUnits) * 0.1;" \n
+                         "private _bluforThreshold = 10;" \n
+                         "" \n
+                         "private _stepAlpha = false;" \n
+                         "private _stepBravoCombat = false;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "BLUFOR_Casualtie">*/
+                                class BLUFOR_Casualtie
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="BLUFOR_Retreat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"({ alive _x } count _heliInfUnits) < _bluforThreshold"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Alpha_Captured">*/
+                                class Alpha_Captured
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="Comms";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_stepAlpha &&" \n
+                                         "((units _alphaGrp) findIf { alive _x }) == -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bravo_Combat">*/
+                                class Bravo_Combat
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="OPFOR_Response_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_stepBravoCombat &&" \n
+                                         "(_bravoGroups findIf { (combatBehaviour _x) == ""COMBAT"" }) != -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bravo_Captured">*/
+                                class Bravo_Captured
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="OPFOR_Surrender";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"({ alive _x } count _bravoUnits) < _bravoThreshold"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Comms">*/
+                class Comms
+                {
+                        name = "Comms";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/"_stepAlpha = true;" \n
+                         "" \n
+                         """O_MrkAlpha"" setMarkerColor ""ColorWEST"";" \n
+                         "" \n
+                         "// TODO Comms"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "BLUFOR_Casualtie">*/
+                                class BLUFOR_Casualtie
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="BLUFOR_Retreat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"({ alive _x } count _heliInfUnits) < _bluforThreshold"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Alpha_Captured">*/
+                                class Alpha_Captured
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="Comms";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_stepAlpha &&" \n
+                                         "((units _alphaGrp) findIf { alive _x }) == -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bravo_Combat">*/
+                                class Bravo_Combat
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="OPFOR_Response_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_stepBravoCombat &&" \n
+                                         "(_bravoGroups findIf { (combatBehaviour _x) == ""COMBAT"" }) != -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bravo_Captured">*/
+                                class Bravo_Captured
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="OPFOR_Surrender";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"({ alive _x } count _bravoUnits) < _bravoThreshold"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "OPFOR_Response_1">*/
+                class OPFOR_Response_1
+                {
+                        name = "OPFOR_Response_1";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/"_stepBravoCombat = true;" \n
+                         "hint ""OPFOR RESPONSE"";" \n
+                         "{" \n
+                         "    private _leader = leader _x;" \n
+                         "    private _pos = _leader call EP_fnc_getPosition;" \n
+                         "    private _blufor = (_leader nearEntities [""Man"", 1000]) select { side _x == blufor };" \n
+                         "    " \n
+                         "    if (({ alive _x } count _blufor) > 0) then {" \n
+                         "        private _nearestEnemy = ([_blufor, [_leader], { _input0 distance2D _x }, ""ASCEND"", { alive _x }] call BIS_fnc_sortBy) # 0;" \n
+                         "        _pos = _nearestEnemy call EP_fnc_getPosition;" \n
+                         "    };" \n
+                         "" \n
+                         "    [_x, _pos] call EP_fnc_taskAttack;" \n
+                         "} forEach (_bravoGroups - [O_BravoStatic]);"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "BLUFOR_Casualtie">*/
+                                class BLUFOR_Casualtie
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="BLUFOR_Retreat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"({ alive _x } count _heliInfUnits) < _bluforThreshold"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Alpha_Captured">*/
+                                class Alpha_Captured
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="Comms";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_stepAlpha &&" \n
+                                         "((units _alphaGrp) findIf { alive _x }) == -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bravo_Combat">*/
+                                class Bravo_Combat
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="OPFOR_Response_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_stepBravoCombat &&" \n
+                                         "(_bravoGroups findIf { (combatBehaviour _x) == ""COMBAT"" }) != -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bravo_Captured">*/
+                                class Bravo_Captured
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="OPFOR_Surrender";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"({ alive _x } count _bravoUnits) < _bravoThreshold"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "OPFOR_Surrender">*/
+                class OPFOR_Surrender
+                {
+                        name = "OPFOR_Surrender";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"{" \n
+                         "    _x setCaptive true;" \n
+                         "    [_x, ""CARELESS"", ""BLUE""] call EP_fnc_setAIMode;" \n
+                         "    _x playActionNow ""Surrender"";" \n
+                         "} forEach (_borderUnits select { alive _x });" \n
+                         "" \n
+                         "// TODO Comms" \n
+                         "" \n
+                         "spawn {" \n
+                         "	sleep 10;" \n
+                         "	""Win"" call BIS_fnc_endMission;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "BLUFOR_Retreat">*/
+                class BLUFOR_Retreat
+                {
+                        name = "BLUFOR_Retreat";
+                        itemno = 28;
+                        init = /*%FSM<STATEINIT""">*/"// TODO Comms" \n
+                         "" \n
+                         "spawn {" \n
+                         "	sleep 10;" \n
+                         "	[""Fail"", false] call BIS_fnc_endMission;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Prepare_Assault">*/
+                class Prepare_Assault
+                {
+                        name = "Prepare_Assault";
+                        itemno = 30;
+                        init = /*%FSM<STATEINIT""">*/"{ _x setDamage 1 } forEach units O_InfOutpost;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Send_Heli_Reinf";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="start";
+        finalStates[] =
+        {
+                "OPFOR_Surrender",
+                "BLUFOR_Retreat",
+        };
+};
+/*%FSM</COMPILE>*/

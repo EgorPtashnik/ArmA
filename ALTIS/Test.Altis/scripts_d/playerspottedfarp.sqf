@@ -1,0 +1,1 @@
+pl1 sidechat "Shit. We got spotted by the Americans at the factory.";
