@@ -71,6 +71,10 @@ group O_Medic   setGroupId ["Combat Medic"];
 } forEach [O_Zamak_1, O_Zamak_2, O_Zamak_3];
 
 //************************************************************************************************************
-// OPFOR - EXTRACTION HELI SETUP
+// OPFOR - EXTRACTION
 //************************************************************************************************************
+[O_GrpExtractionHeli, "CARELESS"] call EP_fnc_setAIMode;
 [O_GrpExtractionHeli, false] call EP_fnc_showObjects;
+[O_GrpExtractionBoat, false] call EP_fnc_showObjects;
+"O_MrkExtractionBoat" setMarkerAlpha 0;
+EP_Extracted = false;

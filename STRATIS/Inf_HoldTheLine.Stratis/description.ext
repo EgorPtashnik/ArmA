@@ -1,9 +1,9 @@
 
 // ----- General mission metadata ---------------------------------------------
-onLoadName    = "";
-onLoadMission = "";
-author        = "";
-overviewText  = "";
+onLoadName    = "EU Forces attacked Stratis with all their might!";
+onLoadMission = "EU Forces attacked Stratis with all their might!";
+author        = "EP";
+overviewText  = "EU Forces attacked Stratis with all their might!";
 
 // ----- Debriefing ----------------------------------------------------------
 class CfgDebriefing {

@@ -26,3 +26,12 @@ case "Hold": {
 
     [ player, _taskID, [_taskDescription, "Wait for Extraction"], markerPos "O_EvacSpawnPos", true ] call BIS_fnc_taskCreate;
 };
+
+case "RetreatBoat": {
+	[_taskID, "run"] call EP_fnc_missionTasks;
+    private _taskDescription = format ["%1<br/>",
+        "Run for your lives to <marker name='O_MrkExtractionBoat'>the extraction point</marker>. Friendly boat is moving there as quickly as possible."
+    ];
+
+    [ player, _taskID, [_taskDescription, "Boat Extraction"], markerPos "O_MrkExtractionBoat", true ] call BIS_fnc_taskCreate;
+};
