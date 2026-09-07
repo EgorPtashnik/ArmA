@@ -1,16 +1,4 @@
 //************************************************************************************************************
-// PP EFFECTS
-//************************************************************************************************************
-// "filmGrain" ppEffectEnable true;
-// "filmGrain" ppEffectAdjust [0.5, 1.2, 2, 0.2, 0.2, true];
-// "filmGrain" ppEffectCommit 0;
-
-// "colorCorrections" ppEffectEnable true;
-// "colorCorrections" ppEffectAdjust [1, 1, 0, [0, 0, 0, 0], [1.1, 1.3, 1.1, 0.8], [0.299, 0.587, 0.114, 0]];
-// "colorcorrections" ppeffectcommit 0;
-
-
-//************************************************************************************************************
 // DESTROY BASE BUILDINGS
 //************************************************************************************************************
 { _x setDamage 1 } forEach (nearestObjects [(markerPos "S_DestroyBase"), ["house"], 200 ]);
@@ -21,15 +9,39 @@
 // UNITS SETUP
 //************************************************************************************************************
 
-// Player group
 group player setGroupId ["Reaper"];
 
-// Compound 1 Defenders
 { [_x, (selectRandom ["StandArmed", "Watch"])] call EF_fnc_ambientAnim } forEach units O_Compound_1_Defenders;
+{ [_x, "StandArmed"] call EF_fnc_ambientAnim } forEach units O_Compound_2_Defenders;
 
+{
+	_x addEventHandler ["CombatModeChanged", {
+		params ["_group", "_newMode"];
+		if (_newMode == "COMBAT") then {
+			[_group, _group] spawn EP_fnc_taskAttack;
+			_group removeEventHandler [_thisEvent, _thisEventHandler];
+		};
+	}];
+} forEach [
+	O_Compound_1_Patrol, O_Compound_1_Defenders,
+	O_Compound_2_Defenders
+];
+
+{ [_x, false] call EP_fnc_showObjects } forEach [
+	O_Compound_1_Patrol,
+	O_Compound_1_Defenders,
+
+	O_Compound_2_Defenders,
+
+	I_GrpCar,
+	I_QRF
+];
+
+(units I_QRF select { vehicle _x == _x }) allowGetIn false;
 
 //************************************************************************************************************
-// HIDE LAYERS
+// DISABLE TRIGGERS
 //************************************************************************************************************
-["Mission_Start", false] call EP_fnc_showObjects;
-["Mission_Compound_1_Units", false] call EP_fnc_showObjects;
+{ _x enableSimulation false } forEach [
+	Trg_Compound_1_KIA
+];

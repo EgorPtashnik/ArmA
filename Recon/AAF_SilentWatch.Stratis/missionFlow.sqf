@@ -1,28 +1,21 @@
-script = execVM "missionBriefing.sqf";
-
-waitUntil { sleep 1; scriptDone script };
-["Mission_Start", true] call EP_fnc_showObjects;
-
-[I_Spotter] joinSilent player;
-{ _x moveInAny I_Car } forEach units group player;
+enableEnvironment false;
 enableSentences false;
 enableRadio false;
 
-waitUntil { !visibleMap };
+// Start animated briefing
+handle = execVM "missionBriefing.sqf";
 
+// Briefing done
+waitUntil { sleep 1; scriptDone handle };
+
+// Map closed
+waitUntil { sleep 1; scriptDone handle };
 ["EP_blackScreen", false] call BIS_fnc_blackOut;
+handle = execVM "scripts\Intro.sqf";
 
-sleep 3;
-
-playMusic "Track_P_01";
-["EP_blackScreen", false] spawn BIS_fnc_blackIn;
-enableSentences true;
-enableRadio true;
-
+// Car at drop point
 waitUntil {sleep 1; (unitReady driver I_Car) };
+handle = execVM "scripts\Phase_1.sqf";
 
-script = "Start_1" call EP_fnc_missionConversations;
-
-waitUntil {sleep 1; (player distance2D (markerPos "I_MrkOverwatch_1")) < 50 };
-
-
+// Phase 1 done
+waitUntil { sleep 1; scriptDone handle };
