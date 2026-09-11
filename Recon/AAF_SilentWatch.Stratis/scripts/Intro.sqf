@@ -1,3 +1,4 @@
+waitUntil { !visibleMap };
 disableMapIndicators [false, false, false, false];
 [I_GrpCar, true] call EP_fnc_showObjects;
 "Start_1" call EP_fnc_missionTasks;

@@ -46,9 +46,15 @@ waitUntil { sleep 1; scriptDone Trg_OverviewPos_1_Observed };
 script = "Start_3" call EP_fnc_missionConversations;
 waitUntil { sleep 1; scriptDone script };
 
+savegame;
+waitUntil { !isSaving };
+
+sleep 1;
+
 // Add task
 "p1_1" call EP_fnc_missionTasks;
 Trg_Compound_1_KIA enableSimulation true;
+playMusic "CUP_A1QG_Mission_04";
 
 // Compound 1: KIA
 waitUntil { sleep 1; triggerActivated Trg_Compound_1_KIA };
@@ -68,12 +74,16 @@ sleep 2;
 script = "p1_1" call EP_fnc_missionConversations;
 waitUntil { sleep 1; scriptDone script };
 
+savegame;
+waitUntil { !isSaving };
+
 sleep 2;
 
 // Show compound 2 marker and add task
 [O_Compound_2_Defenders, true] call EP_fnc_showObjects;
 "O_MrkCompound_2" setMarkerAlpha 1;
 "p1_2" call EP_fnc_missionTasks;
+playMusic "AmbientTrack03_F";
 
 // Inspected laptop
 F_Intel = false;
@@ -88,3 +98,5 @@ sleep 1;
 // Comms
 script = "p1_2" call EP_fnc_missionConversations;
 waitUntil { sleep 1; scriptDone script };
+
+sleep 1;

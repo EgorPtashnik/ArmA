@@ -10,6 +10,7 @@
 //************************************************************************************************************
 
 group player setGroupId ["Reaper"];
+I_QRF setGroupId ["Snake"];
 
 { [_x, (selectRandom ["StandArmed", "Watch"])] call EF_fnc_ambientAnim } forEach units O_Compound_1_Defenders;
 { [_x, "StandArmed"] call EF_fnc_ambientAnim } forEach units O_Compound_2_Defenders;
@@ -24,8 +25,11 @@ group player setGroupId ["Reaper"];
 	}];
 } forEach [
 	O_Compound_1_Patrol, O_Compound_1_Defenders,
-	O_Compound_2_Defenders
+	O_Compound_2_Defenders, O_Compound_3_Defenders
 ];
+
+O_Compound_3_LightPatrol call EP_fnc_taskPatrol;
+[O_Compound_3_Defenders, "O_MrkCompound_3"] call EP_fnc_taskDefend;
 
 { [_x, false] call EP_fnc_showObjects } forEach [
 	O_Compound_1_Patrol,
@@ -33,8 +37,13 @@ group player setGroupId ["Reaper"];
 
 	O_Compound_2_Defenders,
 
+	O_Compound_3_LightPatrol,
+	O_Compound_3_Defenders,
+	O_Compound_3_QRF,
+
 	I_GrpCar,
-	I_QRF
+	I_QRF,
+	I_QRF_APC
 ];
 
 (units I_QRF select { vehicle _x == _x }) allowGetIn false;
@@ -43,5 +52,6 @@ group player setGroupId ["Reaper"];
 // DISABLE TRIGGERS
 //************************************************************************************************************
 { _x enableSimulation false } forEach [
-	Trg_Compound_1_KIA
+	Trg_Compound_1_KIA,
+	Trg_Compound_3_KIA
 ];

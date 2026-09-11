@@ -9,7 +9,7 @@ handle = execVM "missionBriefing.sqf";
 waitUntil { sleep 1; scriptDone handle };
 
 // Map closed
-waitUntil { sleep 1; scriptDone handle };
+waitUntil { !visibleMap };
 ["EP_blackScreen", false] call BIS_fnc_blackOut;
 handle = execVM "scripts\Intro.sqf";
 
@@ -19,3 +19,5 @@ handle = execVM "scripts\Phase_1.sqf";
 
 // Phase 1 done
 waitUntil { sleep 1; scriptDone handle };
+
+handle = execVM "scripts\Phase_2.sqf";
