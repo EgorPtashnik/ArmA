@@ -1,0 +1,791 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Supports">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,50.000000,-150.000000,150.000000,-100.000000,0.000000,"Start"};
+item1[] = {"",7,210,95.999992,-79.000000,104.000008,-71.000000,0.000000,""};
+item2[] = {"",7,210,95.999992,-54.000000,104.000008,-46.000000,0.000000,""};
+item3[] = {"KIA",4,218,50.000000,-25.000000,150.000000,25.000000,10.000000,"KIA"};
+item4[] = {"Infantry_on_FOB",4,218,-200.000000,-25.000000,-100.000000,25.000000,2.000000,"Infantry" \n "on FOB"};
+item5[] = {"Infantry_on_city",4,218,-325.000000,-25.000000,-225.000000,25.000000,3.000000,"Infantry" \n "on city"};
+item6[] = {"Tank_attack",4,218,-450.000000,-25.000000,-350.000000,25.000000,4.000000,"Tank" \n "attack"};
+item7[] = {"Wiesel_attack",4,218,-575.000000,-25.000000,-475.000000,25.000000,5.000000,"Wiesel" \n "attack"};
+item8[] = {"_",8,218,-700.000000,-25.000000,-600.000000,25.000000,0.000000,""};
+item9[] = {"Move",2,250,-200.000000,50.000000,-100.000000,100.000000,0.000000,"Move"};
+item10[] = {"END",1,250,50.000000,50.000000,150.000000,100.000000,0.000000,"END"};
+item11[] = {"Move_1",2,250,-325.000000,50.000000,-225.000000,100.000000,0.000000,"Move"};
+item12[] = {"Move_2",2,250,-450.000000,50.000000,-350.000000,100.000000,0.000000,"Move"};
+item13[] = {"Move_3",2,250,-575.000000,50.000000,-475.000000,100.000000,0.000000,"Move"};
+item14[] = {"Set_timer",2,250,-700.000000,50.000000,-600.000000,100.000000,0.000000,"Set timer"};
+item15[] = {"Timeout_0_1sec",4,218,-825.000000,50.000000,-725.000000,100.000000,0.000000,"Timeout" \n "0.1sec"};
+item16[] = {"Nothing",2,250,-825.000000,-25.000000,-725.000000,25.000000,0.000000,"Nothing"};
+item17[] = {"",7,210,-154.000000,121.000000,-146.000000,129.000000,0.000000,""};
+item18[] = {"",7,210,-279.000000,121.000000,-271.000000,129.000000,0.000000,""};
+item19[] = {"",7,210,-404.000000,121.000000,-396.000000,129.000000,0.000000,""};
+item20[] = {"",7,210,-529.000000,121.000000,-521.000000,129.000000,0.000000,""};
+item21[] = {"",7,210,-854.000000,121.000000,-846.000000,129.000000,0.000000,""};
+item22[] = {"",7,210,-854.000000,-79.000000,-846.000000,-71.000000,0.000000,""};
+item23[] = {"",7,210,-779.000000,-79.000000,-771.000000,-71.000000,0.000000,""};
+item24[] = {"",7,210,-154.000000,-54.000000,-146.000000,-46.000000,0.000000,""};
+item25[] = {"",7,210,-279.000000,-54.000000,-271.000000,-46.000000,0.000000,""};
+item26[] = {"",7,210,-404.000000,-54.000000,-396.000000,-46.000000,0.000000,""};
+item27[] = {"",7,210,-529.000000,-54.000000,-521.000000,-46.000000,0.000000,""};
+item28[] = {"",7,210,-654.000000,-54.000000,-646.000000,-46.000000,0.000000,""};
+item29[] = {"Wiesel_join",4,218,-75.000000,-25.000000,25.000000,25.000000,1.000000,"Wiesel" \n "join"};
+item30[] = {"Join_player",2,250,-75.000000,50.000000,25.000000,100.000000,0.000000,"Join" \n "player"};
+item31[] = {"",7,210,-29.000008,-54.000000,-20.999992,-46.000000,0.000000,""};
+item32[] = {"",7,210,-29.000000,121.000000,-21.000000,129.000000,0.000000,""};
+item33[] = {"____FAKE____",9,0,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,31};
+link4[] = {3,10};
+link5[] = {4,9};
+link6[] = {5,11};
+link7[] = {6,12};
+link8[] = {7,13};
+link9[] = {8,14};
+link10[] = {9,17};
+link11[] = {11,18};
+link12[] = {12,19};
+link13[] = {13,20};
+link14[] = {14,15};
+link15[] = {15,16};
+link16[] = {16,23};
+link17[] = {17,18};
+link18[] = {18,19};
+link19[] = {19,20};
+link20[] = {20,21};
+link21[] = {21,22};
+link22[] = {22,23};
+link23[] = {23,1};
+link24[] = {24,4};
+link25[] = {24,25};
+link26[] = {25,5};
+link27[] = {25,26};
+link28[] = {26,6};
+link29[] = {26,27};
+link30[] = {27,7};
+link31[] = {28,8};
+link32[] = {29,30};
+link33[] = {30,32};
+link34[] = {31,24};
+link35[] = {32,17};
+link36[] = {33,8};
+link37[] = {33,29};
+globals[] = {0.000000,0,0,0,0,640,480,1,36,6316128,1,-917.233582,227.955994,437.532379,-381.392334,1404,1004,1};
+window[] = {2,-1,-1,-1,-1,979,130,1570,130,3,1422};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Supports";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"// Variables used by Supports" \n
+                         "BIS_Supp_Infantry01 = false;" \n
+                         "BIS_Supp_Infantry02 = false;" \n
+                         "BIS_Supp_Armor = false;" \n
+                         "BIS_Supp_Wiesel = false;" \n
+                         "BIS_Supp_WieselJoin = false;" \n
+                         "" \n
+                         "// Variables to control this FSMs' flow" \n
+                         "BIS_Infantry01_called = false;" \n
+                         "BIS_Infantry02_called = false;" \n
+                         "BIS_Armor_called = false;" \n
+                         "BIS_Wiesel_called = false;" \n
+                         "BIS_WieselJoin_called = false;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "KIA">*/
+                                class KIA
+                                {
+                                        itemno = 3;
+                                        priority = 10.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(alive BIS_ARPlayer)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wiesel_attack">*/
+                                class Wiesel_attack
+                                {
+                                        itemno = 7;
+                                        priority = 5.000000;
+                                        to="Move_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Wiesel and" \n
+                                         "{!(BIS_Wiesel_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Tank_attack">*/
+                                class Tank_attack
+                                {
+                                        itemno = 6;
+                                        priority = 4.000000;
+                                        to="Move_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Armor and" \n
+                                         "{!(BIS_Armor_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_city">*/
+                                class Infantry_on_city
+                                {
+                                        itemno = 5;
+                                        priority = 3.000000;
+                                        to="Move_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry01 and" \n
+                                         "{!(BIS_Infantry01_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_FOB">*/
+                                class Infantry_on_FOB
+                                {
+                                        itemno = 4;
+                                        priority = 2.000000;
+                                        to="Move";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry02 and" \n
+                                         "{!(BIS_Infantry02_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Move">*/
+                class Move
+                {
+                        name = "Move";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/"BIS_Infantry02_called = true;" \n
+                         "" \n
+                         "[BIS_ARPlayer,BIS_Support_Infantry02] call BIS_fnc_removeCommMenuItem;" \n
+                         "" \n
+                         """Supp_Infantry02"" spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "BIS_grpInfNorth copyWaypoints BIS_grpNWP;" \n
+                         "BIS_grpWiesel03 copyWaypoints BIS_grpWieselFOB;" \n
+                         "" \n
+                         "_infNReport = [" \n
+                         "	BIS_grpInfNorth," \n
+                         "	""Inf02_lightCasualties""," \n
+                         "	""Inf02_heavyCasualties""" \n
+                         "] execFSM ""FSMs\ReportScouts.fsm"";" \n
+                         "" \n
+                         "{_x setCaptive false; _x setCombatMode ""Red""; _x setBehaviour ""Aware""} forEach (units BIS_grpInfNorth + units BIS_grpWiesel03);" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "KIA">*/
+                                class KIA
+                                {
+                                        itemno = 3;
+                                        priority = 10.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(alive BIS_ARPlayer)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wiesel_attack">*/
+                                class Wiesel_attack
+                                {
+                                        itemno = 7;
+                                        priority = 5.000000;
+                                        to="Move_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Wiesel and" \n
+                                         "{!(BIS_Wiesel_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Tank_attack">*/
+                                class Tank_attack
+                                {
+                                        itemno = 6;
+                                        priority = 4.000000;
+                                        to="Move_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Armor and" \n
+                                         "{!(BIS_Armor_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_city">*/
+                                class Infantry_on_city
+                                {
+                                        itemno = 5;
+                                        priority = 3.000000;
+                                        to="Move_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry01 and" \n
+                                         "{!(BIS_Infantry01_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_FOB">*/
+                                class Infantry_on_FOB
+                                {
+                                        itemno = 4;
+                                        priority = 2.000000;
+                                        to="Move";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry02 and" \n
+                                         "{!(BIS_Infantry02_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END">*/
+                class END
+                {
+                        name = "END";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Move_1">*/
+                class Move_1
+                {
+                        name = "Move_1";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"BIS_Infantry01_called = true;" \n
+                         "" \n
+                         "[BIS_ARPlayer,BIS_Support_Infantry01] call BIS_fnc_removeCommMenuItem;" \n
+                         "" \n
+                         """Supp_Infantry01"" spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "BIS_grpInfSouth copyWaypoints BIS_grpSWP;" \n
+                         "" \n
+                         "_infSReport = [" \n
+                         "	BIS_grpInfSouth," \n
+                         "	""Inf01_lightCasualties""," \n
+                         "	""Inf01_heavyCasualties""," \n
+                         "	""Inf01_cityApproach""," \n
+                         "	""Inf01_cityInside""" \n
+                         "] execFSM ""FSMs\ReportInfantry.fsm"";" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "KIA">*/
+                                class KIA
+                                {
+                                        itemno = 3;
+                                        priority = 10.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(alive BIS_ARPlayer)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wiesel_attack">*/
+                                class Wiesel_attack
+                                {
+                                        itemno = 7;
+                                        priority = 5.000000;
+                                        to="Move_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Wiesel and" \n
+                                         "{!(BIS_Wiesel_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Tank_attack">*/
+                                class Tank_attack
+                                {
+                                        itemno = 6;
+                                        priority = 4.000000;
+                                        to="Move_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Armor and" \n
+                                         "{!(BIS_Armor_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_city">*/
+                                class Infantry_on_city
+                                {
+                                        itemno = 5;
+                                        priority = 3.000000;
+                                        to="Move_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry01 and" \n
+                                         "{!(BIS_Infantry01_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_FOB">*/
+                                class Infantry_on_FOB
+                                {
+                                        itemno = 4;
+                                        priority = 2.000000;
+                                        to="Move";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry02 and" \n
+                                         "{!(BIS_Infantry02_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Move_2">*/
+                class Move_2
+                {
+                        name = "Move_2";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/"BIS_Armor_called = true;" \n
+                         "" \n
+                         "[BIS_ARPlayer,BIS_Support_Armor] call BIS_fnc_removeCommMenuItem;" \n
+                         "" \n
+                         """Supp_Armor"" spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "// BIS_grpArmor01 copyWaypoints BIS_grpA1WP;" \n
+                         "BIS_grpLeopard copyWaypoints BIS_grpLeopardWP;" \n
+                         "" \n
+                         "_armor02Report = [" \n
+                         "	BIS_Leopard," \n
+                         "	""Leopard_KO""," \n
+                         "	""Leopard_KIA""" \n
+                         "] execFSM ""FSMs\ReportLeopard.fsm"";" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "KIA">*/
+                                class KIA
+                                {
+                                        itemno = 3;
+                                        priority = 10.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(alive BIS_ARPlayer)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wiesel_attack">*/
+                                class Wiesel_attack
+                                {
+                                        itemno = 7;
+                                        priority = 5.000000;
+                                        to="Move_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Wiesel and" \n
+                                         "{!(BIS_Wiesel_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Tank_attack">*/
+                                class Tank_attack
+                                {
+                                        itemno = 6;
+                                        priority = 4.000000;
+                                        to="Move_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Armor and" \n
+                                         "{!(BIS_Armor_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_city">*/
+                                class Infantry_on_city
+                                {
+                                        itemno = 5;
+                                        priority = 3.000000;
+                                        to="Move_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry01 and" \n
+                                         "{!(BIS_Infantry01_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_FOB">*/
+                                class Infantry_on_FOB
+                                {
+                                        itemno = 4;
+                                        priority = 2.000000;
+                                        to="Move";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry02 and" \n
+                                         "{!(BIS_Infantry02_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Move_3">*/
+                class Move_3
+                {
+                        name = "Move_3";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"BIS_Wiesel_called = true;" \n
+                         "" \n
+                         "[BIS_ARPlayer,BIS_Support_Wiesel] call BIS_fnc_removeCommMenuItem;" \n
+                         "" \n
+                         """Supp_Wiesel"" spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "/*" \n
+                         "if ((canMove BIS_Armor01) and (canFire BIS_Armor01)) then {BIS_grpArmor01 copyWaypoints BIS_grpFWP};" \n
+                         "if ((canMove BIS_Armor02) and (canFire BIS_Armor02)) then {BIS_grpArmor02 copyWaypoints BIS_grpFWP};" \n
+                         "*/" \n
+                         "" \n
+                         "BIS_grpWiesel01 copyWaypoints BIS_grpWiesel01WP;" \n
+                         "BIS_grpWiesel02 copyWaypoints BIS_grpWiesel02WP;" \n
+                         "" \n
+                         "_Wiesel01Report = [" \n
+                         "	BIS_Wiesel01," \n
+                         "	""Wiesel01_KO""," \n
+                         "	""Wiesel01_KIA""" \n
+                         "] execFSM ""FSMs\ReportWiesel.fsm"";" \n
+                         "" \n
+                         "_Wiesel02Report = [" \n
+                         "	BIS_Wiesel02," \n
+                         "	""Wiesel02_KO""," \n
+                         "	""Wiesel02_KIA""" \n
+                         "] execFSM ""FSMs\ReportWiesel.fsm"";" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "KIA">*/
+                                class KIA
+                                {
+                                        itemno = 3;
+                                        priority = 10.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(alive BIS_ARPlayer)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wiesel_attack">*/
+                                class Wiesel_attack
+                                {
+                                        itemno = 7;
+                                        priority = 5.000000;
+                                        to="Move_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Wiesel and" \n
+                                         "{!(BIS_Wiesel_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Tank_attack">*/
+                                class Tank_attack
+                                {
+                                        itemno = 6;
+                                        priority = 4.000000;
+                                        to="Move_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Armor and" \n
+                                         "{!(BIS_Armor_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_city">*/
+                                class Infantry_on_city
+                                {
+                                        itemno = 5;
+                                        priority = 3.000000;
+                                        to="Move_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry01 and" \n
+                                         "{!(BIS_Infantry01_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_FOB">*/
+                                class Infantry_on_FOB
+                                {
+                                        itemno = 4;
+                                        priority = 2.000000;
+                                        to="Move";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry02 and" \n
+                                         "{!(BIS_Infantry02_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Set_timer">*/
+                class Set_timer
+                {
+                        name = "Set_timer";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout_0_1sec">*/
+                                class Timeout_0_1sec
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="Nothing";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 0.1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Nothing">*/
+                class Nothing
+                {
+                        name = "Nothing";
+                        itemno = 16;
+                        init = /*%FSM<STATEINIT""">*/"// Like nothing at all..." \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "KIA">*/
+                                class KIA
+                                {
+                                        itemno = 3;
+                                        priority = 10.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(alive BIS_ARPlayer)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wiesel_attack">*/
+                                class Wiesel_attack
+                                {
+                                        itemno = 7;
+                                        priority = 5.000000;
+                                        to="Move_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Wiesel and" \n
+                                         "{!(BIS_Wiesel_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Tank_attack">*/
+                                class Tank_attack
+                                {
+                                        itemno = 6;
+                                        priority = 4.000000;
+                                        to="Move_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Armor and" \n
+                                         "{!(BIS_Armor_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_city">*/
+                                class Infantry_on_city
+                                {
+                                        itemno = 5;
+                                        priority = 3.000000;
+                                        to="Move_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry01 and" \n
+                                         "{!(BIS_Infantry01_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_FOB">*/
+                                class Infantry_on_FOB
+                                {
+                                        itemno = 4;
+                                        priority = 2.000000;
+                                        to="Move";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry02 and" \n
+                                         "{!(BIS_Infantry02_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Join_player">*/
+                class Join_player
+                {
+                        name = "Join_player";
+                        itemno = 30;
+                        init = /*%FSM<STATEINIT""">*/"BIS_WieselJoin_called = true;" \n
+                         "" \n
+                         "[BIS_Player,BIS_Support_WieselJoin] call BIS_fnc_removeCommMenuItem;" \n
+                         "" \n
+                         "// Check if the Wiesel is still alive. If not, remove the support." \n
+                         "if ((damage BIS_Wiesel03 < 1) and (alive BIS_WieselCrew05) and (alive BIS_WieselCrew06)) then {" \n
+                         "	""Supp_WieselJoin"" spawn BIS_fnc_missionConversations;" \n
+                         "	[BIS_WieselCrew05,BIS_WieselCrew06] join (group BIS_Player);" \n
+                         "} else {" \n
+                         "	""Supp_WieselKIA"" spawn BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "KIA">*/
+                                class KIA
+                                {
+                                        itemno = 3;
+                                        priority = 10.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(alive BIS_ARPlayer)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wiesel_attack">*/
+                                class Wiesel_attack
+                                {
+                                        itemno = 7;
+                                        priority = 5.000000;
+                                        to="Move_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Wiesel and" \n
+                                         "{!(BIS_Wiesel_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Tank_attack">*/
+                                class Tank_attack
+                                {
+                                        itemno = 6;
+                                        priority = 4.000000;
+                                        to="Move_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Armor and" \n
+                                         "{!(BIS_Armor_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_city">*/
+                                class Infantry_on_city
+                                {
+                                        itemno = 5;
+                                        priority = 3.000000;
+                                        to="Move_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry01 and" \n
+                                         "{!(BIS_Infantry01_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Infantry_on_FOB">*/
+                                class Infantry_on_FOB
+                                {
+                                        itemno = 4;
+                                        priority = 2.000000;
+                                        to="Move";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_Infantry02 and" \n
+                                         "{!(BIS_Infantry02_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "____FAKE____">*/
+                class ____FAKE____
+                {
+                        name = "____FAKE____";
+                        itemno = 33;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wiesel_join">*/
+                                class Wiesel_join
+                                {
+                                        itemno = 29;
+                                        priority = 1.000000;
+                                        to="Join_player";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Supp_WieselJoin and" \n
+                                         "{!(BIS_WieselJoin_called)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="Set_timer";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "END",
+        };
+};
+/*%FSM</COMPILE>*/

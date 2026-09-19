@@ -1,0 +1,760 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, missionFlow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-75.000000,-300.000000,25.000000,-250.000000,0.000000,"Start"};
+item1[] = {"Timer",4,218,-75.000000,-75.000000,25.000000,-25.000000,0.000000,"Timer"};
+item2[] = {"Prologue",2,250,-75.000000,0.000000,25.000000,50.000000,0.000000,"Prologue"};
+item3[] = {"Dorida_freed",4,218,-75.000000,100.000000,25.000000,150.000000,0.000000,"Dorida" \n "freed"};
+item4[] = {"Find_NATO_FOB",2,250,-75.000000,175.000000,25.000000,225.000000,0.000000,"Find NATO" \n "FOB"};
+item5[] = {"Destroyed",4,218,-75.000000,550.000000,25.000000,600.000000,5.000000,"Destroyed"};
+item6[] = {"End_01_02",1,250,-75.000000,625.000000,25.000000,675.000000,0.000000,"End" \n "01-02"};
+item7[] = {"Found",4,218,-75.000000,250.000000,25.000000,300.000000,0.000000,"Found"};
+item8[] = {"Destroy_NATO_FOB",2,250,-75.000000,325.000000,25.000000,375.000000,0.000000,"Destroy NATO" \n "FOB"};
+item9[] = {"FF",4,218,50.000000,550.000000,150.000000,600.000000,10.000000,"FF"};
+item10[] = {"Disobeying_order",4,218,175.000000,550.000000,275.000000,600.000000,15.000000,"Disobeying" \n "orders"};
+item11[] = {"Armata_KO",4,218,300.000000,550.000000,400.000000,600.000000,20.000000,"Armata KO"};
+item12[] = {"FAIL_FF",1,250,50.000000,625.000000,150.000000,675.000000,0.000000,"FAIL" \n "FF"};
+item13[] = {"FAIL_01",1,250,175.000000,625.000000,275.000000,675.000000,0.000000,"FAIL" \n "01"};
+item14[] = {"FAIL_02",1,250,300.000000,625.000000,400.000000,675.000000,0.000000,"FAIL" \n "02"};
+item15[] = {"",7,210,96.000000,496.000000,104.000000,504.000031,0.000000,""};
+item16[] = {"",7,210,221.000000,496.000000,229.000000,504.000031,0.000000,""};
+item17[] = {"",7,210,346.000000,496.000000,354.000000,504.000031,0.000000,""};
+item18[] = {"",7,210,96.000000,196.000000,104.000000,204.000000,0.000000,""};
+item19[] = {"",7,210,96.000000,20.999998,104.000000,29.000000,0.000000,""};
+item20[] = {"Intro",4,218,50.000000,-300.000000,150.000000,-250.000000,666.000000,"Intro"};
+item21[] = {"TERMINATE",1,250,175.000000,-300.000000,275.000000,-250.000000,0.000000,"TERMINATE"};
+item22[] = {"_",8,218,-75.000000,-225.000000,25.000000,-175.000000,0.000000,""};
+item23[] = {"Variables__FSMs",2,250,-75.000000,-150.000000,25.000000,-100.000000,0.000000,"Variables," \n "FSMs etc"};
+item24[] = {"FOB_casualties",4,218,-75.000000,400.000000,25.000000,450.000000,0.000000,"FOB" \n "casualties"};
+item25[] = {"NATO_Retreat",2,250,-75.000000,475.000000,25.000000,525.000000,0.000000,"NATO" \n "Retreat"};
+item26[] = {"",7,210,96.000000,346.000000,104.000000,354.000000,0.000000,""};
+item27[] = {"Too_close_to_FOB",4,218,-200.000000,0.000000,-100.000000,50.000000,0.000000,"Too close" \n "to FOB"};
+item28[] = {"Warning",2,250,-325.000000,0.000000,-225.000000,50.000000,0.000000,"Warning"};
+item29[] = {"Leaving_AO",4,218,-450.000000,0.000000,-350.000000,50.000000,0.000000,"Leaving AO"};
+item30[] = {"Fail",2,250,-575.000000,0.000000,-475.000000,50.000000,0.000000,"Fail"};
+item31[] = {"",7,210,-29.000008,71.000000,-20.999992,79.000000,0.000000,""};
+item32[] = {"",7,210,96.000000,71.000000,104.000000,79.000000,0.000000,""};
+item33[] = {"",7,210,-279.000000,71.000000,-271.000000,79.000000,0.000000,""};
+item34[] = {"",7,210,-529.000000,71.000000,-521.000000,79.000000,0.000000,""};
+item35[] = {"____FAKE____",9,0,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+link0[] = {0,20};
+link1[] = {0,22};
+link2[] = {1,2};
+link3[] = {2,19};
+link4[] = {2,27};
+link5[] = {2,31};
+link6[] = {3,4};
+link7[] = {4,7};
+link8[] = {4,18};
+link9[] = {5,6};
+link10[] = {7,8};
+link11[] = {8,24};
+link12[] = {8,26};
+link13[] = {9,12};
+link14[] = {10,13};
+link15[] = {11,14};
+link16[] = {15,16};
+link17[] = {16,10};
+link18[] = {16,17};
+link19[] = {17,11};
+link20[] = {18,26};
+link21[] = {19,32};
+link22[] = {20,21};
+link23[] = {22,23};
+link24[] = {23,1};
+link25[] = {24,25};
+link26[] = {25,5};
+link27[] = {25,15};
+link28[] = {26,15};
+link29[] = {27,28};
+link30[] = {28,29};
+link31[] = {28,33};
+link32[] = {29,30};
+link33[] = {30,34};
+link34[] = {31,3};
+link35[] = {31,32};
+link36[] = {32,18};
+link37[] = {33,31};
+link38[] = {34,33};
+link39[] = {35,9};
+globals[] = {0.000000,0,0,0,0,640,480,1,39,6316128,1,-727.287048,679.201965,682.052917,-323.726990,1404,1004,1};
+window[] = {2,-1,-1,-1,-1,875,26,1466,26,3,1422};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "missionFlow";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Intro">*/
+                                class Intro
+                                {
+                                        itemno = 20;
+                                        priority = 666.000000;
+                                        to="TERMINATE";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(side (group player)) == civilian" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="Variables__FSMs";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Prologue">*/
+                class Prologue
+                {
+                        name = "Prologue";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	BIS_Mortar setVariable [""BIS_SUPP_useDefaultBurst"",4];" \n
+                         "	""Prologue"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 3;" \n
+                         "	""Info"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 3;" \n
+                         "	BIS_Support_Infantry01 = [BIS_ARPlayer,""Infantry01""] call BIS_fnc_addCommMenuItem;" \n
+                         "	sleep 3;" \n
+                         "	BIS_Support_Armor = [BIS_ARPlayer,""Armor""] call BIS_fnc_addCommMenuItem;" \n
+                         "	sleep 3;" \n
+                         "	BIS_Support_Wiesel = [BIS_ARPlayer,""Wiesel""] call BIS_fnc_addCommMenuItem;" \n
+                         "	sleep 3;" \n
+                         "	BIS_MortarModule synchronizeObjectsAdd [BIS_ARPlayer];" \n
+                         "	sleep 10;" \n
+                         "	""StreetFighting"" call BIS_fnc_missionConversations;" \n
+                         "	// sleep 10;" \n
+                         "	// 2 call BIS_fnc_earthquake;" \n
+                         "	// ""Earthquake_01"" call BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	// playMusic ""LeadTrack03_F_EXP"";" \n
+                         "	0 fadeMusic 0;" \n
+                         "	sleep 3.25;" \n
+                         "	playMusic ""LeadTrack01_F_Tank"";" \n
+                         "	8 fadeMusic 0.5;" \n
+                         "	/*sleep 65;" \n
+                         "	10 fadeMusic 0;" \n
+                         "	sleep 12;" \n
+                         "	playMusic """";" \n
+                         "	0 fadeMusic 0.5;*/" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Armata_KO">*/
+                                class Armata_KO
+                                {
+                                        itemno = 11;
+                                        priority = 20.000000;
+                                        to="FAIL_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(damage BIS_Armata == 1) and" \n
+                                         "{(alive BIS_ARPlayer)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 10;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Dorida_freed">*/
+                                class Dorida_freed
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Find_NATO_FOB";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(BIS_DoridaFree) and" \n
+                                         "({!(canMove _x) and !(canFire _x)} forEach [BIS_Rooikat01,BIS_AMV01,BIS_AMV02])" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Too_close_to_FOB">*/
+                                class Too_close_to_FOB
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="Warning";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(vehicle BIS_ARPlayer) distance2D BIS_FOB < 1500" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Find_NATO_FOB">*/
+                class Find_NATO_FOB
+                {
+                        name = "Find_NATO_FOB";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"/*" \n
+                         "// Send the supporting Wiesel to the city right away, else one will have to way for too long" \n
+                         "BIS_grpWiesel03 copyWaypoints BIS_grpWiesel03WP;" \n
+                         "BIS_Wiesel03 setPos (getMarkerPos ""BIS_mrkWieselPos"");" \n
+                         "*/" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 45;" \n
+                         "	// Conversation after city was captured" \n
+                         "	""City_Captured""  call BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "	// Remove supports if unused" \n
+                         "	if !(BIS_Supp_Infantry01) then {[BIS_ARPlayer,BIS_Support_Infantry01] call BIS_fnc_removeCommMenuItem; BIS_grpInfSouth copyWaypoints BIS_grpSWP;};" \n
+                         "	if !(BIS_Supp_Armor) then {[BIS_ARPlayer,BIS_Support_Armor] call BIS_fnc_removeCommMenuItem; BIS_grpLeopard copyWaypoints BIS_grpLeopardWP;};" \n
+                         "	if !(BIS_Supp_Wiesel) then {[BIS_ARPlayer,BIS_Support_Wiesel] call BIS_fnc_removeCommMenuItem; BIS_grpWiesel01 copyWaypoints BIS_grpWiesel01WP; BIS_grpWiesel02 copyWaypoints BIS_grpWiesel02WP;};" \n
+                         "/*" \n
+                         "	// If the Wiesel and its crew survived, player can take direct command + send it close to city" \n
+                         "	if ((damage BIS_Wiesel03 < 1) and (alive BIS_WieselCrew05) and (alive BIS_WieselCrew06)) then {" \n
+                         "		{_x setDamage 0} forEach [BIS_Wiesel03,BIS_WieselCrew05,BIS_WieselCrew06];" \n
+                         "		""WieselOK"" call BIS_fnc_missionConversations;" \n
+                         "		BIS_WieselAvailable = true;" \n
+                         "		BIS_Support_WieselJoin = [BIS_Player,""WieselJoin""] call BIS_fnc_addCommMenuItem;" \n
+                         "	} else {" \n
+                         "		""WieselKO"" call BIS_fnc_missionConversations;" \n
+                         "	};" \n
+                         "*/" \n
+                         "	// Succeed task, add new" \n
+                         "	[""BIS_tskDorida"",""Succeeded""] call BIS_fnc_missionTasks;" \n
+                         "	[""BIS_tskFOBFind"",""Assigned""] call BIS_fnc_missionTasks;" \n
+                         "	""BIS_mrkFOBArea"" setMarkerAlpha 1;" \n
+                         "	sleep 10;" \n
+                         "	// Save - the only one" \n
+                         "	saveGame;" \n
+                         "" \n
+                         "	sleep 60 + (random 30);" \n
+                         "	// Send the A10 to harass AAF" \n
+                         "	BIS_A10 enableSimulation true;" \n
+                         "	_null = BIS_A10 execFSM ""FSMs\Warthog.fsm"";" \n
+                         "/*" \n
+                         "	sleep 30 + (random 30);" \n
+                         "	// Second and last earthquake" \n
+                         "	3 spawn BIS_fnc_earthquake;" \n
+                         "	sleep 2.5;" \n
+                         "	""Earthquake_02"" call BIS_fnc_missionConversations;" \n
+                         "*/" \n
+                         "};" \n
+                         "" \n
+                         "// Enable simulation to remaining AAF units" \n
+                         "{_x enableSimulation true} forEach (units BIS_grpInfNorth + units BIS_grpWiesel03);" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Armata_KO">*/
+                                class Armata_KO
+                                {
+                                        itemno = 11;
+                                        priority = 20.000000;
+                                        to="FAIL_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(damage BIS_Armata == 1) and" \n
+                                         "{(alive BIS_ARPlayer)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 10;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Found">*/
+                                class Found
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Destroy_NATO_FOB";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(""BIS_tskFOBFind"" call BIS_fnc_taskExists) and" \n
+                                         "{(BIS_FOBFound or ((vehicle BIS_ARPlayer) distance2D BIS_FOB < 125))}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End_01_02">*/
+                class End_01_02
+                {
+                        name = "End_01_02";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	""FOB_Destroyed"" call BIS_fnc_missionConversations;" \n
+                         "	[""BIS_tskFOBDestroy"",""Succeeded""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "	sleep 2.5;" \n
+                         "	// this variable triggers end of CollateralDamage.fsm" \n
+                         "	BIS_End = true;" \n
+                         "	sleep 5;" \n
+                         "	if (BIS_CollateralDamage < BIS_CollateralDamageFailLimit) then {" \n
+                         "		if ((isNil {profileNamespace getVariable ""BIS_Tanks_LimitedDamage""}) or (profileNamespace getVariable ""BIS_Tanks_LimitedDamage"" != 0)) then {" \n
+                         "			profileNamespace setVariable [""BIS_Tanks_LimitedDamage"",1]" \n
+                         "		};" \n
+                         "		[""Win01"",true,true,true,true] call BIS_fnc_endMission;" \n
+                         "	} else {" \n
+                         "		profileNamespace setVariable [""BIS_Tanks_LimitedDamage"",0];" \n
+                         "		[""Win02"",true,true,true,true] call BIS_fnc_endMission;" \n
+                         "	};" \n
+                         "};" \n
+                         "" \n
+                         "// if !(BIS_Infantry02_called) then {[BIS_ARPlayer,BIS_Support_Infantry02] call BIS_fnc_removeCommMenuItem;};" \n
+                         "// if (BIS_WieselAvailable and !(BIS_Supp_WieselJoin)) then {[BIS_ARPlayer,BIS_Support_WieselJoin] call BIS_fnc_removeCommMenuItem;};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Destroy_NATO_FOB">*/
+                class Destroy_NATO_FOB
+                {
+                        name = "Destroy_NATO_FOB";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	""FOB_Found"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 5;" \n
+                         "	[""BIS_tskFOBFind"",""Succeeded""] call BIS_fnc_missionTasks;" \n
+                         "	[""BIS_tskFOBDestroy"",""Current""] call BIS_fnc_missionTasks;" \n
+                         "	BIS_Support_Infantry02 = [BIS_ARPlayer,""Infantry02""] call BIS_fnc_addCommMenuItem;" \n
+                         "	""BIS_mrkFOB"" setMarkerAlpha 1;" \n
+                         "	""BIS_mrkFOBArea"" setMarkerAlpha 0;" \n
+                         "	""BIS_mrkInfantryN"" setMarkerAlpha 1;" \n
+                         "	resistance reportRemoteTarget [BIS_Wiesel03,9999];" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Armata_KO">*/
+                                class Armata_KO
+                                {
+                                        itemno = 11;
+                                        priority = 20.000000;
+                                        to="FAIL_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(damage BIS_Armata == 1) and" \n
+                                         "{(alive BIS_ARPlayer)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 10;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "FOB_casualties">*/
+                                class FOB_casualties
+                                {
+                                        itemno = 24;
+                                        priority = 0.000000;
+                                        to="NATO_Retreat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(""BIS_tskFOBDestroy"" call BIS_fnc_taskExists) and" \n
+                                         "{(BIS_FOBRetreat)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FAIL_FF">*/
+                class FAIL_FF
+                {
+                        name = "FAIL_FF";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	BIS_ARPlayer addRating (abs (rating BIS_ARPlayer));" \n
+                         "	sleep 5;" \n
+                         "	[""FriendlyFire"",false,true,true,true] call BIS_fnc_endMission;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FAIL_01">*/
+                class FAIL_01
+                {
+                        name = "FAIL_01";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	[""Fail01"",false,true,true,true] call BIS_fnc_endMission;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FAIL_02">*/
+                class FAIL_02
+                {
+                        name = "FAIL_02";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	""FUBAR"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 7.5;" \n
+                         "	if (alive BIS_ARPlayer) then {[""Fail02"",false,true,true,true] call BIS_fnc_endMission};" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "TERMINATE">*/
+                class TERMINATE
+                {
+                        name = "TERMINATE";
+                        itemno = 21;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	waitUntil {time > 0};" \n
+                         "	enableEnvironment [false, false];" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Variables__FSMs">*/
+                class Variables__FSMs
+                {
+                        name = "Variables__FSMs";
+                        itemno = 23;
+                        init = /*%FSM<STATEINIT""">*/"BIS_DoridaFree = false;" \n
+                         "BIS_FOBRetreat = false;" \n
+                         "BIS_FOBFound = false;" \n
+                         "BIS_FOBFree = false;" \n
+                         "BIS_Fail = false;" \n
+                         "BIS_End = false;" \n
+                         "BIS_WieselAvailable = false;" \n
+                         "BIS_ArmorDestroyed = false;" \n
+                         "BIS_AirDestroyed = false;" \n
+                         "" \n
+                         "_t = time;" \n
+                         "" \n
+                         "// Exec all the FMSs" \n
+                         "execFSM ""FSMs\CollateralDamage.fsm"";" \n
+                         "execFSM ""FSMs\Maintenance.fsm"";" \n
+                         "execFSM ""FSMs\Supports.fsm"";" \n
+                         "execFSM ""FSMs\AO.fsm"";" \n
+                         "" \n
+                         "// Take command over crew when inside Armata" \n
+                         "[] spawn {" \n
+                         "	waitUntil {vehicle BIS_ARPlayer == BIS_Armata};" \n
+                         "	[BIS_Gunner,BIS_Driver] joinSilent (group BIS_ARPlayer);" \n
+                         "	sleep 2.5;" \n
+                         "	_null = [[""Weapons"", ""ReactiveArmor""], 30] spawn BIS_fnc_advHint;" \n
+                         "};" \n
+                         "" \n
+                         "// Disable rabbits and snakes" \n
+                         "[] spawn {" \n
+                         "	waitUntil {time > 0};" \n
+                         "	enableEnvironment [false, true];" \n
+                         "};" \n
+                         "" \n
+                         "{_x setCaptive true; _x setCombatMode ""Blue""; _x setBehaviour ""Careless""} forEach (units BIS_grpInfNorth + units BIS_grpWiesel03);" \n
+                         "" \n
+                         "// Conversations - kill confirmations" \n
+                         "[] spawn {" \n
+                         "	waitUntil {sleep 1; BIS_ArmorDestroyed};" \n
+                         "	""ArmourDestroyed"" call BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	waitUntil {sleep 1; BIS_AirDestroyed};" \n
+                         "	""AircraftDestroyed"" call BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timer">*/
+                                class Timer
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Prologue";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 2.5" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "NATO_Retreat">*/
+                class NATO_Retreat
+                {
+                        name = "NATO_Retreat";
+                        itemno = 25;
+                        init = /*%FSM<STATEINIT""">*/"{_x copyWaypoints (selectRandom [BIS_grpRetreat01,BIS_grpRetreat02])} foreach [" \n
+                         "	BIS_grpFOB01," \n
+                         "	BIS_grpFOB02," \n
+                         "	BIS_grpFOB03," \n
+                         "	BIS_grpFOB04," \n
+                         "	BIS_grpFOB05" \n
+                         "];" \n
+                         "" \n
+                         "{_x setUnitPos (selectRandom [""Middle"",""Up""])} forEach (" \n
+                         "	units BIS_grpFOB01 +" \n
+                         "	units BIS_grpFOB02 +" \n
+                         "	units BIS_grpFOB03 +" \n
+                         "	units BIS_grpFOB04 +" \n
+                         "	units BIS_grpFOB05" \n
+                         ");" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Armata_KO">*/
+                                class Armata_KO
+                                {
+                                        itemno = 11;
+                                        priority = 20.000000;
+                                        to="FAIL_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(damage BIS_Armata == 1) and" \n
+                                         "{(alive BIS_ARPlayer)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 10;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Destroyed">*/
+                                class Destroyed
+                                {
+                                        itemno = 5;
+                                        priority = 5.000000;
+                                        to="End_01_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_FOBFree" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Warning">*/
+                class Warning
+                {
+                        name = "Warning";
+                        itemno = 28;
+                        init = /*%FSM<STATEINIT""">*/"""Desertion_Warning"" spawn BIS_fnc_missionConversations;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Armata_KO">*/
+                                class Armata_KO
+                                {
+                                        itemno = 11;
+                                        priority = 20.000000;
+                                        to="FAIL_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(damage BIS_Armata == 1) and" \n
+                                         "{(alive BIS_ARPlayer)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 10;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Dorida_freed">*/
+                                class Dorida_freed
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Find_NATO_FOB";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(BIS_DoridaFree) and" \n
+                                         "({!(canMove _x) and !(canFire _x)} forEach [BIS_Rooikat01,BIS_AMV01,BIS_AMV02])" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Leaving_AO">*/
+                                class Leaving_AO
+                                {
+                                        itemno = 29;
+                                        priority = 0.000000;
+                                        to="Fail";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(vehicle BIS_ARPlayer) distance2D BIS_FOB < 1200" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Fail">*/
+                class Fail
+                {
+                        name = "Fail";
+                        itemno = 30;
+                        init = /*%FSM<STATEINIT""">*/"""Desertion_Punishment"" spawn BIS_fnc_missionConversations;" \n
+                         "BIS_Fail = true;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Armata_KO">*/
+                                class Armata_KO
+                                {
+                                        itemno = 11;
+                                        priority = 20.000000;
+                                        to="FAIL_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(damage BIS_Armata == 1) and" \n
+                                         "{(alive BIS_ARPlayer)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 10;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Dorida_freed">*/
+                                class Dorida_freed
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Find_NATO_FOB";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(BIS_DoridaFree) and" \n
+                                         "({!(canMove _x) and !(canFire _x)} forEach [BIS_Rooikat01,BIS_AMV01,BIS_AMV02])" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "____FAKE____">*/
+                class ____FAKE____
+                {
+                        name = "____FAKE____";
+                        itemno = 35;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "FF">*/
+                                class FF
+                                {
+                                        itemno = 9;
+                                        priority = 10.000000;
+                                        to="FAIL_FF";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"side BIS_ARPlayer == sideEnemy" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "End_01_02",
+                "FAIL_FF",
+                "FAIL_01",
+                "FAIL_02",
+                "TERMINATE",
+        };
+};
+/*%FSM</COMPILE>*/

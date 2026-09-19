@@ -1,0 +1,207 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Maintenance">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-75.000000,-150.000000,25.000000,-100.000000,0.000000,"Start"};
+item1[] = {"Damaged",4,218,-200.000000,-75.000000,-100.000000,-25.000000,15.000000,"Damaged"};
+item2[] = {"Task_repair",2,250,-200.000000,0.000000,-100.000000,50.000000,0.000000,"Task" \n "repair"};
+item3[] = {"Repaired",4,218,-200.000000,75.000000,-100.000000,125.000000,0.000000,"Repaired"};
+item4[] = {"Low_on_fuel",4,218,-75.000000,-75.000000,25.000000,-25.000000,5.000000,"Low on fuel"};
+item5[] = {"Task_refuel",2,250,-75.000000,0.000000,25.000000,50.000000,0.000000,"Task" \n "refuel"};
+item6[] = {"Refueled",4,218,-75.000000,75.000000,25.000000,125.000000,0.000000,"Refueled"};
+item7[] = {"END",1,250,-75.000000,150.000000,25.000000,200.000000,0.000000,"END"};
+item8[] = {"Low_on_ammo",4,218,50.000000,-75.000000,150.000000,-25.000000,10.000000,"Low on ammo"};
+item9[] = {"Task_rearm",2,250,50.000000,0.000000,150.000000,50.000000,0.000000,"Task" \n "rearm"};
+item10[] = {"Rearmed",4,218,50.000000,75.000000,150.000000,125.000000,0.000000,"Rearmed"};
+item11[] = {"____FAKE____",9,88,0.000000,0.000000,7751038453635155100000000000000000.000000,0.000000,0.000000,"____FAKE____"};
+link0[] = {0,1};
+link1[] = {0,4};
+link2[] = {1,2};
+link3[] = {2,3};
+link4[] = {3,7};
+link5[] = {4,5};
+link6[] = {5,6};
+link7[] = {6,7};
+link8[] = {8,9};
+link9[] = {9,10};
+link10[] = {10,7};
+link11[] = {11,8};
+globals[] = {0.000000,0,0,0,0,640,480,1,14,6316128,1,-399.299988,399.299927,332.417908,-239.067688,1403,1004,1};
+window[] = {2,-1,-1,-1,-1,953,104,1544,104,3,1421};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Maintenance";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"// Conversations will be different based on the deficiency," \n
+                         "// but the task can remain the same - Maintenance" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Damaged">*/
+                                class Damaged
+                                {
+                                        itemno = 1;
+                                        priority = 15.000000;
+                                        to="Task_repair";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((damage BIS_Armata > 0.5) or" \n
+                                         "{(BIS_Armata getHitPointDamage ""hithull"" > 0.75)} or" \n
+                                         "/*{(BIS_Armata getHitPointDamage ""hitfuel"" > 0.5)} or*/" \n
+                                         "{(BIS_Armata getHitPointDamage ""hitengine"" > 0.5)} or" \n
+                                         "{(BIS_Armata getHitPointDamage ""hitltrack"" == 1)} or" \n
+                                         "{(BIS_Armata getHitPointDamage ""hitrtrack"" == 1)} or" \n
+                                         "{(BIS_Armata getHitPointDamage ""hitgun"" == 1)} or" \n
+                                         "{(BIS_Armata getHitPointDamage ""hitturret"" > 0.75)} or" \n
+                                         "{(BIS_Armata getHitPointDamage ""hitcomgun"" == 1)} or" \n
+                                         "{(BIS_Armata getHitPointDamage ""hitcomturret"" > 0.75)}) and" \n
+                                         "(damage BIS_Armata < 1)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Low_on_fuel">*/
+                                class Low_on_fuel
+                                {
+                                        itemno = 4;
+                                        priority = 5.000000;
+                                        to="Task_refuel";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"fuel BIS_Armata < 0.5" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Task_repair">*/
+                class Task_repair
+                {
+                        name = "Task_repair";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"""Repair"" spawn BIS_fnc_missionConversations;" \n
+                         "[""BIS_tskMaintenance"",""Current""] call BIS_fnc_missionTasks;" \n
+                         """BIS_mrkMaintenance"" setMarkerAlpha 1;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Repaired">*/
+                                class Repaired
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"damage BIS_Armata == 0" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Task_refuel">*/
+                class Task_refuel
+                {
+                        name = "Task_refuel";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"""Refuel"" spawn BIS_fnc_missionConversations;" \n
+                         "[""BIS_tskMaintenance"",""Current""] call BIS_fnc_missionTasks;" \n
+                         """BIS_mrkMaintenance"" setMarkerAlpha 1;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Refueled">*/
+                                class Refueled
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"fuel BIS_Armata > 0.9" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END">*/
+                class END
+                {
+                        name = "END";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"[""BIS_tskMaintenance"",""Succeeded""] call BIS_fnc_missionTasks;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Task_rearm">*/
+                class Task_rearm
+                {
+                        name = "Task_rearm";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/"""Rearm"" call BIS_fnc_missionConversations;" \n
+                         "[""BIS_tskMaintenance"",""Current""] call BIS_fnc_missionTasks;" \n
+                         """BIS_mrkMaintenance"" setMarkerAlpha 1;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Rearmed">*/
+                                class Rearmed
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "____FAKE____">*/
+                class ____FAKE____
+                {
+                        name = "____FAKE____";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Low_on_ammo">*/
+                                class Low_on_ammo
+                                {
+                                        itemno = 8;
+                                        priority = 10.000000;
+                                        to="Task_rearm";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "END",
+        };
+};
+/*%FSM</COMPILE>*/

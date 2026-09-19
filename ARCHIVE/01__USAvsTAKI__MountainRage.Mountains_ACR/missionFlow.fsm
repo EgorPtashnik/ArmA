@@ -1,0 +1,892 @@
+/*%FSM<COMPILE "D:\steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Showcase Combined Arms Mission Flow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"start",0,250,-75.000000,-425.000000,25.000000,-375.000000,0.000000,"start"};
+item1[] = {"Dismounted",4,218,-75.000000,-300.000000,25.000000,-250.000000,0.000000,"Dismounted"};
+item2[] = {"Start_attack",2,250,-75.000000,-200.000000,25.000000,-150.000000,0.000000,"Start attack"};
+item3[] = {"Base_Siezed",4,218,-75.000000,-75.000000,25.000000,-25.000000,0.000000,"Base Siezed"};
+item4[] = {"",7,210,-28.999992,-104.000000,-21.000008,-96.000008,0.000000,""};
+item5[] = {"Alpha_KIA",4,218,50.000000,-75.000000,150.000000,-25.000000,0.000000,"Alpha" \n "KIA"};
+item6[] = {"",7,210,96.000000,-104.000000,104.000000,-96.000000,0.000000,""};
+item7[] = {"Comms",2,250,50.000000,0.000000,150.000000,50.000000,0.000000,"Comms"};
+item8[] = {"",7,210,221.000000,-104.000000,229.000000,-96.000000,0.000000,""};
+item9[] = {"BMP_KIA",4,218,175.000000,-75.000000,275.000000,-25.000000,0.000000,"BMP" \n "KIA"};
+item10[] = {"Comms_1",2,250,175.000000,0.000000,275.000000,50.000000,0.000000,"Comms"};
+item11[] = {"",7,210,96.000000,71.000000,104.000000,79.000000,0.000000,""};
+item12[] = {"",7,210,221.000000,71.000000,229.000000,79.000000,0.000000,""};
+item13[] = {"",7,210,546.000000,71.000000,554.000000,79.000000,0.000000,""};
+item14[] = {"",7,210,546.000000,-129.000000,554.000000,-121.000000,0.000000,""};
+item15[] = {"",7,210,-28.999992,-129.000000,-21.000008,-121.000008,0.000000,""};
+item16[] = {"",7,210,346.000000,-104.000000,354.000000,-96.000000,0.000000,""};
+item17[] = {"Bravo_2_In_Comba",4,218,300.000000,-75.000000,400.000000,-25.000000,0.000000,"Bravo 2" \n "In Combat"};
+item18[] = {"Send_Convoy_Combat",2,250,300.000000,0.000000,400.000000,50.000000,0.000000,"Send Convoy" \n "Combat Cars"};
+item19[] = {"",7,210,346.000000,71.000000,354.000000,79.000000,0.000000,""};
+item20[] = {"Alpha_In_Positio",4,218,425.000000,-75.000000,525.000000,-25.000000,0.000000,"Alpha" \n "In Position"};
+item21[] = {"",7,210,471.000000,-104.000000,479.000000,-96.000000,0.000000,""};
+item22[] = {"Comms___Show_group",2,250,425.000000,0.000000,525.000000,50.000000,0.000000,"Comms" \n "+" \n "Show group icons"};
+item23[] = {"",7,210,471.000000,71.000000,479.000000,79.000000,0.000000,""};
+item24[] = {"Destroy_Support",2,250,-75.000000,100.000000,25.000000,150.000000,0.000000,"Destroy" \n "Support" \n "Vehicles"};
+item25[] = {"Shilka_KIA",4,218,75.000000,250.000000,175.000000,300.000000,0.000000,"Shilka" \n "KIA"};
+item26[] = {"Grad_1_KIA",4,218,200.000000,250.000000,300.000000,300.000000,0.000000,"Grad 1" \n "KIA"};
+item27[] = {"Grad_2_KIA",4,218,325.000000,250.000000,425.000000,300.000000,0.000000,"Grad 2" \n "KIA"};
+item28[] = {"",7,210,-29.000000,196.000000,-21.000000,204.000000,0.000000,""};
+item29[] = {"",7,210,121.000000,196.000000,129.000000,204.000000,0.000000,""};
+item30[] = {"",7,210,246.000000,196.000000,254.000000,204.000000,0.000000,""};
+item31[] = {"",7,210,371.000000,196.000000,379.000000,204.000000,0.000000,""};
+item32[] = {"handle_task",2,250,75.000000,325.000000,175.000000,375.000000,0.000000,"handle" \n "task"};
+item33[] = {"handle_task_1",2,250,200.000000,325.000000,300.000000,375.000000,0.000000,"handle" \n "task"};
+item34[] = {"handle_task_2",2,250,325.000000,325.000000,425.000000,375.000000,0.000000,"handle" \n "task"};
+item35[] = {"vehicles_KIA",4,218,-75.000000,250.000000,25.000000,300.000000,0.000000,"vehicles" \n "KIA"};
+item36[] = {"",7,210,121.000000,396.000000,129.000000,404.000000,0.000000,""};
+item37[] = {"",7,210,246.000000,396.000000,254.000000,404.000000,0.000000,""};
+item38[] = {"",7,210,371.000000,396.000000,379.000000,404.000000,0.000000,""};
+item39[] = {"",7,210,471.000000,396.000000,479.000000,404.000000,0.000000,""};
+item40[] = {"",7,210,471.000000,171.000015,479.000000,179.000000,0.000000,""};
+item41[] = {"",7,210,-29.000000,171.000000,-21.000000,178.999985,0.000000,""};
+item42[] = {"Send_Taki_QRF",2,250,-75.000000,425.000000,25.000000,475.000000,0.000000,"Send" \n "Taki QRF"};
+item43[] = {"QRF_Countered",4,218,-75.000000,550.000000,25.000000,600.000000,0.000000,"QRF" \n "Countered"};
+item44[] = {"Timeout",4,218,75.000000,425.000000,175.000000,475.000000,0.000000,"Timeout"};
+item45[] = {"Send_reinforceme",2,4346,75.000000,550.000000,175.000000,600.000000,0.000000,"Send" \n "reinforcements"};
+item46[] = {"End",1,250,-75.000000,650.000000,25.000000,700.000000,0.000000,"End"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,15};
+link3[] = {3,24};
+link4[] = {4,3};
+link5[] = {4,6};
+link6[] = {5,7};
+link7[] = {6,5};
+link8[] = {6,8};
+link9[] = {7,11};
+link10[] = {8,9};
+link11[] = {8,16};
+link12[] = {9,10};
+link13[] = {10,12};
+link14[] = {11,12};
+link15[] = {12,19};
+link16[] = {13,14};
+link17[] = {14,15};
+link18[] = {15,4};
+link19[] = {16,17};
+link20[] = {16,21};
+link21[] = {17,18};
+link22[] = {18,19};
+link23[] = {19,23};
+link24[] = {20,22};
+link25[] = {21,20};
+link26[] = {22,23};
+link27[] = {23,13};
+link28[] = {24,41};
+link29[] = {25,32};
+link30[] = {26,33};
+link31[] = {27,34};
+link32[] = {28,29};
+link33[] = {28,35};
+link34[] = {29,25};
+link35[] = {29,30};
+link36[] = {30,26};
+link37[] = {30,31};
+link38[] = {31,27};
+link39[] = {32,36};
+link40[] = {33,37};
+link41[] = {34,38};
+link42[] = {35,42};
+link43[] = {36,37};
+link44[] = {37,38};
+link45[] = {38,39};
+link46[] = {39,40};
+link47[] = {40,41};
+link48[] = {41,28};
+link49[] = {42,43};
+link50[] = {42,44};
+link51[] = {43,46};
+link52[] = {44,45};
+link53[] = {45,43};
+globals[] = {0.000000,0,0,0,0,640,480,1,152,6316128,1,-234.594696,590.227295,834.486755,-3.314026,1843,1872,1};
+window[] = {2,-1,-1,-1,-1,1268,418,1858,418,3,1870};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Showcase Combined Arms Mission Flow";
+        class States
+        {
+                /*%FSM<STATE "start">*/
+                class start
+                {
+                        name = "start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"//Tasks" \n
+                         """EP_prepare"" call BIS_fnc_missionTasks;" \n
+                         """EP_assault"" call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "execVM ""scripts\start.sqf"""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Dismounted">*/
+                                class Dismounted
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Start_attack";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""EP_InPosition"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Start_attack">*/
+                class Start_attack
+                {
+                        name = "Start_attack";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"execVM ""scripts\attackBase.sqf"";" \n
+                         "" \n
+                         "//True when Alpha is dead" \n
+                         "EP_AlphaKIA = false;" \n
+                         "//True when BMP is down" \n
+                         "EP_BmpKIA = false;" \n
+                         "//True when Bravo2 is in COMBAT" \n
+                         "EP_Bravo2Combat = false;" \n
+                         "//True when Alpha is near" \n
+                         "EP_AlphaInPos = false;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Alpha_KIA">*/
+                                class Alpha_KIA
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Comms";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_AlphaKIA &&" \n
+                                         "{units EP_Alpha findIf {alive _x} == -1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "BMP_KIA">*/
+                                class BMP_KIA
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Comms_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_BmpKIA &&" \n
+                                         "{!canMove EP_BMP}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bravo_2_In_Comba">*/
+                                class Bravo_2_In_Comba
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Send_Convoy_Combat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_Bravo2Combat &&" \n
+                                         "{combatBehaviour EP_Bravo2 == ""COMBAT""}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Alpha_In_Positio">*/
+                                class Alpha_In_Positio
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Comms___Show_group";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_AlphaInPos &&" \n
+                                         "{leader EP_Alpha distance2D (markerPos ""wpConvoy_6"") < 750}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Base_Siezed">*/
+                                class Base_Siezed
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Destroy_Support";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_BaseSeized"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Comms">*/
+                class Comms
+                {
+                        name = "Comms";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"EP_AlphaKIA = true;" \n
+                         "" \n
+                         """AlphaKIA"" spawn BIS_fnc_missionConversations;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Alpha_KIA">*/
+                                class Alpha_KIA
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Comms";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_AlphaKIA &&" \n
+                                         "{units EP_Alpha findIf {alive _x} == -1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "BMP_KIA">*/
+                                class BMP_KIA
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Comms_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_BmpKIA &&" \n
+                                         "{!canMove EP_BMP}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bravo_2_In_Comba">*/
+                                class Bravo_2_In_Comba
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Send_Convoy_Combat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_Bravo2Combat &&" \n
+                                         "{combatBehaviour EP_Bravo2 == ""COMBAT""}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Alpha_In_Positio">*/
+                                class Alpha_In_Positio
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Comms___Show_group";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_AlphaInPos &&" \n
+                                         "{leader EP_Alpha distance2D (markerPos ""wpConvoy_6"") < 750}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Base_Siezed">*/
+                                class Base_Siezed
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Destroy_Support";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_BaseSeized"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Comms_1">*/
+                class Comms_1
+                {
+                        name = "Comms_1";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"EP_BmpKIA = true;" \n
+                         "" \n
+                         "EP_BMP setDamage 1;" \n
+                         """BmpKIA"" spawn BIS_fnc_missionConversations;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Alpha_KIA">*/
+                                class Alpha_KIA
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Comms";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_AlphaKIA &&" \n
+                                         "{units EP_Alpha findIf {alive _x} == -1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "BMP_KIA">*/
+                                class BMP_KIA
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Comms_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_BmpKIA &&" \n
+                                         "{!canMove EP_BMP}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bravo_2_In_Comba">*/
+                                class Bravo_2_In_Comba
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Send_Convoy_Combat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_Bravo2Combat &&" \n
+                                         "{combatBehaviour EP_Bravo2 == ""COMBAT""}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Alpha_In_Positio">*/
+                                class Alpha_In_Positio
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Comms___Show_group";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_AlphaInPos &&" \n
+                                         "{leader EP_Alpha distance2D (markerPos ""wpConvoy_6"") < 750}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Base_Siezed">*/
+                                class Base_Siezed
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Destroy_Support";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_BaseSeized"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Send_Convoy_Combat">*/
+                class Send_Convoy_Combat
+                {
+                        name = "Send_Convoy_Combat";
+                        itemno = 18;
+                        init = /*%FSM<STATEINIT""">*/"EP_Bravo2Combat = true;" \n
+                         "execVM ""scripts\sendConvoyToAttack.sqf"";" \n
+                         "" \n
+                         """SendConvoyAttack"" spawn BIS_fnc_missionConversations;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Alpha_KIA">*/
+                                class Alpha_KIA
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Comms";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_AlphaKIA &&" \n
+                                         "{units EP_Alpha findIf {alive _x} == -1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "BMP_KIA">*/
+                                class BMP_KIA
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Comms_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_BmpKIA &&" \n
+                                         "{!canMove EP_BMP}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bravo_2_In_Comba">*/
+                                class Bravo_2_In_Comba
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Send_Convoy_Combat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_Bravo2Combat &&" \n
+                                         "{combatBehaviour EP_Bravo2 == ""COMBAT""}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Alpha_In_Positio">*/
+                                class Alpha_In_Positio
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Comms___Show_group";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_AlphaInPos &&" \n
+                                         "{leader EP_Alpha distance2D (markerPos ""wpConvoy_6"") < 750}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Base_Siezed">*/
+                                class Base_Siezed
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Destroy_Support";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_BaseSeized"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Comms___Show_group">*/
+                class Comms___Show_group
+                {
+                        name = "Comms___Show_group";
+                        itemno = 22;
+                        init = /*%FSM<STATEINIT""">*/"EP_AlphaInPos = true;" \n
+                         "" \n
+                         "private _colorWEST = west call BIS_fnc_sideColor;" \n
+                         "EP_Alpha addGroupIcon [""b_inf""];" \n
+                         "EP_Alpha setGroupIconParams [_colorWest, ""Alpha°"", 1, true];" \n
+                         "setGroupIconsVisible [true, false];" \n
+                         "" \n
+                         """AlphaInPos"" spawn BIS_fnc_missionConversations;" \n
+                         "playMusic ""Music_Russian_Theme"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Alpha_KIA">*/
+                                class Alpha_KIA
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Comms";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_AlphaKIA &&" \n
+                                         "{units EP_Alpha findIf {alive _x} == -1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "BMP_KIA">*/
+                                class BMP_KIA
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Comms_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_BmpKIA &&" \n
+                                         "{!canMove EP_BMP}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bravo_2_In_Comba">*/
+                                class Bravo_2_In_Comba
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Send_Convoy_Combat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_Bravo2Combat &&" \n
+                                         "{combatBehaviour EP_Bravo2 == ""COMBAT""}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Alpha_In_Positio">*/
+                                class Alpha_In_Positio
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Comms___Show_group";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!EP_AlphaInPos &&" \n
+                                         "{leader EP_Alpha distance2D (markerPos ""wpConvoy_6"") < 750}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Base_Siezed">*/
+                                class Base_Siezed
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Destroy_Support";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_BaseSeized"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Destroy_Support">*/
+                class Destroy_Support
+                {
+                        name = "Destroy_Support";
+                        itemno = 24;
+                        init = /*%FSM<STATEINIT""">*/"spawn {" \n
+                         "" \n
+                         "	//Tasks" \n
+                         "	[""EP_assault"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "	sleep 5;" \n
+                         "" \n
+                         "	""BaseSeized"" call BIS_fnc_missionConversations;" \n
+                         "	""EP_destroySupportVehicle"" call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "	[EP_Heli] call EP_fnc_activateUnits;" \n
+                         "};" \n
+                         "" \n
+                         "private _destroyedVehicles = 0;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Shilka_KIA">*/
+                                class Shilka_KIA
+                                {
+                                        itemno = 25;
+                                        priority = 0.000000;
+                                        to="handle_task";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(""EP_destroyShilka"" call BIS_fnc_taskCompleted) &&" \n
+                                         "{!canMove EP_Shilka}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Grad_1_KIA">*/
+                                class Grad_1_KIA
+                                {
+                                        itemno = 26;
+                                        priority = 0.000000;
+                                        to="handle_task_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(""EP_destroyGrad_1"" call BIS_fnc_taskCompleted) &&" \n
+                                         "{!canMove EP_Grad_1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Grad_2_KIA">*/
+                                class Grad_2_KIA
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="handle_task_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(""EP_destroyGrad_2"" call BIS_fnc_taskCompleted) &&" \n
+                                         "{!canMove EP_Grad_2}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "vehicles_KIA">*/
+                                class vehicles_KIA
+                                {
+                                        itemno = 35;
+                                        priority = 0.000000;
+                                        to="Send_Taki_QRF";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_destroyedVehicles == 3"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "handle_task">*/
+                class handle_task
+                {
+                        name = "handle_task";
+                        itemno = 32;
+                        init = /*%FSM<STATEINIT""">*/"EP_Shilka setDamage 1;" \n
+                         "" \n
+                         "[""EP_destroyShilka"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "_destroyedVehicles = _destroyedVehicles + 1;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Shilka_KIA">*/
+                                class Shilka_KIA
+                                {
+                                        itemno = 25;
+                                        priority = 0.000000;
+                                        to="handle_task";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(""EP_destroyShilka"" call BIS_fnc_taskCompleted) &&" \n
+                                         "{!canMove EP_Shilka}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Grad_1_KIA">*/
+                                class Grad_1_KIA
+                                {
+                                        itemno = 26;
+                                        priority = 0.000000;
+                                        to="handle_task_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(""EP_destroyGrad_1"" call BIS_fnc_taskCompleted) &&" \n
+                                         "{!canMove EP_Grad_1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Grad_2_KIA">*/
+                                class Grad_2_KIA
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="handle_task_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(""EP_destroyGrad_2"" call BIS_fnc_taskCompleted) &&" \n
+                                         "{!canMove EP_Grad_2}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "vehicles_KIA">*/
+                                class vehicles_KIA
+                                {
+                                        itemno = 35;
+                                        priority = 0.000000;
+                                        to="Send_Taki_QRF";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_destroyedVehicles == 3"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "handle_task_1">*/
+                class handle_task_1
+                {
+                        name = "handle_task_1";
+                        itemno = 33;
+                        init = /*%FSM<STATEINIT""">*/"EP_Grad_1 setDamage 1;" \n
+                         "" \n
+                         "[""EP_destroyGrad_1"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "_destroyedVehicles = _destroyedVehicles + 1;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Shilka_KIA">*/
+                                class Shilka_KIA
+                                {
+                                        itemno = 25;
+                                        priority = 0.000000;
+                                        to="handle_task";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(""EP_destroyShilka"" call BIS_fnc_taskCompleted) &&" \n
+                                         "{!canMove EP_Shilka}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Grad_1_KIA">*/
+                                class Grad_1_KIA
+                                {
+                                        itemno = 26;
+                                        priority = 0.000000;
+                                        to="handle_task_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(""EP_destroyGrad_1"" call BIS_fnc_taskCompleted) &&" \n
+                                         "{!canMove EP_Grad_1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Grad_2_KIA">*/
+                                class Grad_2_KIA
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="handle_task_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(""EP_destroyGrad_2"" call BIS_fnc_taskCompleted) &&" \n
+                                         "{!canMove EP_Grad_2}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "vehicles_KIA">*/
+                                class vehicles_KIA
+                                {
+                                        itemno = 35;
+                                        priority = 0.000000;
+                                        to="Send_Taki_QRF";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_destroyedVehicles == 3"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "handle_task_2">*/
+                class handle_task_2
+                {
+                        name = "handle_task_2";
+                        itemno = 34;
+                        init = /*%FSM<STATEINIT""">*/"EP_Grad_2 setDamage 1;" \n
+                         "" \n
+                         "[""EP_destroyGrad_2"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "_destroyedVehicles = _destroyedVehicles + 1;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Shilka_KIA">*/
+                                class Shilka_KIA
+                                {
+                                        itemno = 25;
+                                        priority = 0.000000;
+                                        to="handle_task";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(""EP_destroyShilka"" call BIS_fnc_taskCompleted) &&" \n
+                                         "{!canMove EP_Shilka}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Grad_1_KIA">*/
+                                class Grad_1_KIA
+                                {
+                                        itemno = 26;
+                                        priority = 0.000000;
+                                        to="handle_task_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(""EP_destroyGrad_1"" call BIS_fnc_taskCompleted) &&" \n
+                                         "{!canMove EP_Grad_1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Grad_2_KIA">*/
+                                class Grad_2_KIA
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="handle_task_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(""EP_destroyGrad_2"" call BIS_fnc_taskCompleted) &&" \n
+                                         "{!canMove EP_Grad_2}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "vehicles_KIA">*/
+                                class vehicles_KIA
+                                {
+                                        itemno = 35;
+                                        priority = 0.000000;
+                                        to="Send_Taki_QRF";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_destroyedVehicles == 3"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Send_Taki_QRF">*/
+                class Send_Taki_QRF
+                {
+                        name = "Send_Taki_QRF";
+                        itemno = 42;
+                        init = /*%FSM<STATEINIT""">*/"handle = execVM ""scripts\takiQRF.sqf"";" \n
+                         "private _t = time + 180;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout">*/
+                                class Timeout
+                                {
+                                        itemno = 44;
+                                        priority = 0.000000;
+                                        to="Send_reinforceme";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_t < time"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "QRF_Countered">*/
+                                class QRF_Countered
+                                {
+                                        itemno = 43;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone handle"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Send_reinforceme">*/
+                class Send_reinforceme
+                {
+                        name = "Send_reinforceme";
+                        itemno = 45;
+                        init = /*%FSM<STATEINIT""">*/"[EP_Reinforcements] call EP_fnc_activateUnits;" \n
+                         "" \n
+                         "EP_ReinfDone = false;" \n
+                         "EP_Reinforcements addWaypoint [markerPos ""wpConvoy_4"", -1];" \n
+                         "EP_Reinforcements addWaypoint [markerPos ""wpConvoy_5"", -1];" \n
+                         "private _wp = EP_Reinforcements addWaypoint [markerPos ""wpConvoy_6"", -1];" \n
+                         "_wp setWaypointStatements [""true"", ""EP_ReinfDone = true""];" \n
+                         "" \n
+                         "//Unstuck check" \n
+                         "spawn {" \n
+                         "    private _apcs = ([EP_Reinforcements, true] call BIS_fnc_groupVehicles);" \n
+                         "    while {!EP_ReinfDone} do {" \n
+                         "        {" \n
+                         "            if (vehicle _x != vehicle leader EP_Reinforcements && {unitReady driver _x && speed _x < 5 && vehicle _x != vehicle leader EP_Reinforcements}) then {" \n
+                         "                driver _x doFollow leader EP_Reinforcements" \n
+                         "            };" \n
+                         "" \n
+                         "            if (vehicle _x == vehicle leader EP_Reinforcements && {unitReady driver _x && speed _x < 5}) then {" \n
+                         "                driver _x doMove waypointPosition ([EP_Reinforcements, currentWaypoint EP_Reinforcements]);" \n
+                         "            };" \n
+                         "        } forEach _apcs;" \n
+                         "" \n
+                         "			sleep 5;" \n
+                         "    };" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "QRF_Countered">*/
+                                class QRF_Countered
+                                {
+                                        itemno = 43;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone handle"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 46;
+                        init = /*%FSM<STATEINIT""">*/"EP_ReinfDone = true;" \n
+                         "" \n
+                         "spawn {" \n
+                         "	playMusic ""Track_O_01"";" \n
+                         "	sleep 10;" \n
+                         "	""CounterattackDone"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 5;" \n
+                         "	[""Win"", true, true, false] call BIS_fnc_endMission;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="start";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/
