@@ -1,27 +1,28 @@
 
 // ----- General mission metadata ---------------------------------------------
-onLoadName    = "";
-onLoadMission = "";
-author        = "EP";
-briefingName  =""
-overviewText  = "";
+author = "EP";
+onLoadName = "Операция «Тарантул»";
+briefingName = "Операция «Тарантул»";
+onLoadMission = "Спецподразделение БВС пытается спасти ценную информацию из рук бандитов.";
+overviewText = "Спецподразделение БВС пытается спасти ценную информацию из рук бандитов.";
+overviewPicture = "overview.jpg";
 
 // ----- Debriefing ----------------------------------------------------------
 class CfgDebriefing {
     class Win {
-        title             = "Mission succeeded!";
-        subtitle          = "";
-        description       = "";
-        pictureBackground = "";
-        picture           = "";
-        pictureColor[]    = { 0.0, 0.3, 0.6, 1 };
+        title             = "Объект в безопасности";
+        subtitle          = "ООС успешно эвакуирован из зоны опасности.";
+        description       = "Вы успшено эвакуировали объект и сохранили данные специальных операций ВСБ в секторе.";
+        pictureBackground = "overview.jpg";
+        picture           = "a3\ui_f\data\map\markers\nato\b_recon.paa";
+        pictureColor[]    = { 0,0,0.5,1 };
     };
 
     class Compromised {
-        title             = "You have been compromised!";
-        subtitle          = "Try to avoid enemy attention.";
-        description       = "";
-        pictureBackground = "";
+        title             = "Вас обнаружили";
+        subtitle          = "Дальнейшее выполнение операции невозможно.";
+        description       = "После обнаружения бандиты передислоцировали объект. Командовиню ВСБ потребуется немало ресурсов для определения новой локации.";
+        pictureBackground = "overview.jpg";
         picture           = "a3\ui_f\data\gui\cfg\communicationmenu\call_ca.paa";
         pictureColor[]    = { 0,0.5,0,1 };
     };

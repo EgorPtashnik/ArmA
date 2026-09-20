@@ -1,6 +1,20 @@
-case "EP_Start": {
-    private _player = name EP_Player;
+case "EP_Intro": {
     [[
-        [Comms_Player, "All right, boys, we're moving out. Maintain stealth and hold your fire.", 2]
+        [Comms_Player, "Overwatch, я Cobra. Мы на исходной, начинаем выдвижение к точке Альфа. Прием.", 2],
+        [Comms_HQ, "Вас понял, Cobra. Напоминаю: режим полной скрытности. Объект должен быть доставлен живым. Мы следим за вами. Конец связи.", 2]
+    ], true] call EP_fnc_comms;
+};
+
+case "EP_Start": {
+    [[
+        [Comms_Player, "Так, парни, выдвигаемся. Соблюдать скрытность, огонь не открывать.", 2]
     ], false] call EP_fnc_comms;
+};
+
+case "Camp01Clear": {
+    [[
+        [Comms_Player, "Overwatch, я Cobra. Закрыли точку Альфа. Информации нет, жду указаний. Прием.", 4],
+        [Comms_HQ, "Принято. Продвигайтесь к точке Браво. Не компроментируйте себя. В этом лагере больше часовых. Как приняли? Прием.", 2],
+        [Comms_Player, "Вас понял, Overwatch. Работаем. Конец связи.", 2]
+    ], true] call EP_fnc_comms;
 };

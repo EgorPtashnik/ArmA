@@ -6,7 +6,7 @@ item1[] = {"_",8,218,-75.000000,-325.000000,25.000000,-275.000000,0.000000,""};
 item2[] = {"Camp_1___Variabl",2,250,-75.000000,-225.000000,25.000000,-175.000000,0.000000,"Camp 1" \n "/" \n "Variables"};
 item3[] = {"Near_camp_2",4,218,-350.000000,-75.000000,-250.000000,-25.000000,3.000000,"Near" \n "camp 2"};
 item4[] = {"Finished_obj_1",4,218,-250.000000,-75.000000,-150.000000,-25.000000,3.000000,"Finished" \n "obj 1"};
-item5[] = {"Camp_2",2,250,-300.000000,0.000000,-200.000000,50.000000,0.000000,"Camp 2"};
+item5[] = {"Camp_2",2,4346,-300.000000,0.000000,-200.000000,50.000000,0.000000,"Camp 2"};
 item6[] = {"",7,210,-29.000008,-104.000000,-20.999992,-96.000000,0.000000,""};
 item7[] = {"",7,210,-204.000000,-104.000000,-196.000000,-96.000000,0.000000,""};
 item8[] = {"",7,210,-304.000000,-104.000000,-296.000000,-96.000000,0.000000,""};
@@ -25,11 +25,12 @@ item20[] = {"",7,210,-29.000008,71.000000,-20.999992,79.000000,0.000000,""};
 item21[] = {"",7,210,196.000000,71.000000,204.000000,79.000000,0.000000,""};
 item22[] = {"All_Spawned",4,218,-75.000000,125.000000,25.000000,175.000000,1.000000,"All" \n "Spawned"};
 item23[] = {"_",8,218,-500.000000,50.000000,-400.000000,100.000000,0.000000,""};
-item24[] = {"Set_timer",2,250,-500.000000,-25.000000,-400.000000,25.000000,0.000000,"Set timer"};
-item25[] = {"Timeout_3s",4,218,-500.000000,-100.000000,-400.000000,-50.000000,0.000000,"Timeout" \n "3s"};
-item26[] = {"Nothing",2,250,-500.000000,-175.000000,-400.000000,-125.000000,0.000000,"Nothing"};
+item24[] = {"Set_timer",2,250,-650.000000,50.000000,-550.000000,100.000000,0.000000,"Set timer"};
+item25[] = {"Timeout_3s",4,218,-650.000000,-75.000000,-550.000000,-25.000000,0.000000,"Timeout" \n "3s"};
+item26[] = {"Nothing",2,250,-650.000000,-175.000000,-550.000000,-125.000000,0.000000,"Nothing"};
 item27[] = {"",7,210,-29.000008,-154.000000,-20.999992,-146.000000,0.000000,""};
 item28[] = {"END",1,250,-75.000000,200.000000,25.000000,250.000000,0.000000,"END"};
+item29[] = {"",7,210,-454.000000,-104.000000,-446.000000,-96.000000,0.000000,""};
 link0[] = {0,1};
 link1[] = {1,2};
 link2[] = {2,27};
@@ -41,33 +42,35 @@ link7[] = {6,16};
 link8[] = {7,4};
 link9[] = {7,8};
 link10[] = {8,3};
-link11[] = {9,11};
-link12[] = {10,11};
-link13[] = {11,20};
-link14[] = {12,14};
-link15[] = {13,14};
-link16[] = {14,21};
-link17[] = {15,7};
-link18[] = {15,9};
-link19[] = {16,10};
-link20[] = {16,17};
-link21[] = {17,12};
-link22[] = {17,18};
-link23[] = {18,13};
-link24[] = {19,22};
-link25[] = {19,23};
-link26[] = {20,19};
-link27[] = {20,22};
-link28[] = {21,20};
-link29[] = {21,22};
-link30[] = {22,28};
-link31[] = {23,24};
-link32[] = {24,25};
-link33[] = {25,26};
-link34[] = {26,27};
-link35[] = {27,6};
-globals[] = {0.000000,0,0,0,0,640,480,1,134,6316128,1,-735.739014,633.768555,552.975708,-563.140137,2297,1872,1};
-window[] = {2,-1,-1,-1,-1,1268,418,1858,418,3,2324};
+link11[] = {8,29};
+link12[] = {9,11};
+link13[] = {10,11};
+link14[] = {11,20};
+link15[] = {12,14};
+link16[] = {13,14};
+link17[] = {14,21};
+link18[] = {15,7};
+link19[] = {15,9};
+link20[] = {16,10};
+link21[] = {16,17};
+link22[] = {17,12};
+link23[] = {17,18};
+link24[] = {18,13};
+link25[] = {19,22};
+link26[] = {19,23};
+link27[] = {20,19};
+link28[] = {20,22};
+link29[] = {21,20};
+link30[] = {21,22};
+link31[] = {22,28};
+link32[] = {23,24};
+link33[] = {24,25};
+link34[] = {25,26};
+link35[] = {26,27};
+link36[] = {27,6};
+link37[] = {29,23};
+globals[] = {0.000000,0,0,0,0,640,480,1,135,6316128,1,-774.131714,547.816345,508.997620,-568.358521,2297,1872,1};
+window[] = {2,-1,-1,-1,-1,1192,342,1782,342,3,2324};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -105,13 +108,19 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"//***************" \n
                          "//Spawn start bandits" \n
                          "//***************" \n
-                         "[""pos_1"", 5] call EP_fnc_createBandits;" \n
+                         "private _spawnedGroup = [""pos_1"", 5] call EP_fnc_createBandits;" \n
+                         "EP_Camp01Bandits = units _spawnedGroup;" \n
                          "" \n
                          "//***************" \n
                          "//Delete logic" \n
                          "//***************" \n
                          "private _logic = ""pos_1"" call EP_fnc_collectVariables;" \n
                          "{deleteVehicle _x} forEach _logic;" \n
+                         "" \n
+                         "//***************" \n
+                         "//Enable detection trigger" \n
+                         "//***************" \n
+                         "trg_Detected01 enableSimulation true;" \n
                          "" \n
                          "//Flags for loop" \n
                          "private _camp02 = false;" \n
@@ -127,7 +136,8 @@ class FSM
                                         priority = 3.000000;
                                         to="Camp_2";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!_camp02"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp02 &&" \n
+                                         "{""Camp01"" call BIS_fnc_taskCompleted}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -138,18 +148,8 @@ class FSM
                                         priority = 3.000000;
                                         to="Camp_2";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!_camp02"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "Finished_obj_2">*/
-                                class Finished_obj_2
-                                {
-                                        itemno = 10;
-                                        priority = 2.000000;
-                                        to="Camp_3";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!_camp03"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp02 &&" \n
+                                         "{EP_Player distance2D (markerPos ""mrk_Camp02"") < 250}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -160,7 +160,32 @@ class FSM
                                         priority = 2.000000;
                                         to="Camp_3";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!_camp03"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp03 &&" \n
+                                         "{EP_Player distance2D (markerPos ""mrk_Camp03"") < 250}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Finished_obj_2">*/
+                                class Finished_obj_2
+                                {
+                                        itemno = 10;
+                                        priority = 2.000000;
+                                        to="Camp_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp03 &&" \n
+                                         "{""Camp02"" call BIS_fnc_taskCompleted}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Near_camp_4">*/
+                                class Near_camp_4
+                                {
+                                        itemno = 12;
+                                        priority = 1.000000;
+                                        to="Camp_4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp04 &&" \n
+                                         "{EP_Player distance2D (markerPos ""mrk_Camp04"") < 250}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -175,14 +200,14 @@ class FSM
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
-                                /*%FSM<LINK "Near_camp_4">*/
-                                class Near_camp_4
+                                /*%FSM<LINK "_">*/
+                                class _
                                 {
-                                        itemno = 12;
-                                        priority = 1.000000;
-                                        to="Camp_4";
+                                        itemno = 23;
+                                        priority = 0.000000;
+                                        to="Set_timer";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!_camp04"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -199,8 +224,14 @@ class FSM
                          "//***************" \n
                          "//Spawn bandits" \n
                          "//***************" \n
-                         "[""pos_2"", 8] call EP_fnc_createBandits;" \n
-                         "[EP_Bandits02] call EP_fnc_activateUnits;" \n
+                         "private _spawnedGroup =  [""pos_2"", 8] call EP_fnc_createBandits;" \n
+                         "EP_Camp02Bandits = [EP_Bandits02] call EP_fnc_activateUnits;" \n
+                         "EP_Camp02Bandits append (units _spawnedGroup);" \n
+                         "" \n
+                         "//***************" \n
+                         "//Enable detection trigger" \n
+                         "//***************" \n
+                         "trg_Detected02 enableSimulation true;" \n
                          "" \n
                          "//***************" \n
                          "//Delete logic" \n
@@ -245,7 +276,7 @@ class FSM
                          "//***************" \n
                          "//Spawn bandits" \n
                          "//***************" \n
-                         "[EP_Bandits03_1, EP_Bandits03_2] call EP_fnc_activateUnits;"/*%FSM</STATEINIT""">*/;
+                         "EP_Camp03Bandits = [EP_Bandits03_1, EP_Bandits03_2] call EP_fnc_activateUnits;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -284,8 +315,10 @@ class FSM
                          "//***************" \n
                          "//Spawn bandits" \n
                          "//***************" \n
-                         "[""pos_3"", 10] call EP_fnc_createBandits;" \n
-                         "[EP_Bandits04_1, EP_HVT] call EP_fnc_activateUnits;"/*%FSM</STATEINIT""">*/;
+                         "private _spawnedGroup = [""pos_3"", 10] call EP_fnc_createBandits;" \n
+                         "[EP_Bandits04_1, EP_HVT] call EP_fnc_activateUnits;" \n
+                         "" \n
+                         "EP_Camp04Bandits = (units EP_Bandits04_1) + (units _spawnedGroup);"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -346,17 +379,6 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
-                                /*%FSM<LINK "Finished_obj_1">*/
-                                class Finished_obj_1
-                                {
-                                        itemno = 4;
-                                        priority = 3.000000;
-                                        to="Camp_2";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!_camp02"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "Near_camp_2">*/
                                 class Near_camp_2
                                 {
@@ -364,7 +386,20 @@ class FSM
                                         priority = 3.000000;
                                         to="Camp_2";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!_camp02"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp02 &&" \n
+                                         "{EP_Player distance2D (markerPos ""mrk_Camp02"") < 250}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Finished_obj_1">*/
+                                class Finished_obj_1
+                                {
+                                        itemno = 4;
+                                        priority = 3.000000;
+                                        to="Camp_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp02 &&" \n
+                                         "{""Camp01"" call BIS_fnc_taskCompleted}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -375,7 +410,8 @@ class FSM
                                         priority = 2.000000;
                                         to="Camp_3";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!_camp03"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp03 &&" \n
+                                         "{EP_Player distance2D (markerPos ""mrk_Camp03"") < 250}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -386,18 +422,8 @@ class FSM
                                         priority = 2.000000;
                                         to="Camp_3";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!_camp03"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "Near_camp_4">*/
-                                class Near_camp_4
-                                {
-                                        itemno = 12;
-                                        priority = 1.000000;
-                                        to="Camp_4";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!_camp04"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp03 &&" \n
+                                         "{""Camp02"" call BIS_fnc_taskCompleted}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -409,6 +435,29 @@ class FSM
                                         to="Camp_4";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"!_camp04"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Near_camp_4">*/
+                                class Near_camp_4
+                                {
+                                        itemno = 12;
+                                        priority = 1.000000;
+                                        to="Camp_4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp04 &&" \n
+                                         "{EP_Player distance2D (markerPos ""mrk_Camp04"") < 250}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 23;
+                                        priority = 0.000000;
+                                        to="Set_timer";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/

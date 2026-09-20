@@ -31,3 +31,4 @@
 
 #include "initBriefing.sqf"
 #include "initMission.sqf"
+#include "missionIntro.sqf"

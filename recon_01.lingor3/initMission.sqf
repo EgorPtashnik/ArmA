@@ -1,4 +1,9 @@
 //***************
+//Debriefing texts
+//***************
+"Compromised" setDebriefingText ["You have been compromised!", "", "Try to avoid enemy attention."];
+
+//***************
 //Groups/Player
 //***************
 EP_Player setIdentity "PlayerIdentity";
@@ -48,6 +53,9 @@ spawn {
     {_x setUnitLoadout getUnitLoadout selectRandom [Loadout_Operator01, Loadout_Operator02]} forEach [
         EP_Player, EP_Operator01, EP_Operator02, EP_Operator03
     ];
+
+    //Turn player NVG on start
+    EP_Player action ["NVGoggles", EP_Player];
 };
 
 //***************
@@ -97,8 +105,3 @@ _icon = "a3\ui_f\data\igui\cfg\holdactions\holdaction_connect_ca.paa";
     },
     {}, [], 2, 1000, true, false, true, 3
 ] call BIS_fnc_holdActionAdd;
-
-//***************
-//Debriefing texts
-//***************
-"Compromised" setDebriefingText ["You have been compromised!", "", "Try to avoid enemy attention."];
