@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "D:\steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Showcase Combined Arms Mission Flow">*/
+/*%FSM<COMPILE "D:\steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, recon_01">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"start",0,250,-75.000000,-425.000000,25.000000,-375.000000,0.000000,"start"};
@@ -6,19 +6,31 @@ item1[] = {"_",8,218,-75.000000,-325.000000,25.000000,-275.000000,0.000000,""};
 item2[] = {"Variables__FSMs",2,250,-75.000000,-225.000000,25.000000,-175.000000,0.000000,"Variables," \n "FSMs, etc."};
 item3[] = {"Left_House",4,218,-150.000000,-125.000000,-50.000000,-75.000000,0.000000,"Left House"};
 item4[] = {"Timer_60_sec",4,218,0.000000,-125.000000,100.000000,-75.000000,0.000000,"Timer" \n "60 sec"};
-item5[] = {"_",2,250,-75.000000,0.000000,25.000000,50.000000,0.000000,""};
+item5[] = {"Gather_group_and",2,250,-75.000000,0.000000,25.000000,50.000000,0.000000,"Gather group" \n "and start mission"};
+item6[] = {"Detected_at_camp",4,218,125.000000,0.000000,225.000000,50.000000,0.000000,"Detected" \n "at camp 1"};
+item7[] = {"Compromised",1,250,325.000000,0.000000,425.000000,50.000000,0.000000,"Compromised"};
+item8[] = {"Detected_at_camp",4,218,125.000000,125.000000,225.000000,175.000000,0.000000,"Detected" \n "at camp 2"};
+item9[] = {"",7,210,271.000000,21.000004,279.000000,28.999996,0.000000,""};
+item10[] = {"",7,210,271.000000,146.000000,279.000000,154.000000,0.000000,""};
+item11[] = {"____FAKE____",9,3209044,0.000000,5279368609138004100000000000000000.000000,-1722243488550934800000.000000,-1.#QNAN0,0.000000,"____FAKE____"};
 link0[] = {0,1};
 link1[] = {1,2};
 link2[] = {2,3};
 link3[] = {2,4};
 link4[] = {3,5};
 link5[] = {4,5};
-globals[] = {0.000000,0,0,0,0,640,480,1,114,6316128,1,-612.282410,514.057678,384.386780,-533.553406,2297,1872,1};
-window[] = {2,-1,-1,-1,-1,1040,190,1630,190,3,2324};
+link6[] = {5,6};
+link7[] = {6,9};
+link8[] = {8,10};
+link9[] = {9,7};
+link10[] = {10,9};
+link11[] = {11,8};
+globals[] = {0.000000,0,0,0,0,640,480,1,119,6316128,1,-483.040588,900.299194,711.414551,-415.974182,2297,1872,1};
+window[] = {2,-1,-1,-1,-1,1306,456,1896,456,3,2324};
 *//*%FSM</HEAD>*/
 class FSM
 {
-        fsmName = "Showcase Combined Arms Mission Flow";
+        fsmName = "recon_01";
         class States
         {
                 /*%FSM<STATE "start">*/
@@ -62,7 +74,7 @@ class FSM
                                 {
                                         itemno = 4;
                                         priority = 0.000000;
-                                        to="_";
+                                        to="Gather_group_and";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"time > _t + 60"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -73,7 +85,7 @@ class FSM
                                 {
                                         itemno = 3;
                                         priority = 0.000000;
-                                        to="_";
+                                        to="Gather_group_and";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"EP_Player distance2D EP_House > 16"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -82,15 +94,70 @@ class FSM
                         };
                 };
                 /*%FSM</STATE>*/
-                /*%FSM<STATE "_">*/
-                class _
+                /*%FSM<STATE "Gather_group_and">*/
+                class Gather_group_and
                 {
-                        name = "_";
+                        name = "Gather_group_and";
                         itemno = 5;
-                        init = /*%FSM<STATEINIT""">*/"""EP_Start"" call EP_fnc_comms;"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"""EP_Start"" call EP_fnc_comms;" \n
+                         "" \n
+                         "private _operators = [EP_Operator01, EP_Operator02, EP_Operator03];" \n
+                         "" \n
+                         "//Exit animations" \n
+                         "{[_x, ""AnimExit""] call EF_fnc_ambientAnim} forEach _operators;" \n
+                         "_operators joinSilent EP_Player;" \n
+                         "" \n
+                         "//Enable detection trigger 1" \n
+                         "trg_Detected01 enableSimulation true;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                                /*%FSM<LINK "Detected_at_camp">*/
+                                class Detected_at_camp
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Compromised";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_Detected01"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Compromised">*/
+                class Compromised
+                {
+                        name = "Compromised";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"[""Compromised"", false] call BIS_fnc_endMission;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "____FAKE____">*/
+                class ____FAKE____
+                {
+                        name = "____FAKE____";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Detected_at_camp">*/
+                                class Detected_at_camp
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="Compromised";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_Detected02"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                         };
                 };
                 /*%FSM</STATE>*/
@@ -98,6 +165,7 @@ class FSM
         initState="start";
         finalStates[] =
         {
+                "Compromised",
         };
 };
 /*%FSM</COMPILE>*/

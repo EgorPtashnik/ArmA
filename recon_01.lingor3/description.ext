@@ -9,7 +9,7 @@ overviewText  = "";
 // ----- Debriefing ----------------------------------------------------------
 class CfgDebriefing {
     class Win {
-        title             = "Mission Accomplished";
+        title             = "Mission succeeded!";
         subtitle          = "";
         description       = "";
         pictureBackground = "";
@@ -17,13 +17,13 @@ class CfgDebriefing {
         pictureColor[]    = { 0.0, 0.3, 0.6, 1 };
     };
 
-    class Fail {
-        title             = "Mission Failed";
-        subtitle          = "";
+    class Compromised {
+        title             = "You have been compromised!";
+        subtitle          = "Try to avoid enemy attention.";
         description       = "";
         pictureBackground = "";
-        picture           = "";
-        pictureColor[]    = { 0.0, 0.3, 0.6, 1 };
+        picture           = "a3\ui_f\data\gui\cfg\communicationmenu\call_ca.paa";
+        pictureColor[]    = { 0,0.5,0,1 };
     };
 };
 
