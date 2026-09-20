@@ -45,14 +45,14 @@ class CfgDebriefing {
 // ----- Identities -----------------------------------------------------------
 class CfgIdentities
 {
-	// class PlayerIdentity
-	// {
-	// 	face = "PersianHead_A3_02";
-	// 	glasses = "";
-	// 	pitch = 0.96;
-	// 	name = "Khairullah Siddiqi";
-	// 	speaker = "Male03PER";
-	// };
+	class PlayerIdentity
+	{
+		face = "AfricanHead_01";
+		glasses = "";
+		pitch = 0.92;
+		name = "Garrison Wells";
+		speaker = "Male01ENGB";
+	};
 };
 
 // ----- Functions -----------------------------------------------------------
@@ -67,7 +67,8 @@ class CfgFunctions {
             class missionConversations {};
             class comms {};
 
-            class createBandit {};
+            //Mission functions
+            class createBandits {};
         }
     };
 };

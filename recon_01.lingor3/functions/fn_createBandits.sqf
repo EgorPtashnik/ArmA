@@ -11,7 +11,8 @@ private _classes = ["I_C_Soldier_Bandit_4_F", "I_C_Soldier_Bandit_8_F", "I_C_Sol
 private _positions = _positionPrefix call EP_fnc_collectVariables;
 if (count _positions == 0) exitWith {systemChat "EP_fnc_createBandit: No positions left!"};
 
-private _grp = createGroup independent;
+private _grp = createGroup [independent, true];
+_grp setCombatBehaviour "SAFE";
 
 private ["_unit", "_position", "_leftPositions"];
 for "_i" from 1 to _count do {
@@ -26,3 +27,5 @@ for "_i" from 1 to _count do {
     //Set animation for unit
     if (_animation) then {[_unit, selectRandom ["Watch", "StandArmed"]] call EF_fnc_ambientAnim};
 };
+
+_grp

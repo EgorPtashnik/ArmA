@@ -2,7 +2,18 @@
 /*%FSM<HEAD>*/
 /*
 item0[] = {"start",0,250,-75.000000,-425.000000,25.000000,-375.000000,0.000000,"start"};
-globals[] = {0.000000,0,0,0,0,640,480,1,106,6316128,1,-409.746796,407.653351,34.215759,-631.945801,2297,1872,1};
+item1[] = {"_",8,218,-75.000000,-325.000000,25.000000,-275.000000,0.000000,""};
+item2[] = {"Variables__FSMs",2,250,-75.000000,-225.000000,25.000000,-175.000000,0.000000,"Variables," \n "FSMs, etc."};
+item3[] = {"Left_House",4,218,-150.000000,-125.000000,-50.000000,-75.000000,0.000000,"Left House"};
+item4[] = {"Timer_60_sec",4,218,0.000000,-125.000000,100.000000,-75.000000,0.000000,"Timer" \n "60 sec"};
+item5[] = {"_",2,250,-75.000000,0.000000,25.000000,50.000000,0.000000,""};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,4};
+link4[] = {3,5};
+link5[] = {4,5};
+globals[] = {0.000000,0,0,0,0,640,480,1,114,6316128,1,-612.282410,514.057678,384.386780,-533.553406,2297,1872,1};
 window[] = {2,-1,-1,-1,-1,1040,190,1630,190,3,2324};
 *//*%FSM</HEAD>*/
 class FSM
@@ -16,6 +27,67 @@ class FSM
                         name = "start";
                         itemno = 0;
                         init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Variables__FSMs";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Variables__FSMs">*/
+                class Variables__FSMs
+                {
+                        name = "Variables__FSMs";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "" \n
+                         "Comms_Player = name EP_Player;" \n
+                         "" \n
+                         "execFSM ""FSMs\SpawnBandits.fsm"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timer_60_sec">*/
+                                class Timer_60_sec
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 60"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Left_House">*/
+                                class Left_House
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"EP_Player distance2D EP_House > 16"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"""EP_Start"" call EP_fnc_comms;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
