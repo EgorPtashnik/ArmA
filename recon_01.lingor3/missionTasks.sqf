@@ -54,3 +54,43 @@ case "Camp02": {
         [_taskID, _this] call BIS_fnc_taskSetState;
     }
 };
+
+case "Camp04": {
+    if (_taskState == "") then{
+
+		[_taskID, "attack"] call BIS_fnc_taskSetType;
+        private _text = format [
+            "%1<br/>%2",
+            "Локация заложника установлена. Дано разрешение на огонь на поражение.",
+            "Немедленно выдвигайтесь и спасите объект."
+        ];
+
+        [
+			EP_Player, _taskID, [_text, "Спасите Package"],
+			markerPos "mrk_Camp04",
+			true
+		] call BIS_fnc_taskCreate;
+    } else {
+        [_taskID, _this] call BIS_fnc_taskSetState;
+    }
+};
+
+case "Extraction": {
+    if (_taskState == "") then{
+
+		[_taskID, "Run"] call BIS_fnc_taskSetType;
+        private _text = format [
+            "%1<br/><br/>%2",
+            "Выдвигайтесь к точке эвакуации и покиньте зону операции вместе с группой Raven.",
+            "Package должен остаться в живых."
+        ];
+
+        [
+			EP_Player, _taskID, [_text, "Эвакуируйтесь"],
+			markerPos "mrk_Extraction",
+			true
+		] call BIS_fnc_taskCreate;
+    } else {
+        [_taskID, _this] call BIS_fnc_taskSetState;
+    }
+};

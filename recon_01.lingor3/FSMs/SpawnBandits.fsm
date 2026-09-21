@@ -6,7 +6,7 @@ item1[] = {"_",8,218,-75.000000,-325.000000,25.000000,-275.000000,0.000000,""};
 item2[] = {"Camp_1___Variabl",2,250,-75.000000,-225.000000,25.000000,-175.000000,0.000000,"Camp 1" \n "/" \n "Variables"};
 item3[] = {"Near_camp_2",4,218,-350.000000,-75.000000,-250.000000,-25.000000,3.000000,"Near" \n "camp 2"};
 item4[] = {"Finished_obj_1",4,218,-250.000000,-75.000000,-150.000000,-25.000000,3.000000,"Finished" \n "obj 1"};
-item5[] = {"Camp_2",2,4346,-300.000000,0.000000,-200.000000,50.000000,0.000000,"Camp 2"};
+item5[] = {"Camp_2",2,250,-300.000000,0.000000,-200.000000,50.000000,0.000000,"Camp 2"};
 item6[] = {"",7,210,-29.000008,-104.000000,-20.999992,-96.000000,0.000000,""};
 item7[] = {"",7,210,-204.000000,-104.000000,-196.000000,-96.000000,0.000000,""};
 item8[] = {"",7,210,-304.000000,-104.000000,-296.000000,-96.000000,0.000000,""};
@@ -70,7 +70,7 @@ link35[] = {26,27};
 link36[] = {27,6};
 link37[] = {29,23};
 globals[] = {0.000000,0,0,0,0,640,480,1,135,6316128,1,-774.131714,547.816345,508.997620,-568.358521,2297,1872,1};
-window[] = {2,-1,-1,-1,-1,1192,342,1782,342,3,2324};
+window[] = {2,-1,-1,-1,-1,926,76,1516,76,3,2324};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -196,7 +196,8 @@ class FSM
                                         priority = 1.000000;
                                         to="Camp_4";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!_camp04"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp04 &&" \n
+                                         "{triggerActivated trg_Detected03}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -276,7 +277,12 @@ class FSM
                          "//***************" \n
                          "//Spawn bandits" \n
                          "//***************" \n
-                         "EP_Camp03Bandits = [EP_Bandits03_1, EP_Bandits03_2] call EP_fnc_activateUnits;"/*%FSM</STATEINIT""">*/;
+                         "EP_Camp03Bandits = [EP_Bandits03_1, EP_Bandits03_2] call EP_fnc_activateUnits;" \n
+                         "" \n
+                         "//***************" \n
+                         "//Enable detection trigger" \n
+                         "//***************" \n
+                         "trg_Detected03 enableSimulation true;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -318,7 +324,12 @@ class FSM
                          "private _spawnedGroup = [""pos_3"", 10] call EP_fnc_createBandits;" \n
                          "[EP_Bandits04_1, EP_HVT] call EP_fnc_activateUnits;" \n
                          "" \n
-                         "EP_Camp04Bandits = (units EP_Bandits04_1) + (units _spawnedGroup);"/*%FSM</STATEINIT""">*/;
+                         "EP_Camp04Bandits = (units EP_Bandits04_1) + (units _spawnedGroup);" \n
+                         "" \n
+                         "//***************" \n
+                         "//Enable engine SFX" \n
+                         "//***************" \n
+                         "trg_EngineSound enableSimulation true;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -434,7 +445,8 @@ class FSM
                                         priority = 1.000000;
                                         to="Camp_4";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!_camp04"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp04 &&" \n
+                                         "{triggerActivated trg_Detected03}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/

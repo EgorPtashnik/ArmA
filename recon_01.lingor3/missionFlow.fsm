@@ -22,7 +22,37 @@ item17[] = {"",7,210,-29.000008,246.000015,-20.999992,254.000000,0.000000,""};
 item18[] = {"",7,210,120.999992,246.000000,129.000000,254.000000,0.000000,""};
 item19[] = {"Set_Timer",2,250,-75.000000,-200.000000,25.000000,-150.000000,0.000000,"Set" \n "Timer"};
 item20[] = {"",7,210,121.000000,-179.000000,129.000000,-171.000000,0.000000,""};
-item21[] = {"____FAKE____",9,17822116,0.000000,5279368609138004100000000000000000.000000,0.000000,-1.#QNAN0,0.000000,"____FAKE____"};
+item21[] = {"Report_1",2,250,-75.000000,400.000000,25.000000,450.000000,0.000000,"Report"};
+item22[] = {"Evidence_Found",4,218,-75.000000,500.000000,25.000000,550.000000,0.000000,"Evidence" \n "Found"};
+item23[] = {"Report___add_tas",2,250,-75.000000,600.000000,25.000000,650.000000,0.000000,"Report +" \n "add task"};
+item24[] = {"Timer_4_min",4,218,75.000000,400.000000,175.000000,450.000000,0.000000,"Timer" \n "4 min"};
+item25[] = {"FAIL__Abort_",1,250,275.000000,400.000000,400.000000,450.000000,0.000000,"FAIL" \n "(Abort)"};
+item26[] = {"Report_2",2,4346,-75.000000,850.000000,25.000000,900.000000,0.000000,"Report"};
+item27[] = {"Detected_at_camp",4,218,-250.000000,750.000000,-150.000000,800.000000,3.000000,"Detected at" \n "camp 3"};
+item28[] = {"HV__is_not_captive",2,250,-250.000000,825.000000,-150.000000,875.000000,0.000000,"HV" \n " is not captive" \n "in 3 min"};
+item29[] = {"HVT_KIA",4,218,75.000000,675.000000,175.000000,725.000000,10.000000,"HVT" \n "KIA"};
+item30[] = {"FAIL__HVTKIA_",1,250,275.000000,675.000000,375.000000,725.000000,0.000000,"FAIL" \n "(HVTKIA)"};
+item31[] = {"HVT_Rescued",4,218,-75.000000,750.000000,25.000000,800.000000,11.000000,"HVT" \n "Rescued"};
+item32[] = {"",7,210,-29.000000,696.000000,-21.000000,704.000000,0.000000,""};
+item33[] = {"",7,210,-204.000000,696.000000,-196.000015,704.000000,0.000000,""};
+item34[] = {"Camp_3_CLEAR",4,218,-375.000000,750.000000,-275.000000,800.000000,2.000000,"Camp 3" \n "CLEAR"};
+item35[] = {"",7,210,-329.000000,696.000000,-321.000000,704.000000,0.000000,""};
+item36[] = {"Report_3",2,250,-375.000000,825.000000,-275.000000,875.000000,0.000000,"Report"};
+item37[] = {"Camp_4_CLEAR",4,218,-500.000000,750.000000,-400.000000,800.000000,1.000000,"Camp 4" \n "CLEAR"};
+item38[] = {"",7,210,-453.999969,696.000000,-446.000000,704.000000,0.000000,""};
+item39[] = {"Report_4",2,250,-500.000000,825.000000,-400.000000,875.000000,0.000000,"Report"};
+item40[] = {"",7,210,-29.000008,671.000000,-20.999992,679.000000,0.000000,""};
+item41[] = {"",7,210,-454.000000,896.000000,-446.000000,904.000061,0.000000,""};
+item42[] = {"",7,210,-329.000000,896.000000,-321.000000,904.000000,0.000000,""};
+item43[] = {"",7,210,-204.000000,896.000000,-196.000000,903.999939,0.000000,""};
+item44[] = {"_",8,218,-675.000000,875.000000,-575.000000,925.000000,0.000000,""};
+item45[] = {"",7,210,-629.000000,696.000000,-621.000000,704.000000,0.000000,""};
+item46[] = {"Set_timer_1",2,250,-825.000000,875.000000,-725.000000,925.000000,0.000000,"Set timer"};
+item47[] = {"Timeout_3s",4,218,-825.000000,750.000000,-725.000000,800.000000,0.000000,"Timeout" \n "3s"};
+item48[] = {"Nothing",2,250,-825.000000,650.000000,-725.000000,700.000000,0.000000,"Nothing"};
+item49[] = {"",7,210,121.000000,871.000000,129.000000,879.000000,0.000000,""};
+item50[] = {"Extracted",4,218,-75.000000,950.000000,25.000000,1000.000000,0.000000,"Extracted"};
+item51[] = {"WIN",1,250,-75.000000,1050.000000,25.000000,1100.000000,0.000000,"WIN"};
 link0[] = {0,1};
 link1[] = {1,2};
 link2[] = {2,14};
@@ -38,18 +68,53 @@ link11[] = {11,12};
 link12[] = {12,8};
 link13[] = {12,15};
 link14[] = {12,17};
-link15[] = {14,20};
-link16[] = {15,16};
-link17[] = {16,17};
-link18[] = {17,13};
-link19[] = {17,18};
-link20[] = {18,8};
-link21[] = {19,3};
-link22[] = {19,4};
-link23[] = {20,19};
-link24[] = {13,21};
-globals[] = {0.000000,0,0,0,0,640,480,1,132,6316128,1,-550.514099,498.245972,378.372742,-476.341675,2297,1872,1};
-window[] = {2,-1,-1,-1,-1,926,76,1516,76,3,2324};
+link15[] = {13,21};
+link16[] = {14,20};
+link17[] = {15,16};
+link18[] = {16,17};
+link19[] = {17,13};
+link20[] = {17,18};
+link21[] = {18,8};
+link22[] = {19,3};
+link23[] = {19,4};
+link24[] = {20,19};
+link25[] = {21,22};
+link26[] = {21,24};
+link27[] = {22,23};
+link28[] = {23,40};
+link29[] = {24,25};
+link30[] = {26,49};
+link31[] = {26,50};
+link32[] = {27,28};
+link33[] = {28,43};
+link34[] = {29,30};
+link35[] = {31,26};
+link36[] = {32,29};
+link37[] = {32,31};
+link38[] = {32,33};
+link39[] = {33,27};
+link40[] = {33,35};
+link41[] = {34,36};
+link42[] = {35,34};
+link43[] = {35,38};
+link44[] = {36,42};
+link45[] = {37,39};
+link46[] = {38,37};
+link47[] = {38,45};
+link48[] = {39,41};
+link49[] = {40,32};
+link50[] = {41,44};
+link51[] = {42,41};
+link52[] = {43,42};
+link53[] = {44,46};
+link54[] = {45,44};
+link55[] = {46,47};
+link56[] = {47,48};
+link57[] = {48,40};
+link58[] = {49,29};
+link59[] = {50,51};
+globals[] = {0.000000,0,0,0,0,640,480,1,179,6316128,1,-943.302795,751.095703,1213.641846,-167.252136,2297,1872,1};
+window[] = {2,-1,-1,-1,-1,1306,456,1896,456,3,2324};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -180,8 +245,8 @@ class FSM
                 {
                         name = "Report";
                         itemno = 12;
-                        init = /*%FSM<STATEINIT""">*/"//Change marker color" \n
-                         """mrk_Camp01"" setMarkerColor ""ColorGrey"";" \n
+                        init = /*%FSM<STATEINIT""">*/"""mrk_Camp01"" setMarkerColor ""ColorGrey"";" \n
+                         "deleteVehicle trg_Detected01;" \n
                          "" \n
                          "handle = spawn {" \n
                          "	//Handle task" \n
@@ -212,7 +277,7 @@ class FSM
                                 {
                                         itemno = 13;
                                         priority = 0.000000;
-                                        to="____FAKE____";
+                                        to="Report_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"!isNil ""EP_Camp02Bandits"" && " \n
                                          "{EP_Camp02Bandits findIf {alive _x} == -1}"/*%FSM</CONDITION""">*/;
@@ -260,7 +325,7 @@ class FSM
                                 {
                                         itemno = 13;
                                         priority = 0.000000;
-                                        to="____FAKE____";
+                                        to="Report_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"!isNil ""EP_Camp02Bandits"" && " \n
                                          "{EP_Camp02Bandits findIf {alive _x} == -1}"/*%FSM</CONDITION""">*/;
@@ -304,12 +369,450 @@ class FSM
                         };
                 };
                 /*%FSM</STATE>*/
-                /*%FSM<STATE "____FAKE____">*/
-                class ____FAKE____
+                /*%FSM<STATE "Report_1">*/
+                class Report_1
                 {
-                        name = "____FAKE____";
+                        name = "Report_1";
                         itemno = 21;
+                        init = /*%FSM<STATEINIT""">*/"""mrk_Camp02"" setMarkerColor ""ColorGrey"";" \n
+                         "deleteVehicle trg_Detected02;" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "handle = spawn {" \n
+                         "	//Handle task" \n
+                         "	sleep 2;" \n
+                         "	[""Camp02"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "" \n
+                         "	//Comms" \n
+                         "	sleep 3;" \n
+                         "	""Camp02Clear"" call BIS_fnc_missionConversations;" \n
+                         "	[""Stealth"", ""CANCELED""] call BIS_fnc_missionTasks;" \n
+                         "};" \n
+                         "" \n
+                         "_t = time;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timer_4_min">*/
+                                class Timer_4_min
+                                {
+                                        itemno = 24;
+                                        priority = 0.000000;
+                                        to="FAIL__Abort_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 240"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Evidence_Found">*/
+                                class Evidence_Found
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="Report___add_tas";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone handle && " \n
+                                         "{!isNil ""EP_EvidenceFound""}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Report___add_tas">*/
+                class Report___add_tas
+                {
+                        name = "Report___add_tas";
+                        itemno = 23;
+                        init = /*%FSM<STATEINIT""">*/"spawn {" \n
+                         "" \n
+                         "	sleep 2;" \n
+                         "" \n
+                         "	//Comms" \n
+                         "	""FoundHVTLocation"" call BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "	//Show markers and set task" \n
+                         "	{_x setMarkerAlpha 1} forEach [""mrk_Camp03"", ""mrk_Camp04""];" \n
+                         "	""Camp04"" call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "	sleep 2;" \n
+                         "	savegame;" \n
+                         "	waitUntil {!isSaving}" \n
+                         "" \n
+                         "};" \n
+                         "" \n
+                         "private _camp03Clear = false;" \n
+                         "private _camp04Clear = false;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "HVT_Rescued">*/
+                                class HVT_Rescued
+                                {
+                                        itemno = 31;
+                                        priority = 11.000000;
+                                        to="Report_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"group EP_HVT == group EP_Player"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "HVT_KIA">*/
+                                class HVT_KIA
+                                {
+                                        itemno = 29;
+                                        priority = 10.000000;
+                                        to="FAIL__HVTKIA_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive EP_HVT"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Detected_at_camp">*/
+                                class Detected_at_camp
+                                {
+                                        itemno = 27;
+                                        priority = 3.000000;
+                                        to="HV__is_not_captive";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_Detected03"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Camp_3_CLEAR">*/
+                                class Camp_3_CLEAR
+                                {
+                                        itemno = 34;
+                                        priority = 2.000000;
+                                        to="Report_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp03Clear &&" \n
+                                         "!isNil ""EP_Camp03Bandits"" && " \n
+                                         "{EP_Camp03Bandits findIf {alive _x} == -1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Camp_4_CLEAR">*/
+                                class Camp_4_CLEAR
+                                {
+                                        itemno = 37;
+                                        priority = 1.000000;
+                                        to="Report_4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp04Clear &&" \n
+                                         "!isNil ""EP_Camp04Bandits"" && " \n
+                                         "{EP_Camp04Bandits findIf {alive _x} == -1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 44;
+                                        priority = 0.000000;
+                                        to="Set_timer_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FAIL__Abort_">*/
+                class FAIL__Abort_
+                {
+                        name = "FAIL__Abort_";
+                        itemno = 25;
+                        init = /*%FSM<STATEINIT""">*/"[""Aborted"", false] call BIS_fnc_endMission;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Report_2">*/
+                class Report_2
+                {
+                        name = "Report_2";
+                        itemno = 26;
+                        init = /*%FSM<STATEINIT""">*/"deleteVehicle trg_Detected03;" \n
+                         "" \n
+                         "" \n
+                         "spawn {" \n
+                         "	[""Camp04"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "	""HVTSecured"" call BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "	sleep 2;" \n
+                         "	" \n
+                         "	savegame;" \n
+                         "	waitUntil {!isSaving};" \n
+                         "" \n
+                         "	EP_Heli setCaptive true;" \n
+                         "	group EP_Heli setBehaviourStrong ""CARELESS"";" \n
+                         "	[""Extraction""] call EP_fnc_activateUnits;" \n
+                         "" \n
+                         "	sleep 1;" \n
+                         "" \n
+                         "	""Extraction"" call BIS_fnc_missionTasks;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "HVT_KIA">*/
+                                class HVT_KIA
+                                {
+                                        itemno = 29;
+                                        priority = 10.000000;
+                                        to="FAIL__HVTKIA_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive EP_HVT"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Extracted">*/
+                                class Extracted
+                                {
+                                        itemno = 50;
+                                        priority = 0.000000;
+                                        to="WIN";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"player in EP_Heli"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "HV__is_not_captive">*/
+                class HV__is_not_captive
+                {
+                        name = "HV__is_not_captive";
+                        itemno = 28;
+                        init = /*%FSM<STATEINIT""">*/"deleteVehicle trg_Detected03;" \n
+                         "" \n
+                         "spawn {" \n
+                         "	sleep 180;" \n
+                         "" \n
+                         "	EP_HVT setCaptive false;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 44;
+                                        priority = 0.000000;
+                                        to="Set_timer_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FAIL__HVTKIA_">*/
+                class FAIL__HVTKIA_
+                {
+                        name = "FAIL__HVTKIA_";
+                        itemno = 30;
+                        init = /*%FSM<STATEINIT""">*/"[""HVTKIA"", false] call BIS_fnc_endMission;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Report_3">*/
+                class Report_3
+                {
+                        name = "Report_3";
+                        itemno = 36;
+                        init = /*%FSM<STATEINIT""">*/"_camp03Clear = true;" \n
+                         "" \n
+                         """mrk_Camp03"" setMarkerColor ""ColorGrey"";" \n
+                         """Misc_Clear"" spawn BIS_fnc_missionConversations;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 44;
+                                        priority = 0.000000;
+                                        to="Set_timer_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Report_4">*/
+                class Report_4
+                {
+                        name = "Report_4";
+                        itemno = 39;
+                        init = /*%FSM<STATEINIT""">*/"_camp04Clear = true;" \n
+                         "" \n
+                         """mrk_Camp04"" setMarkerColor ""ColorGrey"";" \n
+                         """Misc_Clear"" spawn BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "//If camp 3 was untouched send thugs on gunfire" \n
+                         "if (EP_Camp03Bandits findIf {alive _x} != -1) then {" \n
+                         "	private _grp = group (EP_Camp03Bandits # 0);" \n
+                         "	{[_x, ""AnimExit""] call EF_fnc_ambientAnim; _x setUnitPos ""UP""} forEach units EP_Camp03Bandits;" \n
+                         "" \n
+                         "	private _wp = _grp addWaypoint ([markerPos ""mrk_Camp04"", 20]);" \n
+                         "	_wp setWaypointSpeed ""FULL"";" \n
+                         "	_wp setWaypointCombatMode ""RED"";" \n
+                         "	_wp setWaypointType ""SAD"";" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 44;
+                                        priority = 0.000000;
+                                        to="Set_timer_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Set_timer_1">*/
+                class Set_timer_1
+                {
+                        name = "Set_timer_1";
+                        itemno = 46;
+                        init = /*%FSM<STATEINIT""">*/"_t = time"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout_3s">*/
+                                class Timeout_3s
+                                {
+                                        itemno = 47;
+                                        priority = 0.000000;
+                                        to="Nothing";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 3"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Nothing">*/
+                class Nothing
+                {
+                        name = "Nothing";
+                        itemno = 48;
                         init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "HVT_Rescued">*/
+                                class HVT_Rescued
+                                {
+                                        itemno = 31;
+                                        priority = 11.000000;
+                                        to="Report_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"group EP_HVT == group EP_Player"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "HVT_KIA">*/
+                                class HVT_KIA
+                                {
+                                        itemno = 29;
+                                        priority = 10.000000;
+                                        to="FAIL__HVTKIA_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive EP_HVT"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Detected_at_camp">*/
+                                class Detected_at_camp
+                                {
+                                        itemno = 27;
+                                        priority = 3.000000;
+                                        to="HV__is_not_captive";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated trg_Detected03"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Camp_3_CLEAR">*/
+                                class Camp_3_CLEAR
+                                {
+                                        itemno = 34;
+                                        priority = 2.000000;
+                                        to="Report_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp03Clear &&" \n
+                                         "!isNil ""EP_Camp03Bandits"" && " \n
+                                         "{EP_Camp03Bandits findIf {alive _x} == -1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Camp_4_CLEAR">*/
+                                class Camp_4_CLEAR
+                                {
+                                        itemno = 37;
+                                        priority = 1.000000;
+                                        to="Report_4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_camp04Clear &&" \n
+                                         "!isNil ""EP_Camp04Bandits"" && " \n
+                                         "{EP_Camp04Bandits findIf {alive _x} == -1}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 44;
+                                        priority = 0.000000;
+                                        to="Set_timer_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "WIN">*/
+                class WIN
+                {
+                        name = "WIN";
+                        itemno = 51;
+                        init = /*%FSM<STATEINIT""">*/"{_x moveInAny EP_Heli} forEach units group EP_Player;" \n
+                         "" \n
+                         "spawn {" \n
+                         "	[""Extraction"", ""SUCCEEDED""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "	sleep 2;" \n
+                         "" \n
+                         "	""Extracted"" call BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "	sleep 1;" \n
+                         "" \n
+                         "	""Win"" call BIS_fnc_endMission;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -321,6 +824,9 @@ class FSM
         finalStates[] =
         {
                 "FAIL__Compromised",
+                "FAIL__Abort_",
+                "FAIL__HVTKIA_",
+                "WIN",
         };
 };
 /*%FSM</COMPILE>*/

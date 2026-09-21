@@ -35,6 +35,7 @@ for "_i" from 1 to _count do {
     deleteVehicle _position;
 
     //Set animation for unit
+    _unit setUnitPos "UP";
     if (_animation) then {[_unit, selectRandom ["Watch", "StandArmed"]] call EF_fnc_ambientAnim};
 };
 

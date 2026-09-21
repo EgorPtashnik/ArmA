@@ -1,7 +1,23 @@
 //***************
 //Debriefing texts
 //***************
-"Compromised" setDebriefingText ["You have been compromised!", "", "Try to avoid enemy attention."];
+"Compromised" setDebriefingText [
+    "Вас обнаружили",
+    "После обнаружения бандиты передислоцировали объект. Командованию ВСБ потребуется немало ресурсов для определения новой локации.",
+    "Дальнейшее выполнение операции невозможно."
+];
+
+"Aborted" setDebriefingText [
+    "Информация не найдена",
+    "Локация объекта так и не была обнаружена. Командование ВСБ отозвала отряд Cobra обратно на базу.",
+    "Дальнейшее выполнение операции невозможно."
+];
+
+"HVTKIA" setDebriefingText [
+    "Package погиб",
+    "Объект был убит, а вместе с ним и вся информация об активности бандитов в окрестной зоне.",
+    "Дальнейшее выполнение операции невозможно."
+];
 
 //***************
 //Groups/Player
@@ -39,11 +55,11 @@ EP_HVT switchMove "Acts_ExecutionVictim_Loop";
 
 
 //***************
-//Hide units, disable triggers
+//Hide units, markers disable triggers
 //***************
-[EP_Bandits02, EP_Bandits03_1, EP_Bandits03_2, EP_Bandits04_1, EP_HVT] call EP_fnc_deactivateUnits;
+[EP_Bandits02, EP_Bandits03_1, EP_Bandits03_2, EP_Bandits04_1, EP_HVT, "Extraction"] call EP_fnc_deactivateUnits;
 {_x enableSimulation false} forEach [trg_Detected01, trg_Detected02, trg_Detected03, trg_EngineSound];
-
+{_x setMarkerAlpha 0} forEach ["mrk_Camp03", "mrk_Camp04", "mrk_Extraction"];
 
 //***************
 //Loadouts
@@ -61,9 +77,10 @@ spawn {
 //***************
 //Hold actions
 //***************
+//HVT
 private _icon = "a3\ui_f\data\igui\cfg\holdactions\holdaction_unbind_ca.paa";
 [
-    EP_HVT, "Set free", _icon, _icon, "true", "true",
+    EP_HVT, "Освободить", _icon, _icon, "true", "true",
     {playSound "ace_wardrobe_fabric_16"},
     {
         private _progressTick = _this select 4;
@@ -84,9 +101,25 @@ private _icon = "a3\ui_f\data\igui\cfg\holdactions\holdaction_unbind_ca.paa";
     {}, [], 1.5, 1000, true, false, true, 2
 ] call BIS_fnc_holdActionAdd;
 
+//Phone
+_icon = "a3\ui_f\data\igui\cfg\holdactions\holdaction_search_ca.paa";
+[
+    EP_Phone, "Осмотреть", _icon, _icon, "'Camp02' call BIS_fnc_taskCompleted", "true",
+    {},
+    {
+        private _progressTick = _this select 4;
+	    if ((_progressTick % 2) == 0) exitwith {}; 
+        private _coef = _progressTick / 24;
+        playSound3D ["A3\Sounds_F_Orange\MissionSFX\Orange_Action_Wheel.wss", EP_Player, false, getPosASL EP_Player, 1, 0.9 + 0.2 * _coef];
+    },
+    {EP_EvidenceFound = true},
+    {}, [], 0.5, 1000, true, false, true, 5
+] call BIS_fnc_holdActionAdd;
+
+//Generator
 _icon = "a3\ui_f\data\igui\cfg\holdactions\holdaction_connect_ca.paa";
 [
-    EP_Generator, "Sabotage", _icon, _icon, "true", "true",
+    EP_Generator, "Саботировать", _icon, _icon, "true", "true",
     {},
     {
         private _progressTick = _this select 4;

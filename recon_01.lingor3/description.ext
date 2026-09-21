@@ -26,6 +26,24 @@ class CfgDebriefing {
         picture           = "a3\ui_f\data\gui\cfg\communicationmenu\call_ca.paa";
         pictureColor[]    = { 0,0.5,0,1 };
     };
+
+    class Aborted {
+        title             = "Информация не найдена";
+        subtitle          = "Дальнейшее выполнение операции невозможно.";
+        description       = "Локация объекта так и не была обнаружена. Командовиню ВСБ отозвала отряд Cobra обратно на базу.";
+        pictureBackground = "overview.jpg";
+        picture           = "a3\ui_f\data\gui\cfg\communicationmenu\call_ca.paa";
+        pictureColor[]    = { 0,0.5,0,1 };
+    };
+
+    class HVTKIA {
+        title             = "Package погиб";
+        subtitle          = "Дальнейшее выполнение операции невозможно.";
+        description       = "Объект был убит, а вместе с ним и вся информация об активности бандитов в окрестной зоне.";
+        pictureBackground = "overview.jpg";
+        picture           = "a3\ui_f\data\igui\cfg\holdactions\holdaction_forcerespawn_ca.paa";
+        pictureColor[]    = { 1,0,0,1 };
+    };
 };
 
 // ----- Support menu (Comm menu) --------------------------------------------
