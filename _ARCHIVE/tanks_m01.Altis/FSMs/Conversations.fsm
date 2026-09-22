@@ -1,0 +1,195 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Conversations">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-75.000000,-175.000000,25.000000,-125.000000,0.000000,"Start"};
+item1[] = {"Ending",4,218,-75.000000,-50.000000,25.000000,0.000000,100.000000,"Ending"};
+item2[] = {"END",1,250,-75.000000,25.000000,25.000000,75.000000,0.000000,"END"};
+item3[] = {"",7,210,-29.000000,-104.000000,-21.000000,-96.000000,0.000000,""};
+item4[] = {"",7,210,-29.000000,-79.000000,-21.000000,-71.000000,0.000000,""};
+item5[] = {"",7,210,-154.000000,-79.000000,-145.999985,-71.000000,0.000000,""};
+item6[] = {"",7,210,-279.000000,-79.000000,-271.000000,-71.000000,0.000000,""};
+item7[] = {"",7,210,-404.000000,-79.000000,-396.000000,-71.000000,0.000000,""};
+item8[] = {"",7,210,-529.000000,-79.000000,-521.000000,-71.000000,0.000000,""};
+item9[] = {"_",8,218,-1075.000000,-50.000000,-975.000000,0.000000,0.000000,""};
+item10[] = {"Set_timer",2,250,-1075.000000,25.000000,-975.000000,75.000000,0.000000,"Set" \n "timer"};
+item11[] = {"",7,210,-1029.000000,-79.000000,-1021.000122,-71.000000,0.000000,""};
+item12[] = {"Timeout_2s",4,218,-1200.000000,25.000000,-1100.000000,75.000000,0.000000,"Timeout" \n "2s"};
+item13[] = {"Nothing",2,250,-1200.000000,-50.000000,-1100.000000,0.000000,0.000000,"Nothing"};
+item14[] = {"",7,210,-1154.000000,-104.000000,-1146.000000,-96.000000,0.000000,""};
+item15[] = {"",7,210,-654.000000,-79.000000,-646.000000,-71.000000,0.000000,""};
+item16[] = {"",7,210,-1229.000000,96.000000,-1221.000000,104.000000,0.000000,""};
+item17[] = {"",7,210,-1229.000000,-104.000000,-1221.000000,-96.000000,0.000000,""};
+item18[] = {"",7,210,-779.000000,-79.000000,-771.000000,-71.000000,0.000000,""};
+item19[] = {"",7,210,-904.000000,-79.000000,-896.000000,-71.000000,0.000000,""};
+item20[] = {"",7,210,-654.000000,-79.000000,-646.000000,-71.000000,0.000000,""};
+item21[] = {"Leaving_base",4,218,50.000000,-175.000000,150.000000,-125.000000,50.000000,"Leaving" \n "base"};
+item22[] = {"Generator",2,250,50.000000,-50.000000,150.000000,0.000000,0.000000,"Generator"};
+item23[] = {"_",8,218,50.000000,25.000000,150.000000,75.000000,0.000000,""};
+link0[] = {0,21};
+link1[] = {1,2};
+link2[] = {3,4};
+link3[] = {4,1};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,7};
+link7[] = {7,8};
+link8[] = {8,20};
+link9[] = {9,10};
+link10[] = {10,12};
+link11[] = {11,9};
+link12[] = {12,13};
+link13[] = {13,14};
+link14[] = {14,3};
+link15[] = {16,17};
+link16[] = {17,14};
+link17[] = {18,19};
+link18[] = {19,11};
+link19[] = {20,18};
+link20[] = {21,22};
+link21[] = {22,23};
+link22[] = {23,2};
+globals[] = {0.000000,0,0,0,0,640,480,1,56,6316128,1,-581.717346,331.852234,274.604675,-378.688660,1404,1004,1};
+window[] = {2,-1,-1,-1,-1,1083,234,1674,234,3,1422};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Conversations";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_conv01 = false;" \n
+                         "_conv02 = false;" \n
+                         "_conv03 = false;" \n
+                         "_conv04 = false;" \n
+                         "_conv05 = false;" \n
+                         "_conv06 = false;" \n
+                         "_conv07 = false;" \n
+                         "BIS_Mortared = false;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Leaving_base">*/
+                                class Leaving_base
+                                {
+                                        itemno = 21;
+                                        priority = 50.000000;
+                                        to="Generator";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(BIS_Wiesel distance2D BIS_Base > 300) and" \n
+                                         "{(vehicle BIS_ARPlayer == BIS_Wiesel)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END">*/
+                class END
+                {
+                        name = "END";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Set_timer">*/
+                class Set_timer
+                {
+                        name = "Set_timer";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout_2s">*/
+                                class Timeout_2s
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="Nothing";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 2" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Nothing">*/
+                class Nothing
+                {
+                        name = "Nothing";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Ending">*/
+                                class Ending
+                                {
+                                        itemno = 1;
+                                        priority = 100.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_End" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Set_timer";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Generator">*/
+                class Generator
+                {
+                        name = "Generator";
+                        itemno = 22;
+                        init = /*%FSM<STATEINIT""">*/"""Conv_generator"" spawn BIS_fnc_missionConversations;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 23;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "END",
+        };
+};
+/*%FSM</COMPILE>*/

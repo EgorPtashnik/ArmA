@@ -1,0 +1,126 @@
+
+// ----- General mission metadata ---------------------------------------------
+onLoadName    = "";
+onLoadMission = "";
+author        = "";
+overviewText  = "";
+
+// ----- Debriefing ----------------------------------------------------------
+class CfgDebriefing {
+    class Win {
+        title             = "Mission Accomplished";
+        subtitle          = "";
+        description       = "";
+        pictureBackground = "";
+        picture           = "";
+        pictureColor[]    = { 0.0, 0.3, 0.6, 1 };
+    };
+
+    class Fail {
+        title             = "Mission Failed";
+        subtitle          = "";
+        description       = "";
+        pictureBackground = "";
+        picture           = "";
+        pictureColor[]    = { 0.0, 0.3, 0.6, 1 };
+    };
+};
+
+// ----- Functions -----------------------------------------------------------
+// Includes ep_fnc_* functions declared in lib\functions.hpp.
+class CfgFunctions {
+    #include "lib\functions.hpp"
+    #include "lib\constants.hpp"
+};
+
+class RscTitles {
+    #include "lib\rsc.hpp"
+}
+
+// ----- Support menu (Comm menu) --------------------------------------------
+// To add:  [player, "CustomSupportMenuItem"] call BIS_fnc_addCommMenuItem;
+//
+// class CfgCommunicationMenu {
+//     class CustomSupportMenuItem {
+//         text                     = "Custom Support Item";
+//         submenu                  = "";
+//         expression               = "custVariable = true;";
+//         icon                     = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\artillery_ca.paa";
+//         cursor                   = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
+//         enable                   = "1";
+//         removeAfterExpressionCall = 1;
+//     };
+// };
+
+// ----- Sounds --------------------------------------------------------------
+class CfgSounds {
+    sounds[] = {mybeep, myin1, myin2, myin4, myin5, myin6, mynoise1, mynoise2, mynoise3, mynoise4, C1_1, C1_2, C1_3, C2_1, C3_1, C3_2, C3_3, C3_4, C4_1, C4_2, C5_1, C5_2, C5_3, C5_4, C5_5, C5_6, C5_7, C5_8, C5_9, C6_1, C6_2, C7_1, C7_2, C7_3, C7_4};
+    
+	class mybeep {
+		name = "mybeep";
+		sound[] = {"sounds\beep.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class myin1 {
+		name = "myin1";
+		sound[] = {"sounds\in1.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class myin2	{
+		name = "myin2";
+		sound[] = {"sounds\in2.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class myin3	{
+		name = "myin3";
+		sound[] = {"sounds\in3.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class myin4	{
+		name = "myin4";
+		sound[] = {"sounds\in4.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class myin5	{
+		name = "myin5";
+		sound[] = {"sounds\in5.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class myin6	{
+		name = "myin6";
+		sound[] = {"sounds\in6.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class mynoise1 {
+		name = "mynoise1";
+		sound[] = {"sounds\noise1.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class mynoise2 {
+		name = "mynoise2";
+		sound[] = {"sounds\noise2.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+	class mynoise3 {
+		name = "mynoise3";
+		sound[] = {"sounds\noise3.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	
+	class mynoise4 {
+		name = "mynoise4";
+		sound[] = {"sounds\noise4.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+
+    #include "vo\vo.hpp"
+};

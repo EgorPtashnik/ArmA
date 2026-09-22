@@ -1,0 +1,298 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Village">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-75.000000,-450.000000,25.000000,-400.000000,0.000000,"Start"};
+item1[] = {"Timeout_160sec",4,218,50.000000,-300.000000,150.000000,-250.000000,0.000000,"Timeout" \n "160sec"};
+item2[] = {"Another_Wiesel_a",2,250,50.000000,-225.000000,150.000000,-175.000000,0.000000,"Another" \n "Wiesel" \n "available"};
+item3[] = {"FIA_defeated",4,218,-75.000000,-75.000000,25.000000,-25.000000,0.000000,"FIA" \n "defeated"};
+item4[] = {"Task_DONE",1,250,-75.000000,0.000000,25.000000,50.000000,0.000000,"Task" \n "DONE"};
+item5[] = {"FIA_in_Ifestiona",2,250,-75.000000,-300.000000,25.000000,-250.000000,0.000000,"FIA in" \n "Ifestiona"};
+item6[] = {"Timeout_40sec",4,218,-75.000000,-375.000000,25.000000,-325.000000,0.000000,"Timeout" \n "40sec"};
+item7[] = {"FIA_losses",4,218,-75.000000,-225.000000,25.000000,-175.000000,0.000000,"FIA" \n "losses"};
+item8[] = {"FIA_retreat",2,250,-75.000000,-150.000000,25.000000,-100.000000,0.000000,"FIA retreat"};
+link0[] = {0,6};
+link1[] = {1,2};
+link2[] = {2,7};
+link3[] = {3,4};
+link4[] = {5,1};
+link5[] = {5,7};
+link6[] = {6,5};
+link7[] = {7,8};
+link8[] = {8,3};
+globals[] = {0.000000,0,0,0,0,640,480,1,24,6316128,1,-372.684265,423.224945,81.013245,-488.141174,1404,1004,1};
+window[] = {2,-1,-1,-1,-1,875,26,1466,26,3,1422};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Village";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"BIS_WieselAvailable = false;" \n
+                         "" \n
+                         "_t = time;" \n
+                         "/*" \n
+                         "[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	""RTB"" call BIS_fnc_missionConversations; - no more available!" \n
+                         "	[""BIS_tskRTB"",""Current""] call BIS_fnc_missionTasks;" \n
+                         "};" \n
+                         "*/" \n
+                         "" \n
+                         "// Unhide the FIA units in Ifestiona" \n
+                         "{_x hideObject false; _x enableSimulation true} forEach BIS_FIAUnits + BIS_CIVUnits;" \n
+                         "{_x hideObject false; _x enableSimulation true} forEach [BIS_Offroad_MG,BIS_Offroad_AT,BIS_Car04,BIS_Car05,BIS_Car06];" \n
+                         "" \n
+                         "BIS_Offroad_MG setVehicleTIPars [0.5,0.5,0];" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout_40sec">*/
+                                class Timeout_40sec
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="FIA_in_Ifestiona";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 40" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Another_Wiesel_a">*/
+                class Another_Wiesel_a
+                {
+                        name = "Another_Wiesel_a";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"BIS_WieselAvailable = true;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	""Wiesel_Available"" call BIS_fnc_missionConversations;" \n
+                         "	BIS_Support_Vehicle = [BIS_ARPlayer,""Vehicle""] call BIS_fnc_addCommMenuItem;" \n
+                         "	""BIS_mrkVehicle"" setMarkerAlpha 1;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "FIA_losses">*/
+                                class FIA_losses
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="FIA_retreat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{alive _x} count BIS_FIAUnits" \n
+                                         "" \n
+                                         "/*" \n
+                                         "[" \n
+                                         "	BIS_FIA_01," \n
+                                         "	BIS_FIA_02," \n
+                                         "	BIS_FIA_03," \n
+                                         "	BIS_FIA_04," \n
+                                         "	BIS_FIA_05," \n
+                                         "	BIS_FIA_06," \n
+                                         "	BIS_FIA_07," \n
+                                         "	BIS_FIA_08," \n
+                                         "	BIS_FIA_09," \n
+                                         "	BIS_FIA_10," \n
+                                         "	BIS_FIA_11," \n
+                                         "	BIS_FIA_12" \n
+                                         "] */" \n
+                                         "" \n
+                                         "< 4" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Task_DONE">*/
+                class Task_DONE
+                {
+                        name = "Task_DONE";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"if !(BIS_Supp_Infantry) then {[BIS_ARPlayer,BIS_Support_Infantry] call BIS_fnc_removeCommMenuItem;};" \n
+                         "if ((BIS_WieselAvailable) and !(BIS_Supp_Vehicle)) then {[BIS_ARPlayer,BIS_Support_Vehicle] call BIS_fnc_removeCommMenuItem;};" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	""Village_Seized"" call BIS_fnc_missionConversations;" \n
+                         "	[""BIS_tskAttack"",""Succeeded""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "	if (!(BIS_Supp_Infantry) and !(BIS_Supp_Vehicle)) then {""Casualties_AAF_NA"" call BIS_fnc_missionConversations};" \n
+                         "	if ((BIS_AAFKIA == 0) and (BIS_Supp_Infantry or BIS_Supp_Vehicle)) then {""Casualties_AAF_None"" call BIS_fnc_missionConversations};" \n
+                         "	if ((BIS_AAFKIA > 0) and (BIS_AAFKIA < 4)) then {""Casualties_AAF_Light"" call BIS_fnc_missionConversations};" \n
+                         "	if (BIS_AAFKIA > 3) then {""Casualties_AAF_Heavy"" call BIS_fnc_missionConversations};" \n
+                         "" \n
+                         "	// sleep 6;" \n
+                         "	""Casualties_Continue""  call BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "	// sleep 5;" \n
+                         "	if (BIS_CivilKIA == 0) then {""Casualties_CIV_None"" call BIS_fnc_missionConversations};" \n
+                         "	if ((BIS_CivilKIA > 0) and (BIS_CivilKIA < 4)) then {""Casualties_CIV_Light"" call BIS_fnc_missionConversations};" \n
+                         "	if (BIS_CivilKIA > 3) then {""Casualties_CIV_Heavy"" call BIS_fnc_missionConversations};" \n
+                         "" \n
+                         "	// sleep 2;" \n
+                         "	// A bit complicated branching - it playes an extra conversation if player completed the mission very well or very bad (and skips the 'normal' ending conversation)" \n
+                         "	if ((BIS_CivilKIA == 0) and (alive BIS_ARHunter)) exitWith {" \n
+                         "		""Casualties_Perfect"" call BIS_fnc_missionConversations;" \n
+                         "		sleep 5;" \n
+                         "		BIS_End = true;" \n
+                         "	};" \n
+                         "" \n
+                         "	if ((BIS_CivilKIA > 3) and (!alive BIS_ARHunter)) exitWith {" \n
+                         "		""Casualties_Terrible"" call BIS_fnc_missionConversations;" \n
+                         "		BIS_CollateralDamage = BIS_CollateralDamage + 20;" \n
+                         "		sleep 5;" \n
+                         "		BIS_End = true;" \n
+                         "	};" \n
+                         "" \n
+                         "	""Casualties_End"" call BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "	// sleep 6;" \n
+                         "	if (alive BIS_ARHunter) then {" \n
+                         "		""Forest_AftermathAlive"" call BIS_fnc_missionConversations;" \n
+                         "	} else {" \n
+                         "		""Forest_AftermathDead"" call BIS_fnc_missionConversations;" \n
+                         "		BIS_CollateralDamage = BIS_CollateralDamage + 20;" \n
+                         "	};" \n
+                         "" \n
+                         "	sleep 5;" \n
+                         "	BIS_End = true;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FIA_in_Ifestiona">*/
+                class FIA_in_Ifestiona
+                {
+                        name = "FIA_in_Ifestiona";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	""Village_Attack"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 1;" \n
+                         "	[""BIS_tskRTB"",""Canceled""] call BIS_fnc_missionTasks;" \n
+                         "	[""BIS_tskAttack"",""Current""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "	{_x setMarkerAlpha 1} forEach [" \n
+                         "		""BIS_mrkVillage""," \n
+                         "		""BIS_mrkVillageArea""" \n
+                         "	];" \n
+                         "" \n
+                         "	sleep 10;" \n
+                         "	saveGame;" \n
+                         "" \n
+                         "	sleep 5;" \n
+                         "	0 fadeMusic 0;" \n
+                         "	playMusic ""EventTrack01_F_Jets"";" \n
+                         "	0 fadeMusic 0.5;" \n
+                         "" \n
+                         "	_null = [[""Weapons"", ""MissileFlightModes""], 45] spawn BIS_fnc_advHint;" \n
+                         "" \n
+                         "	execFSM ""FSMs\Supports.fsm"";" \n
+                         "" \n
+                         "	BIS_Support_Infantry = [BIS_ARPlayer,""Infantry""] call BIS_fnc_addCommMenuItem;" \n
+                         "	""BIS_mrkInfantry"" setMarkerAlpha 1;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "FIA_losses">*/
+                                class FIA_losses
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="FIA_retreat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{alive _x} count BIS_FIAUnits" \n
+                                         "" \n
+                                         "/*" \n
+                                         "[" \n
+                                         "	BIS_FIA_01," \n
+                                         "	BIS_FIA_02," \n
+                                         "	BIS_FIA_03," \n
+                                         "	BIS_FIA_04," \n
+                                         "	BIS_FIA_05," \n
+                                         "	BIS_FIA_06," \n
+                                         "	BIS_FIA_07," \n
+                                         "	BIS_FIA_08," \n
+                                         "	BIS_FIA_09," \n
+                                         "	BIS_FIA_10," \n
+                                         "	BIS_FIA_11," \n
+                                         "	BIS_FIA_12" \n
+                                         "] */" \n
+                                         "" \n
+                                         "< 4" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Timeout_160sec">*/
+                                class Timeout_160sec
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Another_Wiesel_a";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 160" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FIA_retreat">*/
+                class FIA_retreat
+                {
+                        name = "FIA_retreat";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"// send them fleeing, if they are still alive after timeout, " \n
+                         "// kill 'em all!" \n
+                         "" \n
+                         "{if (alive _x) then {group (leader _x) copyWaypoints (selectRandom [BIS_grpFIARetreat01,BIS_grpFIARetreat02,BIS_grpFIARetreat03]); _x disableAI ""Autocombat""; _x setBehaviour ""Aware""}} forEach BIS_FIAUnits;" \n
+                         "{_x execVM ""FinishFIA.sqf""} forEach BIS_FIAUnits;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "FIA_defeated">*/
+                                class FIA_defeated
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Task_DONE";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{alive _x} count BIS_FIAUnits == 0" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "Task_DONE",
+        };
+};
+/*%FSM</COMPILE>*/

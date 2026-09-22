@@ -1,0 +1,125 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Collateral Damage">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-75.000000,-150.000000,25.000000,-100.000000,0.000000,"Start"};
+item1[] = {"Mission_end",4,218,-200.000000,-75.000000,-100.000000,-25.000000,0.000000,"Mission" \n "end"};
+item2[] = {"Succeeded",1,250,-200.000000,0.000000,-100.000000,50.000000,0.000000,"Succeeded"};
+item3[] = {"Cancel_Limit",4,218,50.000000,-75.000000,150.000000,-25.000000,0.000000,"Cancel Limit"};
+item4[] = {"Fail_Limit",4,218,175.000000,0.000000,275.000000,50.000000,0.000000,"Fail Limit"};
+item5[] = {"Canceled",2,250,175.000000,-75.000000,275.000000,-25.000000,0.000000,"Canceled"};
+item6[] = {"Failed",1,250,50.000000,0.000000,150.000000,50.000000,0.000000,"Failed"};
+item7[] = {"",7,210,-29.000008,-54.000000,-20.999992,-46.000000,0.000000,""};
+link0[] = {0,7};
+link1[] = {1,2};
+link2[] = {3,5};
+link3[] = {4,6};
+link4[] = {5,4};
+link5[] = {7,1};
+link6[] = {7,3};
+globals[] = {0.000000,0,0,0,0,640,480,1,10,6316128,1,-308.597107,368.081879,222.344269,-261.893555,1403,1004,1};
+window[] = {2,-1,-1,-32000,-32000,953,104,1544,104,3,1421};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Collateral Damage";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"// Limits are set in initMission.sqf" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Cancel_Limit">*/
+                                class Cancel_Limit
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Canceled";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_CollateralDamage > BIS_CollateralDamageCancelLimit" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Mission_end">*/
+                                class Mission_end
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Succeeded";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_End // triggered in missionFlow.fsm" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Succeeded">*/
+                class Succeeded
+                {
+                        name = "Succeeded";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"[""BIS_tskCollateralDamage"",""Succeeded""] call BIS_fnc_missionTasks;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Canceled">*/
+                class Canceled
+                {
+                        name = "Canceled";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "[""BIS_tskCollateralDamage"",""Canceled""] call BIS_fnc_missionTasks;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Fail_Limit">*/
+                                class Fail_Limit
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="Failed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(BIS_CollateralDamage > BIS_CollateralDamageFailLimit) and " \n
+                                         "(time > _t + 5)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Failed">*/
+                class Failed
+                {
+                        name = "Failed";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"[""BIS_tskCollateralDamage"",""Failed""] call BIS_fnc_missionTasks;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "Succeeded",
+                "Failed",
+        };
+};
+/*%FSM</COMPILE>*/

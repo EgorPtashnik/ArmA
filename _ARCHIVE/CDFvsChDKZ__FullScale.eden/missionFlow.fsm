@@ -1,0 +1,926 @@
+/*%FSM<COMPILE "D:\steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Showcase Combined Arms Mission Flow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"player_near_dest",4,218,-25.000000,-175.000000,75.000000,-125.000000,0.000000,"player" \n "near" \n "destination"};
+item1[] = {"start_combat",2,250,-25.000000,-100.000000,75.000000,-50.000000,0.000000,"start" \n "combat"};
+item2[] = {"init",0,250,-25.000000,-400.000000,75.000000,-350.000000,0.000000,"init"};
+item3[] = {"mission_started",4,218,-25.000000,-325.000000,75.000000,-275.000000,0.000000,"mission" \n "started"};
+item4[] = {"Intro",2,250,-25.000000,-250.000000,75.000000,-200.000000,0.000000,"Intro"};
+item5[] = {"player_dismounte",4,218,-25.000000,0.000000,75.000000,50.000000,0.000000,"player" \n "dismounted"};
+item6[] = {"start_advance",2,250,-25.000000,100.000000,75.000000,150.000000,0.000000,"start" \n "advance"};
+item7[] = {"enemy_KIA",4,218,-25.000000,250.000000,75.000000,300.000000,0.000000,"enemy" \n "KIA"};
+item8[] = {"BTR_1_KIA",4,218,150.000000,150.000000,250.000000,200.000000,0.000000,"BTR 1" \n "KIA"};
+item9[] = {"BTR_2_KIA",4,218,-200.000000,150.000000,-100.000000,200.000000,0.000000,"BTR 2" \n "KIA"};
+item10[] = {"comms",2,250,-200.000000,250.000000,-100.000000,300.000000,0.000000,"comms"};
+item11[] = {"comms_1",2,250,150.000000,250.000000,250.000000,300.000000,0.000000,"comms"};
+item12[] = {"",7,210,21.000000,171.000000,29.000000,179.000000,0.000000,""};
+item13[] = {"set_new_tasks__1",2,250,-25.000000,525.000000,75.000000,575.000000,0.000000,"set" \n "new" \n "tasks (1)"};
+item14[] = {"near_task_1a",4,218,-275.000000,525.000000,-175.000000,575.000000,0.000000,"near" \n "task 1a"};
+item15[] = {"near_task_1b",4,218,200.000000,525.000000,300.000000,575.000000,0.000000,"near" \n "task 1b"};
+item16[] = {"comms_2",2,250,-25.000000,350.000000,75.000000,400.000000,0.000000,"comms"};
+item17[] = {"comms_done",4,218,-25.000000,425.000000,75.000000,475.000000,0.000000,"comms" \n "done"};
+item18[] = {"cheat_1",4,218,125.000000,-400.000000,225.000000,-350.000000,1.000000,"cheat 1"};
+item19[] = {"_",2,250,250.000000,-400.000000,350.000000,-350.000000,0.000000,""};
+item20[] = {"prepare_Task_1b",2,250,450.000000,525.000000,550.000000,575.000000,0.000000,"prepare" \n "Task 1b"};
+item21[] = {"enemy_KIA",4,218,325.000000,600.000000,425.000000,650.000000,0.000000,"enemy" \n "KIA"};
+item22[] = {"complete_task__",2,250,200.000000,600.000000,300.000000,650.000000,0.000000,"complete task" \n "+" \n "comms"};
+item23[] = {"",7,210,496.000000,621.000061,504.000000,629.000000,0.000000,""};
+item24[] = {"allies_KIA",4,218,325.000000,675.000000,425.000000,725.000000,0.000000,"allies" \n "KIA"};
+item25[] = {"",7,210,496.000000,696.000000,504.000000,704.000000,0.000000,""};
+item26[] = {"fail_task___comm",2,250,200.000000,675.000000,300.000000,725.000000,0.000000,"fail task" \n "+" \n "comms"};
+item27[] = {"tasks_finished",4,218,-25.000000,675.000000,75.000000,725.000000,0.000000,"tasks" \n "finished"};
+item28[] = {"prepare_Task_1a",2,250,-575.000000,525.000000,-475.000000,575.000000,0.000000,"prepare" \n "Task 1a"};
+item29[] = {"",7,210,171.000000,621.000000,179.000000,629.000000,0.000000,""};
+item30[] = {"",7,210,171.000000,696.000000,179.000000,704.000000,0.000000,""};
+item31[] = {"",7,210,-529.000000,621.000000,-521.000000,629.000000,0.000000,""};
+item32[] = {"enemy_KIA",4,218,-425.000000,600.000000,-325.000000,650.000000,0.000000,"enemy KIA"};
+item33[] = {"allies_KIA",4,218,-425.000000,675.000000,-325.000000,725.000000,0.000000,"allies KIA"};
+item34[] = {"",7,210,-529.000000,696.000000,-521.000000,704.000000,0.000000,""};
+item35[] = {"complete_task___1",2,250,-275.000000,600.000000,-175.000000,650.000000,0.000000,"complete task" \n "+" \n "comms"};
+item36[] = {"fail_task___comm_1",2,250,-275.000000,675.000000,-175.000000,725.000000,0.000000,"fail task" \n "+" \n "comms"};
+item37[] = {"",7,210,-154.000000,696.000000,-146.000000,704.000000,0.000000,""};
+item38[] = {"",7,210,-154.000000,621.000000,-146.000000,629.000000,0.000000,""};
+item39[] = {"_",4,218,250.000000,-300.000000,350.000000,-250.000000,0.000000,""};
+item40[] = {"task_1a_processe",4,218,600.000000,525.000000,700.000000,575.000000,0.000000,"task" \n "1a" \n "processed"};
+item41[] = {"spawn_more_enemy",2,250,600.000000,600.000000,700.000000,650.000000,0.000000,"spawn" \n "more enemy"};
+item42[] = {"____FAKE____",9,11989288,0.000000,3836346471184450600000000000000000.000000,-246661177004943560000000000000000000.000000,-1.#QNAN0,0.000000,"____FAKE____"};
+link0[] = {0,1};
+link1[] = {1,5};
+link2[] = {2,3};
+link3[] = {2,18};
+link4[] = {3,4};
+link5[] = {4,0};
+link6[] = {5,6};
+link7[] = {6,12};
+link8[] = {7,16};
+link9[] = {8,11};
+link10[] = {9,10};
+link11[] = {10,12};
+link12[] = {11,12};
+link13[] = {12,7};
+link14[] = {12,8};
+link15[] = {12,9};
+link16[] = {13,14};
+link17[] = {13,15};
+link18[] = {14,28};
+link19[] = {15,20};
+link20[] = {16,17};
+link21[] = {17,13};
+link22[] = {18,19};
+link23[] = {19,39};
+link24[] = {20,23};
+link25[] = {20,40};
+link26[] = {21,22};
+link27[] = {22,29};
+link28[] = {23,21};
+link29[] = {23,25};
+link30[] = {24,26};
+link31[] = {25,24};
+link32[] = {26,30};
+link33[] = {28,31};
+link34[] = {29,30};
+link35[] = {30,14};
+link36[] = {30,27};
+link37[] = {31,32};
+link38[] = {31,34};
+link39[] = {32,35};
+link40[] = {33,36};
+link41[] = {34,33};
+link42[] = {35,38};
+link43[] = {36,37};
+link44[] = {37,15};
+link45[] = {37,27};
+link46[] = {38,37};
+link47[] = {39,13};
+link48[] = {40,41};
+link49[] = {41,23};
+link50[] = {27,42};
+globals[] = {0.000000,0,0,0,0,640,480,1,150,6316128,1,-812.135071,768.218323,1081.962646,-481.685120,1892,1872,1};
+window[] = {2,-1,-1,-1,-1,926,76,1516,76,3,1919};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Showcase Combined Arms Mission Flow";
+        class States
+        {
+                /*%FSM<STATE "start_combat">*/
+                class start_combat
+                {
+                        name = "start_combat";
+                        itemno = 1;
+                        init = /*%FSM<STATEINIT""">*/"deleteVehicle Trg_Start;" \n
+                         "private _units = (getMissionLayerEntities ""StartAmb"" # 0) + (getMissionLayerEntities ""StartCombat"" # 0);" \n
+                         "{ _x enableSimulation true } forEach _units;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "player_dismounte">*/
+                                class player_dismounte
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="start_advance";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"vehicle player == player"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "init">*/
+                class init
+                {
+                        name = "init";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"//Nothing..." \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "cheat_1">*/
+                                class cheat_1
+                                {
+                                        itemno = 18;
+                                        priority = 1.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "mission_started">*/
+                                class mission_started
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Intro";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Intro">*/
+                class Intro
+                {
+                        name = "Intro";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"enableRadio false;" \n
+                         "enableSentences false;" \n
+                         "" \n
+                         "//Send truck" \n
+                         "[B_PlayerGroup, ""Mrk_TaskStart"", ""GETOUT""] call EP_fnc_addWaypoint;" \n
+                         "[B_PlayerGroup, ""B_WpStart"", ""MOVE"", ""COMBAT""] call EP_fnc_addWaypoint;" \n
+                         "B_Truck lock true;" \n
+                         "" \n
+                         "//***************" \n
+                         "//Intro" \n
+                         "//***************" \n
+                         "spawn {" \n
+                         "	//Start at black screen" \n
+                         "	[""Black"", false] call BIS_fnc_blackOut;" \n
+                         "	//Fade in with blur" \n
+                         "	sleep 5;" \n
+                         "	[""Black"", false] call BIS_fnc_blackIn;" \n
+                         "	private _handle = [1, ""BLACK"", 5, 1, ""CUP_A2_The_Movement""] spawn BIS_fnc_fadeEffect;" \n
+                         "	waitUntil {scriptDone _handle};" \n
+                         "	sleep 5;" \n
+                         "	//Show SITREP" \n
+                         "	[ " \n
+                         "  		[ " \n
+                         "   			[format [""Эверон, %1"", [dayTime, ""HH:MM""] call BIS_fnc_timeToString], ""<t align='left'>%1</t><br/>"", 10], " \n
+                         "			[""ОБР ЧСО"", ""<t align='left'>%1</t><br/>"", 10]," \n
+                         "   			[format [""Капитан %1"", name player], ""<t align='left'>%1</t><br/>"", 30]" \n
+                         "  		], " \n
+                         "  		safeZoneW + safeZoneX * 1.5, 1 " \n
+                         " 	] spawn BIS_fnc_typeText;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "player_near_dest">*/
+                                class player_near_dest
+                                {
+                                        itemno = 0;
+                                        priority = 0.000000;
+                                        to="start_combat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"triggerActivated Trg_Start"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "start_advance">*/
+                class start_advance
+                {
+                        name = "start_advance";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"enableRadio true;" \n
+                         "enableSentences true;" \n
+                         "" \n
+                         "//Small cleanup" \n
+                         "{ deleteVehicle _x } forEach (getMissionLayerEntities ""StartAmb"" # 0);" \n
+                         "" \n
+                         "private _westGroups = (getMissionLayerEntities ""StartCombat"" # 2) select { side _x == west };" \n
+                         "private _eastUnits = flatten (((getMissionLayerEntities ""StartCombat"" # 2) select { side _x == east }) apply { units _x });" \n
+                         "{" \n
+                         "    _x call EP_fnc_clearWaypoints;" \n
+                         "    [_x, ""B_WpStart"", 50] call EP_fnc_addWaypoint;" \n
+                         "} forEach _westGroups;" \n
+                         "" \n
+                         "[[ [""Сержант"", ""Все - продвигаемся вперед! Оттесняем противника!"", 5] ]] spawn EP_fnc_missionConversations;" \n
+                         "" \n
+                         "//***************" \n
+                         "//Flags" \n
+                         "//***************" \n
+                         "private _btrDown_1 = false;" \n
+                         "private _btrDown_2 = false;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "BTR_1_KIA">*/
+                                class BTR_1_KIA
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="comms_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_btrDown_1 && !canMove B_StartBtr_1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "BTR_2_KIA">*/
+                                class BTR_2_KIA
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="comms";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_btrDown_2 && !canMove B_StartBtr_2"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "enemy_KIA">*/
+                                class enemy_KIA
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="comms_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_eastUnits findIf { alive _x } == -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "comms">*/
+                class comms
+                {
+                        name = "comms";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"[[ [""Сержант"", ""БТР подбит! Повторяю: Мы лишились техники!"", 5] ]] spawn EP_fnc_missionConversations;" \n
+                         "_btrDown_2 = true;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "BTR_1_KIA">*/
+                                class BTR_1_KIA
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="comms_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_btrDown_1 && !canMove B_StartBtr_1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "BTR_2_KIA">*/
+                                class BTR_2_KIA
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="comms";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_btrDown_2 && !canMove B_StartBtr_2"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "enemy_KIA">*/
+                                class enemy_KIA
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="comms_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_eastUnits findIf { alive _x } == -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "comms_1">*/
+                class comms_1
+                {
+                        name = "comms_1";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"[[ [""Сержант"", ""Твою мать, они уничтожили БТР!"", 5] ]] spawn EP_fnc_missionConversations;" \n
+                         "_btrDown_1 = true;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "BTR_1_KIA">*/
+                                class BTR_1_KIA
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="comms_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_btrDown_1 && !canMove B_StartBtr_1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "BTR_2_KIA">*/
+                                class BTR_2_KIA
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="comms";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_btrDown_2 && !canMove B_StartBtr_2"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "enemy_KIA">*/
+                                class enemy_KIA
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="comms_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_eastUnits findIf { alive _x } == -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "set_new_tasks__1">*/
+                class set_new_tasks__1
+                {
+                        name = "set_new_tasks__1";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"//Show markers" \n
+                         "{ _x setMarkerAlpha 1 } forEach [""Mrk_Task_1a"", ""Mrk_Task_1b""];" \n
+                         "" \n
+                         "//Player is the new actual" \n
+                         "B_PlayerGroup selectLeader player;" \n
+                         "" \n
+                         "//Create Task 1a" \n
+                         "private _description = format [" \n
+                         "	""%1<br/>%2<br/>%3<br/><br/>%4""," \n
+                         "	""Силы ЧСО ведут бои на обоих флангах от вашей <marker name='Mrk_TaskStart'>позиции</marker>.""," \n
+                         "	""<marker name='Mrk_Task_1a'>Позиция к югу</marker> упростит наше продвижение вглубь острова по напралению к вражеской линии фронта.""," \n
+                         "	""Поддержите бронетехнику при штурме и укрепитесь в деревне""," \n
+                         "	""<font color='#ff0000'>Внимание: обнаружена тяжелая бронетехника противника!</font>""" \n
+                         "];" \n
+                         "[""taskAttack_1"", ""rifle""] call EP_fnc_missionTasks;" \n
+                         "[""taskAttack_1"", true] call BIS_fnc_taskSetAlwaysVisible;" \n
+                         "[" \n
+                         "	player," \n
+                         "	""taskAttack_1""," \n
+                         "	[_description, ""Захватить Позицию""]," \n
+                         "	markerPos ""Mrk_Task_1a""," \n
+                         "	""CREATED""" \n
+                         "] spawn BIS_fnc_taskCreate;" \n
+                         "" \n
+                         "//Create Task 1b" \n
+                         "_description = format [" \n
+                         "	""%1<br/>%2""," \n
+                         "	""Силы ЧСО ведут бои на обоих флангах от вашей <marker name='Mrk_TaskStart'>позиции</marker>.""," \n
+                         "	""Поддержите отряд Зеленый-6 и захватите <marker name='Mrk_Task_1b'>деревню</marker> для укрепления позиций.""" \n
+                         "];" \n
+                         "[""taskAttack_2"", ""rifle""] call EP_fnc_missionTasks;" \n
+                         "[""taskAttack_2"", true] call BIS_fnc_taskSetAlwaysVisible;" \n
+                         "[" \n
+                         "	player," \n
+                         "	""taskAttack_2""," \n
+                         "	[_description, ""Захватить Позицию""]," \n
+                         "	markerPos ""Mrk_Task_1b""," \n
+                         "	""CREATED""" \n
+                         "] spawn BIS_fnc_taskCreate;" \n
+                         "" \n
+                         "//Failed tasks counter" \n
+                         "EP_FailedTasks = 0;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "near_task_1b">*/
+                                class near_task_1b
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="prepare_Task_1b";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(player distance2D markerPos ""Mrk_Task_1b"") < 500"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "near_task_1a">*/
+                                class near_task_1a
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="prepare_Task_1a";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(player distance2D markerPos ""Mrk_Task_1a"") < 500"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "comms_2">*/
+                class comms_2
+                {
+                        name = "comms_2";
+                        itemno = 16;
+                        init = /*%FSM<STATEINIT""">*/"""Mrk_TaskStart"" setMarkerColor ""ColorGUER"";" \n
+                         "" \n
+                         "handle = spawn {" \n
+                         "    [[" \n
+                         "        [""Сержант"", ""Око, говорит Зеленый-3. Позиция взята. Противник выбит. Ждем дальнейшие указания. Приём."", 4]," \n
+                         "        [""ОКО"", ""Принял, Зеленый-3. Удерживайте позицию до прибытия поддержки. Конец связи."", 5]" \n
+                         "    ]] call EP_fnc_missionConversations;" \n
+                         "    sleep 3;" \n
+                         "    private _playerName = name player;" \n
+                         "    [[" \n
+                         "        [""ОКО"", ""Зеленый-7, приём."", 2]," \n
+                         "        [_playerName, ""Слушаю."", 2]," \n
+                         "        [""ОКО"", ""Ваша дальнейшая задача будет поддержать наши войска в контакте с противником."", 5]," \n
+                         "        [""ОКО"", ""На текущий момент известны координаты двух ЗБВ. Передаю на карту. Приоритета нет. Выдвигайтесь немедленно к любой и окажите огневую поддержку. Как приняли?"", 7]," \n
+                         "        [_playerName, ""Вас понял, Око. Начинаю движение. Конец связи."", 5]" \n
+                         "    ]] call EP_fnc_missionConversations;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "comms_done">*/
+                                class comms_done
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="set_new_tasks__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone handle"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"B_Truck setPos [5526.21,5498.31];" \n
+                         "{ moveOut _x } forEach units B_PlayerGroup;" \n
+                         "B_PlayerGroup selectLeader player;" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "deleteVehicle Trg_Start;" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 39;
+                                        priority = 0.000000;
+                                        to="set_new_tasks__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > 5"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "prepare_Task_1b">*/
+                class prepare_Task_1b
+                {
+                        name = "prepare_Task_1b";
+                        itemno = 20;
+                        init = /*%FSM<STATEINIT""">*/"savegame;" \n
+                         "" \n
+                         "private _groups = [];" \n
+                         "" \n
+                         "//***************" \n
+                         "//Spawn BLUFOR" \n
+                         "//***************" \n
+                         "_groups pushBack ([""B_Task_1b_Spawn"", west, ""ASSAULT"", 50] call fn_createInfantry);" \n
+                         "_groups pushBack ([""B_Task_1b_Spawn"", west, ""AT"", 50] call fn_createInfantry);" \n
+                         "" \n
+                         "//***************" \n
+                         "//Spawn OPFOR" \n
+                         "//***************" \n
+                         "_groups pushBack ([""O_Task_1b_Spawn"", east, ""ASSAULT"", 50] call fn_createInfantry);" \n
+                         "_groups pushBack ([""O_Task_1b_Spawn"", east, ""ASSAULT"", 50] call fn_createInfantry);" \n
+                         "" \n
+                         "private _brdm = ([""O_Task_1b_Spawn"", east, ""LIGHT"", 100] call fn_createVehicle);" \n
+                         "[(group _brdm), []] call EP_fnc_setAISkill;" \n
+                         "" \n
+                         "//Send groups to fight for village" \n
+                         "{ [_x, ""Mrk_Task_1b"", ""AWARE""] call EP_fnc_taskAttack } forEach _groups;" \n
+                         "" \n
+                         "//Send BRDM after player gets closer" \n
+                         "_brdm spawn {" \n
+                         "	waitUntil { sleep 1; (player distance2D markerPos ""Mrk_Task_1b"") < 300 };" \n
+                         "	[group _this, ""Mrk_Task_1b""] call EP_fnc_taskAttack;" \n
+                         "};" \n
+                         "" \n
+                         "private _opforUnits = flatten ((_groups select { side _x == OPFOR }) apply { units _x });" \n
+                         "private _bluforUnits = flatten ((_groups select { side _x == BLUFOR }) apply { units _x });" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "enemy_KIA">*/
+                                class enemy_KIA
+                                {
+                                        itemno = 21;
+                                        priority = 0.000000;
+                                        to="complete_task__";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_opforUnits findIf { alive _x } == -1 &&" \n
+                                         "{ !canMove _brdm || { ((crew _brdm) findIf { alive _x }) == -1 } }"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "allies_KIA">*/
+                                class allies_KIA
+                                {
+                                        itemno = 24;
+                                        priority = 0.000000;
+                                        to="fail_task___comm";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_bluforUnits findIf { alive _x } == -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "task_1a_processe">*/
+                                class task_1a_processe
+                                {
+                                        itemno = 40;
+                                        priority = 0.000000;
+                                        to="spawn_more_enemy";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"""taskAttack_1"" call BIS_fnc_taskCompleted"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "complete_task__">*/
+                class complete_task__
+                {
+                        name = "complete_task__";
+                        itemno = 22;
+                        init = /*%FSM<STATEINIT""">*/"spawn {" \n
+                         "	sleep 5;" \n
+                         "	[""taskAttack_2"", true] call EP_fnc_missionTasks;" \n
+                         "	sleep 5;" \n
+                         "   " \n
+                         "	//Comms" \n
+                         "	private _playerName = name player;" \n
+                         "	[[" \n
+                         "		[_playerName, ""Око, приём! Противник выбит на востоке. Позиция взята. Как приняли?"", 6]," \n
+                         "		[""ОКО"", ""Отличная работа! Высылаем инженеров для закрепления на позиции. Конец связи."", 5]" \n
+                         "  	]] call EP_fnc_missionConversations;" \n
+                         "	sleep 3;" \n
+                         "" \n
+                         "	//Assign second Task" \n
+                         "	if !(""taskAttack_1"" call BIS_fnc_taskCompleted) then {" \n
+                         "		""taskAttack_1"" call BIS_fnc_taskSetCurrent;" \n
+                         "	};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "tasks_finished">*/
+                                class tasks_finished
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="____FAKE____";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "near_task_1a">*/
+                                class near_task_1a
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="prepare_Task_1a";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(player distance2D markerPos ""Mrk_Task_1a"") < 500"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "fail_task___comm">*/
+                class fail_task___comm
+                {
+                        name = "fail_task___comm";
+                        itemno = 26;
+                        init = /*%FSM<STATEINIT""">*/"//Increate failed tasks counter" \n
+                         "EP_Failasks = EP_FailedTasks + 1;" \n
+                         "" \n
+                         "handle = spawn {" \n
+                         "	sleep 5;" \n
+                         "	[""taskAttack_2"", false] call EP_fnc_missionTasks;" \n
+                         "	sleep 5;" \n
+                         "" \n
+                         "	//Comms" \n
+                         "	private _playerName = name player;" \n
+                         "	[[" \n
+                         "		[_playerName, ""Око, приём! Штурм провалился. Повторя! Не можем продолжать атаку, противник слишком превосходит нас числом!"", 6]," \n
+                         "		[""ОКО"", ""Оступайте немедленно! Перегруппируйтесь у занятой позиции и продвигайтесь к точке А. Приём."", 5]," \n
+                         "		[_playerName, ""Вас понял! Группа, внимание! Отходим! Прикрывайте друг друга!"", 5]" \n
+                         "  	]] call EP_fnc_missionConversations;" \n
+                         "	sleep 3;" \n
+                         "" \n
+                         "	//Assign second Task" \n
+                         "	if !(""taskAttack_1"" call BIS_fnc_taskCompleted) then {" \n
+                         "		""taskAttack_1"" call BIS_fnc_taskSetCurrent;" \n
+                         "	};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "tasks_finished">*/
+                                class tasks_finished
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="____FAKE____";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "near_task_1a">*/
+                                class near_task_1a
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="prepare_Task_1a";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(player distance2D markerPos ""Mrk_Task_1a"") < 500"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "prepare_Task_1a">*/
+                class prepare_Task_1a
+                {
+                        name = "prepare_Task_1a";
+                        itemno = 28;
+                        init = /*%FSM<STATEINIT""">*/"savegame;" \n
+                         "" \n
+                         "private _westArmor = [];" \n
+                         "private _westInfGroups = [];" \n
+                         "" \n
+                         "private _eastArmor = [];" \n
+                         "private _eastInfGroups = [];" \n
+                         "" \n
+                         "//***************" \n
+                         "//Spawn BLUFOR" \n
+                         "//***************" \n
+                         "private _westArmorGroup = createGroup west;" \n
+                         "for ""_i"" from 0 to 3 do {" \n
+                         "    //Tanks" \n
+                         "    private _tank = ([""B_Task_1a_SpawnArmor"", west, ""HEAVY"", 100] call fn_createVehicle);" \n
+                         "    _westArmorGroup addVehicle _tank;" \n
+                         "    (crew _tank) joinSilent _westArmorGroup;" \n
+                         "    _westArmor pushBack _tank;" \n
+                         "" \n
+                         "    //Infantry" \n
+                         "    _westInfGroups pushBack ([""B_Task_1a_SpawnInfantry"", west, ""AT"", 50] call fn_createInfantry);" \n
+                         "};" \n
+                         "" \n
+                         "" \n
+                         "//***************" \n
+                         "//Spawn OPFOR" \n
+                         "//***************" \n
+                         "private _eastArmorGroup = createGroup east;" \n
+                         "for ""_i"" from 0 to 3 do {" \n
+                         "    //Tanks" \n
+                         "    private _tank = ([""O_Task_1a_SpawnArmor"", east, ""HEAVY"", 100] call fn_createVehicle);" \n
+                         "    _eastArmorGroup addVehicle _tank;" \n
+                         "    (crew _tank) joinSilent _eastArmorGroup;" \n
+                         "    _eastArmor pushBack _tank;" \n
+                         "" \n
+                         "    //Infantry" \n
+                         "    _eastInfGroups pushBack ([selectRandom [""O_Task_1a_SpawnInfantry_1"", ""O_Task_1a_SpawnInfantry_2""], east, ""AT"", 50] call fn_createInfantry);" \n
+                         "};" \n
+                         "" \n
+                         "private _allGroups = _eastInfGroups + _westInfGroups + [_eastArmorGroup, _westArmorGroup];" \n
+                         "_allGroups spawn {" \n
+                         "	sleep 10;" \n
+                         "	{[_x, ""Mrk_Task_1a"", ""AWARE""] call EP_fnc_taskAttack} forEach _this;" \n
+                         "}" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "allies_KIA">*/
+                                class allies_KIA
+                                {
+                                        itemno = 33;
+                                        priority = 0.000000;
+                                        to="fail_task___comm_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "enemy_KIA">*/
+                                class enemy_KIA
+                                {
+                                        itemno = 32;
+                                        priority = 0.000000;
+                                        to="complete_task___1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "complete_task___1">*/
+                class complete_task___1
+                {
+                        name = "complete_task___1";
+                        itemno = 35;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "tasks_finished">*/
+                                class tasks_finished
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="____FAKE____";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "near_task_1b">*/
+                                class near_task_1b
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="prepare_Task_1b";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(player distance2D markerPos ""Mrk_Task_1b"") < 500"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "fail_task___comm_1">*/
+                class fail_task___comm_1
+                {
+                        name = "fail_task___comm_1";
+                        itemno = 36;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "tasks_finished">*/
+                                class tasks_finished
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="____FAKE____";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "near_task_1b">*/
+                                class near_task_1b
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="prepare_Task_1b";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(player distance2D markerPos ""Mrk_Task_1b"") < 500"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "spawn_more_enemy">*/
+                class spawn_more_enemy
+                {
+                        name = "spawn_more_enemy";
+                        itemno = 41;
+                        init = /*%FSM<STATEINIT""">*/"//***************" \n
+                         "//Spawn BLUFOR" \n
+                         "//***************" \n
+                         "_groups pushBack ([""B_Task_1b_Spawn"", west, ""ASSAULT"", 50] call fn_createInfantry);" \n
+                         "" \n
+                         "//***************" \n
+                         "//Spawn OPFOR" \n
+                         "//***************" \n
+                         "_groups pushBack ([""Mrk_Task_1b"", east, ""DEFAULT"", 50] call fn_createInfantry);" \n
+                         "" \n
+                         "private _brdm = ([""O_Task_1b_Spawn"", east, ""LIGHT"", 100] call fn_createVehicle);" \n
+                         "[(group _brdm), []] call EP_fnc_setAISkill;" \n
+                         "" \n
+                         "//Send groups to fight for village" \n
+                         "{ [_x, ""Mrk_Task_1b"", ""AWARE""] call EP_fnc_taskAttack } forEach _groups;" \n
+                         "" \n
+                         "//Send BRDM after player gets closer" \n
+                         "_brdm spawn {" \n
+                         "	waitUntil { sleep 1; (player distance2D markerPos ""Mrk_Task_1b"") < 300 };" \n
+                         "	[group _this, ""Mrk_Task_1b""] call EP_fnc_taskAttack;" \n
+                         "};" \n
+                         "" \n
+                         "private _opforUnits = flatten ((_groups select { side _x == OPFOR }) apply { units _x });" \n
+                         "private _bluforUnits = flatten ((_groups select { side _x == BLUFOR }) apply { units _x });" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "allies_KIA">*/
+                                class allies_KIA
+                                {
+                                        itemno = 24;
+                                        priority = 0.000000;
+                                        to="fail_task___comm";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_bluforUnits findIf { alive _x } == -1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "enemy_KIA">*/
+                                class enemy_KIA
+                                {
+                                        itemno = 21;
+                                        priority = 0.000000;
+                                        to="complete_task__";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_opforUnits findIf { alive _x } == -1 &&" \n
+                                         "{ !canMove _brdm || { ((crew _brdm) findIf { alive _x }) == -1 } }"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "____FAKE____">*/
+                class ____FAKE____
+                {
+                        name = "____FAKE____";
+                        itemno = 42;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="init";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

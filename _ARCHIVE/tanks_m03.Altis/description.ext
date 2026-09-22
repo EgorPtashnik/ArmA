@@ -1,0 +1,187 @@
+dev = "Vasek";
+author = $STR_A3_Bohemia_Interactive;
+onLoadName = $STR_A3_Tanks_M03_missionName;
+briefingName = $STR_A3_Tanks_M03_missionName;
+onLoadMission = $STR_A3_Tanks_M03_overviewText;
+overviewText = $STR_A3_Tanks_M03_overviewText;
+overviewPicture = "a3\Missions_F_Tank\data\img\Tanks03_CA.paa";
+overviewPictureUnowned = "a3\Missions_F_Tank\data\img\Tanks03_unowned_CA.paa";
+doneKeys[] = {"tanks_m03.Altis_done"};
+
+class CfgDebriefing
+{
+	class Win01
+	{
+                description = $STR_A3_Tanks_M03_debriefing01;
+                subtitle = "";
+		backgroundPicture = "";
+		picture = "";
+		pictureColor[] = {0.0,0.3,0.6,1};
+	};
+	class Win02 : Win01
+	{
+                description = $STR_A3_Tanks_M03_debriefing02;
+	};
+	class Win03 : Win01
+	{
+                description = $STR_A3_Tanks_M03_debriefing03;
+	};
+	class Fail01 : Win01
+	{
+                description = "";
+                subtitle = $STR_A3_Tanks_M02_debriefing04;
+	};
+};
+
+class cfgFunctions
+{
+	class BIS
+	{
+		class General
+		{
+			file = "\a3\Missions_F_Tacops\Functions";
+			class TO_AS_FadeOutScreen		{};
+			class TO_AS_InitScreen			{};
+			class TO_AS_ShowStaticText		{};
+			class TO_AS_ShowDynamicText		{};
+		};
+	};
+};
+
+class CfgSounds
+{
+	sounds[] = {};
+
+	class M03_Intro_01_01
+	{
+		name = "M03_intro_01_01";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\039_intro\ta_tanks_m03_039_intro_01_01_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Intro_01_02
+	{
+		name = "M03_intro_01_02";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\039_intro\ta_tanks_m03_039_intro_01_02_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Intro_02_01
+	{
+		name = "M03_intro_02_01";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\039_intro\ta_tanks_m03_039_intro_02_01_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Intro_02_02
+	{
+		name = "M03_intro_02_02";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\039_intro\ta_tanks_m03_039_intro_02_02_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Intro_03_01
+	{
+		name = "M03_intro_03_01";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\039_intro\ta_tanks_m03_039_intro_03_01_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Intro_03_02
+	{
+		name = "M03_intro_03_02";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\039_intro\ta_tanks_m03_039_intro_03_02_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Intro_04
+	{
+		name = "M03_intro_04";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\039_intro\ta_tanks_m03_039_intro_04_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_01
+	{
+		name = "M03_Outro_01";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_01_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_01a
+	{
+		name = "M03_Outro_01a";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_01a_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_01b
+	{
+		name = "M03_Outro_01b";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_01b_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_02_01
+	{
+		name = "M03_Outro_02_01";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_02_01_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_02_02
+	{
+		name = "M03_Outro_02_02";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_02_02_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_03a
+	{
+		name = "M03_Outro_03a";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_03a_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_03b
+	{
+		name = "M03_Outro_03b";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_03b_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_04
+	{
+		name = "M03_Outro_04";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_04_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_05
+	{
+		name = "M03_Outro_05";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_05_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_05a
+	{
+		name = "M03_Outro_05a";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_05a_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_05b
+	{
+		name = "M03_Outro_05b";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_05b_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_06a_01
+	{
+		name = "M03_Outro_06a_01";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_06a_01_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_06a_02
+	{
+		name = "M03_Outro_06a_02";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_06a_02_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_06b_01
+	{
+		name = "M03_Outro_06b_01";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_06b_01_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+	class M03_Outro_06b_02
+	{
+		name = "M03_Outro_06b_02";
+		sound[] = {"@A3\Dubbing_F_Tank\ta_tanks_m03\040_outro\ta_tanks_m03_040_outro_06b_02_ARPLAYER_0.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+};

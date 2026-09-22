@@ -1,0 +1,259 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, CheckpointB">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-75.000000,-300.000000,25.000000,-250.000000,0.000000,"Start"};
+item1[] = {"___50m",4,218,-75.000000,-75.000000,25.000000,-25.000000,0.000000,"< 50m"};
+item2[] = {"What_happened_",2,250,-75.000000,0.000000,25.000000,50.000000,0.000000,"What happened?"};
+item3[] = {"Officer_found",4,218,-75.000000,75.000000,25.000000,125.000000,0.000000,"Officer" \n "found"};
+item4[] = {"Respond",2,250,-75.000000,150.000000,25.000000,200.000000,0.000000,"Respond"};
+item5[] = {"_",8,218,-75.000000,225.000000,25.000000,275.000000,0.000000,""};
+item6[] = {"END",1,250,-75.000000,300.000000,25.000000,350.000000,0.000000,"END"};
+item7[] = {"Prev_tasks_unfin",4,218,50.000000,-300.000000,150.000000,-250.000000,1.000000,"Prev tasks" \n "unfinished"};
+item8[] = {"Warning",2,250,50.000000,-225.000000,150.000000,-175.000000,0.000000,"Warning"};
+item9[] = {"Unfinished__too",4,218,50.000000,-150.000000,150.000000,-100.000000,1.000000,"Unfinished," \n "too close"};
+item10[] = {"Disobeying_order",1,250,50.000000,-75.000000,150.000000,-25.000000,0.000000,"Disobeying" \n "orders"};
+item11[] = {"Nearby",4,218,-75.000000,-225.000000,25.000000,-175.000000,0.000000,"Nearby"};
+item12[] = {"Earthquake",2,250,-75.000000,-150.000000,25.000000,-100.000000,0.000000,"Earthquake"};
+link0[] = {0,7};
+link1[] = {0,11};
+link2[] = {1,2};
+link3[] = {2,3};
+link4[] = {3,4};
+link5[] = {4,5};
+link6[] = {5,6};
+link7[] = {7,8};
+link8[] = {8,9};
+link9[] = {8,11};
+link10[] = {9,10};
+link11[] = {11,12};
+link12[] = {12,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,18,6316128,1,-523.428223,523.427246,389.492889,-359.646729,1403,1004,1};
+window[] = {2,-1,-1,-1,-1,1109,260,1700,260,3,1421};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "CheckpointB";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Prev_tasks_unfin">*/
+                                class Prev_tasks_unfin
+                                {
+                                        itemno = 7;
+                                        priority = 1.000000;
+                                        to="Warning";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((vehicle BIS_ARPlayer) distance2D BIS_Camp < 600) and" \n
+                                         "{(""BIS_tskForest"" call BIS_fnc_taskState != ""Succeeded"")}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Nearby">*/
+                                class Nearby
+                                {
+                                        itemno = 11;
+                                        priority = 0.000000;
+                                        to="Earthquake";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(vehicle BIS_ARPlayer) distance2D BIS_Camp < 400" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "What_happened_">*/
+                class What_happened_
+                {
+                        name = "What_happened_";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"if (alive BIS_ARDriver) then {" \n
+                         "	""CheckpointB_Close"" spawn BIS_fnc_missionConversations;" \n
+                         "} else {" \n
+                         "	""CheckpointB_CloseAlone"" spawn BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         "" \n
+                         "// playMusic ""AmbientTrack01_F_EPB"";" \n
+                         "playMusic ""AmbientTrack01_F_Tank"";" \n
+                         "0 fadeMusic 0.75;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Officer_found">*/
+                                class Officer_found
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Respond";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(BIS_ARPlayer distance2D BIS_LeaderB < 5) and" \n
+                                         "{(vehicle BIS_ARPlayer == BIS_ARPlayer)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Respond">*/
+                class Respond
+                {
+                        name = "Respond";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"{_x setMarkerColor ""ColorGrey""} forEach [" \n
+                         "	""BIS_mrkCheckpointB""," \n
+                         "	""BIS_mrkCheckpointBArea""" \n
+                         "];" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 2;" \n
+                         "	""CheckpointB_Report"" call BIS_fnc_missionConversations;" \n
+                         "" \n
+                         "	[""BIS_tskCheckpointB"",""Canceled""] call BIS_fnc_missionTasks;" \n
+                         "	/*" \n
+                         "	if (!(""BIS_tskCheckpointA"" call BIS_fnc_taskState == ""Succeeded"") and !(""BIS_tskForest"" call BIS_fnc_taskExists)) then {[""BIS_tskCheckpointA"",""Current""] call BIS_fnc_missionTasks};" \n
+                         "	if ((""BIS_tskForest"" call BIS_fnc_taskExists) and (!(""BIS_tskForest"" call BIS_fnc_taskState == ""Succeeded""))) then {[""BIS_tskForest"",""Current""] call BIS_fnc_missionTasks};" \n
+                         "	*/" \n
+                         "	[""BIS_tskRTB"",""Current""] call BIS_fnc_missionTasks;" \n
+                         "	10 fadeMusic 0;" \n
+                         "	sleep 12;" \n
+                         "	playMusic """";" \n
+                         "	0 fadeMusic 0.5;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END">*/
+                class END
+                {
+                        name = "END";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Warning">*/
+                class Warning
+                {
+                        name = "Warning";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"""Desertion_Warning"" spawn BIS_fnc_missionConversations;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Unfinished__too">*/
+                                class Unfinished__too
+                                {
+                                        itemno = 9;
+                                        priority = 1.000000;
+                                        to="Disobeying_order";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((vehicle BIS_ARPlayer) distance2D BIS_Camp < 450) and" \n
+                                         "{(""BIS_tskForest"" call BIS_fnc_taskState != ""Succeeded"")}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Nearby">*/
+                                class Nearby
+                                {
+                                        itemno = 11;
+                                        priority = 0.000000;
+                                        to="Earthquake";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(vehicle BIS_ARPlayer) distance2D BIS_Camp < 400" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Disobeying_order">*/
+                class Disobeying_order
+                {
+                        name = "Disobeying_order";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	""Insubordination"" call BIS_fnc_missionConversations;" \n
+                         "	BIS_Fail = true;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Earthquake">*/
+                class Earthquake
+                {
+                        name = "Earthquake";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	1 spawn BIS_fnc_earthquake;" \n
+                         "	sleep 2.5;" \n
+                         "	if (alive BIS_ARDriver) then {" \n
+                         "		""Earthquake"" spawn BIS_fnc_missionConversations" \n
+                         "	} else {" \n
+                         "		""EarthquakeAlone"" spawn BIS_fnc_missionConversations" \n
+                         "	};" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "___50m">*/
+                                class ___50m
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="What_happened_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(vehicle BIS_ARPlayer) distance2D BIS_Camp < 50" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "END",
+                "Disobeying_order",
+        };
+};
+/*%FSM</COMPILE>*/

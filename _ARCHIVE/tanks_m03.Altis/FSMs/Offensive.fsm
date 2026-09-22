@@ -1,0 +1,531 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Offensive">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-75.000000,-150.000000,25.000000,-100.000000,0.000000,"Start"};
+item1[] = {"Timeout_or_nearby",4,218,-75.000000,-75.000000,25.000000,-25.000000,0.000000,"Timeout or" \n "nearby front"};
+item2[] = {"__st_wave",2,250,-75.000000,0.000000,25.000000,50.000000,0.000000,"1st" \n "wave"};
+item3[] = {"Timeout_or_1st_wave",4,218,-75.000000,75.000000,25.000000,125.000000,0.000000,"Timeout or" \n "1st wave KO"};
+item4[] = {"__nd_wave",2,250,-75.000000,150.000000,25.000000,200.000000,0.000000,"2nd wave"};
+item5[] = {"Timeout_or_2nd_wave",4,218,-75.000000,225.000000,25.000000,275.000000,0.000000,"Timeout or" \n "2nd wave KO"};
+item6[] = {"__rd_wave",2,250,-75.000000,300.000000,25.000000,350.000000,0.000000,"3rd wave"};
+item7[] = {"All_destroyed",4,218,-75.000000,375.000000,25.000000,425.000000,5.000000,"All destroyed"};
+item8[] = {"END",1,250,-75.000000,450.000000,25.000000,500.000000,0.000000,"END"};
+item9[] = {"Wave__01",2,250,75.000000,150.000000,175.000000,200.000000,0.000000,"Wave" \n "#01"};
+item10[] = {"Timeout_or_defea",4,4314,75.000000,225.000000,175.000000,275.000000,0.000000,"Timeout" \n "or defeated"};
+item11[] = {"Wave__02",2,250,75.000000,300.000000,175.000000,350.000000,0.000000,"Wave" \n "#02"};
+item12[] = {"All_destroyed",4,218,75.000000,450.000000,175.000000,500.000000,0.000000,"All destroyed"};
+item13[] = {"",7,210,121.000000,-54.000000,129.000000,-46.000000,0.000000,""};
+item14[] = {"Prelude",2,250,75.000000,0.000000,175.000000,50.000000,0.000000,"Prelude"};
+item15[] = {"Time_to_strike",4,218,75.000000,75.000000,175.000000,125.000000,0.000000,"Time to" \n "strike"};
+item16[] = {"____FAKE____",9,0,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+link0[] = {0,1};
+link1[] = {1,13};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,7};
+link7[] = {9,10};
+link8[] = {10,11};
+link9[] = {11,12};
+link10[] = {12,8};
+link11[] = {13,14};
+link12[] = {14,15};
+link13[] = {15,9};
+link14[] = {7,16};
+globals[] = {0.000000,0,0,0,0,640,480,1,23,6316128,1,-283.352051,727.147888,655.411377,-67.196930,1404,1004,1};
+window[] = {2,-1,-1,-1,-1,1057,2128,3568,208,3,1422};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Offensive";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 30;" \n
+                         "	// Mortar fire at the hills, at our ""infantry""" \n
+                         "	_barrage01 = [""BIS_mrkInfantry01"",""Sh_82mm_AMOS"",150,40,[5,6],nil,nil,nil,nil,[""mortar1"",""mortar2""]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "	_barrage02 = [""BIS_mrkInfantry02"",""Sh_82mm_AMOS"",150,40,[5,6],nil,nil,nil,nil,[""mortar1"",""mortar2""]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "	// Mortar barrage at the eastern line" \n
+                         "	_barrageEast01 = [""BIS_mrkEast02"",""Sh_82mm_AMOS"",200,40,[5,6]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout_or_nearby">*/
+                                class Timeout_or_nearby
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Prelude";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(time > _t + 180)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__st_wave">*/
+                class __st_wave
+                {
+                        name = "__st_wave";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	// {_x enableSimulation true} forEach [BIS_A10_01,BIS_A10_01Pilot,BIS_A10_02,BIS_A10_02Pilot,BIS_A10_03,BIS_A10_03Pilot];" \n
+                         "	// _null = BIS_A10_01 execFSM ""FSMs\Warthog.fsm"";" \n
+                         "	// _null = BIS_A10_02 execFSM ""FSMs\Warthog.fsm"";" \n
+                         "	// _null = BIS_A10_03 execFSM ""FSMs\Warthog.fsm"";" \n
+                         "" \n
+                         "	// (group BIS_A10_01Pilot) copyWaypoints BIS_grpJetAttack;" \n
+                         "	// (group BIS_A10_02Pilot) copyWaypoints BIS_grpJetAttack;" \n
+                         "	// (group BIS_A10_03Pilot) copyWaypoints BIS_grpJetAttack;" \n
+                         "" \n
+                         "	""ETanksSpotted"" call BIS_fnc_missionConversations;" \n
+                         "	BIS_Infantry = true;" \n
+                         "	BIS_Victim01 setDamage 1;" \n
+                         "	sleep 15;" \n
+                         "	BIS_Victim02 setDamage 1;" \n
+                         "	BIS_Wave01 = true;" \n
+                         "	sleep 15;" \n
+                         "	// {_x setMarkerColor ""ColorGrey""} forEach [""BIS_mrkInfantry01"",""BIS_mrkInfantry02"",""BIS_mrkInfantry03""];" \n
+                         "	""Passed"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 5;" \n
+                         "	// First savegame" \n
+                         "	saveGame;" \n
+                         "	sleep 10;" \n
+                         "	""Incoming"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 1;" \n
+                         "	// Mortar at the first defense line" \n
+                         "	_barrage03 = [""BIS_mrkLine01"",""Sh_82mm_AMOS"",200,12,[4,6],nil,30,nil,nil,[""mortar1"",""mortar2""]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "	// Mortar at player's position - with a safezone" \n
+                         "	_barrage04 = [(vehicle BIS_ARPlayer),""Sh_82mm_AMOS"",75,4,[2,3],nil,50,nil,nil,[""mortar1"",""mortar2""]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "	// Mortar smoke to cover AFVs approach" \n
+                         "	_barrageSmoke = [""BIS_mrkSmoke"",""Smoke_82mm_AMOS_White"",35,8,[4,6]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "	// Mortar barrage at the eastern line" \n
+                         "	_barrageEast01 = [""BIS_mrkEast02"",""Sh_82mm_AMOS"",200,40,[4,6]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "" \n
+                         "	// Create laser target at player's vehicle to get some clusters" \n
+                         "	// BIS_Laser = ""LaserTargetW"" createVehicle [10,10,10];" \n
+                         "	// BIS_Laser attachTo [BIS_Tank,[0,-1.75,0.25]];" \n
+                         "" \n
+                         "	sleep 10;" \n
+                         "	// Aerial bombardment 01 - Brrrrrrt x2" \n
+                         "	_logic01 = createagent [""Logic"",getMarkerPos ""BIS_mrkAirRaid01"",[],0,""none""];" \n
+                         "	_logic01 setDir 90;" \n
+                         "	_logic01 setVariable [""Type"",0];" \n
+                         "	_logic01 setVariable [""Vehicle"",""B_Plane_CAS_01_F""];" \n
+                         "	_cas01 = [_logic01,[],true] spawn bis_fnc_moduleCAS;" \n
+                         "" \n
+                         "	sleep 5;" \n
+                         "	_logic02 = createagent [""Logic"",getMarkerPos ""BIS_mrkAirRaid02"",[],0,""none""];" \n
+                         "	_logic02 setDir 95;" \n
+                         "	_logic02 setVariable [""Type"",0];" \n
+                         "	_logic02 setVariable [""Vehicle"",""B_Plane_CAS_01_F""];" \n
+                         "	_cas02 = [_logic02,[],true] spawn bis_fnc_moduleCAS;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout_or_1st_wave">*/
+                                class Timeout_or_1st_wave
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="__nd_wave";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(time > _t + 60) or" \n
+                                         "({(canFire _x) and (canMove _x)} count [" \n
+                                         "	BIS_Armor0A," \n
+                                         "	BIS_Armor01," \n
+                                         "	BIS_Armor02" \n
+                                         "] == 0)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__nd_wave">*/
+                class __nd_wave
+                {
+                        name = "__nd_wave";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "" \n
+                         "BIS_Wave02 = true;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 40;" \n
+                         "	_barrageEast02 = [""BIS_mrkEast02"",""Sh_82mm_AMOS"",200,20,[4,6]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "	""ETanksDestroyed"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 20;" \n
+                         "	""ArtemisDestroyed"" call BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         "/*" \n
+                         "[] spawn {" \n
+                         "	sleep 100;" \n
+                         "	BIS_Armor05 setPos (getMarkerPos ""BIS_mrkAAPos"");" \n
+                         "	(group (driver BIS_Armor05)) copyWaypoints BIS_grpAAWP;" \n
+                         "};" \n
+                         "*/" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout_or_2nd_wave">*/
+                                class Timeout_or_2nd_wave
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="__rd_wave";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(time > _t + 120) or" \n
+                                         "({(canFire _x) and (canMove _x)} count [" \n
+                                         "	BIS_Armor0A," \n
+                                         "	BIS_Armor0B," \n
+                                         "	BIS_Armor01," \n
+                                         "	BIS_Armor02," \n
+                                         "	BIS_Armor03," \n
+                                         "	BIS_Armor04," \n
+                                         "	BIS_Armor05" \n
+                                         "] == 0)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__rd_wave">*/
+                class __rd_wave
+                {
+                        name = "__rd_wave";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "" \n
+                         "{_x enableSimulation true} forEach (units BIS_grpArmor00);" \n
+                         "{_x enableSimulation true} forEach [BIS_Armor0C,BIS_Armor0D];" \n
+                         "" \n
+                         "BIS_Armor0C setPos (getMarkerPos ""BIS_mrkArmorPos01"");" \n
+                         "BIS_Armor0D setPos (getMarkerPos ""BIS_mrkArmorPos02"");" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 40;" \n
+                         "	BIS_grpArmor00 copyWaypoints BIS_grpEasternAttackWP;" \n
+                         "	""EnemyFlanking"" spawn BIS_fnc_missionConversations;" \n
+                         "	{_x setMarkerColor ""ColorGrey""} forEach [""BIS_mrkEast01"",""BIS_mrkEast02""];" \n
+                         "	{_x setMarkerAlpha 1} forEach [""BIS_mrkEastAttack01"",""BIS_mrkEastAttack02""];" \n
+                         "	// sleep 30;" \n
+                         "	// Aerial bombardment 02 - Cluster" \n
+                         "	_logic03 = createagent [""Logic"",getMarkerPos ""BIS_mrkAirRaid03"",[],0,""none""];" \n
+                         "	_logic03 setDir 85;" \n
+                         "	_logic03 setVariable [""Type"",3];" \n
+                         "	_logic03 setVariable [""Vehicle"",""B_Plane_CAS_01_Cluster_F""];" \n
+                         "	_cas03 = [_logic03,[],true] spawn bis_fnc_moduleCAS;" \n
+                         "	// mortar barrage at the second defense line" \n
+                         "	// _barrage05 = [""BIS_mrkLine02"",""Sh_82mm_AMOS"",200,12,[4,6],nil,nil,nil,nil,[""mortar1"",""mortar2""]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "All_destroyed">*/
+                                class All_destroyed
+                                {
+                                        itemno = 7;
+                                        priority = 5.000000;
+                                        to="____FAKE____";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{(canFire _x) and (canMove _x)} count [" \n
+                                         "	BIS_Armor0C," \n
+                                         "	BIS_Armor0D" \n
+                                         "] == 0" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END">*/
+                class END
+                {
+                        name = "END";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	{_x setDamage 1} forEach (" \n
+                         "		units BIS_grpRooikat01 +" \n
+                         "		units BIS_grpRooikat02 +" \n
+                         "		units BIS_grpTanks01 +" \n
+                         "		units BIS_grpTanks02" \n
+                         "	);" \n
+                         "	sleep 10;" \n
+                         "	BIS_Defended = true;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Wave__01">*/
+                class Wave__01
+                {
+                        name = "Wave__01";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "/*" \n
+                         "	// Aerial bombardment 01 - Brrrrrrt x2" \n
+                         "	_logic01 = createagent [""Logic"",getMarkerPos ""BIS_mrkAirRaid01"",[],0,""none""];" \n
+                         "	_logic01 setDir 90;" \n
+                         "	_logic01 setVariable [""Type"",0];" \n
+                         "	_logic01 setVariable [""Vehicle"",""B_Plane_CAS_01_F""];" \n
+                         "	_cas01 = [_logic01,[],true] spawn bis_fnc_moduleCAS;" \n
+                         "" \n
+                         "	sleep 5;" \n
+                         "	_logic02 = createagent [""Logic"",getMarkerPos ""BIS_mrkAirRaid02"",[],0,""none""];" \n
+                         "	_logic02 setDir 95;" \n
+                         "	_logic02 setVariable [""Type"",0];" \n
+                         "	_logic02 setVariable [""Vehicle"",""B_Plane_CAS_01_F""];" \n
+                         "	_cas02 = [_logic02,[],true] spawn bis_fnc_moduleCAS;" \n
+                         "*/" \n
+                         "	// Slammers and Cheetah moving to the first line" \n
+                         "" \n
+                         "	BIS_Slammer01 setPos (getMarkerPos ""BIS_mrkTankPos01"");" \n
+                         "	BIS_Slammer02 setPos (getMarkerPos ""BIS_mrkTankPos02"");" \n
+                         "	BIS_Slammer03 setPos (getMarkerPos ""BIS_mrkTankPos03"");" \n
+                         "	BIS_Cheetah01 setPos (getMarkerPos ""BIS_mrkTankPos04"");" \n
+                         "" \n
+                         "	{_x enableSimulation true} forEach [BIS_Cheetah01,BIS_Slammer01,BIS_Slammer02,BIS_Slammer03];" \n
+                         "	{_x enableSimulation true} forEach (units BIS_grpTanks01);" \n
+                         "" \n
+                         "	BIS_SendMBT = true;" \n
+                         "	_mgsTime = time;" \n
+                         "" \n
+                         "	// Rooikats moving to the hilltop" \n
+                         "	waitUntil {!(isNil {BIS_SendMGS}) or (time > _mgsTime + 75)};" \n
+                         "	sleep 15 + (random 10);" \n
+                         "	BIS_Rooikat01 setPos (getMarkerPos ""BIS_mrkRooikat01Pos"");" \n
+                         "	BIS_Rooikat02 setPos (getMarkerPos ""BIS_mrkRooikat02Pos"");" \n
+                         "	BIS_grpRooikat01 copyWaypoints BIS_grpRooikat01WP;" \n
+                         "	BIS_grpRooikat02 copyWaypoints BIS_grpRooikat02WP;" \n
+                         "	{(leader BIS_grpRooikat01) reveal _x} forEach (units BIS_grpFirstLine);" \n
+                         "	{(leader BIS_grpRooikat02) reveal _x} forEach (units BIS_grpFirstLine);" \n
+                         "" \n
+                         "	// Aerial attack" \n
+                         "	{_x enableSimulation true} forEach [BIS_A10_01,BIS_A10_01Pilot,BIS_A10_02,BIS_A10_02Pilot];" \n
+                         "	_null = BIS_A10_01 execFSM ""FSMs\Warthog.fsm"";" \n
+                         "	_null = BIS_A10_02 execFSM ""FSMs\Warthog.fsm"";" \n
+                         "" \n
+                         "	(group BIS_A10_01Pilot) copyWaypoints BIS_grpJetAttack;" \n
+                         "	(group BIS_A10_02Pilot) copyWaypoints BIS_grpJetAttack;" \n
+                         "};" \n
+                         "/*" \n
+                         "[] spawn {" \n
+                         "	// Confirm enemy vehicles as remote targets" \n
+                         "	sleep 20;" \n
+                         "	resistance reportRemoteTarget [BIS_Slammer01,9999];" \n
+                         "	BIS_Slammer01 confirmSensorTarget [resistance,true];" \n
+                         "	sleep 2 + (random 2);" \n
+                         "	resistance reportRemoteTarget [BIS_Slammer02,9999];" \n
+                         "	BIS_Slammer02 confirmSensorTarget [resistance,true];" \n
+                         "	sleep 2 + (random 2);" \n
+                         "	resistance reportRemoteTarget [BIS_Slammer03,9999];" \n
+                         "	BIS_Slammer03 confirmSensorTarget [resistance,true];" \n
+                         "	sleep 2 + (random 2);" \n
+                         "	resistance reportRemoteTarget [BIS_Cheetah01,9999];" \n
+                         "	BIS_Cheetah01 confirmSensorTarget [resistance,true];" \n
+                         "	waitUntil {!(isNil {BIS_SendMGS})};" \n
+                         "	resistance reportRemoteTarget [BIS_Rooikat01,9999];" \n
+                         "	BIS_Rooikat01 confirmSensorTarget [resistance,true];" \n
+                         "	sleep 2;" \n
+                         "	resistance reportRemoteTarget [BIS_Rooikat02,9999];" \n
+                         "	BIS_Rooikat02 confirmSensorTarget [resistance,true];" \n
+                         "};" \n
+                         "*/" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout_or_defea">*/
+                                class Timeout_or_defea
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="Wave__02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(time > (_t + 240)) or" \n
+                                         "({(canFire _x) and (canMove _x)} count [" \n
+                                         "	BIS_Rooikat01," \n
+                                         "	BIS_Rooikat02," \n
+                                         "	BIS_Slammer01," \n
+                                         "	BIS_Slammer02," \n
+                                         "	BIS_Slammer03," \n
+                                         "	BIS_Cheetah01" \n
+                                         "] == 0)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Wave__02">*/
+                class Wave__02
+                {
+                        name = "Wave__02";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	_barrageEast02 = [""BIS_mrkEast02"",""Sh_82mm_AMOS"",200,20,[4,6]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "	""ETanksDestroyed"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 10;" \n
+                         "	""ArtemisDestroyed"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 5;" \n
+                         "	""EnemyFlanking"" spawn BIS_fnc_missionConversations;" \n
+                         "	{_x setMarkerColor ""ColorGrey""} forEach [""BIS_mrkEast01"",""BIS_mrkEast02""];" \n
+                         "	{_x setMarkerAlpha 1} forEach [""BIS_mrkEastAttack01"",""BIS_mrkEastAttack02""];" \n
+                         "	{_x enableSimulation true} forEach [BIS_Slammer04,BIS_Slammer05];" \n
+                         "	{_x enableSimulation true} forEach (units BIS_grpTanks02);" \n
+                         "	BIS_Slammer04 setPos (getMarkerPos ""BIS_mrkArmorPos01"");" \n
+                         "	BIS_Slammer05 setPos (getMarkerPos ""BIS_mrkArmorPos02"");" \n
+                         "	BIS_grpTanks02 copyWaypoints BIS_grpEasternAttackWP;" \n
+                         "" \n
+                         "	//Safety mechanism to auto-destroy the MGS vehicles, in case they were missed" \n
+                         "	//Delays to fake an actual AI attack on them" \n
+                         "	sleep 15;" \n
+                         "" \n
+                         "	if ((canFire BIS_Rooikat01) || (canMove BIS_Rooikat01)) then {BIS_Rooikat01 setDamage 1;};" \n
+                         "" \n
+                         "	sleep 25;" \n
+                         "" \n
+                         "	if ((canFire BIS_Rooikat02) || (canMove BIS_Rooikat02)) then {BIS_Rooikat02 setDamage 1;};" \n
+                         "" \n
+                         "	// Aerial bombardment 02 - Cluster" \n
+                         "/*" \n
+                         "	_logic03 = createagent [""Logic"",getMarkerPos ""BIS_mrkAirRaid03"",[],0,""none""];" \n
+                         "	_logic03 setDir 85;" \n
+                         "	_logic03 setVariable [""Type"",3];" \n
+                         "	_logic03 setVariable [""Vehicle"",""B_Plane_CAS_01_Cluster_F""];" \n
+                         "	_cas03 = [_logic03,[],true] spawn bis_fnc_moduleCAS;" \n
+                         "*/" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "All_destroyed">*/
+                                class All_destroyed
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"{(canFire _x) and (canMove _x)} count [" \n
+                                         "	BIS_Rooikat01," \n
+                                         "	BIS_Rooikat02," \n
+                                         "	BIS_Slammer01," \n
+                                         "	BIS_Slammer02," \n
+                                         "	BIS_Slammer03," \n
+                                         "	BIS_Slammer04," \n
+                                         "	BIS_Slammer05," \n
+                                         "	BIS_Cheetah01" \n
+                                         "] == 0" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Prelude">*/
+                class Prelude
+                {
+                        name = "Prelude";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/"_prelude = [] spawn {" \n
+                         "	BIS_Victim01 setDamage 1;" \n
+                         "	0 fadeMusic 0;" \n
+                         "	playMusic ""LeadTrack02_F_Tank"";" \n
+                         "	7.5 fadeMusic 0.75;" \n
+                         "	""ETanksSpotted"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 15;" \n
+                         "	// Send infantry already - it takes them some time to get into the combat" \n
+                         "	BIS_Infantry = true;" \n
+                         "	BIS_Victim02 setDamage 1;" \n
+                         "	sleep 10;" \n
+                         "	""Passed"" call BIS_fnc_missionConversations;" \n
+                         "	9 fadeMusic 0;" \n
+                         "	sleep 10;" \n
+                         "	// First savegame" \n
+                         "	saveGame;" \n
+                         "	sleep 5;" \n
+                         "	playMusic """";" \n
+                         "	0 fadeMusic 0.5;" \n
+                         "	""Incoming"" spawn BIS_fnc_missionConversations;" \n
+                         "	// Mortar at the first defense line" \n
+                         "	_barrage03 = [""BIS_mrkLine01"",""Sh_82mm_AMOS"",200,10,[4,6],nil,30,nil,nil,[""mortar1"",""mortar2""]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "	// Mortar at player's position - with a safezone" \n
+                         "	_barrage04 = [(vehicle BIS_ARPlayer),""Sh_82mm_AMOS"",75,6,[2,3],nil,50,nil,nil,[""mortar1"",""mortar2""]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "	// Mortar smoke to cover AFVs approach" \n
+                         "	_barrageSmoke = [""BIS_mrkSmoke"",""Smoke_82mm_AMOS_White"",35,10,[6,8]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "	// Mortar barrage at the eastern line" \n
+                         "	_barrageEast02 = [""BIS_mrkEast02"",""Sh_82mm_AMOS"",200,40,[4,6]] spawn BIS_fnc_fireSupportVirtual;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Time_to_strike">*/
+                                class Time_to_strike
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="Wave__01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _prelude" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "____FAKE____">*/
+                class ____FAKE____
+                {
+                        name = "____FAKE____";
+                        itemno = 16;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "END",
+        };
+};
+/*%FSM</COMPILE>*/

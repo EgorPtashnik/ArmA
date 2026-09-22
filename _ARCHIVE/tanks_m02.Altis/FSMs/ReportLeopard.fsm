@@ -1,0 +1,298 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, ReportLeopard">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,50.000000,-75.000000,150.000000,-25.000000,0.000000,"Start"};
+item1[] = {"",7,210,95.999992,-4.000000,104.000008,4.000000,0.000000,""};
+item2[] = {"",7,210,95.999992,21.000000,104.000008,29.000000,0.000000,""};
+item3[] = {"END",1,250,50.000000,125.000000,150.000000,175.000000,0.000000,"END"};
+item4[] = {"KIA",4,218,50.000000,50.000000,150.000000,100.000000,10.000000,"KIA"};
+item5[] = {"Disabled",4,218,-75.000000,50.000000,25.000000,100.000000,5.000000,"Disabled"};
+item6[] = {"",7,210,-29.000000,196.000000,-21.000000,204.000000,0.000000,""};
+item7[] = {"Report_01",2,250,-75.000000,125.000000,25.000000,175.000000,0.000000,"Report" \n "01"};
+item8[] = {"",7,210,-29.000000,21.000000,-21.000000,29.000000,0.000000,""};
+item9[] = {"_",8,218,-200.000000,50.000000,-100.000000,100.000000,0.000000,""};
+item10[] = {"Set_timer",2,250,-200.000000,125.000000,-100.000000,175.000000,0.000000,"Set timer"};
+item11[] = {"Timeout_5sec",4,218,-325.000000,125.000000,-225.000000,175.000000,0.000000,"Timeout" \n "5sec"};
+item12[] = {"Nothing",2,250,-325.000000,50.000000,-225.000000,100.000000,0.000000,"Nothing"};
+item13[] = {"",7,210,-153.999893,21.000000,-146.000107,29.000000,0.000000,""};
+item14[] = {"",7,210,-341.499878,196.000000,-333.500122,204.000000,0.000000,""};
+item15[] = {"",7,210,-341.499878,-4.000000,-333.500122,4.000000,0.000000,""};
+item16[] = {"",7,210,-278.999878,-4.000000,-271.000122,4.000000,0.000000,""};
+item17[] = {"City_captured",4,218,175.000000,50.000000,275.000000,100.000000,15.000000,"City" \n "captured"};
+item18[] = {"END_1",1,250,175.000000,125.000000,275.000000,175.000000,0.000000,"END"};
+item19[] = {"",7,210,221.000000,21.000000,229.000000,29.000000,0.000000,""};
+item20[] = {"____FAKE____",9,0,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,4};
+link3[] = {2,8};
+link4[] = {2,19};
+link5[] = {4,3};
+link6[] = {5,7};
+link7[] = {6,14};
+link8[] = {7,6};
+link9[] = {8,5};
+link10[] = {9,10};
+link11[] = {10,11};
+link12[] = {11,12};
+link13[] = {12,16};
+link14[] = {13,8};
+link15[] = {13,9};
+link16[] = {14,15};
+link17[] = {15,16};
+link18[] = {16,1};
+link19[] = {17,18};
+link20[] = {19,17};
+link21[] = {20,9};
+globals[] = {0.000000,0,0,0,0,640,480,1,83,6316128,1,-383.588562,547.587463,401.563538,-264.320129,1404,1004,1};
+window[] = {2,-1,-1,-1,-1,1109,260,1700,260,3,1422};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "ReportLeopard";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"// Apply the FSM on a MBT" \n
+                         "" \n
+                         "// Params" \n
+                         "params" \n
+                         "[" \n
+                         "	[""_vehicle"",objNull,[objNull]]," \n
+                         "	[""_call01"","""",[""""]]," \n
+                         "	[""_call02"","""",[""""]]" \n
+                         "];" \n
+                         "" \n
+                         "_called01 = false;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "City_captured">*/
+                                class City_captured
+                                {
+                                        itemno = 17;
+                                        priority = 15.000000;
+                                        to="END_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_DoridaFree" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "KIA">*/
+                                class KIA
+                                {
+                                        itemno = 4;
+                                        priority = 10.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"damage _vehicle == 1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Disabled">*/
+                                class Disabled
+                                {
+                                        itemno = 5;
+                                        priority = 5.000000;
+                                        to="Report_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!((canMove _vehicle) and (canFire _vehicle)) and" \n
+                                         "{!(_called01)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END">*/
+                class END
+                {
+                        name = "END";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/"_call02 spawn BIS_fnc_missionConversations;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Report_01">*/
+                class Report_01
+                {
+                        name = "Report_01";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"_called01 = true;" \n
+                         "" \n
+                         "// Will call only once when disabled, firepower has a priority" \n
+                         "_call01 spawn BIS_fnc_missionConversations;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "City_captured">*/
+                                class City_captured
+                                {
+                                        itemno = 17;
+                                        priority = 15.000000;
+                                        to="END_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_DoridaFree" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "KIA">*/
+                                class KIA
+                                {
+                                        itemno = 4;
+                                        priority = 10.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"damage _vehicle == 1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Disabled">*/
+                                class Disabled
+                                {
+                                        itemno = 5;
+                                        priority = 5.000000;
+                                        to="Report_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!((canMove _vehicle) and (canFire _vehicle)) and" \n
+                                         "{!(_called01)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Set_timer">*/
+                class Set_timer
+                {
+                        name = "Set_timer";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout_5sec">*/
+                                class Timeout_5sec
+                                {
+                                        itemno = 11;
+                                        priority = 0.000000;
+                                        to="Nothing";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 5" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Nothing">*/
+                class Nothing
+                {
+                        name = "Nothing";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "City_captured">*/
+                                class City_captured
+                                {
+                                        itemno = 17;
+                                        priority = 15.000000;
+                                        to="END_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_DoridaFree" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "KIA">*/
+                                class KIA
+                                {
+                                        itemno = 4;
+                                        priority = 10.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"damage _vehicle == 1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Disabled">*/
+                                class Disabled
+                                {
+                                        itemno = 5;
+                                        priority = 5.000000;
+                                        to="Report_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!((canMove _vehicle) and (canFire _vehicle)) and" \n
+                                         "{!(_called01)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END_1">*/
+                class END_1
+                {
+                        name = "END_1";
+                        itemno = 18;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "____FAKE____">*/
+                class ____FAKE____
+                {
+                        name = "____FAKE____";
+                        itemno = 20;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Set_timer";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "END",
+                "END_1",
+        };
+};
+/*%FSM</COMPILE>*/

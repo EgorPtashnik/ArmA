@@ -1,0 +1,408 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, missionFlow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-50.000000,-800.000000,50.000000,-750.000000,0.000000,"Start"};
+item1[] = {"Timer",4,218,-50.000000,-575.000000,50.000000,-525.000000,0.000000,"Timer"};
+item2[] = {"Opening__exec_all",2,250,-50.000000,-500.000000,50.000000,-450.000000,0.000000,"Opening," \n "exec all the" \n "FSMs"};
+item3[] = {"All_tasks_DONE",4,218,-50.000000,-275.000000,50.000000,-225.000000,0.000000,"All tasks" \n "DONE"};
+item4[] = {"Friendly_fire",4,218,75.000000,-275.000000,175.000000,-225.000000,0.000000,"Friendly" \n "fire"};
+item5[] = {"Disobeying_order",4,218,200.000000,-275.000000,300.000000,-225.000000,0.000000,"Disobeying" \n "orders"};
+item6[] = {"Wiesel_KO",4,218,325.000000,-275.000000,425.000000,-225.000000,0.000000,"Wiesel KO"};
+item7[] = {"",7,210,121.000000,-329.000000,129.000000,-321.000000,0.000000,""};
+item8[] = {"",7,210,246.000000,-329.000000,254.000000,-321.000000,0.000000,""};
+item9[] = {"",7,210,371.000000,-329.000000,379.000000,-321.000000,0.000000,""};
+item10[] = {"FAIL_FF",1,250,75.000000,-200.000000,175.000000,-150.000000,0.000000,"FAIL" \n "FF"};
+item11[] = {"FAIL_01",1,250,200.000000,-200.000000,300.000000,-150.000000,0.000000,"FAIL" \n "01"};
+item12[] = {"FAIL_02",1,250,325.000000,-200.000000,425.000000,-150.000000,0.000000,"FAIL" \n "02"};
+item13[] = {"WIN",1,250,-50.000000,-200.000000,50.000000,-150.000000,0.000000,"WIN"};
+item14[] = {"Original_tasks_d",4,218,-50.000000,-425.000000,50.000000,-375.000000,0.000000,"Original" \n "tasks done"};
+item15[] = {"FIA_in_village",2,250,-50.000000,-350.000000,50.000000,-300.000000,0.000000,"FIA in" \n "village"};
+item16[] = {"",7,210,121.000000,-479.000000,129.000000,-471.000000,0.000000,""};
+item17[] = {"Intro",4,218,75.000000,-800.000000,175.000000,-750.000000,666.000000,"Intro"};
+item18[] = {"TERMINATE",1,250,200.000000,-800.000000,300.000000,-750.000000,0.000000,"TERMINATE"};
+item19[] = {"_",8,218,-50.000000,-725.000000,50.000000,-675.000000,0.000000,""};
+item20[] = {"Variables__FSMs",2,250,-50.000000,-650.000000,50.000000,-600.000000,0.000000,"Variables," \n "FSMs etc."};
+item21[] = {"____FAKE____",9,0,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+link0[] = {0,17};
+link1[] = {0,19};
+link2[] = {1,2};
+link3[] = {2,14};
+link4[] = {2,16};
+link5[] = {3,13};
+link6[] = {4,10};
+link7[] = {5,11};
+link8[] = {6,12};
+link9[] = {7,8};
+link10[] = {8,5};
+link11[] = {8,9};
+link12[] = {9,6};
+link13[] = {14,15};
+link14[] = {15,3};
+link15[] = {15,7};
+link16[] = {16,7};
+link17[] = {17,18};
+link18[] = {19,20};
+link19[] = {20,1};
+link20[] = {21,4};
+globals[] = {0.000000,0,0,0,0,640,480,1,139,6316128,1,-258.540131,735.123657,-121.740662,-833.322937,1402,1004,1};
+window[] = {2,-1,-1,-1,-1,953,104,1544,104,3,1420};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "missionFlow";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Intro">*/
+                                class Intro
+                                {
+                                        itemno = 17;
+                                        priority = 666.000000;
+                                        to="TERMINATE";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(side (group player)) == civilian" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="Variables__FSMs";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Opening__exec_all">*/
+                class Opening__exec_all
+                {
+                        name = "Opening__exec_all";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"0 fadeMusic 0.75;" \n
+                         "playMusic ""LeadTrack01_F_EPA"";" \n
+                         "" \n
+                         "execFSM ""FSMs\Wiesel.fsm"";" \n
+                         "execFSM ""FSMs\Equipment.fsm"";" \n
+                         "/*" \n
+                         "execFSM ""FSMs\CheckpointA.fsm"";" \n
+                         "execFSM ""FSMs\CheckpointB.fsm"";" \n
+                         "execFSM ""FSMs\CollateralDamage.fsm"";" \n
+                         "execFSM ""FSMs\Maintenance.fsm"";" \n
+                         "execFSM ""FSMs\Village.fsm"";" \n
+                         "execFSM ""FSMs\AO.fsm"";" \n
+                         "execFSM ""FSMs\Conversations.fsm"";" \n
+                         "*/" \n
+                         "" \n
+                         "// Initial conversations" \n
+                         "[] spawn {" \n
+                         "	""Prologue"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 5;" \n
+                         "	""HQ_Announcement"" call BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         "" \n
+                         "// Hide the FIA units in Ifestiona" \n
+                         "{_x hideObject true; _x enableSimulation false} forEach BIS_FIAUnits + BIS_CIVUnits;" \n
+                         "{_x hideObject true; _x enableSimulation false} forEach [BIS_Offroad_MG,BIS_Offroad_AT,BIS_Car04,BIS_Car05,BIS_Car06];" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wiesel_KO">*/
+                                class Wiesel_KO
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="FAIL_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(damage BIS_Wiesel == 1) and" \n
+                                         "{(alive BIS_ARPlayer)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Original_tasks_d">*/
+                                class Original_tasks_d
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="FIA_in_village";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"/*" \n
+                                         "({_x call BIS_fnc_taskState == ""Succeeded""} count [" \n
+                                         "	""BIS_tskCheckpointA""," \n
+                                         "	""BIS_tskForest""" \n
+                                         "] == 2)" \n
+                                         "and" \n
+                                         "(""BIS_tskCheckpointB"" call BIS_fnc_taskState == ""Canceled"")" \n
+                                         "*/" \n
+                                         "" \n
+                                         "(""BIS_tskCheckpointA"" call BIS_fnc_taskState == ""Succeeded"") and" \n
+                                         "{(""BIS_tskCheckpointB"" call BIS_fnc_taskState == ""Canceled"")} and" \n
+                                         "{""BIS_tskForest"" call BIS_fnc_taskState == ""Succeeded""}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FAIL_FF">*/
+                class FAIL_FF
+                {
+                        name = "FAIL_FF";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	BIS_ARPlayer addRating (abs (rating BIS_ARPlayer));" \n
+                         "	sleep 5;" \n
+                         "	[""FriendlyFire"",false,true,true,true] call BIS_fnc_endMission;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FAIL_01">*/
+                class FAIL_01
+                {
+                        name = "FAIL_01";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	[""Fail01"",false,true,true,true] call BIS_fnc_endMission;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FAIL_02">*/
+                class FAIL_02
+                {
+                        name = "FAIL_02";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	""FUBAR"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 7.5;" \n
+                         "	[""Fail02"",false,true,true,true] call BIS_fnc_endMission;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "WIN">*/
+                class WIN
+                {
+                        name = "WIN";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	if (BIS_CollateralDamage < BIS_CollateralDamageFailLimit) then {" \n
+                         "		profileNamespace setVariable [""BIS_Tanks_LimitedDamage"",1];" \n
+                         "		[""Win01"",true,true,true,true] call BIS_fnc_endMission;" \n
+                         "	} else {" \n
+                         "		profileNamespace setVariable [""BIS_Tanks_LimitedDamage"",0];" \n
+                         "		[""Win02"",true,true,true,true] call BIS_fnc_endMission;" \n
+                         "	};" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FIA_in_village">*/
+                class FIA_in_village
+                {
+                        name = "FIA_in_village";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/"execFSM ""FSMs\Village.fsm"";" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wiesel_KO">*/
+                                class Wiesel_KO
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="FAIL_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(damage BIS_Wiesel == 1) and" \n
+                                         "{(alive BIS_ARPlayer)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "All_tasks_DONE">*/
+                                class All_tasks_DONE
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="WIN";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"// ""BIS_tskAttack"" call BIS_fnc_taskState == ""Succeeded""" \n
+                                         "BIS_End" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "TERMINATE">*/
+                class TERMINATE
+                {
+                        name = "TERMINATE";
+                        itemno = 18;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	waitUntil {time > 0};" \n
+                         "	enableEnvironment [false, false];" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Variables__FSMs">*/
+                class Variables__FSMs
+                {
+                        name = "Variables__FSMs";
+                        itemno = 20;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "" \n
+                         "// Variable used in major tasks' fsms - if these fail, mission will fail as well" \n
+                         "BIS_Fail = false;" \n
+                         "" \n
+                         "// End mission var" \n
+                         "BIS_End = false;" \n
+                         "" \n
+                         "// Variable used in AO.fsm - if triggered, fail the mission with desertion ending" \n
+                         "BIS_Desertion = false;" \n
+                         "" \n
+                         "// Check if AAF was detected nearby village" \n
+                         "BIS_Detected = false;" \n
+                         "" \n
+                         "// Disable rabbits and snakes" \n
+                         "[] spawn {" \n
+                         "	waitUntil {time > 0};" \n
+                         "	enableEnvironment [false, true];" \n
+                         "};" \n
+                         "" \n
+                         "// Make sure player has a backpack for Toolkit" \n
+                         "[] spawn {" \n
+                         "	waitUntil {time > 0};" \n
+                         "	if (backpack BIS_ARPlayer == """") then {BIS_ARPlayer addBackpack ""B_Fieldpack_oli""};" \n
+                         "	if !(""ItemRadio"" in items BIS_ARPlayer) then {BIS_ARPlayer linkItem ""ItemRadio""};" \n
+                         "	BIS_ARPlayer switchMove ""amovpercmstpslowwrfldnon"";" \n
+                         "};" \n
+                         "" \n
+                         "// Conversations - yell when injured" \n
+                         "BIS_Hit = false;" \n
+                         "[] spawn {" \n
+                         "	waitUntil {sleep 1; BIS_Hit};" \n
+                         "	""Injured"" call BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timer">*/
+                                class Timer
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Opening__exec_all";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 2.5" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "____FAKE____">*/
+                class ____FAKE____
+                {
+                        name = "____FAKE____";
+                        itemno = 21;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Friendly_fire">*/
+                                class Friendly_fire
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="FAIL_FF";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"side BIS_ARPlayer == sideEnemy" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "FAIL_FF",
+                "FAIL_01",
+                "FAIL_02",
+                "WIN",
+                "TERMINATE",
+        };
+};
+/*%FSM</COMPILE>*/

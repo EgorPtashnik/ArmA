@@ -1,0 +1,104 @@
+
+// ----- General mission metadata ---------------------------------------------
+author = "EP";
+onLoadName = "Операция «Тарантул»";
+briefingName = "Операция «Тарантул»";
+onLoadMission = "Спецподразделение БВС пытается спасти ценную информацию из рук бандитов.";
+overviewText = "Спецподразделение БВС пытается спасти ценную информацию из рук бандитов.";
+overviewPicture = "overview.jpg";
+
+// ----- Debriefing ----------------------------------------------------------
+class CfgDebriefing {
+    class Win {
+        title             = "Объект в безопасности";
+        subtitle          = "ООС успешно эвакуирован из зоны опасности.";
+        description       = "Вы успшено эвакуировали объект и сохранили данные специальных операций ВСБ в секторе.";
+        pictureBackground = "overview.jpg";
+        picture           = "a3\ui_f\data\map\markers\nato\b_recon.paa";
+        pictureColor[]    = { 0,0,0.5,1 };
+    };
+
+    class Compromised {
+        title             = "Вас обнаружили";
+        subtitle          = "Дальнейшее выполнение операции невозможно.";
+        description       = "После обнаружения бандиты передислоцировали объект. Командовиню ВСБ потребуется немало ресурсов для определения новой локации.";
+        pictureBackground = "overview.jpg";
+        picture           = "a3\ui_f\data\gui\cfg\communicationmenu\call_ca.paa";
+        pictureColor[]    = { 0,0.5,0,1 };
+    };
+
+    class Aborted {
+        title             = "Информация не найдена";
+        subtitle          = "Дальнейшее выполнение операции невозможно.";
+        description       = "Локация объекта так и не была обнаружена. Командовиню ВСБ отозвала отряд Cobra обратно на базу.";
+        pictureBackground = "overview.jpg";
+        picture           = "a3\ui_f\data\gui\cfg\communicationmenu\call_ca.paa";
+        pictureColor[]    = { 0,0.5,0,1 };
+    };
+
+    class HVTKIA {
+        title             = "Package погиб";
+        subtitle          = "Дальнейшее выполнение операции невозможно.";
+        description       = "Объект был убит, а вместе с ним и вся информация об активности бандитов в окрестной зоне.";
+        pictureBackground = "overview.jpg";
+        picture           = "a3\ui_f\data\igui\cfg\holdactions\holdaction_forcerespawn_ca.paa";
+        pictureColor[]    = { 1,0,0,1 };
+    };
+};
+
+// ----- Support menu (Comm menu) --------------------------------------------
+// To add:  [player, "CustomSupportMenuItem"] call BIS_fnc_addCommMenuItem;
+//
+// class CfgCommunicationMenu {
+//     class CustomSupportMenuItem {
+//         text                     = "Custom Support Item";
+//         submenu                  = "";
+//         expression               = "custVariable = true;";
+//         icon                     = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\artillery_ca.paa";
+//         cursor                   = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
+//         enable                   = "1";
+//         removeAfterExpressionCall = 1;
+//     };
+// };
+
+// ----- Identities -----------------------------------------------------------
+class CfgIdentities
+{
+	class PlayerIdentity
+	{
+		face = "AfricanHead_01";
+		glasses = "";
+		pitch = 0.92;
+		name = "Garrison Wells";
+		speaker = "Male01ENGB";
+	};
+};
+
+// ----- Functions -----------------------------------------------------------
+class CfgFunctions {
+    class EP {
+        class fnc {
+            file="functions";
+            class activateUnits {};
+            class deactivateUnits {};
+            class collectUnits {};
+            class collectVariables {};
+            class missionConversations {};
+            class comms {};
+
+            //Mission functions
+            class createBandits {};
+        }
+    };
+};
+
+// ----- UI Resources -----------------------------------------------------------
+class RscTitles {
+    #include "rsc.hpp"
+};
+
+
+// ----- Sounds --------------------------------------------------------------
+class CfgSounds {
+    #include "sounds.hpp"
+};

@@ -1,0 +1,1539 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, missionFlow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,425.000000,-600.000000,525.000000,-550.000000,0.000000,"Start"};
+item1[] = {"Timeout_150sec",4,218,300.000000,450.000000,400.000000,500.000000,0.000000,"Timeout" \n "150sec"};
+item2[] = {"Notify",2,250,300.000000,525.000000,400.000000,575.000000,0.000000,"Notify"};
+item3[] = {"Timeout_90sec",4,218,300.000000,600.000000,400.000000,650.000000,0.000000,"Timeout" \n "90sec"};
+item4[] = {"Task_failed",2,250,300.000000,675.000000,400.000000,725.000000,0.000000,"Task" \n "failed"};
+item5[] = {"",7,210,346.000000,771.000000,354.000000,779.000000,0.000000,""};
+item6[] = {"Timer",4,218,425.000000,-375.000000,525.000000,-325.000000,0.000000,"Timer"};
+item7[] = {"Situation",2,250,425.000000,-300.000000,525.000000,-250.000000,0.000000,"Situation"};
+item8[] = {"All_enemy_armor",4,218,425.000000,75.000000,525.000000,125.000000,0.000000,"All enemy" \n "armor KO"};
+item9[] = {"Crossroad",2,250,425.000000,150.000000,525.000000,200.000000,0.000000,"Crossroad"};
+item10[] = {"Armata_KO",4,218,675.000000,225.000000,775.000000,275.000000,5.000000,"Armata" \n "KO"};
+item11[] = {"Destroy_Armata",2,250,425.000000,450.000000,525.000000,500.000000,0.000000,"Destroy" \n "Armata"};
+item12[] = {"Defense_collapse",4,218,300.000000,75.000000,400.000000,125.000000,5.000000,"Defense" \n "collapsed"};
+item13[] = {"__WIN__03",1,250,300.000000,150.000000,400.000000,200.000000,0.000000,"'WIN'" \n "03"};
+item14[] = {"Destroyed",4,218,425.000000,600.000000,525.000000,650.000000,5.000000,"Destroyed"};
+item15[] = {"",7,210,346.000000,21.000000,354.000031,29.000000,0.000000,""};
+item16[] = {"WIN_01_02",1,250,425.000000,825.000000,525.000000,875.000000,0.000000,"WIN" \n "01-02"};
+item17[] = {"Armata_OK",4,218,425.000000,225.000000,525.000000,275.000000,0.000000,"Armata" \n "OK"};
+item18[] = {"Report",2,250,425.000000,675.000000,525.000000,725.000000,0.000000,"Report"};
+item19[] = {"Ending",4,218,425.000000,750.000000,525.000000,800.000000,0.000000,"Ending"};
+item20[] = {"Report_1",2,250,675.000000,300.000000,775.000000,350.000000,0.000000,"Report"};
+item21[] = {"",7,210,721.000000,546.000000,729.000000,554.000000,0.000000,""};
+item22[] = {"",7,210,471.000000,546.000000,479.000000,554.000000,0.000000,""};
+item23[] = {"",7,210,721.000000,771.000000,729.000000,779.000000,0.000000,""};
+item24[] = {"FF",4,218,800.000000,750.000000,900.000000,800.000000,10.000000,"FF"};
+item25[] = {"FAIL_FF",1,250,800.000000,825.000000,900.000000,875.000000,0.000000,"FAIL" \n "FF"};
+item26[] = {"Disobeying_order",4,218,925.000000,750.000000,1025.000000,800.000000,15.000000,"Disobeying" \n "orders"};
+item27[] = {"FAIL_01",1,250,925.000000,825.000000,1025.000000,875.000000,0.000000,"FAIL" \n "01"};
+item28[] = {"",7,210,846.000000,546.000000,854.000000,554.000000,0.000000,""};
+item29[] = {"",7,210,971.000000,546.000000,979.000000,554.000000,0.000000,""};
+item30[] = {"",7,210,721.000000,171.000000,729.000000,179.000000,0.000000,""};
+item31[] = {"",7,210,846.000000,171.000000,854.000000,179.000000,0.000000,""};
+item32[] = {"",7,210,846.000000,21.000000,854.000000,29.000000,0.000000,""};
+item33[] = {"Intro_Outro",4,218,550.000000,-600.000000,650.000000,-550.000000,666.000000,"Intro/Outro"};
+item34[] = {"TERMINATE",1,250,675.000000,-600.000000,775.000000,-550.000000,0.000000,"TERMINATE"};
+item35[] = {"_",8,218,425.000000,-525.000000,525.000000,-475.000000,0.000000,""};
+item36[] = {"Variables___FSMs",2,250,425.000000,-450.000000,525.000000,-400.000000,0.000000,"Variables," \n " FSMs etc."};
+item37[] = {"Cheat_1",4,218,75.000000,0.000000,175.000000,50.000000,0.000000,"Cheat 1"};
+item38[] = {"Cheat_2",4,218,75.000000,75.000000,175.000000,125.000000,0.000000,"Cheat 2"};
+item39[] = {"Cheat_3",4,218,75.000000,150.000000,175.000000,200.000000,0.000000,"Cheat 3"};
+item40[] = {"Cheat_4",4,218,75.000000,225.000000,175.000000,275.000000,0.000000,"Cheat 4"};
+item41[] = {"Cheat_5",4,218,75.000000,300.000000,175.000000,350.000000,0.000000,"Cheat 5"};
+item42[] = {"Cheat_6",4,218,75.000000,375.000000,175.000000,425.000000,0.000000,"Cheat 6"};
+item43[] = {"Cheat_7",4,218,75.000000,450.000000,175.000000,500.000000,0.000000,"Cheat 7"};
+item44[] = {"Cheat_8",4,218,75.000000,525.000000,175.000000,575.000000,0.000000,"Cheat 8"};
+item45[] = {"",7,210,221.000000,321.000000,229.000000,329.000000,0.000000,""};
+item46[] = {"Cheat__END_01_0",1,250,-50.000000,0.000000,50.000000,50.000000,0.000000,"Cheat " \n "END 01" \n "0-0-0"};
+item47[] = {"Cheat__END_02_1",1,250,-50.000000,75.000000,50.000000,125.000000,0.000000,"Cheat " \n "END 02" \n "1-0-0"};
+item48[] = {"Cheat__END_03_0",1,250,-50.000000,150.000000,50.000000,200.000000,0.000000,"Cheat " \n "END 03" \n "0-1-0"};
+item49[] = {"Cheat__END_04_0",1,250,-50.000000,225.000000,50.000000,275.000000,0.000000,"Cheat " \n "END 04" \n "0-0-1"};
+item50[] = {"Cheat__END_05_1",1,250,-50.000000,300.000000,50.000000,350.000000,0.000000,"Cheat " \n "END 05" \n "1-1-0"};
+item51[] = {"Cheat__END_06_1",1,250,-50.000000,375.000000,50.000000,425.000000,0.000000,"Cheat " \n "END 06" \n "1-0-1"};
+item52[] = {"Cheat__END_07_0",1,250,-50.000000,450.000000,50.000000,500.000000,0.000000,"Cheat " \n "END 07" \n "0-1-1"};
+item53[] = {"Cheat__END_08_1",1,250,-50.000000,525.000000,50.000000,575.000000,0.000000,"Cheat " \n "END 08" \n "1-1-1"};
+item54[] = {"",7,210,221.000000,246.000000,229.000000,254.000000,0.000000,""};
+item55[] = {"",7,210,221.000000,171.000000,229.000000,179.000000,0.000000,""};
+item56[] = {"",7,210,221.000000,96.000000,229.000000,104.000000,0.000000,""};
+item57[] = {"",7,210,221.000000,21.000000,229.000000,29.000000,0.000000,""};
+item58[] = {"",7,210,221.000000,396.000000,229.000000,404.000000,0.000000,""};
+item59[] = {"",7,210,221.000000,471.000000,229.000000,479.000000,0.000000,""};
+item60[] = {"",7,210,221.000000,546.000000,229.000000,554.000000,0.000000,""};
+item61[] = {"Help_at_Panagia",2,250,425.000000,300.000000,525.000000,350.000000,0.000000,"Help" \n "at Panagia"};
+item62[] = {"Helped",4,218,425.000000,375.000000,525.000000,425.000000,0.000000,"Helped"};
+item63[] = {"Armata_KO",4,218,300.000000,300.000000,400.000000,350.000000,1.000000,"Armata" \n "KO"};
+item64[] = {"",7,210,596.000000,321.000000,604.000000,329.000000,0.000000,""};
+item65[] = {"__WIN__03_1",1,250,300.000000,225.000000,400.000000,275.000000,0.000000,"'WIN'" \n "03"};
+item66[] = {"",7,210,471.000000,21.000000,479.000000,29.000000,0.000000,""};
+item67[] = {"",7,210,596.000000,546.000000,604.000000,554.000000,0.000000,""};
+item68[] = {"Getting_close_to",4,218,300.000000,-300.000000,400.000000,-250.000000,0.000000,"Getting close" \n "to Panagia"};
+item69[] = {"Warning",2,250,300.000000,-225.000000,400.000000,-175.000000,0.000000,"Warning"};
+item70[] = {"Getting_even_clo",4,218,300.000000,-150.000000,400.000000,-100.000000,0.000000,"Getting" \n "even closer"};
+item71[] = {"Disobeying_order",2,250,300.000000,-75.000000,400.000000,-25.000000,0.000000,"Disobeying" \n "orders"};
+item72[] = {"",7,210,471.000000,-54.000000,479.000000,-46.000000,0.000000,""};
+item73[] = {"",7,210,471.000000,-204.000000,479.000000,-196.000000,0.000000,""};
+item74[] = {"____FAKE____",9,0,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+link0[] = {0,33};
+link1[] = {0,35};
+link2[] = {1,2};
+link3[] = {2,3};
+link4[] = {2,22};
+link5[] = {3,4};
+link6[] = {4,5};
+link7[] = {5,19};
+link8[] = {6,7};
+link9[] = {7,68};
+link10[] = {7,73};
+link11[] = {8,9};
+link12[] = {9,17};
+link13[] = {9,30};
+link14[] = {10,20};
+link15[] = {11,1};
+link16[] = {11,22};
+link17[] = {12,13};
+link18[] = {14,18};
+link19[] = {15,12};
+link20[] = {15,57};
+link21[] = {17,61};
+link22[] = {18,19};
+link23[] = {19,16};
+link24[] = {20,21};
+link25[] = {21,23};
+link26[] = {21,28};
+link27[] = {22,14};
+link28[] = {22,67};
+link29[] = {23,19};
+link30[] = {24,25};
+link31[] = {26,27};
+link32[] = {28,29};
+link33[] = {29,26};
+link34[] = {30,10};
+link35[] = {30,31};
+link36[] = {31,28};
+link37[] = {32,31};
+link38[] = {33,34};
+link39[] = {35,36};
+link40[] = {36,6};
+link41[] = {37,46};
+link42[] = {38,47};
+link43[] = {39,48};
+link44[] = {40,49};
+link45[] = {41,50};
+link46[] = {42,51};
+link47[] = {43,52};
+link48[] = {44,53};
+link49[] = {45,41};
+link50[] = {45,58};
+link51[] = {54,40};
+link52[] = {54,45};
+link53[] = {55,39};
+link54[] = {55,54};
+link55[] = {56,38};
+link56[] = {56,55};
+link57[] = {57,37};
+link58[] = {57,56};
+link59[] = {58,42};
+link60[] = {58,59};
+link61[] = {59,43};
+link62[] = {59,60};
+link63[] = {60,44};
+link64[] = {61,62};
+link65[] = {61,63};
+link66[] = {61,64};
+link67[] = {62,11};
+link68[] = {63,65};
+link69[] = {64,67};
+link70[] = {66,8};
+link71[] = {66,15};
+link72[] = {66,32};
+link73[] = {67,21};
+link74[] = {68,69};
+link75[] = {69,70};
+link76[] = {69,73};
+link77[] = {70,71};
+link78[] = {71,72};
+link79[] = {72,66};
+link80[] = {73,72};
+link81[] = {74,24};
+globals[] = {0.000000,0,0,0,0,640,480,1,178,6316128,1,-97.554428,1036.487549,154.274963,-656.678162,1404,1004,1};
+window[] = {2,-1,-1,-1,-1,1083,234,1674,234,3,1422};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "missionFlow";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Intro_Outro">*/
+                                class Intro_Outro
+                                {
+                                        itemno = 33;
+                                        priority = 666.000000;
+                                        to="TERMINATE";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(side (group player)) == civilian" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 35;
+                                        priority = 0.000000;
+                                        to="Variables___FSMs";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Notify">*/
+                class Notify
+                {
+                        name = "Notify";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "" \n
+                         """Hurry"" spawn BIS_fnc_missionConversations;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 26;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Destroyed">*/
+                                class Destroyed
+                                {
+                                        itemno = 14;
+                                        priority = 5.000000;
+                                        to="Report";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(damage BIS_Armata == 1) and" \n
+                                         "(""BIS_tskPanagia"" call BIS_fnc_taskExists)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Ending">*/
+                                class Ending
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="WIN_01_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_End" \n
+                                         "" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Timeout_90sec">*/
+                                class Timeout_90sec
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Task_failed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 90" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Task_failed">*/
+                class Task_failed
+                {
+                        name = "Task_failed";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	[""BIS_tskDestroyArmata"",""Failed""] call BIS_fnc_missionTasks;" \n
+                         "	sleep 2.5;" \n
+                         "	BIS_End = true;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Ending">*/
+                                class Ending
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="WIN_01_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_End" \n
+                                         "" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Situation">*/
+                class Situation
+                {
+                        name = "Situation";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	0 fadeMusic 0;" \n
+                         "	""Prologue"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 2;" \n
+                         "	""Status"" spawn BIS_fnc_missionConversations;" \n
+                         "	playMusic ""LeadTrack02_F_Jets"";" \n
+                         "	// playMusic ""LeadTrack02_F_Tank"";" \n
+                         "	5 fadeMusic 1;" \n
+                         "};" \n
+                         "" \n
+                         "// Conversation when inside tank" \n
+                         "[] spawn {" \n
+                         "	waitUntil {sleep 0.5; vehicle BIS_ARPlayer == BIS_Armata};" \n
+                         "	sleep 1.5;" \n
+                         "	""InsideArmata"" call BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         "" \n
+                         "// Conversation if the tanks gets destroyed before defending the position" \n
+                         "[] spawn {" \n
+                         "	waitUntil {sleep 1; (damage BIS_Armata == 1) and (alive BIS_ARPlayer)};" \n
+                         "	sleep 1.5;" \n
+                         "	if !(BIS_Defended) then {" \n
+                         "		if ((alive BIS_ARDriver) or (alive BIS_Gunner)) then {" \n
+                         "			""ArmataDestroyedTooSoon"" call BIS_fnc_missionConversations;" \n
+                         "		} else {" \n
+                         "			""ArmataDestroyedTooSoonAlone"" call BIS_fnc_missionConversations;" \n
+                         "		};" \n
+                         "	};" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 26;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Defense_collapse">*/
+                                class Defense_collapse
+                                {
+                                        itemno = 12;
+                                        priority = 5.000000;
+                                        to="__WIN__03";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Defeated" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "All_enemy_armor">*/
+                                class All_enemy_armor
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="Crossroad";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Defended" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_3">*/
+                                class Cheat_3
+                                {
+                                        itemno = 39;
+                                        priority = 0.000000;
+                                        to="Cheat__END_03_0";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat3" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_1">*/
+                                class Cheat_1
+                                {
+                                        itemno = 37;
+                                        priority = 0.000000;
+                                        to="Cheat__END_01_0";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_2">*/
+                                class Cheat_2
+                                {
+                                        itemno = 38;
+                                        priority = 0.000000;
+                                        to="Cheat__END_02_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat2" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Getting_close_to">*/
+                                class Getting_close_to
+                                {
+                                        itemno = 68;
+                                        priority = 0.000000;
+                                        to="Warning";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(vehicle BIS_ARPlayer distance2D BIS_Panagia < 1250)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_4">*/
+                                class Cheat_4
+                                {
+                                        itemno = 40;
+                                        priority = 0.000000;
+                                        to="Cheat__END_04_0";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat4" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_5">*/
+                                class Cheat_5
+                                {
+                                        itemno = 41;
+                                        priority = 0.000000;
+                                        to="Cheat__END_05_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat5" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_6">*/
+                                class Cheat_6
+                                {
+                                        itemno = 42;
+                                        priority = 0.000000;
+                                        to="Cheat__END_06_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat6" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_7">*/
+                                class Cheat_7
+                                {
+                                        itemno = 43;
+                                        priority = 0.000000;
+                                        to="Cheat__END_07_0";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat7" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_8">*/
+                                class Cheat_8
+                                {
+                                        itemno = 44;
+                                        priority = 0.000000;
+                                        to="Cheat__END_08_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat8" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Crossroad">*/
+                class Crossroad
+                {
+                        name = "Crossroad";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 26;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Armata_KO">*/
+                                class Armata_KO
+                                {
+                                        itemno = 10;
+                                        priority = 5.000000;
+                                        to="Report_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"damage BIS_Armata == 1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Armata_OK">*/
+                                class Armata_OK
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Help_at_Panagia";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"damage BIS_Armata < 1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Destroy_Armata">*/
+                class Destroy_Armata
+                {
+                        name = "Destroy_Armata";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "" \n
+                         "BIS_Armata addEventHandler [""Killed"",{if ((_this select 1 == (vehicle BIS_ARPlayer))) then {BIS_ARPlayer addRating 15000}}];" \n
+                         "" \n
+                         "BIS_grpPanagia01 copyWaypoints BIS_grpPanagiaRetreatWP;" \n
+                         "BIS_grpPanagia02 copyWaypoints BIS_grpPanagiaRetreatWP;" \n
+                         "BIS_grpCommanche copyWaypoints BIS_grpHeliRetreatWP;" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	// Kill crews of NATO vehicles" \n
+                         "	{_x setDamage 1} forEach (units BIS_grpRooikat03 + units BIS_grpTanks03 + units BIS_grpMarshall01);" \n
+                         "	sleep 5;" \n
+                         "	[""BIS_tskPanagia"",""Succeeded""] call BIS_fnc_missionTasks;" \n
+                         "	BIS_Armata addMagazineCargo [""DemoCharge_Remote_Mag"",2];" \n
+                         "	BIS_Armata addMagazineCargo [""SatchelCharge_Remote_Mag"",2];" \n
+                         "	BIS_Armata addEventHandler [""HandleDamage"",{if ((_this select 4) in [""DemoCharge_Remote_Ammo"",""SatchelCharge_Remote_Ammo""]) then {1}}];" \n
+                         "	0 fadeMusic 0;" \n
+                         "	playMusic ""LeadTrack03_F_Tank"";" \n
+                         "	5 fadeMusic 0.5;" \n
+                         "	""PanagiaHelped"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 1;" \n
+                         "	[""BIS_tskDestroyArmata"",""Current""] call BIS_fnc_missionTasks;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 26;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Destroyed">*/
+                                class Destroyed
+                                {
+                                        itemno = 14;
+                                        priority = 5.000000;
+                                        to="Report";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(damage BIS_Armata == 1) and" \n
+                                         "(""BIS_tskPanagia"" call BIS_fnc_taskExists)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Ending">*/
+                                class Ending
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="WIN_01_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_End" \n
+                                         "" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Timeout_150sec">*/
+                                class Timeout_150sec
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Notify";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 150" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__WIN__03">*/
+                class __WIN__03
+                {
+                        name = "__WIN__03";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	""DefenseFailed"" call BIS_fnc_missionConversations;" \n
+                         "	[""BIS_tskDefense"",""Canceled""] call BIS_fnc_missionTasks;" \n
+                         "	sleep 5;" \n
+                         "	if ((damage BIS_Armata == 1) and (damage BIS_Tank == 1)) then {" \n
+                         "		profileNamespace setVariable [""BIS_Tanks_ArmataKO"",1]" \n
+                         "	} else {" \n
+                         "		profileNamespace setVariable [""BIS_Tanks_ArmataKO"",0]" \n
+                         "	};" \n
+                         "	profileNamespace setVariable [""BIS_Tanks_Victory"",0];" \n
+                         "	[""Win03"",true,true,true,true] call BIS_fnc_endMission;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "WIN_01_02">*/
+                class WIN_01_02
+                {
+                        name = "WIN_01_02";
+                        itemno = 16;
+                        init = /*%FSM<STATEINIT""">*/"// Set variables for outro - AAF won this battle" \n
+                         "profileNamespace setVariable [""BIS_Tanks_Victory"",1];" \n
+                         "" \n
+                         "// Fade out music" \n
+                         "// 10 fadeMusic 0;" \n
+                         "" \n
+                         "// End depends on if any of the Armata survived" \n
+                         "if ((damage BIS_Armata == 1) and (damage BIS_Tank == 1)) then {" \n
+                         "	profileNamespace setVariable [""BIS_Tanks_ArmataKO"",1];" \n
+                         "	[""Win01"",true,true,false,true] call BIS_fnc_endMission;" \n
+                         "} else {" \n
+                         "	profileNamespace setVariable [""BIS_Tanks_ArmataKO"",0];" \n
+                         "	[""Win02"",true,true,false,true] call BIS_fnc_endMission;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Report">*/
+                class Report
+                {
+                        name = "Report";
+                        itemno = 18;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	sleep 2;" \n
+                         "	[""BIS_tskDestroyArmata"",""Succeeded""] call BIS_fnc_missionTasks;" \n
+                         "	""ArmataCeasedToBe"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 0.5;" \n
+                         "	BIS_End = true;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Ending">*/
+                                class Ending
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="WIN_01_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_End" \n
+                                         "" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Report_1">*/
+                class Report_1
+                {
+                        name = "Report_1";
+                        itemno = 20;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	[""BIS_tskDefense"",""Succeeded""] call BIS_fnc_missionTasks;" \n
+                         "	if ({alive _x} count (units group BIS_ARPlayer) > 1) then {" \n
+                         "		""Defended"" call BIS_fnc_missionConversations;" \n
+                         "	} else {" \n
+                         "		""DefendedAlone"" call BIS_fnc_missionConversations;" \n
+                         "	};" \n
+                         "	sleep 1;" \n
+                         "	""PanagiaSituation"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 1;" \n
+                         "	""ArmataDestroyed"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 1;" \n
+                         "	""ArmataDestroyedSurrender"" call BIS_fnc_missionConversations;" \n
+                         "	BIS_End = true;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 26;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Ending">*/
+                                class Ending
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="WIN_01_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_End" \n
+                                         "" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FAIL_FF">*/
+                class FAIL_FF
+                {
+                        name = "FAIL_FF";
+                        itemno = 25;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	BIS_ARPlayer addRating (abs (rating BIS_ARPlayer));" \n
+                         "	sleep 5;" \n
+                         "	[""FriendlyFire"",false,true,true,true] call BIS_fnc_endMission;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FAIL_01">*/
+                class FAIL_01
+                {
+                        name = "FAIL_01";
+                        itemno = 27;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	[""Fail01"",false,true,true,true] call BIS_fnc_endMission;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "TERMINATE">*/
+                class TERMINATE
+                {
+                        name = "TERMINATE";
+                        itemno = 34;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	waitUntil {time > 0};" \n
+                         "	enableEnvironment [false, false];" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Variables___FSMs">*/
+                class Variables___FSMs
+                {
+                        name = "Variables___FSMs";
+                        itemno = 36;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+                         "" \n
+                         "{_x allowFleeing 0} forEach allUnits;" \n
+                         "{_x allowCrewInImmobile true} forEach (allMissionObjects ""tank"");" \n
+                         "" \n
+                         "BIS_Infantry = false;" \n
+                         "BIS_Defeated = false;" \n
+                         "BIS_Defended = false;" \n
+                         "BIS_HQSaved = false;" \n
+                         "BIS_Wave01 = false;" \n
+                         "BIS_Wave02 = false;" \n
+                         "BIS_Wave03 = false;" \n
+                         "BIS_Fail = false;" \n
+                         "BIS_End = false;" \n
+                         "BIS_ArmorKill01 = false;" \n
+                         "BIS_ArmorKill02 = false;" \n
+                         "BIS_SendHeli = false;" \n
+                         "" \n
+                         """BIS_mrkEastAttack"" setMarkerAlpha 0;" \n
+                         "{_x disableAI ""autocombat""} forEach allUnits;" \n
+                         "" \n
+                         "{_x enableSimulation false} forEach (units BIS_grpTanks01 + units BIS_grpTanks02 + units BIS_grpTanks03 + units BIS_grpRooikat03 + units BIS_grpMarshall01 + units BIS_grpCommanche + units BIS_grpPanagia01 + units BIS_grpPanagia02 + units BIS_grpPanagia03);" \n
+                         "{_x enableSimulation false} forEach [BIS_Cheetah01,BIS_Slammer01,BIS_Slammer02,BIS_Slammer03,BIS_Slammer04,BIS_Slammer05,BIS_Slammer06,BIS_Rooikat03,BIS_Marshall01,BIS_Commanche];" \n
+                         "" \n
+                         "// Make air vehicles captive from the beginning - they are spawned via CAS modules" \n
+                         "[] spawn {" \n
+                         "	{_x setCaptive true} forEach (allMissionObjects ""air"");" \n
+                         "	sleep 75;" \n
+                         "	{_x setCaptive false} forEach (allMissionObjects ""air"");" \n
+                         "};" \n
+                         "" \n
+                         "// Exec all the FSMs" \n
+                         "[] execFSM ""FSMs\AO.fsm"";" \n
+                         "[] execFSM ""FSMs\Armata.fsm"";" \n
+                         "[] execFSM ""FSMs\Offensive.fsm"";" \n
+                         "[] execFSM ""FSMs\RepairControl.fsm"";" \n
+                         "" \n
+                         "// Disable rabbits and snakes" \n
+                         "[] spawn {" \n
+                         "	waitUntil {time > 0};" \n
+                         "	enableEnvironment [false, true];" \n
+                         "};" \n
+                         "" \n
+                         "// Conversation after being hit" \n
+                         "_hit = BIS_ARPlayer addEventHandler [""Hit"",{if (_this select 2 > 0.2) then {""Injured"" spawn BIS_fnc_missionConversations}}];" \n
+                         "" \n
+                         "// Kill confirmation conversations" \n
+                         "[] spawn {" \n
+                         "	waitUntil {sleep 1; BIS_ArmorKill01};" \n
+                         "	""EnemyTankKIA01"" call BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	waitUntil {sleep 1; BIS_ArmorKill02};" \n
+                         "	""EnemyTankKIA02"" call BIS_fnc_missionConversations;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timer">*/
+                                class Timer
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Situation";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 2" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Cheat__END_01_0">*/
+                class Cheat__END_01_0
+                {
+                        name = "Cheat__END_01_0";
+                        itemno = 46;
+                        init = /*%FSM<STATEINIT""">*/"profileNamespace setVariable [""BIS_Tanks_Victory"",0];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_ArmataKO"",0];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_LimitedDamage"",0];" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	hint ""Battle won: NO \nBoth Armatas destroyed: NO \nLimited collateral damage: NO"";" \n
+                         "	sleep 10;" \n
+                         "	endMission ""End1"";" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Cheat__END_02_1">*/
+                class Cheat__END_02_1
+                {
+                        name = "Cheat__END_02_1";
+                        itemno = 47;
+                        init = /*%FSM<STATEINIT""">*/"profileNamespace setVariable [""BIS_Tanks_Victory"",1];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_ArmataKO"",0];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_LimitedDamage"",0];" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	hint ""Battle won: YES \nBoth Armatas destroyed: NO \nLimited collateral damage: NO"";" \n
+                         "	sleep 10;" \n
+                         "	endMission ""End1"";" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Cheat__END_03_0">*/
+                class Cheat__END_03_0
+                {
+                        name = "Cheat__END_03_0";
+                        itemno = 48;
+                        init = /*%FSM<STATEINIT""">*/"profileNamespace setVariable [""BIS_Tanks_Victory"",0];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_ArmataKO"",1];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_LimitedDamage"",0];" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	hint ""Battle won: NO \nBoth Armatas destroyed: YES \nLimited collateral damage: NO"";" \n
+                         "	sleep 10;" \n
+                         "	endMission ""End1"";" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Cheat__END_04_0">*/
+                class Cheat__END_04_0
+                {
+                        name = "Cheat__END_04_0";
+                        itemno = 49;
+                        init = /*%FSM<STATEINIT""">*/"profileNamespace setVariable [""BIS_Tanks_Victory"",0];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_ArmataKO"",0];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_LimitedDamage"",1];" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	hint ""Battle won: NO \nBoth Armatas destroyed: NO \nLimited collateral damage: YES"";" \n
+                         "	sleep 10;" \n
+                         "	endMission ""End1"";" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Cheat__END_05_1">*/
+                class Cheat__END_05_1
+                {
+                        name = "Cheat__END_05_1";
+                        itemno = 50;
+                        init = /*%FSM<STATEINIT""">*/"profileNamespace setVariable [""BIS_Tanks_Victory"",1];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_ArmataKO"",1];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_LimitedDamage"",0];" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	hint ""Battle won: YES \nBoth Armatas destroyed: YES \nLimited collateral damage: NO"";" \n
+                         "	sleep 10;" \n
+                         "	endMission ""End1"";" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Cheat__END_06_1">*/
+                class Cheat__END_06_1
+                {
+                        name = "Cheat__END_06_1";
+                        itemno = 51;
+                        init = /*%FSM<STATEINIT""">*/"profileNamespace setVariable [""BIS_Tanks_Victory"",1];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_ArmataKO"",0];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_LimitedDamage"",1];" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	hint ""Battle won: YES \nBoth Armatas destroyed: NO \nLimited collateral damage: YES"";" \n
+                         "	sleep 10;" \n
+                         "	endMission ""End1"";" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Cheat__END_07_0">*/
+                class Cheat__END_07_0
+                {
+                        name = "Cheat__END_07_0";
+                        itemno = 52;
+                        init = /*%FSM<STATEINIT""">*/"profileNamespace setVariable [""BIS_Tanks_Victory"",0];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_ArmataKO"",1];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_LimitedDamage"",1];" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	hint ""Battle won: NO \nBoth Armatas destroyed: YES \nLimited collateral damage: YES"";" \n
+                         "	sleep 10;" \n
+                         "	endMission ""End1"";" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Cheat__END_08_1">*/
+                class Cheat__END_08_1
+                {
+                        name = "Cheat__END_08_1";
+                        itemno = 53;
+                        init = /*%FSM<STATEINIT""">*/"profileNamespace setVariable [""BIS_Tanks_Victory"",1];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_ArmataKO"",1];" \n
+                         "profileNamespace setVariable [""BIS_Tanks_LimitedDamage"",1];" \n
+                         "" \n
+                         "[] spawn {" \n
+                         "	hint ""Battle won: YES \nBoth Armatas destroyed: YES \nLimited collateral damage: YES"";" \n
+                         "	sleep 10;" \n
+                         "	endMission ""End1"";" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Help_at_Panagia">*/
+                class Help_at_Panagia
+                {
+                        name = "Help_at_Panagia";
+                        itemno = 61;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	// Destroy AAF vehicles at the eastern front" \n
+                         "	{_x enableSimulation true} forEach [BIS_Pandur,BIS_Leopard,BIS_Kamaz01,BIS_Kamaz02];" \n
+                         "	{_x setDamage 1} forEach [BIS_Pandur,BIS_Leopard,BIS_Kamaz01,BIS_Kamaz02];" \n
+                         "	[""BIS_tskDefense"",""Succeeded""] call BIS_fnc_missionTasks;" \n
+                         "	if ({alive _x} count (units group BIS_ARPlayer) > 1) then {" \n
+                         "		""Defended"" call BIS_fnc_missionConversations;" \n
+                         "	} else {" \n
+                         "		""DefendedAlone"" call BIS_fnc_missionConversations;" \n
+                         "	};" \n
+                         "	sleep 1.5;" \n
+                         "	""PanagiaSituation"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 1;" \n
+                         "	""ArmataSurvived"" call BIS_fnc_missionConversations;" \n
+                         "	[""BIS_tskPanagia"",""Current""] call BIS_fnc_missionTasks;" \n
+                         "" \n
+                         "	// Second savegame" \n
+                         "	sleep 7.5;" \n
+                         "	saveGame;" \n
+                         "" \n
+                         "	// Enable simulation for units in Panagia" \n
+                         "	{_x enableSimulation true} forEach (units BIS_grpRooikat03 + units BIS_grpTanks03 + units BIS_grpMarshall01 + units BIS_grpCommanche + units BIS_grpPanagia01 + units BIS_grpPanagia02 + units BIS_grpPanagia03);" \n
+                         "	{_x enableSimulation true} forEach [BIS_Rooikat03,BIS_Slammer06,BIS_Marshall01,BIS_Commanche];" \n
+                         "" \n
+                         "	{_x setPos (getMarkerPos ""BIS_mrkPanaGroup01"")} forEach (units BIS_grpPanagia01);" \n
+                         "	{_x setPos (getMarkerPos ""BIS_mrkPanaGroup02"")} forEach (units BIS_grpPanagia02);" \n
+                         "	{_x setPos (getMarkerPos ""BIS_mrkPanaGroup03"")} forEach (units BIS_grpPanagia03);" \n
+                         "" \n
+                         "	BIS_grpPanagia01 copyWaypoints BIS_grpPanagiaWP01;" \n
+                         "	BIS_grpPanagia02 copyWaypoints BIS_grpPanagiaWP02;" \n
+                         "	BIS_grpPanagia03 copyWaypoints BIS_grpPanagiaWP03;" \n
+                         "" \n
+                         "	// Make Slammer suppress 'AAF' positions" \n
+                         "	BIS_Slammer06 setPos getMarkerPos ""BIS_mrkSuppressorPos"";" \n
+                         "	BIS_Slammer06 setDir 130;" \n
+                         "	_null = [BIS_Slammer06,[BIS_SuppTarget01,BIS_SuppTarget02,BIS_SuppTarget03,BIS_SuppTarget04,BIS_SuppTarget05]] execFSM ""FSMs\SuppressiveFire.fsm"";" \n
+                         "" \n
+                         "	// Make Rooikat roam Panagia" \n
+                         "	BIS_Rooikat03 setPos getMarkerPos ""BIS_mrkRoamerPos"";" \n
+                         "	BIS_grpRooikat03 copyWaypoints BIS_grpPanagiaWP;" \n
+                         "" \n
+                         "	// Send Marshall to 'hunt' for player" \n
+                         "	BIS_Marshall01 setPos getMarkerPos ""BIS_mrkStalkerPos"";" \n
+                         "	BIS_Marshall01 setDir 230;" \n
+                         "	BIS_grpMarshall01 setBehaviour ""Combat"";" \n
+                         "	_stalking = [BIS_grpMarshall01,(group BIS_ARPlayer),nil,50] spawn BIS_fnc_stalk;" \n
+                         "" \n
+                         "	// Send Commanche to attack Panagia" \n
+                         "	BIS_grpCommanche copyWaypoints BIS_grpHeliWP;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 26;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Armata_KO">*/
+                                class Armata_KO
+                                {
+                                        itemno = 63;
+                                        priority = 1.000000;
+                                        to="__WIN__03_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(damage BIS_Armata == 1) and" \n
+                                         "{(alive BIS_ARPlayer)} and" \n
+                                         "{(""BIS_tskPanagia"" call BIS_fnc_taskExists)}" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Ending">*/
+                                class Ending
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="WIN_01_02";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_End" \n
+                                         "" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Helped">*/
+                                class Helped
+                                {
+                                        itemno = 62;
+                                        priority = 0.000000;
+                                        to="Destroy_Armata";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"({(canFire _x) and (canMove _x)} count [" \n
+                                         "	BIS_Marshall01," \n
+                                         "	BIS_Rooikat03," \n
+                                         "	BIS_Slammer06" \n
+                                         "] == 0)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__WIN__03_1">*/
+                class __WIN__03_1
+                {
+                        name = "__WIN__03_1";
+                        itemno = 65;
+                        init = /*%FSM<STATEINIT""">*/"[] spawn {" \n
+                         "	sleep 5;" \n
+                         "	[""BIS_tskPanagia"",""Canceled""] call BIS_fnc_missionTasks;" \n
+                         "	""PanagiaArmataDestroyed"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 1;" \n
+                         "	""PanagiaArmataDestroyedConfirm"" call BIS_fnc_missionConversations;" \n
+                         "	sleep 2.5;" \n
+                         "	if ((damage BIS_Armata == 1) and (damage BIS_Tank == 1)) then {" \n
+                         "		profileNamespace setVariable [""BIS_Tanks_ArmataKO"",1]" \n
+                         "	} else {" \n
+                         "		profileNamespace setVariable [""BIS_Tanks_ArmataKO"",0]" \n
+                         "	};" \n
+                         "	profileNamespace setVariable [""BIS_Tanks_Victory"",0];" \n
+                         "	[""Win03"",true,true,true,true] call BIS_fnc_endMission;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Warning">*/
+                class Warning
+                {
+                        name = "Warning";
+                        itemno = 69;
+                        init = /*%FSM<STATEINIT""">*/"""Desertion_Warning"" spawn BIS_fnc_missionConversations;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 26;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Defense_collapse">*/
+                                class Defense_collapse
+                                {
+                                        itemno = 12;
+                                        priority = 5.000000;
+                                        to="__WIN__03";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Defeated" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "All_enemy_armor">*/
+                                class All_enemy_armor
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="Crossroad";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Defended" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_3">*/
+                                class Cheat_3
+                                {
+                                        itemno = 39;
+                                        priority = 0.000000;
+                                        to="Cheat__END_03_0";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat3" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_1">*/
+                                class Cheat_1
+                                {
+                                        itemno = 37;
+                                        priority = 0.000000;
+                                        to="Cheat__END_01_0";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_2">*/
+                                class Cheat_2
+                                {
+                                        itemno = 38;
+                                        priority = 0.000000;
+                                        to="Cheat__END_02_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat2" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Getting_even_clo">*/
+                                class Getting_even_clo
+                                {
+                                        itemno = 70;
+                                        priority = 0.000000;
+                                        to="Disobeying_order";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(vehicle BIS_ARPlayer distance2D BIS_Panagia < 1000)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_4">*/
+                                class Cheat_4
+                                {
+                                        itemno = 40;
+                                        priority = 0.000000;
+                                        to="Cheat__END_04_0";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat4" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_5">*/
+                                class Cheat_5
+                                {
+                                        itemno = 41;
+                                        priority = 0.000000;
+                                        to="Cheat__END_05_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat5" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_6">*/
+                                class Cheat_6
+                                {
+                                        itemno = 42;
+                                        priority = 0.000000;
+                                        to="Cheat__END_06_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat6" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_7">*/
+                                class Cheat_7
+                                {
+                                        itemno = 43;
+                                        priority = 0.000000;
+                                        to="Cheat__END_07_0";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat7" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_8">*/
+                                class Cheat_8
+                                {
+                                        itemno = 44;
+                                        priority = 0.000000;
+                                        to="Cheat__END_08_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat8" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Disobeying_order">*/
+                class Disobeying_order
+                {
+                        name = "Disobeying_order";
+                        itemno = 71;
+                        init = /*%FSM<STATEINIT""">*/"BIS_Fail = true;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Disobeying_order">*/
+                                class Disobeying_order
+                                {
+                                        itemno = 26;
+                                        priority = 15.000000;
+                                        to="FAIL_01";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Fail" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Defense_collapse">*/
+                                class Defense_collapse
+                                {
+                                        itemno = 12;
+                                        priority = 5.000000;
+                                        to="__WIN__03";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Defeated" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_3">*/
+                                class Cheat_3
+                                {
+                                        itemno = 39;
+                                        priority = 0.000000;
+                                        to="Cheat__END_03_0";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat3" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_1">*/
+                                class Cheat_1
+                                {
+                                        itemno = 37;
+                                        priority = 0.000000;
+                                        to="Cheat__END_01_0";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat1" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_2">*/
+                                class Cheat_2
+                                {
+                                        itemno = 38;
+                                        priority = 0.000000;
+                                        to="Cheat__END_02_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat2" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "All_enemy_armor">*/
+                                class All_enemy_armor
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="Crossroad";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BIS_Defended" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_4">*/
+                                class Cheat_4
+                                {
+                                        itemno = 40;
+                                        priority = 0.000000;
+                                        to="Cheat__END_04_0";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat4" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_5">*/
+                                class Cheat_5
+                                {
+                                        itemno = 41;
+                                        priority = 0.000000;
+                                        to="Cheat__END_05_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat5" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_6">*/
+                                class Cheat_6
+                                {
+                                        itemno = 42;
+                                        priority = 0.000000;
+                                        to="Cheat__END_06_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat6" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_7">*/
+                                class Cheat_7
+                                {
+                                        itemno = 43;
+                                        priority = 0.000000;
+                                        to="Cheat__END_07_0";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat7" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cheat_8">*/
+                                class Cheat_8
+                                {
+                                        itemno = 44;
+                                        priority = 0.000000;
+                                        to="Cheat__END_08_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"cheat8" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "____FAKE____">*/
+                class ____FAKE____
+                {
+                        name = "____FAKE____";
+                        itemno = 74;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "FF">*/
+                                class FF
+                                {
+                                        itemno = 24;
+                                        priority = 10.000000;
+                                        to="FAIL_FF";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"side BIS_ARPlayer == sideEnemy" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "__WIN__03",
+                "WIN_01_02",
+                "FAIL_FF",
+                "FAIL_01",
+                "TERMINATE",
+                "Cheat__END_01_0",
+                "Cheat__END_02_1",
+                "Cheat__END_03_0",
+                "Cheat__END_04_0",
+                "Cheat__END_05_1",
+                "Cheat__END_06_1",
+                "Cheat__END_07_0",
+                "Cheat__END_08_1",
+                "__WIN__03_1",
+        };
+};
+/*%FSM</COMPILE>*/
