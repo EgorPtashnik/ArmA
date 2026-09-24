@@ -1,0 +1,81 @@
+
+// ----- General mission metadata ---------------------------------------------
+onLoadName    = "";
+onLoadMission = "";
+author        = "EP";
+briefingName  =""
+overviewText  = "";
+
+// ----- Debriefing ----------------------------------------------------------
+class CfgDebriefing {
+    class Win {
+        title             = "Mission Accomplished";
+        subtitle          = "";
+        description       = "";
+        pictureBackground = "";
+        picture           = "";
+        pictureColor[]    = { 0.0, 0.3, 0.6, 1 };
+    };
+
+    class Fail {
+        title             = "Mission Failed";
+        subtitle          = "";
+        description       = "";
+        pictureBackground = "";
+        picture           = "";
+        pictureColor[]    = { 0.0, 0.3, 0.6, 1 };
+    };
+};
+
+// ----- Support menu (Comm menu) --------------------------------------------
+// To add:  [player, "CustomSupportMenuItem"] call BIS_fnc_addCommMenuItem;
+//
+// class CfgCommunicationMenu {
+//     class CustomSupportMenuItem {
+//         text                     = "Custom Support Item";
+//         submenu                  = "";
+//         expression               = "custVariable = true;";
+//         icon                     = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\artillery_ca.paa";
+//         cursor                   = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
+//         enable                   = "1";
+//         removeAfterExpressionCall = 1;
+//     };
+// };
+
+// ----- Identities -----------------------------------------------------------
+class CfgIdentities
+{
+	// class PlayerIdentity
+	// {
+	// 	face = "PersianHead_A3_02";
+	// 	glasses = "";
+	// 	pitch = 0.96;
+	// 	name = "Khairullah Siddiqi";
+	// 	speaker = "Male03PER";
+	// };
+};
+
+// ----- Functions -----------------------------------------------------------
+class CfgFunctions {
+    class EP {
+        class fnc {
+            file="functions";
+            class activateUnits {};
+            class deactivateUnits {};
+            class collectUnits {};
+            class collectVariables {};
+            class comms {};
+        }
+    };
+};
+
+// ----- UI Resources -----------------------------------------------------------
+class RscTitles {
+    #include "rsc.hpp"
+};
+
+
+// ----- Sounds --------------------------------------------------------------
+class CfgSounds {
+    #include "sounds.hpp"
+};
